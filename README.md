@@ -1,14 +1,13 @@
-Any
-===
+Bienlein
+========
 
-A project layout as a starting point for web application development with Flight, RedBeanPHP and a stripped Boilerplate stylesheet.
-At first i wanted to write a lot more library stuff myself, but now i am here, having fun.
+Layout for web development using PHPUnit, Flight, RedBeanPHP and Boilerplate stuff.
 
 
 NOTES TO SELF
 -------------
 
-This README is almost a note to myself.
+This README is a note to myself.
 
 
 Composer
@@ -22,11 +21,13 @@ There must also already be a composer.json file in your project directory.
 On your command line do this to install your project:
 
 cd /path/to/project
+
 composer install
 
 On your command line do this to update your project:
 
 cd /path/to/project
+
 composer update
 
 RedBeanPHP
@@ -49,9 +50,8 @@ I use [PHPUnit](http://phpunit.de/).
 On your command line do this to run a test:
 
 cd /path/to/project/tests
-../vendor/bin/phpunit .
 
-to run all test files at once.
+../vendor/bin/phpunit StackTest.php
 
 
 Website
