@@ -1,6 +1,6 @@
 <?php
 /**
- * sah-comp/any html5 template.
+ * bienlein html5 template.
  *
  * @package X
  * @author $Author$

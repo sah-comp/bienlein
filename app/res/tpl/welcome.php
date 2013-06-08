@@ -1,6 +1,6 @@
 <?php
 /**
- * sah-comp/any welcome users article.
+ * bienlein welcome users article.
  *
  * @package X
  * @author $Author$

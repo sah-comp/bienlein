@@ -1,6 +1,6 @@
 <?php
 /**
- * sah-comp/any frontcontroller.
+ * bienlein frontcontroller.
  *
  * @package X
  * @author $Author$

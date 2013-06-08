@@ -1,6 +1,6 @@
 <?php
 /**
- * sah-comp/any configuration.
+ * bienlein configuration.
  *
  * @package X
  * @author $Author$

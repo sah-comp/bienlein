@@ -1,6 +1,6 @@
 <?php
 /**
- * sah-comp/any word model.
+ * bienlein word model.
  *
  * @package X
  * @author $Author$

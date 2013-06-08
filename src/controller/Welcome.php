@@ -1,6 +1,6 @@
 <?php
 /**
- * sah-comp/any welcome controller.
+ * bienlein welcome controller.
  *
  * @package X
  * @author $Author$
