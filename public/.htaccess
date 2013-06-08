@@ -19,7 +19,6 @@ DirectoryIndex index.php index.html
 # Pass everything through index.php with flight
 #
 RewriteEngine On
-RewriteBase /x/public/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php [QSA,L]
