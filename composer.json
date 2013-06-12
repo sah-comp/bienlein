@@ -2,7 +2,7 @@
 	"name": "sah-comp/bienlein",
 	"description": "Starting point for rapid application development with flight and RedBeanPHP",
 	"version": "0.0.0",
-	"keywords": ["sah-comp", "any", "PHP"],
+	"keywords": ["sah-comp", "bienlein", "PHP", "RedBeanPHP", "Flight"],
 	"authors": [
 		{
 			"name": "Stephan A. Hombergs",
@@ -14,6 +14,8 @@
 		"php": ">=5.3.3",
 		"mikecao/flight": "dev-master",
 		"gabordemooij/redbean": "3.4.4",
+		"ircmaxell/password-compat": "dev-master",
+		"respect/validation": "dev-master",
 		"phpunit/phpunit": "3.7.*"
 	},
 	"suggest": {
@@ -22,6 +24,7 @@
 	"autoload": {
 		"psr-0": {
 			"": "src/"
-		}
+		},
+		"files": ["vendor/gabordemooij/redbean/RedBean/redbean.inc.php"]
 	}
 }

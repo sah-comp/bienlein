@@ -1,13 +1,20 @@
-Bienlein
+Cinnebar
 ========
 
 Layout for web development using PHPUnit, Flight, RedBeanPHP and Boilerplate stuff.
 
 
-NOTES TO SELF
+Features
+--------
+
+* Multilingual
+* Role based access control
+
+
+Notes to self
 -------------
 
-This README is a note to myself.
+The following is more of a note to myself.
 
 
 Composer

@@ -1,0 +1,665 @@
+/*
+	HTML5 Reset :: style.css
+	----------------------------------------------------------
+	We have learned much from/been inspired by/taken code where offered from:
+	
+	Eric Meyer					:: http://ericmeyer.com
+	HTML5 Doctor				:: http://html5doctor.com
+	and the HTML5 Boilerplate	:: http://html5boilerplate.com
+	
+-------------------------------------------------------------------------------*/
+
+/* Let's default this puppy out
+-------------------------------------------------------------------------------*/
+
+html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}									
+
+article, aside, figure, footer, header, hgroup, nav, section {display: block;}
+
+/* Responsive images and other embedded objects
+   Note: keeping IMG here will cause problems if you're using foreground images as sprites.
+   If this default setting for images is causing issues, you might want to replace it with a .responsive class instead. */
+img,
+object,
+embed {max-width: 100%;}
+
+/* force a vertical scrollbar to prevent a jumpy page */
+html {overflow-y: scroll;}
+
+/* we use a lot of ULs that aren't bulleted. 
+	don't forget to restore the bullets within content. */
+ul {list-style: none;}
+
+blockquote, q {quotes: none;}
+
+blockquote:before, 
+blockquote:after, 
+q:before, 
+q:after {content: ''; content: none;}
+
+a {margin: 0; padding: 0; font-size: 100%; vertical-align: baseline; background: transparent;}
+
+del {text-decoration: line-through;}
+
+abbr[title], dfn[title] {border-bottom: 1px dotted #000; cursor: help;}
+
+/* tables still need cellspacing="0" in the markup */
+table {border-collapse: collapse; border-spacing: 0;}
+th {font-weight: bold; vertical-align: bottom;}
+td {font-weight: normal; vertical-align: top;}
+
+hr {display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0;}
+
+input, select {vertical-align: middle;}
+
+pre {
+	white-space: pre; /* CSS2 */
+	white-space: pre-wrap; /* CSS 2.1 */
+	white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */
+	word-wrap: break-word; /* IE */
+}
+
+input[type="radio"] {vertical-align: text-bottom;}
+input[type="checkbox"] {vertical-align: bottom; *vertical-align: baseline;}
+.ie6 input {vertical-align: text-bottom;}
+
+select, input, textarea {font: 99% sans-serif;}
+
+textarea { overflow: auto; } /* www.sitepoint.com/blogs/2010/08/20/ie-remove-textarea-scrollbars/ */
+
+table {font-size: inherit; font: 100%;}
+ 
+/* Accessible focus treatment
+	people.opera.com/patrickl/experiments/keyboard/test */
+a:hover, a:active {outline: none;}
+
+small {font-size: 85%;}
+
+strong, th {font-weight: bold;}
+
+td, td img {vertical-align: top;} 
+
+/* Make sure sup and sub don't screw with your line-heights
+	gist.github.com/413930 */
+sub, sup {font-size: 75%; line-height: 0; position: relative;}
+sup {top: -0.5em;}
+sub {bottom: -0.25em;}
+
+/* standardize any monospaced elements */
+pre, code, kbd, samp {font-family: monospace, sans-serif;}
+
+/* hand cursor on clickable elements */
+.clickable,
+label, 
+input[type=button], 
+input[type=submit], 
+button {cursor: pointer;}
+
+/* Webkit browsers add a 2px margin outside the chrome of form elements */
+button, input, select, textarea {margin: 0;}
+
+/*
+ * 1. Remove default vertical scrollbar in IE6/7/8/9
+ * 2. Allow only vertical resizing
+ */
+textarea { overflow: auto; vertical-align: top; resize: vertical; }
+
+/* Apply box sizing to some input elements so percentage width and other measures work together */
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=number],
+input[type=date],
+input[type=time],
+input[type=url],
+textarea {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* make buttons play nice in IE */
+button {width: auto; overflow: visible;}
+ 
+/* scale images in IE7 more attractively */
+.ie7 img {-ms-interpolation-mode: bicubic;}
+
+/* prevent BG image flicker upon hover */
+.ie6 html {filter: expression(document.execCommand("BackgroundImageCache", false, true));}
+
+/* =============================================================================
+   Code
+   ========================================================================== */
+/**
+ * Redeclare monospace font family: h5bp.com/j
+ */
+pre,
+code,
+kbd,
+samp {
+  font: 1em Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+code {
+  color: #009933;
+}
+pre {
+  /* Blue stribes to make it look like paper */
+
+  background-color: #fefefe;
+  background-image: -moz-linear-gradient(top, #e2f1f7 1px, transparent 1px);
+  background-image: -ms-linear-gradient(top, #e2f1f7 1px, transparent 1px);
+  background-image: -webkit-linear-gradient(top, #e2f1f7 1px, transparent 1px);
+  background-image: -o-linear-gradient(top, #e2f1f7 1px, transparent 1px);
+  background-image: linear-gradient(top, #e2f1f7 1px, transparent 1px);
+  background-size: 100% 26px;
+  box-shadow: inset 0 1px 1px #ffffff, 0 0 15px rgba(204, 204, 204, 0.35);
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  color: #222222;
+  font-size: 14px;
+  line-height: 26px;
+  padding: 26px 25px;
+  margin: 0 0 25px;
+  position: relative;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+pre code {
+  background: none;
+  color: inherit;
+  font: inherit;
+}
+pre ol.linenums {
+  line-height: 26px;
+}
+/**
+ * Line numbering for the Google Prettify script
+ */
+/* Add to red stribes to make it look like a notebook */
+pre[class*="linenums"]:before {
+  border: 1px solid #f1e9ea;
+  border-width: 0 1px;
+  content: "";
+  width: 4px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 50px;
+  z-index: 1;
+}
+ol.linenums {
+  color: #aeaeae;
+  margin: 0 0 0 0;
+  padding: 0 0 0 24px;
+}
+ol.linenums li {
+  padding-left: 24px;
+}
+/*  Google Code Prettify */
+.pln {
+  color: #000;
+}
+.str {
+  color: #008800;
+}
+.kwd {
+  color: #000088;
+}
+.com {
+  color: #880000;
+}
+.typ {
+  color: #660066;
+}
+.lit {
+  color: #006666;
+}
+.pun,
+.opn,
+.clo {
+  color: #666600;
+}
+pre .tag {
+  color: #000088;
+}
+.atn {
+  color: #660066;
+}
+.atv {
+  color: #008800;
+}
+.dec,
+.var {
+  color: #660066;
+}
+.fun {
+  color: #ff0000;
+}
+
+/**
+ * Simple grid system
+ * @credits Twitter Bootstrap
+ */
+.row {
+  width: 100%;
+  *zoom: 1;
+}
+.row:before,
+.row:after {
+  display: table;
+  content: "";
+}
+.row:after {
+  clear: both;
+}
+.row [class*="span"] {
+  float: left;
+  margin-left: 2.127659574%;
+  *margin-left: 2.0744680846382977%;
+}
+.row [class*="span"]:first-child {
+  margin-left: 0;
+}
+.row .span12 {
+  width: 99.99999998999999%;
+  *width: 99.94680850063828%;
+}
+.row .span11 {
+  width: 91.489361693%;
+  *width: 91.4361702036383%;
+}
+.row .span10 {
+  width: 82.97872339599999%;
+  *width: 82.92553190663828%;
+}
+.row .span9 {
+  width: 74.468085099%;
+  *width: 74.4148936096383%;
+}
+.row .span8 {
+  width: 65.95744680199999%;
+  *width: 65.90425531263828%;
+}
+.row .span7 {
+  width: 57.446808505%;
+  *width: 57.3936170156383%;
+}
+.row .span6 {
+  width: 48.93617020799999%;
+  *width: 48.88297871863829%;
+}
+.row .span5 {
+  width: 40.425531911%;
+  *width: 40.3723404216383%;
+}
+.row .span4 {
+  width: 31.914893614%;
+  *width: 31.8617021246383%;
+}
+.row .span3 {
+  width: 23.404255317%;
+  *width: 23.3510638276383%;
+}
+.row .span2 {
+  width: 14.89361702%;
+  *width: 14.8404255306383%;
+}
+.row .span1 {
+  width: 6.382978723%;
+  *width: 6.329787233638298%;
+}
+
+/* =============================================================================
+   Alert messages, taken from http://jayj.dk/a-free-html5-and-css3-theme
+   ========================================================================== */
+.alert {
+  background-color: #ededed;
+  border-left: 5px solid #d9d9d9;
+  border-radius: 0 5px 5px 0;
+  color: #222222;
+  padding: 10px 14px;
+  margin-bottom: 25px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.alert h4 {
+  border-bottom: 0;
+  color: inherit;
+  padding-bottom: 0;
+  margin: 10px 0;
+}
+.alert p + p {
+  margin-bottom: 5px;
+}
+.alert-warning {
+  background-color: #fef9c7;
+  border-color: #fcdd4a;
+  color: #3b3601;
+}
+.alert-success {
+  background-color: #dff0d8;
+  border-color: #54b646;
+  color: #0d370d;
+}
+.alert-danger,
+.alert-error {
+  background-color: #f2dede;
+  border-color: #ce838f;
+  color: #7a0b0a;
+}
+.alert-info {
+  background-color: #d9edf7;
+  border-color: #049cdb;
+  color: #0c3346;
+}
+
+/* =============================================================================
+   Lists: http://jayj.dk/a-free-html5-and-css3-theme/
+   ========================================================================== */
+ul,
+ol {
+  line-height: 1.5;
+  margin: 1em 0;
+  padding: 0 0 0 1.25em;
+}
+ul {
+  list-style: square;
+}
+ol {
+  list-style-type: decimal;
+}
+ol ol {
+  list-style: upper-roman;
+}
+ol ol ol {
+  list-style: lower-roman;
+}
+ol ol ol ol {
+  list-style: upper-alpha;
+}
+ol ol ol ol ol {
+  list-style: lower-alpha;
+}
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+  margin: 10px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ==|== primary styles =====================================================
+   Author: johndoe@example.com
+   ========================================================================== */
+
+/* Set your font stuff for the document here */
+body {font: 100% "Georgia", Palantino serif;}
+
+
+/* Layout with 2-columns and footer sticking to the bottom */
+html {
+    height: 100%;
+}
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.wrapper {
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+}
+
+.main  {
+    width: 90%;
+    padding: 5%;
+    padding-bottom: 5em;
+}
+
+.content,
+.sidebar {
+    width: 70%;
+    float: left;
+}
+.sidebar {
+    width: 28%;
+    float: right;
+}
+.master-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 5em; /* See definition of .content */
+}
+
+.content {
+    line-height: 1.25;
+}
+
+.content h1 {
+    font: .7em/1 'Helvetica', 'Arial', sans-serif;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: #222;
+}
+.content h2 {
+    font-size: 2.22em;
+    /*color: gray;*/
+    letter-spacing: -1px;
+    font-style: italic;
+}
+
+.content p {
+    margin: 1em 0;
+}
+
+.content ul,
+.content ol {
+    list-style: disc;
+    margin-left: 1.2em;
+}
+
+.content ol {
+    list-style: lower-roman;
+}
+
+
+/* using local fonts? make sure to read up on Paul Irish's 
+	Bulletproof @font-face syntax: http://mky.be/font-face/bulletproof/ */
+
+/* we like off-black for text */
+body, select, input, textarea {color: #222;}
+
+a {color: #03f;}
+a:hover {color: #69f;}
+
+/* Custom text-selection colors (remove any text shadows: twitter.com/miketaylr/status/12228805301) */
+::-moz-selection{background: #fcd700; color: #fff; text-shadow: none;}
+::selection {background: #fcd700; color: #fff; text-shadow: none;} 
+
+/*	j.mp/webkit-tap-highlight-color */
+a:link {-webkit-tap-highlight-color: #fcd700;} 
+
+ins {background-color: #fcd700; color: #000; text-decoration: none;}
+mark {background-color: #fcd700; color: #000; font-style: italic; font-weight: bold;}
+
+
+
+
+/* Main navigation */
+.main-navigation a {
+    text-decoration: none;
+    border-bottom: 1px dotted silver;
+}
+.main-navigation a:hover {
+    border-bottom-color: red;
+}
+
+.main-navigation .current > a {
+    font-weight: bold;
+}
+
+.main-navigation .active > a {
+    font-style: italic;
+}
+
+
+
+/* Forms */
+form {
+    padding: 1em;
+}
+form div.row {
+    margin-bottom: 0.5em;
+}
+
+fieldset {
+    margin-bottom: 0.5em;
+}
+
+legend {
+    font-family: 'Georgia', serif;
+    margin-bottom: 0.25em;
+    font-style: italic;
+    font-size: small;
+}
+
+label {
+    display: inline-block;
+    font-weight: bold;
+    margin-bottom: 0.25em;
+}
+
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=url],
+input[type=number],
+input[type=date]
+input[type=time],
+textarea {
+    width: 100%;
+    padding: 0.25em;
+}
+
+/* Rounded gravatar: A background-image tag in html */
+.circular {
+	width: 72px;
+	height: 72px;
+	border-radius: 36px;
+	-webkit-border-radius: 36px;
+	-moz-border-radius: 36px;
+	background: url(../images/glyphicons/glyphicons_003_user.png) center center;
+	background-repeat: no-repeat;
+	background-color: white; /* stanze */
+    -webkit-box-shadow: 0px 1em 1em rgba(0, 0, 0, .66);
+}
+
+.circular .circular-48 {
+	width: 48px;
+	height: 48px;
+	border-radius: 24px;
+	-webkit-border-radius: 24px;
+	-moz-border-radius: 24px;    
+}
+
+.circular .circular-32 {
+	width: 32px;
+	height: 32px;
+	border-radius: 16px;
+	-webkit-border-radius: 16px;
+	-moz-border-radius: 16px;    
+}
+
+.circular .circular-16 {
+	width: 16px;
+	height: 16px;
+	border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==|== non-semantic helper classes ========================================
+   Please define your styles before this section.
+   ========================================================================== */
+
+/* For image replacement */
+.ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; *line-height: 0; }
+.ir br { display: none; }
+
+/* Hide from both screenreaders and browsers: h5bp.com/u */
+.hidden { display: none !important; visibility: hidden; }
+
+/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+
+/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible { visibility: hidden; }
+
+/* Contain floats: h5bp.com/q */
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { *zoom: 1; }
+
+
+/* Print styles!
+-------------------------------------------------------------------------------*/
+@media print {
+
+
+
+}
+
+
+/* Media queries!
+-------------------------------------------------------------------------------*/
+
+/* Consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ */
+@media screen and (max-device-width: 480px) {
+	
+		
+}
+
+@media all and (orientation: portrait) {
+	
+}
+
+@media all and (orientation: landscape) {
+	
+}
+

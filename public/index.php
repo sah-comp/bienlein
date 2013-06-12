@@ -1,8 +1,9 @@
 <?php
 /**
- * bienlein frontcontroller.
+ * Cinnebar.
  *
- * @package X
+ * @package Cinnebar
+ * @subpackage System
  * @author $Author$
  * @version $Id$
  */
