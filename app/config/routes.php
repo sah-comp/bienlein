@@ -26,6 +26,16 @@ Flight::route('(/@language:[a-z]{2})(/[0-9a-z]+)(/[0-9a-z]+)', function($languag
 Flight::route('(/[a-z]{2})/', array('Controller_Welcome', 'index'));
 
 /**
+ * Route to the install controller.
+ */
+Flight::route('(/[a-z]{2})/install', array('Controller_Install', 'index'));
+
+/**
+ * Route to the login controller.
+ */
+Flight::route('(/[a-z]{2})/login', array('Controller_Login', 'index'));
+
+/**
  * Route to the system controller.
  */
 Flight::route('(/[a-z]{2})/admin', array('Controller_Admin', 'index'));

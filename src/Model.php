@@ -32,6 +32,13 @@ class Model extends RedBean_SimpleModel
     protected $converters = array();
     
     /**
+     * Container for the errors.
+     *
+     * @var array
+     */
+    protected $errors = array();
+    
+    /**
      * Holds the auto tag status.
      *
      * @var bool
@@ -160,6 +167,53 @@ class Model extends RedBean_SimpleModel
         }
         R::tag($this->bean, $tags);
         return $tags;
+    }
+
+    /**
+     * Adds an error to the general errors or to a certain attribute if the optional parameter is set.
+     *
+     * @param string $errorText
+     * @param string (optional) $attribute
+     * @return void
+     */
+    public function addError($errorText, $attribute = '')
+    {
+        $this->errors[$attribute][] = $errorText;
+    }
+    
+    /**
+     * Returns the errors of this model.
+     *
+     * @return array $errors
+     */
+    public function getErrors()
+    {
+        return $this->errors;
+    }
+    
+    /**
+     * Returns true if model has errors.
+     *
+     * If the optional parameter is set a certain attribute is tested for having an error or not.
+     *
+     * @uses Cinnebar_Model::$errors
+     * @param string (optional) $attribute
+     * @return bool $hasErrorOrHasNoError
+     */
+    public function hasError($attribute = '')
+    {
+        if ($attribute === '') return ! empty($this->errors);
+        return isset($this->errors[$attribute]);
+    }
+
+    /**
+     * Alias for {@link hasError()} call without an special attribute.
+     *
+     * @return bool $hasErrorsOrNone
+     */
+    public function hasErrors()
+    {
+        return $this->hasError();
     }
 
     /**

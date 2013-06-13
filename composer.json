@@ -13,9 +13,11 @@
 	"require": {
 		"php": ">=5.3.3",
 		"mikecao/flight": "dev-master",
-		"gabordemooij/redbean": "3.4.4",
 		"ircmaxell/password-compat": "dev-master",
-		"respect/validation": "dev-master",
+		"respect/validation": "dev-master"
+	},
+	"require-dev": {
+	    "gabordemooij/redbean": "3.4.*",
 		"phpunit/phpunit": "3.7.*"
 	},
 	"suggest": {
@@ -25,6 +27,6 @@
 		"psr-0": {
 			"": "src/"
 		},
-		"files": ["vendor/gabordemooij/redbean/RedBean/redbean.inc.php"]
+		"files": ["src/lib/redbean/rb.php"]
 	}
 }

@@ -25,14 +25,16 @@ class Model_Login extends Model
      *
      * @return bool
      */
-    public function auth()
+    public function trial()
     {
         if ( ! $user = R::findOne('user', 'email=:uname OR name=:uname OR shortname=:uname', array(
             ':uname' => $this->bean->uname
         ))) {
+            $this->addError(I18n::__('login_uname_not_found'), 'uname');
             return false;
         }
         if ( ! password_verify($this->bean->pw, $user->pw)) {
+            $this->addError(I18n::__('login_pw_wrong'), 'pw');
             return false;
         }
         unset($this->bean->pw); //unset the good password in this login

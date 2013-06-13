@@ -55,14 +55,14 @@ class UserModelTest extends PHPUnit_Framework_TestCase
     {
         $this->login->uname = "anything' OR 'x'='x";
         $this->login->pw = '*';
-        $this->assertFalse($this->login->auth());
+        $this->assertFalse($this->login->trial());
     }
     
     public function testLoginSQLInjection2()
     {
         $this->login->uname = "x' AND email IS NULL; --";
         $this->login->pw = '*';
-        $this->assertFalse($this->login->auth());
+        $this->assertFalse($this->login->trial());
     }
     
     public function testLoginSQLInjection3()
@@ -71,7 +71,7 @@ class UserModelTest extends PHPUnit_Framework_TestCase
                 INSERT INTO user ('email','pw','name','shortname') 
                 VALUES ('hacker@example.com','hello','Hacker','hkr');--";
         $this->login->pw = '*';
-        $this->assertFalse($this->login->auth());
+        $this->assertFalse($this->login->trial());
         $this->assertNull(R::findOne('user', 'shortname=?', array('hkr')));
     }
     
@@ -79,26 +79,26 @@ class UserModelTest extends PHPUnit_Framework_TestCase
     {
         $this->login->uname = 'badusername@example.com';
         $this->login->pw = 'secret';
-        $this->assertFalse($this->login->auth());
+        $this->assertFalse($this->login->trial());
                 
         $this->login->uname = 'info@example.com'; //good username
         $this->login->pw = 'wrongpassword';
-        $this->assertFalse($this->login->auth());
+        $this->assertFalse($this->login->trial());
         
         $this->login->uname = 'badusername@example.com';
         $this->login->pw = 'wrongpassword';
-        $this->assertFalse($this->login->auth());
+        $this->assertFalse($this->login->trial());
         
         $this->login->uname = 'badusername@example.com';
         $this->login->pw = 'wrongpassword';
-        $this->assertFalse($this->login->auth());
+        $this->assertFalse($this->login->trial());
     }
     
     public function testLoginWithEmailGood()
     {
         $this->login->uname = 'info@example.com';
         $this->login->pw = 'secret';
-        $this->assertTrue($this->login->auth());
+        $this->assertTrue($this->login->trial());
         $this->assertTrue(is_a($this->login->user, 'RedBean_OODBBean'));
         $this->assertEmpty($this->login->pw);
     }
@@ -107,7 +107,7 @@ class UserModelTest extends PHPUnit_Framework_TestCase
     {
         $this->login->uname = 'John Doe';
         $this->login->pw = 'secret';
-        $this->assertTrue($this->login->auth());
+        $this->assertTrue($this->login->trial());
         $this->assertTrue(is_a($this->login->user, 'RedBean_OODBBean'));
         $this->assertEmpty($this->login->pw);
     }
@@ -116,7 +116,7 @@ class UserModelTest extends PHPUnit_Framework_TestCase
     {
         $this->login->uname = 'jd';
         $this->login->pw = 'secret';
-        $this->assertTrue($this->login->auth());
+        $this->assertTrue($this->login->trial());
         $this->assertTrue(is_a($this->login->user, 'RedBean_OODBBean'));
         $this->assertEmpty($this->login->pw);
     }
@@ -138,7 +138,7 @@ class UserModelTest extends PHPUnit_Framework_TestCase
         // just for the sake of it
         $this->login->uname = 'walt';
         $this->login->pw = 'mickeymouse';
-        $this->assertTrue($this->login->auth());
+        $this->assertTrue($this->login->trial());
         $this->assertTrue($this->login->user->getId() == $user->getId());
     }
 }

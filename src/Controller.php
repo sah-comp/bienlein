@@ -34,4 +34,20 @@ class Controller
         $plugin = new $plugin_name($this);
         return call_user_func_array(array($plugin, 'execute'), $params);
     }
+    
+    /**
+     * Go to a internal URL.
+     *
+     * @uses Flight::redirect()
+     * @param string $url
+     * @param bool (optional) $raw defaults to false, if true the url will not be prefixed
+     */
+    public function redirect($url = null, $raw = false)
+    {
+        if ( ! $raw && Flight::get('language') != Flight::get('default_language')) {
+            $url = '/'.Flight::get('language').$url; //prefix with language code
+        }
+        Flight::redirect($url);
+        exit;
+    }
 }
