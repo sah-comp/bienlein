@@ -22,8 +22,10 @@ class Controller_Install extends Controller
      */
     static public function index()
     {
+        session_start();
         $user = R::dispense('user');
-        if (Flight::request()->method == 'POST') {
+        if (Flight::request()->method == 'POST' && 
+                password_verify(Flight::request()->data->pass, CINNEBAR_INSTALL_PASS)) {
             $user = R::graph(Flight::request()->data->dialog, true);
             R::store($user);
             self::redirect('/admin');

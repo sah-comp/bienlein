@@ -25,22 +25,20 @@
         <div>
             <input type="hidden" name="dialog[type]" value="<?php echo $record->getMeta('type') ?>" />
             <input type="hidden" name="dialog[id]" value="<?php echo $record->getId() ?>" />
+            <input type="hidden" name="dialog[isadmin]" value="1" />
         </div>
         <fieldset>
             <legend><?php echo I18n::__('install_legend') ?></legend>
             <div
-                class="row<?php echo $record->hasError('pass') ? ' error' : '' ?>">
+                class="row">
                 <label
-                    for="install-pass"
-                    class="<?php echo $record->hasError('pass') ? 'error' : '' ?>">
+                    for="install-pass">
                     <?php echo I18n::__('install_pass_label') ?>
                 </label>
                 <input
                     type="password"
                     id="install-pass"
-                    name="dialog[pass]"
-                    placeholder="<?php echo I18n::__('install_pass_placeholder') ?>"
-                    value="<?php echo htmlspecialchars($record->pass) ?>"
+                    name="pass"
                     required="required" />
             </div>
         </fieldset>
@@ -49,8 +47,7 @@
             <div
                 class="row<?php echo $record->hasError('email') ? ' error' : '' ?>">
                 <label
-                    for="install-email"
-                    class="<?php echo $record->hasError('email') ? 'error' : '' ?>">
+                    for="install-email">
                     <?php echo I18n::__('install_email_label') ?>
                 </label>
                 <input
@@ -64,8 +61,7 @@
             <div
                 class="row<?php echo $record->hasError('name') ? ' error' : '' ?>">
                 <label
-                    for="install-name"
-                    class="<?php echo $record->hasError('name') ? 'error' : '' ?>">
+                    for="install-name">
                     <?php echo I18n::__('install_name_label') ?>
                 </label>
                 <input
@@ -79,8 +75,7 @@
             <div
                 class="row<?php echo $record->hasError('shortname') ? ' error' : '' ?>">
                 <label
-                    for="install-shortname"
-                    class="<?php echo $record->hasError('shortname') ? 'error' : '' ?>">
+                    for="install-shortname">
                     <?php echo I18n::__('install_shortname_label') ?>
                 </label>
                 <input

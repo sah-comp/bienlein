@@ -22,10 +22,12 @@ class Controller_Login extends Controller
      */
     static public function index()
     {
+        session_start();
         $login = R::dispense('login');
         if (Flight::request()->method == 'POST') {
             $login = R::graph(Flight::request()->data->dialog, true);
             if ($login->trial()) {
+                $_SESSION['user']['id'] = $login->user->getId();
                 self::redirect(Flight::request()->data->goto, $raw = true);
             } 
         }

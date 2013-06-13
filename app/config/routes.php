@@ -36,6 +36,11 @@ Flight::route('(/[a-z]{2})/install', array('Controller_Install', 'index'));
 Flight::route('(/[a-z]{2})/login', array('Controller_Login', 'index'));
 
 /**
+ * Route to the logout controller.
+ */
+Flight::route('(/[a-z]{2})/logout', array('Controller_Logout', 'index'));
+
+/**
  * Route to the system controller.
  */
 Flight::route('(/[a-z]{2})/admin', array('Controller_Admin', 'index'));
