@@ -19,20 +19,27 @@ class Controller_Admin extends Controller
 {
     /**
      * Displays the admin index page.
-     *
-     * @param string (optional) $section
      */
-    static public function index($section = 'index')
+    static public function index()
     {
         session_start();
-        if ( ! isset($_SESSION['tick'])) {
-            $_SESSION['tick'] = 0;
-        }
-        $_SESSION['tick']++;
         Flight::render('html5', array(
             'title' => I18n::__('admin_head_title'),
             'language' => Flight::get('language'),
-            'content' => sprintf('Area %s, Tick %d', $section, $_SESSION['tick']),
+            'content' => 'Admin::index',
+        ));
+    }
+    
+    /**
+     * Displays the admin user page.
+     */
+    static public function user()
+    {
+        session_start();
+        Flight::render('html5', array(
+            'title' => I18n::__('admin_head_title'),
+            'language' => Flight::get('language'),
+            'content' => 'Admin::user',
         ));
     }
 }
