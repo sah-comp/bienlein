@@ -18,6 +18,16 @@
 class Model_User extends Model
 {
     /**
+     * Returns the current user bean or an empty user bean.
+     *
+     * @return RedBean_OODBBean
+     */
+    public function current()
+    {
+        return R::dispense('user');
+    }
+
+    /**
      * Returns true when the new password was set or false if not.
      *
      * @param string $password
@@ -40,6 +50,7 @@ class Model_User extends Model
      */
     public function dispense()
     {
+        $this->autoInfo(true);
         $this->addValidator('name', new Validator_HasValue());
         $this->addValidator('pw', new Validator_HasValue());
         $this->addValidator('email', new Validator_IsEmail());

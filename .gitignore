@@ -3,3 +3,4 @@ composer.lock
 vendor/
 favicon.ico
 tests/setup.php
+app/config/config.php

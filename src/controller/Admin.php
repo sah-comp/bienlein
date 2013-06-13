@@ -24,6 +24,15 @@ class Controller_Admin extends Controller
      */
     static public function index($section = 'index')
     {
-        Flight::render('html5', array('content' => 'Admin area '.$section));
+        session_start();
+        if ( ! isset($_SESSION['tick'])) {
+            $_SESSION['tick'] = 0;
+        }
+        $_SESSION['tick']++;
+        Flight::render('html5', array(
+            'title' => I18n::__('admin_head_title'),
+            'language' => Flight::get('language'),
+            'content' => sprintf('Area %s, Tick %d', $section, $_SESSION['tick']),
+        ));
     }
 }

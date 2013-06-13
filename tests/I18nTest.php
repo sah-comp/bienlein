@@ -41,8 +41,8 @@ class I18nTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('Dies ist ein Test', I18n::__($token, 'de'));
         $this->assertEquals('This is a test', I18n::__($token, 'en'));
         $this->assertEquals('Dies ist ein Test', I18n::__($token, 'de'));
-        $this->assertEquals(null, I18n::__('test_iamuntranslated', 'de'));
-        $this->assertEquals(null, I18n::__('test_iamuntranslated', 'en'));
+        $this->assertEquals('test_iamuntranslated', I18n::__('test_iamuntranslated', 'de'));
+        $this->assertEquals('test_iamuntranslated', I18n::__('test_iamuntranslated', 'en'));
     }
     
     public function testI18nTranslation2()

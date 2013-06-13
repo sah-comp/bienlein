@@ -30,6 +30,57 @@ class Model extends RedBean_SimpleModel
      * @var array
      */
     protected $converters = array();
+    
+    /**
+     * Holds the auto tag status.
+     *
+     * @var bool
+     */
+    protected $auto_tag = false;
+    
+    /**
+     * Holds the auto info status.
+     *
+     * @var bool
+     */
+    protected $auto_info = false;
+    
+    /**
+     * Returns automatic keywords for this bean.
+     *
+     * @param array (optional) $tags which the user may has entered
+     * @return array
+     */
+    public function keywords()
+    {
+        return array(
+            $this->bean->getId()
+        );
+    }
+    
+    /**
+     * Returns or sets the auto tag flag.
+     *
+     * @param bool (optional) $switch
+     * @return bool
+     */
+    public function autoTag($switch = null)
+    {
+        if ($switch !== null) $this->auto_tag = $switch;
+        return $this->auto_tag;
+    }
+    
+    /**
+     * Returns or sets the auto info flag.
+     *
+     * @param bool (optional) $switch
+     * @return bool
+     */
+    public function autoInfo($switch = null)
+    {
+        if ($switch !== null) $this->auto_info = $switch;
+        return $this->auto_info;
+    }
 
     /**
      * Returns a *i18n bean for this bean.
@@ -48,6 +99,7 @@ class Model extends RedBean_SimpleModel
         if ( ! $i18n = R::findOne($i18nType, $this->bean->getMeta('type').'_id = ? AND language = ?', array($this->bean->getId(), $language))) {
             $i18n = R::dispense($i18nType);
             $i18n->language = $language;
+            $i18n->name = $this->bean->name;
         }
         return $i18n;
     }
@@ -59,6 +111,55 @@ class Model extends RedBean_SimpleModel
     {
         $this->convert();
         $this->validate();
+    }
+    
+    /**
+     * This is called after the bean was updated.
+     *
+     * @return void
+     */
+    public function after_update()
+    {
+        if ($this->autoInfo()) $this->addInfo();
+        if ($this->autoTag()) $this->setAutoTags();
+    }
+    
+    /**
+     * Create a new info bean and associate it with this bean.
+     *
+     * If there is a current user with a valid session that guy is linked as a user, otherwise
+     * the user relation of the auto info bean is NULL.
+     *
+     * @return RedBean_OODBean $info
+     */
+    protected function addInfo()
+    {
+        if ( ! $this->bean->getId()) return false;
+        $info = R::dispense('info');
+        $user = R::dispense('user')->current();
+        if ($user->getId()) $info->user = $user;
+        $info->stamp = time();
+        R::store($info);
+        R::associate($this->bean, $info);
+        return $info;
+    }
+    
+    /**
+     * setAutoTags()
+     *
+     * @uses keywords()
+     * @return array $tags
+     */
+    protected function setAutoTags()
+    {
+        if ( ! $this->bean->getId()) return false;
+        $tags = array();
+        foreach ($this->keywords() as $n=>$keyword) {
+            if (trim($keyword) == '') continue;
+            $tags[] = trim($keyword);
+        }
+        R::tag($this->bean, $tags);
+        return $tags;
     }
 
     /**

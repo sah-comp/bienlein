@@ -1,12 +1,22 @@
 <?php
 /**
- * Cinnebar.
+ * Configuration example.
+ *
+ * Copy this file and rename it to config.php. Then open it with your favorite
+ * editor and make all changes you fancy.
+ *
+ * @todo Keep this up-to-date with the latest config.php
  *
  * @package Cinnebar
  * @subpackage Configuration
  * @author $Author$
  * @version $Id$
  */
+
+/**
+ * Set internal encoding to UTF-8.
+ */
+mb_internal_encoding('UTF-8');
 
 /**
  * Add a path to your src directory for autoloading.

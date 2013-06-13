@@ -10,6 +10,14 @@ Features
 * Multilingual
 * Role based access control
 
+Installation
+------------
+
+Create a database.
+
+Copy the _config.examle.php_ in app/config and name it config.php.
+Open it with a text editor and make changes as you fancy, e.g. enter the login information for the database(s) used.
+
 
 Notes to self
 -------------
@@ -51,6 +59,8 @@ This will give you a rbnc.php file which combines all that was in your replica.x
 
 Tests
 -----
+
+Make a copy of _setup.example.php_ in tests/ and name it setup.php. Open that file and edit the login information for a test database. Do _not_ use your production database for testing, because the database will be nuked before testing.
 
 I use [PHPUnit](http://phpunit.de/).
 
