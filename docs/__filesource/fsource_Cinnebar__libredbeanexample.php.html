@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos  -->
+			<title>File Source for example.php</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+											</head>
+		<body>
+						<h1>Source for file example.php</h1>
+<p>Documentation is available at <a href="../Cinnebar/_lib---redbean---example.php.html">example.php</a></p>
+<div class="src-code">
+<div class="src-code"><ol><li><div class="src-line"><a name="a1"></a><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line"><a name="a2"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a3"></a><span class="src-comm">//Example&nbsp;Script,&nbsp;saves&nbsp;Hello&nbsp;World&nbsp;to&nbsp;the&nbsp;database.</span></div></li>
+<li><div class="src-line"><a name="a4"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a5"></a><span class="src-comm">//First,&nbsp;we&nbsp;need&nbsp;to&nbsp;include&nbsp;redbean</span></div></li>
+<li><div class="src-line"><a name="a6"></a><span class="src-inc">require_once</span><span class="src-sym">(</span><span class="src-str">'rb.php'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a7"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a8"></a><span class="src-comm">//Second,&nbsp;we&nbsp;need&nbsp;to&nbsp;setup&nbsp;the&nbsp;database</span></div></li>
+<li><div class="src-line"><a name="a9"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a10"></a><span class="src-comm">//If&nbsp;you&nbsp;work&nbsp;on&nbsp;Mac&nbsp;OSX&nbsp;or&nbsp;Linux&nbsp;(or&nbsp;another&nbsp;UNIX&nbsp;like&nbsp;system)</span></div></li>
+<li><div class="src-line"><a name="a11"></a><span class="src-comm">//You&nbsp;can&nbsp;simply&nbsp;use&nbsp;this&nbsp;line:</span></div></li>
+<li><div class="src-line"><a name="a12"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a13"></a><span class="src-id"><a href="../Cinnebar/R.html">R</a></span><span class="src-sym">::</span><span class="src-id">setup</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;&nbsp;</span><span class="src-comm">//This&nbsp;creates&nbsp;an&nbsp;SQLite&nbsp;database&nbsp;in&nbsp;/tmp</span></div></li>
+<li><div class="src-line"><a name="a14"></a><span class="src-comm">//R::setup('database.txt');&nbsp;--&nbsp;for&nbsp;other&nbsp;systems</span></div></li>
+<li><div class="src-line"><a name="a15"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a16"></a><span class="src-comm">//Ready.&nbsp;Now&nbsp;insert&nbsp;a&nbsp;bean!</span></div></li>
+<li><div class="src-line"><a name="a17"></a><span class="src-var">$bean&nbsp;</span>=&nbsp;<span class="src-id"><a href="../Cinnebar/R.html">R</a></span><span class="src-sym">::</span><span class="src-id">dispense</span><span class="src-sym">(</span><span class="src-str">'leaflet'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a18"></a><span class="src-var">$bean</span><span class="src-sym">-&gt;</span><span class="src-id">title&nbsp;</span>=&nbsp;<span class="src-str">'Hello&nbsp;World'</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a19"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a20"></a><span class="src-comm">//Store&nbsp;the&nbsp;bean</span></div></li>
+<li><div class="src-line"><a name="a21"></a><span class="src-var">$id&nbsp;</span>=&nbsp;<span class="src-id"><a href="../Cinnebar/R.html">R</a></span><span class="src-sym">::</span><span class="src-id">store</span><span class="src-sym">(</span><span class="src-var">$bean</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a22"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a23"></a><span class="src-comm">//Reload&nbsp;the&nbsp;bean</span></div></li>
+<li><div class="src-line"><a name="a24"></a><span class="src-var">$leaflet&nbsp;</span>=&nbsp;<span class="src-id"><a href="../Cinnebar/R.html">R</a></span><span class="src-sym">::</span><span class="src-id">load</span><span class="src-sym">(</span><span class="src-str">'leaflet'</span><span class="src-sym">,</span><span class="src-var">$id</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a25"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a26"></a><span class="src-comm">//Display&nbsp;the&nbsp;title</span></div></li>
+<li><div class="src-line"><a name="a27"></a>echo&nbsp;<span class="src-var">$leaflet</span><span class="src-sym">-&gt;</span><span class="src-id">title</span><span class="src-sym">;</span></div></li>
+</ol></div>
+</div>
+	<p class="notes" id="credit">
+		Documentation generated on Fri, 14 Jun 2013 16:53:13 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</body>
+</html>

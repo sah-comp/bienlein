@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos  -->
+			<title>Docs For Class RedBean_ModelHelper</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+						<script src="../media/lib/classTree.js"></script>
+												<script language="javascript" type="text/javascript">
+				var imgPlus = new Image();
+				var imgMinus = new Image();
+				imgPlus.src = "../media/images/plus.gif";
+				imgMinus.src = "../media/images/minus.gif";
+				
+				function showNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgMinus.src;
+					oTable.style.display = "block";
+				}
+				
+				function hideNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgPlus.src;
+					oTable.style.display = "none";
+				}
+				
+				function nodeIsVisible(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+									break;
+							}
+					return (oTable && oTable.style.display == "block");
+				}
+				
+				function toggleNodeVisibility(Node){
+					if (nodeIsVisible(Node)){
+						hideNode(Node);
+					}else{
+						showNode(Node);
+					}
+				}
+			</script>
+					</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class RedBean_ModelHelper</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+                <p class="implements">
+            Implements interfaces:
+            <ul>
+                <li><a href="../Cinnebar/RedBean_Observer.html">RedBean_Observer</a></li>            </ul>
+        </p>
+        		<!-- ========== Info from phpDoc block ========= -->
+		<p class="notes">
+			Located in <a class="field" href="_lib---redbean---rb.php.html">/lib/redbean/rb.php</a> (line <span class="field"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a4928">4928</a></span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																		
+				<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#clearDependencyInjector" title="details" class="method-name">clearDependencyInjector</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#factory" title="details" class="method-name">factory</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$modelClassName</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">string</span>
+										<a href="#getModelName" title="details" class="method-name">getModelName</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$model</span>, [<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$bean</span> = <span class="var-default">null</span>])
+									</div>
+																						
+				<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#setDependencyInjector" title="details" class="method-name">setDependencyInjector</a>
+											(<span class="var-type"><a href="../Cinnebar/RedBean_DependencyInjector.html">RedBean_DependencyInjector</a></span>&nbsp;<span class="var-name">$di</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#setModelFormatter" title="details" class="method-name">setModelFormatter</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$modelFormatter</span>)
+									</div>
+																		
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#attachEventListeners" title="details" class="method-name">attachEventListeners</a>
+											(<span class="var-type"><a href="../Cinnebar/RedBean_Observable.html">RedBean_Observable</a></span>&nbsp;<span class="var-name">$observable</span>)
+									</div>
+																																						
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#onEvent" title="details" class="method-name">onEvent</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$eventName</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$bean</span>)
+									</div>
+																											</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodclearDependencyInjector" id="clearDependencyInjector"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static clearDependencyInjector</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a4999">4999</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Stops the dependency injector from resolving dependencies. reference to the dependency injector.</p>
+<p class="description"><p>Stops the dependency injector from resolving dependencies. Removes the reference to the dependency injector.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">void</span>
+		<span class="method-name">
+			clearDependencyInjector
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodfactory" id="factory"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static factory</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a4981">4981</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Obtains a new instance of $modelClassName, using a dependency injection container if possible.</p>
+<p class="description"><p>Obtains a new instance of $modelClassName, using a dependency injection container if possible.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">void</span>
+		<span class="method-name">
+			factory
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$modelClassName</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$modelClassName</span><span class="var-description">: name of the model</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetModelName" id="getModelName"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static getModelName</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a4956">4956</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Given a model ID (model identifier) this method returns the full model name.</p>
+<p class="description"><p>Given a model ID (model identifier) this method returns the full model name.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">string</span>
+		<span class="method-name">
+			getModelName
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$model</span>, [<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$bean</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$model</span>			</li>
+					<li>
+				<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>
+				<span class="var-name">$bean</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetDependencyInjector" id="setDependencyInjector"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static setDependencyInjector</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a4992">4992</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the dependency injector to be used.</p>
+<p class="description"><p>Sets the dependency injector to be used.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">void</span>
+		<span class="method-name">
+			setDependencyInjector
+		</span>
+					(<span class="var-type"><a href="../Cinnebar/RedBean_DependencyInjector.html">RedBean_DependencyInjector</a></span>&nbsp;<span class="var-name">$di</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../Cinnebar/RedBean_DependencyInjector.html">RedBean_DependencyInjector</a></span>
+				<span class="var-name">$di</span><span class="var-description">: injecto to be used</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetModelFormatter" id="setModelFormatter"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static setModelFormatter</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a4972">4972</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the model formatter to be used to discover a model for Fuse.</p>
+<p class="description"><p>Sets the model formatter to be used to discover a model for Fuse.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">void</span>
+		<span class="method-name">
+			setModelFormatter
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$modelFormatter</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$modelFormatter</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodattachEventListeners" id="attachEventListeners"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">attachEventListeners</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5010">5010</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Attaches the FUSE event listeners. CRUD events. that belongs to the CRUD bean and this model will take over control from there.</p>
+<p class="description"><p>Attaches the FUSE event listeners. Now the Model Helper will listen for CRUD events. If a CRUD event occurs it will send a signal to the model that belongs to the CRUD bean and this model will take over control from there.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			attachEventListeners
+		</span>
+					(<span class="var-type"><a href="../Cinnebar/RedBean_Observable.html">RedBean_Observable</a></span>&nbsp;<span class="var-name">$observable</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">Observable</span>
+				<span class="var-name">$observable</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodonEvent" id="onEvent"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">onEvent</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a4944">4944</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">see:</span> RedBean_Observer::onEvent</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			onEvent
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$eventName</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$bean</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$eventName</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$bean</span>			</li>
+				</ul>
+		
+				<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt><a href="../Cinnebar/RedBean_Observer.html#methodonEvent">RedBean_Observer::onEvent()</a></dt>
+					</dl>
+			
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Fri, 14 Jun 2013 16:53:46 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

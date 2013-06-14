@@ -1,0 +1,741 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos  -->
+			<title>Docs For Class RedBean_DuplicationManager</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+						<script src="../media/lib/classTree.js"></script>
+												<script language="javascript" type="text/javascript">
+				var imgPlus = new Image();
+				var imgMinus = new Image();
+				imgPlus.src = "../media/images/plus.gif";
+				imgMinus.src = "../media/images/minus.gif";
+				
+				function showNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgMinus.src;
+					oTable.style.display = "block";
+				}
+				
+				function hideNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgPlus.src;
+					oTable.style.display = "none";
+				}
+				
+				function nodeIsVisible(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+									break;
+							}
+					return (oTable && oTable.style.display == "block");
+				}
+				
+				function toggleNodeVisibility(Node){
+					if (nodeIsVisible(Node)){
+						hideNode(Node);
+					}else{
+						showNode(Node);
+					}
+				}
+			</script>
+					</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class RedBean_DuplicationManager</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+		<p class="notes">
+			Located in <a class="field" href="_lib---redbean---rb.php.html">/lib/redbean/rb.php</a> (line <span class="field"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a7071">7071</a></span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																																																																								<div class="var-title">
+					<span class="var-type"><a href="../Cinnebar/RedBean_AssociationManager.html">RedBean_AssociationManager</a></span>
+					<a href="#$associationManager" title="details" class="var-name">$associationManager</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$cacheTables" title="details" class="var-name">$cacheTables</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$columns" title="details" class="var-name">$columns</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$filters" title="details" class="var-name">$filters</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type"><a href="../Cinnebar/RedBean_OODB.html">RedBean_OODB</a></span>
+					<a href="#$redbean" title="details" class="var-name">$redbean</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$tables" title="details" class="var-name">$tables</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">RedBean_Toolbox</span>
+					<a href="#$toolbox" title="details" class="var-name">$toolbox</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																														
+				<div class="method-definition">
+											<span class="method-result">RedBean_DuplicationManager</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											(<span class="var-type">RedBean_Toolbox</span>&nbsp;<span class="var-name">$toolbox</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#dup" title="details" class="method-name">dup</a>
+											(<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$bean</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$trail</span> = <span class="var-default">array()</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$pid</span> = <span class="var-default">false</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#duplicate" title="details" class="method-name">duplicate</a>
+											(<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$bean</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$trail</span> = <span class="var-default">array()</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$pid</span> = <span class="var-default">false</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#exportAll" title="details" class="method-name">exportAll</a>
+											(<span class="var-type">array|<a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$beans</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$parents</span> = <span class="var-default">false</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$filters</span> = <span class="var-default">array()</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getSchema" title="details" class="method-name">getSchema</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#hasOwnList" title="details" class="method-name">hasOwnList</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$target</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#hasSharedList" title="details" class="method-name">hasSharedList</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$target</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setCacheTables" title="details" class="method-name">setCacheTables</a>
+											(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$yesNo</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setFilters" title="details" class="method-name">setFilters</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$filters</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setTables" title="details" class="method-name">setTables</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$tables</span>)
+									</div>
+											</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			
+<a name="var$associationManager" id="$associationManager"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type"><a href="../Cinnebar/RedBean_AssociationManager.html">RedBean_AssociationManager</a></span>
+			<span class="var-name">$associationManager</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a7079">7079</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$cacheTables" id="$cacheTables"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$cacheTables</span>
+			 = <span class="var-default"> false</span>			(line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a7099">7099</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$columns" id="$columns"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$columns</span>
+			 = <span class="var-default">array()</span>			(line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a7091">7091</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$filters" id="$filters"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$filters</span>
+			 = <span class="var-default">array()</span>			(line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a7095">7095</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$redbean" id="$redbean"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type"><a href="../Cinnebar/RedBean_OODB.html">RedBean_OODB</a></span>
+			<span class="var-name">$redbean</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a7083">7083</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$tables" id="$tables"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$tables</span>
+			 = <span class="var-default">array()</span>			(line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a7087">7087</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$toolbox" id="$toolbox"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">RedBean_Toolbox</span>
+			<span class="var-name">$toolbox</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a7075">7075</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a7105">7105</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructor, creates a new instance of DupManager.</p>
+<p class="description"><p>Constructor, creates a new instance of DupManager.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">RedBean_DuplicationManager</span>
+		<span class="method-name">
+			__construct
+		</span>
+					(<span class="var-type">RedBean_Toolbox</span>&nbsp;<span class="var-name">$toolbox</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">RedBean_Toolbox</span>
+				<span class="var-name">$toolbox</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methoddup" id="dup"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">dup</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a7208">7208</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Makes a copy of a bean. of the bean.</p>
+<p class="description"><p>Makes a copy of a bean. This method makes a deep copy of the bean.The copy will have the following features.<ul><li>All beans in own-lists will be duplicated as well</li><li>All references to shared beans will be copied but not the shared beans themselves</li><li>All references to parent objects (_id fields) will be copied but not the parents themselves</li></ul> In most cases this is the desired scenario for copying beans. This function uses a trail-array to prevent infinite recursion, if a recursive bean is found (i.e. one that already has been processed) the ID of the bean will be returned. This should not happen though.
+ Note: This function does a reflectional database query so it may be slow.
+ Note: this function actually passes the arguments to a protected function called duplicate() that does all the work. This method takes care of creating a clone of the bean to avoid the bean getting tainted (triggering saving when storing it).</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the duplicated bean</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			dup
+		</span>
+					(<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$bean</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$trail</span> = <span class="var-default">array()</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$pid</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>
+				<span class="var-name">$bean</span><span class="var-description">: bean to be copied</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$trail</span><span class="var-description">: for internal usage, pass array()</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$pid</span><span class="var-description">: for internal usage</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodduplicate" id="duplicate"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">duplicate</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a7228">7228</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> the duplicated bean</li>
+				<li><span class="field">see:</span> RedBean_DuplicationManager::dup</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			duplicate
+		</span>
+					(<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$bean</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$trail</span> = <span class="var-default">array()</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$pid</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>
+				<span class="var-name">$bean</span><span class="var-description">: bean to be copied</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$trail</span><span class="var-description">: trail to prevent infinite loops</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$pid</span><span class="var-description">: preserve IDs</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodexportAll" id="exportAll"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">exportAll</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a7277">7277</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Exports a collection of beans. Javascript framework like Dojo or ExtJS.</p>
+<p class="description"><p>Exports a collection of beans. Handy for XML/JSON exports with a Javascript framework like Dojo or ExtJS. What will be exported:<ul><li>contents of the bean</li><li>all own bean lists (recursively)</li><li>all shared beans (not THEIR own lists)</li></ul></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> exported structure</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			exportAll
+		</span>
+					(<span class="var-type">array|<a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$beans</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$parents</span> = <span class="var-default">false</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$filters</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array|<a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>
+				<span class="var-name">$beans</span><span class="var-description">: beans to be exported</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$parents</span><span class="var-description">: also export parents</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$filters</span><span class="var-description">: only these types (whitelist)</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetSchema" id="getSchema"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getSchema</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a7133">7133</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns a schema array for cache.</p>
+<p class="description"><p>Returns a schema array for cache.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getSchema
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodhasOwnList" id="hasOwnList"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">hasOwnList</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a7168">7168</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines whether the bean has an own list based on schema inspection from realtime schema or cache.</p>
+<p class="description"><p>Determines whether the bean has an own list based on schema inspection from realtime schema or cache.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			hasOwnList
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$target</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: bean type</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$target</span><span class="var-description">: type of list you want to detect</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodhasSharedList" id="hasSharedList"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">hasSharedList</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a7180">7180</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determines whether the bea has a shared list based on schema inspection from realtime schema or cache.</p>
+<p class="description"><p>Determines whether the bea has a shared list based on schema inspection from realtime schema or cache.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			hasSharedList
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$target</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: bean type</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$target</span><span class="var-description">: type of list you are looking for</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetCacheTables" id="setCacheTables"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setCacheTables</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a7144">7144</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Indicates whether you want the duplication manager to cache the database schema.</p>
+<p class="description"><p>Indicates whether you want the duplication manager to cache the database schema. If this flag is set to TRUE the duplication manager will query the database schema only once. Otherwise the duplicationmanager will, by default, query the schema every time a duplication action is performed (dup()).</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setCacheTables
+		</span>
+					(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$yesNo</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$yesNo</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetFilters" id="setFilters"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setFilters</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a7156">7156</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">A filter array is an array with table names.</p>
+<p class="description"><p>A filter array is an array with table names. By setting a table filter you can make the duplication manager only take into account certain bean types. Other bean types will be ignored when exporting or making a deep copy. If no filters are set all types will be taking into account, this is the default behavior.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setFilters
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$filters</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$filters</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetTables" id="setTables"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setTables</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a7117">7117</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">For better performance you can pass the tables in an array to this method.</p>
+<p class="description"><p>For better performance you can pass the tables in an array to this method. If the tables are available the duplication manager will not query them so this might be beneficial for performance.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setTables
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$tables</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$tables</span>			</li>
+				</ul>
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Fri, 14 Jun 2013 16:53:45 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

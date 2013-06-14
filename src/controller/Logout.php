@@ -18,7 +18,7 @@
 class Controller_Logout extends Controller
 {
     /**
-     * Renders the login page and handles a login attempt on POST.
+     * Resets and destroys the current session, then redirects to /.
      */
     static public function index()
     {

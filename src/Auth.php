@@ -29,7 +29,11 @@ class Auth extends Controller
      */
     static public function check()
     {
-        if (isset($_SESSION['user']['id'])) return true;
+        @session_start();
+        if (isset($_SESSION['user']['id'])) {
+            Flight::set('user', R::load('user', $_SESSION['user']['id']));
+            return true;
+        }
         $loginpage = '/login/?goto='.urlencode(Flight::request()->url);
         self::redirect($loginpage);
     }

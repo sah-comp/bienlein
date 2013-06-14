@@ -10,7 +10,21 @@
 ?>
 <!-- admin navigation -->
 <nav>
-    <ul>
+    <ul class="nav nav-user">
+        <li>
+            <a
+                href="<?php echo Url::build('/account/') ?>">
+                <?php echo I18n::__('user_account_nav') ?>
+            </a>
+        </li>
+        <li>
+            <a
+                href="<?php echo Url::build('/logout/') ?>">
+                <?php echo I18n::__('user_logout_nav') ?>
+            </a>
+        </li>
+    </ul>
+    <ul class="nav nav-main">
         <li>
             <a
                 href="<?php echo Url::build('/admin/index/') ?>">

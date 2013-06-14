@@ -1,0 +1,692 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos  -->
+			<title>Docs For Class RedBean_Plugin_Cache</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+						<script src="../media/lib/classTree.js"></script>
+												<script language="javascript" type="text/javascript">
+				var imgPlus = new Image();
+				var imgMinus = new Image();
+				imgPlus.src = "../media/images/plus.gif";
+				imgMinus.src = "../media/images/minus.gif";
+				
+				function showNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgMinus.src;
+					oTable.style.display = "block";
+				}
+				
+				function hideNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgPlus.src;
+					oTable.style.display = "none";
+				}
+				
+				function nodeIsVisible(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+									break;
+							}
+					return (oTable && oTable.style.display == "block");
+				}
+				
+				function toggleNodeVisibility(Node){
+					if (nodeIsVisible(Node)){
+						hideNode(Node);
+					}else{
+						showNode(Node);
+					}
+				}
+			</script>
+					</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class RedBean_Plugin_Cache</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+                <p class="implements">
+            Implements interfaces:
+            <ul>
+                <li><a href="../Cinnebar/RedBean_Plugin.html">RedBean_Plugin</a></li>            </ul>
+        </p>
+        		<!-- ========== Info from phpDoc block ========= -->
+		<p class="notes">
+			Located in <a class="field" href="_lib---redbean---rb.php.html">/lib/redbean/rb.php</a> (line <span class="field"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6900">6900</a></span>)
+		</p>
+		
+				
+		<pre><a href="../Cinnebar/RedBean_Observable.html">RedBean_Observable</a>
+   |
+   --<a href="../Cinnebar/RedBean_OODB.html">RedBean_OODB</a>
+      |
+      --RedBean_Plugin_Cache</pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																																								<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$cache" title="details" class="var-name">$cache</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">integer</span>
+					<a href="#$hits" title="details" class="var-name">$hits</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">integer</span>
+					<a href="#$misses" title="details" class="var-name">$misses</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																														
+				<div class="method-definition">
+											<span class="method-result">RedBean_Plugin_Cache</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											(<span class="var-type"><a href="../Cinnebar/RedBean_QueryWriter.html">RedBean_QueryWriter</a></span>&nbsp;<span class="var-name">$writer</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result"><a href="../Cinnebar/RedBean_Plugin_Cache.html">RedBean_Plugin_Cache</a></span>
+										<a href="#flush" title="details" class="method-name">flush</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result"><a href="../Cinnebar/RedBean_Plugin_Cache.html">RedBean_Plugin_Cache</a></span>
+										<a href="#flushAll" title="details" class="method-name">flushAll</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getHits" title="details" class="method-name">getHits</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getMisses" title="details" class="method-name">getMisses</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>
+										<a href="#load" title="details" class="method-name">load</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$id</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#resetHits" title="details" class="method-name">resetHits</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#resetMisses" title="details" class="method-name">resetMisses</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#store" title="details" class="method-name">store</a>
+											(<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$bean</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#trash" title="details" class="method-name">trash</a>
+											(<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$bean</span>)
+									</div>
+											</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			
+<a name="var$cache" id="$cache"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$cache</span>
+			 = <span class="var-default">array()</span>			(line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6904">6904</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$hits" id="$hits"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">integer</span>
+			<span class="var-name">$hits</span>
+			 = <span class="var-default"> 0</span>			(line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6908">6908</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$misses" id="$misses"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">integer</span>
+			<span class="var-name">$misses</span>
+			 = <span class="var-default"> 0</span>			(line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6912">6912</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+							<h4>Inherited Variables</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../Cinnebar/RedBean_OODB.html">RedBean_OODB</a></span></p>
+					<blockquote>
+													<span class="var-title">
+								<span class="var-name"><a href="../Cinnebar/RedBean_OODB.html#var$assocManager">RedBean_OODB::$assocManager</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../Cinnebar/RedBean_OODB.html#var$beanhelper">RedBean_OODB::$beanhelper</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../Cinnebar/RedBean_OODB.html#var$chillList">RedBean_OODB::$chillList</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../Cinnebar/RedBean_OODB.html#var$dep">RedBean_OODB::$dep</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../Cinnebar/RedBean_OODB.html#var$isFrozen">RedBean_OODB::$isFrozen</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../Cinnebar/RedBean_OODB.html#var$nesting">RedBean_OODB::$nesting</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../Cinnebar/RedBean_OODB.html#var$stash">RedBean_OODB::$stash</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../Cinnebar/RedBean_OODB.html#var$writer">RedBean_OODB::$writer</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6919">6919</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructor.</p>
+<p class="description"><p>Constructor. Cache decorates RedBeanPHP OODB class, so needs a writer.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">RedBean_Plugin_Cache</span>
+		<span class="method-name">
+			__construct
+		</span>
+					(<span class="var-type"><a href="../Cinnebar/RedBean_QueryWriter.html">RedBean_QueryWriter</a></span>&nbsp;<span class="var-name">$writer</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../Cinnebar/RedBean_QueryWriter.html">RedBean_QueryWriter</a></span>
+				<span class="var-name">$writer</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Cinnebar/RedBean_OODB.html#method__construct">RedBean_OODB::__construct()</a></dt>
+						<dd>Constructor, requires a query writer.</dd>
+					</dl>
+			
+	</div>
+<a name="methodflush" id="flush"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">flush</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6981">6981</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Flushes the cache for a given type.</p>
+<p class="description"><p>Flushes the cache for a given type.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Cinnebar/RedBean_Plugin_Cache.html">RedBean_Plugin_Cache</a></span>
+		<span class="method-name">
+			flush
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodflushAll" id="flushAll"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">flushAll</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6990">6990</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Flushes the cache completely.</p>
+<p class="description"><p>Flushes the cache completely.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Cinnebar/RedBean_Plugin_Cache.html">RedBean_Plugin_Cache</a></span>
+		<span class="method-name">
+			flushAll
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetHits" id="getHits"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getHits</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a7001">7001</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the number of hits. batch() can use the cache this counts as a hit.</p>
+<p class="description"><p>Returns the number of hits. If a call to load() or batch() can use the cache this counts as a hit. Otherwise it's a miss.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getHits
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetMisses" id="getMisses"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getMisses</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a7011">7011</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the number of hits. batch() can use the cache this counts as a hit.</p>
+<p class="description"><p>Returns the number of hits. If a call to load() or batch() can use the cache this counts as a hit. Otherwise it's a miss.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getMisses
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodload" id="load"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">load</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6934">6934</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Loads a bean by type and id. empty bean will be returned instead. of the loader, if the bean has been cached it will be served from cache, otherwise the bean will be retrieved from the database as usual an a new cache entry will be added.</p>
+<p class="description"><p>Loads a bean by type and id. If the bean cannot be found an empty bean will be returned instead. This is a cached version of the loader, if the bean has been cached it will be served from cache, otherwise the bean will be retrieved from the database as usual an a new cache entry will be added..</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the bean object found</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>
+		<span class="method-name">
+			load
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$id</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: type of bean you are looking for</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$id</span><span class="var-description">: identifier of the bean</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Cinnebar/RedBean_OODB.html#methodload">RedBean_OODB::load()</a></dt>
+						<dd>Loads a bean from the object database.</dd>
+					</dl>
+			
+	</div>
+<a name="methodresetHits" id="resetHits"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">resetHits</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a7017">7017</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Resets hits counter to 0.</p>
+<p class="description"><p>Resets hits counter to 0.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			resetHits
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodresetMisses" id="resetMisses"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">resetMisses</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a7023">7023</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Resets misses counter to 0.</p>
+<p class="description"><p>Resets misses counter to 0.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			resetMisses
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodstore" id="store"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">store</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6955">6955</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Stores a RedBean OODBBean and caches it.</p>
+<p class="description"><p>Stores a RedBean OODBBean and caches it.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			store
+		</span>
+					(<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$bean</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>
+				<span class="var-name">$bean</span><span class="var-description">: the bean you want to store</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Cinnebar/RedBean_OODB.html#methodstore">RedBean_OODB::store()</a></dt>
+						<dd>Stores a bean in the database. RedBean_OODBBean Bean Object $bean and stores it in the database. with this bean and RedBean runs in fluid mode the schema will be altered to store the bean correctly.</dd>
+					</dl>
+			
+	</div>
+<a name="methodtrash" id="trash"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">trash</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6968">6968</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Trashes a RedBean OODBBean and removes it from cache.</p>
+<p class="description"><p>Trashes a RedBean OODBBean and removes it from cache.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			trash
+		</span>
+					(<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$bean</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>
+				<span class="var-name">$bean</span><span class="var-description">: bean</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Cinnebar/RedBean_OODB.html#methodtrash">RedBean_OODB::trash()</a></dt>
+						<dd>Removes a bean from the database.</dd>
+					</dl>
+			
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../Cinnebar/RedBean_OODB.html">RedBean_OODB</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../Cinnebar/RedBean_OODB.html#method__construct">RedBean_OODB::__construct()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_OODB.html#methodbatch">RedBean_OODB::batch()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_OODB.html#methodcheck">RedBean_OODB::check()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_OODB.html#methodconvertToBeans">RedBean_OODB::convertToBeans()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_OODB.html#methodcount">RedBean_OODB::count()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_OODB.html#methoddispense">RedBean_OODB::dispense()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_OODB.html#methodfind">RedBean_OODB::find()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_OODB.html#methodfreeze">RedBean_OODB::freeze()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_OODB.html#methodgetAssociationManager">RedBean_OODB::getAssociationManager()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_OODB.html#methodisDependentOn">RedBean_OODB::isDependentOn()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_OODB.html#methodisFrozen">RedBean_OODB::isFrozen()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_OODB.html#methodload">RedBean_OODB::load()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_OODB.html#methodpreload">RedBean_OODB::preload()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_OODB.html#methodprocessBuildCommands">RedBean_OODB::processBuildCommands()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_OODB.html#methodsetAssociationManager">RedBean_OODB::setAssociationManager()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_OODB.html#methodsetBeanHelper">RedBean_OODB::setBeanHelper()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_OODB.html#methodsetDepList">RedBean_OODB::setDepList()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_OODB.html#methodstore">RedBean_OODB::store()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_OODB.html#methodtableExists">RedBean_OODB::tableExists()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_OODB.html#methodtrash">RedBean_OODB::trash()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_OODB.html#methodwipe">RedBean_OODB::wipe()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../Cinnebar/RedBean_Observable.html">RedBean_Observable</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Observable.html#methodaddEventListener">RedBean_Observable::addEventListener()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Observable.html#methodsignal">RedBean_Observable::signal()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Fri, 14 Jun 2013 16:53:46 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

@@ -1,0 +1,1093 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos  -->
+			<title>Docs For Class RedBean_QueryWriter_MySQL</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+						<script src="../media/lib/classTree.js"></script>
+												<script language="javascript" type="text/javascript">
+				var imgPlus = new Image();
+				var imgMinus = new Image();
+				imgPlus.src = "../media/images/plus.gif";
+				imgMinus.src = "../media/images/minus.gif";
+				
+				function showNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgMinus.src;
+					oTable.style.display = "block";
+				}
+				
+				function hideNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgPlus.src;
+					oTable.style.display = "none";
+				}
+				
+				function nodeIsVisible(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+									break;
+							}
+					return (oTable && oTable.style.display == "block");
+				}
+				
+				function toggleNodeVisibility(Node){
+					if (nodeIsVisible(Node)){
+						hideNode(Node);
+					}else{
+						showNode(Node);
+					}
+				}
+			</script>
+					</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class RedBean_QueryWriter_MySQL</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+						
+			</div>
+	<div class="info-box-body">
+                <p class="implements">
+            Implements interfaces:
+            <ul>
+                <li><a href="../Cinnebar/RedBean_QueryWriter.html">RedBean_QueryWriter</a></li>            </ul>
+        </p>
+        		<!-- ========== Info from phpDoc block ========= -->
+		<p class="notes">
+			Located in <a class="field" href="_lib---redbean---rb.php.html">/lib/redbean/rb.php</a> (line <span class="field"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a2099">2099</a></span>)
+		</p>
+		
+				
+		<pre><a href="../Cinnebar/RedBean_QueryWriter_AQueryWriter.html">RedBean_QueryWriter_AQueryWriter</a>
+   |
+   --RedBean_QueryWriter_MySQL</pre>
+	
+			</div>
+</div>
+
+
+	<a name="sec-const-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constant Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Constants</span> (<a href="#sec-consts">details</a>)
+												<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<div class="const-summary">
+								<div class="const-title">
+					<a href="#C_DATATYPE_BOOL" title="details" class="const-name">C_DATATYPE_BOOL</a> = 					<span class="var-type"> 0</span>
+
+				</div>
+								<div class="const-title">
+					<a href="#C_DATATYPE_DOUBLE" title="details" class="const-name">C_DATATYPE_DOUBLE</a> = 					<span class="var-type"> 3</span>
+
+				</div>
+								<div class="const-title">
+					<a href="#C_DATATYPE_SPECIAL_DATE" title="details" class="const-name">C_DATATYPE_SPECIAL_DATE</a> = 					<span class="var-type"> 80</span>
+
+				</div>
+								<div class="const-title">
+					<a href="#C_DATATYPE_SPECIAL_DATETIME" title="details" class="const-name">C_DATATYPE_SPECIAL_DATETIME</a> = 					<span class="var-type"> 81</span>
+
+				</div>
+								<div class="const-title">
+					<a href="#C_DATATYPE_SPECIAL_POINT" title="details" class="const-name">C_DATATYPE_SPECIAL_POINT</a> = 					<span class="var-type"> 90</span>
+
+				</div>
+								<div class="const-title">
+					<a href="#C_DATATYPE_SPECIFIED" title="details" class="const-name">C_DATATYPE_SPECIFIED</a> = 					<span class="var-type"> 99</span>
+
+				</div>
+								<div class="const-title">
+					<a href="#C_DATATYPE_TEXT8" title="details" class="const-name">C_DATATYPE_TEXT8</a> = 					<span class="var-type"> 4</span>
+
+				</div>
+								<div class="const-title">
+					<a href="#C_DATATYPE_TEXT16" title="details" class="const-name">C_DATATYPE_TEXT16</a> = 					<span class="var-type"> 5</span>
+
+				</div>
+								<div class="const-title">
+					<a href="#C_DATATYPE_TEXT32" title="details" class="const-name">C_DATATYPE_TEXT32</a> = 					<span class="var-type"> 6</span>
+
+				</div>
+								<div class="const-title">
+					<a href="#C_DATATYPE_UINT8" title="details" class="const-name">C_DATATYPE_UINT8</a> = 					<span class="var-type"> 1</span>
+
+				</div>
+								<div class="const-title">
+					<a href="#C_DATATYPE_UINT32" title="details" class="const-name">C_DATATYPE_UINT32</a> = 					<span class="var-type"> 2</span>
+
+				</div>
+							</div>
+		</div>
+	</div>
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																																<div class="var-title">
+					<span class="var-type"><a href="../Cinnebar/RedBean_Adapter_DBAdapter.html">RedBean_Adapter_DBAdapter</a></span>
+					<a href="#$adapter" title="details" class="var-name">$adapter</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$quoteCharacter" title="details" class="var-name">$quoteCharacter</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																																																						
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#addIndex" title="details" class="method-name">addIndex</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$type</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$name</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$column</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#addUniqueIndex" title="details" class="method-name">addUniqueIndex</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$table</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$columns</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#code" title="details" class="method-name">code</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$typedescription</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$includeSpecials</span> = <span class="var-default">false</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#constrain" title="details" class="method-name">constrain</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$table</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$table1</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$table2</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$property1</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$property2</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#createTable" title="details" class="method-name">createTable</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$table</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">RedBean_QueryWriter_MySQL</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											(<span class="var-type"><a href="../Cinnebar/RedBean_Adapter.html">RedBean_Adapter</a></span>&nbsp;<span class="var-name">$adapter</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getColumns" title="details" class="method-name">getColumns</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$table</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getTables" title="details" class="method-name">getTables</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getTypeForID" title="details" class="method-name">getTypeForID</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#scanType" title="details" class="method-name">scanType</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$flagSpecial</span> = <span class="var-default">false</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#sqlStateIn" title="details" class="method-name">sqlStateIn</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$state</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$list</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#widenColumn" title="details" class="method-name">widenColumn</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$type</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$column</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$datatype</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#wipeAll" title="details" class="method-name">wipeAll</a>
+										()
+									</div>
+											</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			
+<a name="var$adapter" id="$adapter"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type"><a href="../Cinnebar/RedBean_Adapter_DBAdapter.html">RedBean_Adapter_DBAdapter</a></span>
+			<span class="var-name">$adapter</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a2117">2117</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Cinnebar/RedBean_QueryWriter_AQueryWriter.html#var$adapter">RedBean_QueryWriter_AQueryWriter::$adapter</a></dt>
+					</dl>
+		
+		
+
+</div>
+<a name="var$quoteCharacter" id="$quoteCharacter"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$quoteCharacter</span>
+			 = <span class="var-default"> '`'</span>			(line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a2121">2121</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../Cinnebar/RedBean_QueryWriter_AQueryWriter.html#var$quoteCharacter">RedBean_QueryWriter_AQueryWriter::$quoteCharacter</a></dt>
+					</dl>
+		
+		
+
+</div>
+							<h4>Inherited Variables</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../Cinnebar/RedBean_QueryWriter_AQueryWriter.html">RedBean_QueryWriter_AQueryWriter</a></span></p>
+					<blockquote>
+													<span class="var-title">
+								<span class="var-name"><a href="../Cinnebar/RedBean_QueryWriter_AQueryWriter.html#var$cache">RedBean_QueryWriter_AQueryWriter::$cache</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../Cinnebar/RedBean_QueryWriter_AQueryWriter.html#var$defaultValue">RedBean_QueryWriter_AQueryWriter::$defaultValue</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../Cinnebar/RedBean_QueryWriter_AQueryWriter.html#var$flagUseCache">RedBean_QueryWriter_AQueryWriter::$flagUseCache</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../Cinnebar/RedBean_QueryWriter_AQueryWriter.html#var$renames">RedBean_QueryWriter_AQueryWriter::$renames</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../Cinnebar/RedBean_QueryWriter_AQueryWriter.html#var$typeno_sqltype">RedBean_QueryWriter_AQueryWriter::$typeno_sqltype</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																			<a href="#sec-const-summary">Constants</a> (<a href="#sec-consts">details</a>)
+							
+										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodaddIndex" id="addIndex"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">addIndex</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a2264">2264</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">see:</span> RedBean_QueryWriter::addIndex</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			addIndex
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$type</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$name</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$column</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$type</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$name</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$column</span>			</li>
+				</ul>
+		
+				<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt><a href="../Cinnebar/RedBean_QueryWriter.html#methodaddIndex">RedBean_QueryWriter::addIndex()</a></dt>
+						<dd>This method will add an index to a type and field with name $name.</dd>
+					</dl>
+			
+	</div>
+<a name="methodaddUniqueIndex" id="addUniqueIndex"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">addUniqueIndex</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a2242">2242</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">see:</span> RedBean_QueryWriter::addUniqueIndex</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			addUniqueIndex
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$table</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$columns</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$table</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$columns</span>			</li>
+				</ul>
+		
+				<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt><a href="../Cinnebar/RedBean_QueryWriter.html#methodaddUniqueIndex">RedBean_QueryWriter::addUniqueIndex()</a></dt>
+						<dd>This method will add a UNIQUE constraint index to a table on columns $columns.</dd>
+					</dl>
+			
+	</div>
+<a name="methodcode" id="code"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">code</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a2221">2221</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">see:</span> RedBean_QueryWriter::code</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			code
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$typedescription</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$includeSpecials</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$typedescription</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$includeSpecials</span>			</li>
+				</ul>
+		
+				<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt><a href="../Cinnebar/RedBean_QueryWriter.html#methodcode">RedBean_QueryWriter::code()</a></dt>
+						<dd>Returns the Type Code for a Column Description.</dd>
+					</dl>
+			
+	</div>
+<a name="methodconstrain" id="constrain"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">constrain</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a2296">2296</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Add the constraints for a specific database driver: MySQL.</p>
+<p class="description"><p>Add the constraints for a specific database driver: MySQL.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> whether the constraint has been applied</li>
+				<li><span class="field">todo:</span> Too many arguments; find a way to solve this in a neater way.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			constrain
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$table</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$table1</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$table2</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$property1</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$property2</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$table</span><span class="var-description">: table</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$table1</span><span class="var-description">: table1</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$table2</span><span class="var-description">: table2</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$property1</span><span class="var-description">: property1</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$property2</span><span class="var-description">: property2</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcreateTable" id="createTable"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createTable</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a2163">2163</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">see:</span> RedBean_QueryWriter::createTable</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			createTable
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$table</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$table</span>			</li>
+				</ul>
+		
+				<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt><a href="../Cinnebar/RedBean_QueryWriter.html#methodcreateTable">RedBean_QueryWriter::createTable()</a></dt>
+						<dd>This method will create a table for the bean.</dd>
+					</dl>
+			
+	</div>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a2127">2127</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructor</p>
+<p class="description"><p>Constructor</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">RedBean_QueryWriter_MySQL</span>
+		<span class="method-name">
+			__construct
+		</span>
+					(<span class="var-type"><a href="../Cinnebar/RedBean_Adapter.html">RedBean_Adapter</a></span>&nbsp;<span class="var-name">$adapter</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../Cinnebar/RedBean_Adapter.html">RedBean_Adapter</a></span>
+				<span class="var-name">$adapter</span><span class="var-description">: Database Adapter</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetColumns" id="getColumns"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getColumns</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a2174">2174</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">see:</span> RedBean_QueryWriter::getColumns</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getColumns
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$table</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$table</span>			</li>
+				</ul>
+		
+				<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt><a href="../Cinnebar/RedBean_QueryWriter.html#methodgetColumns">RedBean_QueryWriter::getColumns()</a></dt>
+						<dd>Returns an array containing all the columns of the specified type.</dd>
+					</dl>
+			
+	</div>
+<a name="methodgetTables" id="getTables"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getTables</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a2157">2157</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">see:</span> RedBean_QueryWriter::getTables</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getTables
+		</span>
+				()
+			</div>
+	
+		
+				<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt><a href="../Cinnebar/RedBean_QueryWriter.html#methodgetTables">RedBean_QueryWriter::getTables()</a></dt>
+						<dd>Returns the tables that are in the database.</dd>
+					</dl>
+			
+	</div>
+<a name="methodgetTypeForID" id="getTypeForID"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getTypeForID</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a2151">2151</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">This method returns the datatype to be used for primary key IDS and foreign keys.</p>
+<p class="description"><p>This method returns the datatype to be used for primary key IDS and foreign keys. Returns one if the data type constants.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> data type to be used for IDS.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getTypeForID
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodscanType" id="scanType"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">scanType</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a2183">2183</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">see:</span> RedBean_QueryWriter::scanType</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			scanType
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$value</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$flagSpecial</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$value</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$flagSpecial</span>			</li>
+				</ul>
+		
+				<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt><a href="../Cinnebar/RedBean_QueryWriter.html#methodscanType">RedBean_QueryWriter::scanType()</a></dt>
+						<dd>Returns the Column Type Code (integer) that corresponds to the given value type. column type required to represent the given value.</dd>
+					</dl>
+			
+	</div>
+<a name="methodsqlStateIn" id="sqlStateIn"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">sqlStateIn</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a2276">2276</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">see:</span> RedBean_QueryWriter::sqlStateIn</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			sqlStateIn
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$state</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$list</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$state</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$list</span>			</li>
+				</ul>
+		
+				<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt><a href="../Cinnebar/RedBean_QueryWriter.html#methodsqlStateIn">RedBean_QueryWriter::sqlStateIn()</a></dt>
+						<dd>This method will check whether the SQL state is in the list of specified states and returns true if it does appear in this list or false if it does not. a one of the constants defined in this class and then check whether it is in the list of standard states provided.</dd>
+					</dl>
+			
+	</div>
+<a name="methodwidenColumn" id="widenColumn"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">widenColumn</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a2230">2230</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">see:</span> RedBean_QueryWriter::wideColumn</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			widenColumn
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$type</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$column</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$datatype</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$type</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$column</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$datatype</span>			</li>
+				</ul>
+		
+				<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt><a href="../Cinnebar/RedBean_QueryWriter.html#methodwidenColumn">RedBean_QueryWriter::widenColumn()</a></dt>
+						<dd>This method will widen the column to the specified data type.</dd>
+					</dl>
+			
+	</div>
+<a name="methodwipeAll" id="wipeAll"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">wipeAll</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a2330">2330</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">see:</span> RedBean_QueryWriter::wipeAll</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			wipeAll
+		</span>
+				()
+			</div>
+	
+		
+				<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt><a href="../Cinnebar/RedBean_QueryWriter.html#methodwipeAll">RedBean_QueryWriter::wipeAll()</a></dt>
+						<dd>Removes all tables and views from the database.</dd>
+					</dl>
+			
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../Cinnebar/RedBean_QueryWriter_AQueryWriter.html">RedBean_QueryWriter_AQueryWriter</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../Cinnebar/RedBean_QueryWriter_AQueryWriter.html#methodaddColumn">RedBean_QueryWriter_AQueryWriter::addColumn()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_QueryWriter_AQueryWriter.html#methodaddConstraint">RedBean_QueryWriter_AQueryWriter::addConstraint()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_QueryWriter_AQueryWriter.html#methodaddFK">RedBean_QueryWriter_AQueryWriter::addFK()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_QueryWriter_AQueryWriter.html#methodcanBeTreatedAsInt">RedBean_QueryWriter_AQueryWriter::canBeTreatedAsInt()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_QueryWriter_AQueryWriter.html#methodcheck">RedBean_QueryWriter_AQueryWriter::check()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_QueryWriter_AQueryWriter.html#methodcount">RedBean_QueryWriter_AQueryWriter::count()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_QueryWriter_AQueryWriter.html#methodesc">RedBean_QueryWriter_AQueryWriter::esc()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_QueryWriter_AQueryWriter.html#methodflushCache">RedBean_QueryWriter_AQueryWriter::flushCache()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_QueryWriter_AQueryWriter.html#methodgetAssocTableFormat">RedBean_QueryWriter_AQueryWriter::getAssocTableFormat()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_QueryWriter_AQueryWriter.html#methodgetInsertSuffix">RedBean_QueryWriter_AQueryWriter::getInsertSuffix()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_QueryWriter_AQueryWriter.html#methodinsertRecord">RedBean_QueryWriter_AQueryWriter::insertRecord()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_QueryWriter_AQueryWriter.html#methodrenameAssociation">RedBean_QueryWriter_AQueryWriter::renameAssociation()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_QueryWriter_AQueryWriter.html#methodsafeColumn">RedBean_QueryWriter_AQueryWriter::safeColumn()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_QueryWriter_AQueryWriter.html#methodsafeTable">RedBean_QueryWriter_AQueryWriter::safeTable()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_QueryWriter_AQueryWriter.html#methodselectRecord">RedBean_QueryWriter_AQueryWriter::selectRecord()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_QueryWriter_AQueryWriter.html#methodsetUseCache">RedBean_QueryWriter_AQueryWriter::setUseCache()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_QueryWriter_AQueryWriter.html#methodstartsWithZeros">RedBean_QueryWriter_AQueryWriter::startsWithZeros()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_QueryWriter_AQueryWriter.html#methodupdateRecord">RedBean_QueryWriter_AQueryWriter::updateRecord()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_QueryWriter_AQueryWriter.html#methodwipe">RedBean_QueryWriter_AQueryWriter::wipe()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+														| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="constC_DATATYPE_BOOL" id="C_DATATYPE_BOOL"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<span class="const-title">
+			<span class="const-name">C_DATATYPE_BOOL</span>
+			 = <span class="const-default"> 0</span>
+			(line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a2103">2103</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Data types</p>
+<p class="description"><p>Data types</p></p>
+	
+	
+</div>
+<a name="constC_DATATYPE_DOUBLE" id="C_DATATYPE_DOUBLE"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<span class="const-title">
+			<span class="const-name">C_DATATYPE_DOUBLE</span>
+			 = <span class="const-default"> 3</span>
+			(line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a2106">2106</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constC_DATATYPE_SPECIAL_DATE" id="C_DATATYPE_SPECIAL_DATE"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<span class="const-title">
+			<span class="const-name">C_DATATYPE_SPECIAL_DATE</span>
+			 = <span class="const-default"> 80</span>
+			(line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a2110">2110</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constC_DATATYPE_SPECIAL_DATETIME" id="C_DATATYPE_SPECIAL_DATETIME"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<span class="const-title">
+			<span class="const-name">C_DATATYPE_SPECIAL_DATETIME</span>
+			 = <span class="const-default"> 81</span>
+			(line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a2111">2111</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constC_DATATYPE_SPECIAL_POINT" id="C_DATATYPE_SPECIAL_POINT"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<span class="const-title">
+			<span class="const-name">C_DATATYPE_SPECIAL_POINT</span>
+			 = <span class="const-default"> 90</span>
+			(line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a2112">2112</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constC_DATATYPE_SPECIFIED" id="C_DATATYPE_SPECIFIED"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<span class="const-title">
+			<span class="const-name">C_DATATYPE_SPECIFIED</span>
+			 = <span class="const-default"> 99</span>
+			(line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a2113">2113</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constC_DATATYPE_TEXT8" id="C_DATATYPE_TEXT8"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<span class="const-title">
+			<span class="const-name">C_DATATYPE_TEXT8</span>
+			 = <span class="const-default"> 4</span>
+			(line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a2107">2107</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constC_DATATYPE_TEXT16" id="C_DATATYPE_TEXT16"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<span class="const-title">
+			<span class="const-name">C_DATATYPE_TEXT16</span>
+			 = <span class="const-default"> 5</span>
+			(line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a2108">2108</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constC_DATATYPE_TEXT32" id="C_DATATYPE_TEXT32"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<span class="const-title">
+			<span class="const-name">C_DATATYPE_TEXT32</span>
+			 = <span class="const-default"> 6</span>
+			(line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a2109">2109</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constC_DATATYPE_UINT8" id="C_DATATYPE_UINT8"><!-- --></A>
+<div class="evenrow">
+
+	<div class="const-header">
+		<span class="const-title">
+			<span class="const-name">C_DATATYPE_UINT8</span>
+			 = <span class="const-default"> 1</span>
+			(line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a2104">2104</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+<a name="constC_DATATYPE_UINT32" id="C_DATATYPE_UINT32"><!-- --></A>
+<div class="oddrow">
+
+	<div class="const-header">
+		<span class="const-title">
+			<span class="const-name">C_DATATYPE_UINT32</span>
+			 = <span class="const-default"> 2</span>
+			(line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a2105">2105</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+</div>
+						
+		</div>
+	</div>
+
+	<p class="notes" id="credit">
+		Documentation generated on Fri, 14 Jun 2013 16:53:47 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

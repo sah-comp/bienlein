@@ -1,0 +1,656 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos  -->
+			<title></title>
+			<link rel="stylesheet" href="media/stylesheet.css" />
+						<script src="media/lib/classTree.js"></script>
+									<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+									<script language="javascript" type="text/javascript">
+				var imgPlus = new Image();
+				var imgMinus = new Image();
+				imgPlus.src = "media/images/plus.gif";
+				imgMinus.src = "media/images/minus.gif";
+				
+				function showNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgMinus.src;
+					oTable.style.display = "block";
+				}
+				
+				function hideNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgPlus.src;
+					oTable.style.display = "none";
+				}
+				
+				function nodeIsVisible(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+									break;
+							}
+					return (oTable && oTable.style.display == "block");
+				}
+				
+				function toggleNodeVisibility(Node){
+					if (nodeIsVisible(Node)){
+						hideNode(Node);
+					}else{
+						showNode(Node);
+					}
+				}
+			</script>
+					</head>
+		<body>
+						<h3 class="package-title">Cinnebar</h3>
+<div class="tree">
+<script language="Javascript">
+if (document.getElementById) {
+			var tree = new WebFXTree('<span class="package">Cinnebar</span>');
+		tree.setBehavior('classic');
+	
+					var todos = new WebFXTreeItem('To-do List', 'todolist.html');
+			tree.add(todos);
+		
+		var class_trees = new WebFXTreeItem('Class trees', 'classtrees_Cinnebar.html');
+		tree.add(class_trees);
+
+		var elements = new WebFXTreeItem('Index of elements', 'elementindex_Cinnebar.html');		
+		tree.add(elements);
+
+		var parent_node;
+
+			
+		    		    			var tree_classe = new WebFXTreeItem('Interface(s)', '');
+    			
+    			    			        			    			            				var classe = new WebFXTreeItem('RedBean_Adapter', 'Cinnebar/RedBean_Adapter.html');
+        				tree_classe.add(classe);
+        			    			    			        			    			        			    			        			    			            				var classe = new WebFXTreeItem('RedBean_BeanHelper', 'Cinnebar/RedBean_BeanHelper.html');
+        				tree_classe.add(classe);
+        			    			    			        			    			        			    			            				var classe = new WebFXTreeItem('RedBean_Driver', 'Cinnebar/RedBean_Driver.html');
+        				tree_classe.add(classe);
+        			    			    			        			    			        			    			        			    			        			    			        			    			        			    			        			    			            				var classe = new WebFXTreeItem('RedBean_IModelFormatter', 'Cinnebar/RedBean_IModelFormatter.html');
+        				tree_classe.add(classe);
+        			    			    			        			    			            				var classe = new WebFXTreeItem('RedBean_Logger', 'Cinnebar/RedBean_Logger.html');
+        				tree_classe.add(classe);
+        			    			    			        			    			        			    			        			    			            				var classe = new WebFXTreeItem('RedBean_Observer', 'Cinnebar/RedBean_Observer.html');
+        				tree_classe.add(classe);
+        			    			    			        			    			        			    			            				var classe = new WebFXTreeItem('RedBean_Plugin', 'Cinnebar/RedBean_Plugin.html');
+        				tree_classe.add(classe);
+        			    			    			        			    			        			    			        			    			        			    			            				var classe = new WebFXTreeItem('RedBean_QueryWriter', 'Cinnebar/RedBean_QueryWriter.html');
+        				tree_classe.add(classe);
+        			    			    			        			    			        			    			        			    			        			    			        			    			        			    			        			    			        			    			        			    			        			
+    			tree.add(tree_classe);
+    						    		    			var tree_classe = new WebFXTreeItem('Class(es)', '');
+    			
+    			    			            				var classe = new WebFXTreeItem('R', 'Cinnebar/R.html');
+        				tree_classe.add(classe);
+        			    			    			        			    			            				var classe = new WebFXTreeItem('RedBean_Adapter_DBAdapter', 'Cinnebar/RedBean_Adapter_DBAdapter.html');
+        				tree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('RedBean_AssociationManager', 'Cinnebar/RedBean_AssociationManager.html');
+        				tree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('RedBean_AssociationManager_ExtAssociationManager', 'Cinnebar/RedBean_AssociationManager_ExtAssociationManager.html');
+        				tree_classe.add(classe);
+        			    			    			        			    			            				var classe = new WebFXTreeItem('RedBean_BeanHelper_Facade', 'Cinnebar/RedBean_BeanHelper_Facade.html');
+        				tree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('RedBean_DependencyInjector', 'Cinnebar/RedBean_DependencyInjector.html');
+        				tree_classe.add(classe);
+        			    			    			        			    			            				var classe = new WebFXTreeItem('RedBean_Driver_PDO', 'Cinnebar/RedBean_Driver_PDO.html');
+        				tree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('RedBean_DuplicationManager', 'Cinnebar/RedBean_DuplicationManager.html');
+        				tree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('RedBean_Exception', 'Cinnebar/RedBean_Exception.html');
+        				tree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('RedBean_Exception_Security', 'Cinnebar/RedBean_Exception_Security.html');
+        				tree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('RedBean_Exception_SQL', 'Cinnebar/RedBean_Exception_SQL.html');
+        				tree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('RedBean_Facade', 'Cinnebar/RedBean_Facade.html');
+        				tree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('RedBean_Finder', 'Cinnebar/RedBean_Finder.html');
+        				tree_classe.add(classe);
+        			    			    			        			    			            				var classe = new WebFXTreeItem('RedBean_LabelMaker', 'Cinnebar/RedBean_LabelMaker.html');
+        				tree_classe.add(classe);
+        			    			    			        			    			            				var classe = new WebFXTreeItem('RedBean_Logger_Default', 'Cinnebar/RedBean_Logger_Default.html');
+        				tree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('RedBean_ModelHelper', 'Cinnebar/RedBean_ModelHelper.html');
+        				tree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('RedBean_Observable', 'Cinnebar/RedBean_Observable.html');
+        				tree_classe.add(classe);
+        			    			    			        			    			            				var classe = new WebFXTreeItem('RedBean_OODB', 'Cinnebar/RedBean_OODB.html');
+        				tree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('RedBean_OODBBean', 'Cinnebar/RedBean_OODBBean.html');
+        				tree_classe.add(classe);
+        			    			    			        			    			            				var classe = new WebFXTreeItem('RedBean_Plugin_BeanCan', 'Cinnebar/RedBean_Plugin_BeanCan.html');
+        				tree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('RedBean_Plugin_Cache', 'Cinnebar/RedBean_Plugin_Cache.html');
+        				tree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('RedBean_Plugin_Cooker', 'Cinnebar/RedBean_Plugin_Cooker.html');
+        				tree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('RedBean_Plugin_QueryLogger', 'Cinnebar/RedBean_Plugin_QueryLogger.html');
+        				tree_classe.add(classe);
+        			    			    			        			    			            				var classe = new WebFXTreeItem('RedBean_QueryWriter_AQueryWriter', 'Cinnebar/RedBean_QueryWriter_AQueryWriter.html');
+        				tree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('RedBean_QueryWriter_CUBRID', 'Cinnebar/RedBean_QueryWriter_CUBRID.html');
+        				tree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('RedBean_QueryWriter_MySQL', 'Cinnebar/RedBean_QueryWriter_MySQL.html');
+        				tree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('RedBean_QueryWriter_PostgreSQL', 'Cinnebar/RedBean_QueryWriter_PostgreSQL.html');
+        				tree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('RedBean_QueryWriter_SQLiteT', 'Cinnebar/RedBean_QueryWriter_SQLiteT.html');
+        				tree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('RedBean_Setup', 'Cinnebar/RedBean_Setup.html');
+        				tree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('RedBean_SimpleModel', 'Cinnebar/RedBean_SimpleModel.html');
+        				tree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('RedBean_SQLHelper', 'Cinnebar/RedBean_SQLHelper.html');
+        				tree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('RedBean_TagManager', 'Cinnebar/RedBean_TagManager.html');
+        				tree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('RedBean_ToolBox', 'Cinnebar/RedBean_ToolBox.html');
+        				tree_classe.add(classe);
+        			    			    	
+    			tree.add(tree_classe);
+    				
+					var tree_function = new WebFXTreeItem('Function(s)', '');
+			
+							var fic = new WebFXTreeItem('lcfirst', 'Cinnebar/_lib---redbean---rb.php.html#functionlcfirst');
+				tree_function.add(fic);
+					
+			tree.add(tree_function);
+			
+					var tree_file = new WebFXTreeItem('File(s)', '');
+	
+							var file = new WebFXTreeItem('example.php', 'Cinnebar/_lib---redbean---example.php.html');
+				tree_file.add(file);
+							var file = new WebFXTreeItem('rb.php', 'Cinnebar/_lib---redbean---rb.php.html');
+				tree_file.add(file);
+				
+			tree.add(tree_file);
+		
+							var subpackagetree = new WebFXTreeItem('<span class="sub-package">Auth</span>', '');
+		
+			
+		    		    			var subpackagetree_classe = new WebFXTreeItem('Interface(s)', '');
+    			
+    			    			        			
+    			subpackagetree.add(subpackagetree_classe);
+    				
+		    		    			var subpackagetree_classe = new WebFXTreeItem('Class(es)', '');
+    			
+    			    			            				var classe = new WebFXTreeItem('Auth', 'Cinnebar/Auth/Auth.html');
+        				subpackagetree_classe.add(classe);
+        			    			    	
+    			subpackagetree.add(subpackagetree_classe);
+    				
+				
+					var subpackagetree_file = new WebFXTreeItem('File(s)', '');
+			
+							var file = new WebFXTreeItem('Auth.php', 'Cinnebar/Auth/_Auth.php.html');
+				subpackagetree_file.add(file);
+					
+			subpackagetree.add(subpackagetree_file);
+			
+	  tree.add(subpackagetree);
+							var subpackagetree = new WebFXTreeItem('<span class="sub-package">Controller</span>', '');
+		
+			
+		    		    			var subpackagetree_classe = new WebFXTreeItem('Interface(s)', '');
+    			
+    			    			        			    			        			    			        			    			        			    			        			    			        			
+    			subpackagetree.add(subpackagetree_classe);
+    				
+		    		    			var subpackagetree_classe = new WebFXTreeItem('Class(es)', '');
+    			
+    			    			            				var classe = new WebFXTreeItem('Controller', 'Cinnebar/Controller/Controller.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Controller_Admin', 'Cinnebar/Controller/Controller_Admin.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Controller_Install', 'Cinnebar/Controller/Controller_Install.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Controller_Login', 'Cinnebar/Controller/Controller_Login.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Controller_Logout', 'Cinnebar/Controller/Controller_Logout.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Controller_Welcome', 'Cinnebar/Controller/Controller_Welcome.html');
+        				subpackagetree_classe.add(classe);
+        			    			    	
+    			subpackagetree.add(subpackagetree_classe);
+    				
+				
+					var subpackagetree_file = new WebFXTreeItem('File(s)', '');
+			
+							var file = new WebFXTreeItem('Admin.php', 'Cinnebar/Controller/_controller---Admin.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Controller.php', 'Cinnebar/Controller/_Controller.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Install.php', 'Cinnebar/Controller/_controller---Install.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Login.php', 'Cinnebar/Controller/_controller---Login.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Logout.php', 'Cinnebar/Controller/_controller---Logout.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Welcome.php', 'Cinnebar/Controller/_controller---Welcome.php.html');
+				subpackagetree_file.add(file);
+					
+			subpackagetree.add(subpackagetree_file);
+			
+	  tree.add(subpackagetree);
+							var subpackagetree = new WebFXTreeItem('<span class="sub-package">Converter</span>', '');
+		
+			
+		    		    			var subpackagetree_classe = new WebFXTreeItem('Interface(s)', '');
+    			
+    			    			        			    			        			    			        			    			        			    			        			
+    			subpackagetree.add(subpackagetree_classe);
+    				
+		    		    			var subpackagetree_classe = new WebFXTreeItem('Class(es)', '');
+    			
+    			    			            				var classe = new WebFXTreeItem('Converter', 'Cinnebar/Converter/Converter.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Converter_Decimal', 'Cinnebar/Converter/Converter_Decimal.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Converter_MySqlDate', 'Cinnebar/Converter/Converter_MySqlDate.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Converter_MySqlDatetime', 'Cinnebar/Converter/Converter_MySqlDatetime.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Converter_MySqlTime', 'Cinnebar/Converter/Converter_MySqlTime.html');
+        				subpackagetree_classe.add(classe);
+        			    			    	
+    			subpackagetree.add(subpackagetree_classe);
+    				
+				
+					var subpackagetree_file = new WebFXTreeItem('File(s)', '');
+			
+							var file = new WebFXTreeItem('Converter.php', 'Cinnebar/Converter/_Converter.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Decimal.php', 'Cinnebar/Converter/_converter---Decimal.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Mysqldate.php', 'Cinnebar/Converter/_converter---Mysqldate.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Mysqldatetime.php', 'Cinnebar/Converter/_converter---Mysqldatetime.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Mysqltime.php', 'Cinnebar/Converter/_converter---Mysqltime.php.html');
+				subpackagetree_file.add(file);
+					
+			subpackagetree.add(subpackagetree_file);
+			
+	  tree.add(subpackagetree);
+							var subpackagetree = new WebFXTreeItem('<span class="sub-package">Formatter</span>', '');
+		
+			
+		    		    			var subpackagetree_classe = new WebFXTreeItem('Interface(s)', '');
+    			
+    			    			        			    			        			    			        			
+    			subpackagetree.add(subpackagetree_classe);
+    				
+		    		    			var subpackagetree_classe = new WebFXTreeItem('Class(es)', '');
+    			
+    			    			            				var classe = new WebFXTreeItem('Formatter', 'Cinnebar/Formatter/Formatter.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Formatter_Address_De', 'Cinnebar/Formatter/Formatter_Address_De.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Formatter_Address_Gb', 'Cinnebar/Formatter/Formatter_Address_Gb.html');
+        				subpackagetree_classe.add(classe);
+        			    			    	
+    			subpackagetree.add(subpackagetree_classe);
+    				
+				
+					var subpackagetree_file = new WebFXTreeItem('File(s)', '');
+			
+							var file = new WebFXTreeItem('De.php', 'Cinnebar/Formatter/_formatter---address---De.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Formatter.php', 'Cinnebar/Formatter/_Formatter.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Gb.php', 'Cinnebar/Formatter/_formatter---address---Gb.php.html');
+				subpackagetree_file.add(file);
+					
+			subpackagetree.add(subpackagetree_file);
+			
+	  tree.add(subpackagetree);
+							var subpackagetree = new WebFXTreeItem('<span class="sub-package">I18n</span>', '');
+		
+			
+		    		    			var subpackagetree_classe = new WebFXTreeItem('Interface(s)', '');
+    			
+    			    			        			
+    			subpackagetree.add(subpackagetree_classe);
+    				
+		    		    			var subpackagetree_classe = new WebFXTreeItem('Class(es)', '');
+    			
+    			    			            				var classe = new WebFXTreeItem('I18n', 'Cinnebar/I18n/I18n.html');
+        				subpackagetree_classe.add(classe);
+        			    			    	
+    			subpackagetree.add(subpackagetree_classe);
+    				
+				
+					var subpackagetree_file = new WebFXTreeItem('File(s)', '');
+			
+							var file = new WebFXTreeItem('I18n.php', 'Cinnebar/I18n/_I18n.php.html');
+				subpackagetree_file.add(file);
+					
+			subpackagetree.add(subpackagetree_file);
+			
+	  tree.add(subpackagetree);
+							var subpackagetree = new WebFXTreeItem('<span class="sub-package">Model</span>', '');
+		
+			
+		    		    			var subpackagetree_classe = new WebFXTreeItem('Interface(s)', '');
+    			
+    			    			        			    			        			    			        			    			        			    			        			    			        			    			        			    			        			    			        			    			        			    			        			    			        			    			        			    			        			    			        			    			        			    			        			    			        			    			        			    			        			
+    			subpackagetree.add(subpackagetree_classe);
+    				
+		    		    			var subpackagetree_classe = new WebFXTreeItem('Class(es)', '');
+    			
+    			    			            				var classe = new WebFXTreeItem('Model', 'Cinnebar/Model/Model.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Model_Address', 'Cinnebar/Model/Model_Address.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Model_Country', 'Cinnebar/Model/Model_Country.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Model_Criteria', 'Cinnebar/Model/Model_Criteria.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Model_Domain', 'Cinnebar/Model/Model_Domain.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Model_Email', 'Cinnebar/Model/Model_Email.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Model_Filter', 'Cinnebar/Model/Model_Filter.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Model_Info', 'Cinnebar/Model/Model_Info.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Model_Language', 'Cinnebar/Model/Model_Language.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Model_Login', 'Cinnebar/Model/Model_Login.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Model_Person', 'Cinnebar/Model/Model_Person.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Model_Phone', 'Cinnebar/Model/Model_Phone.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Model_Role', 'Cinnebar/Model/Model_Role.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Model_Session', 'Cinnebar/Model/Model_Session.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Model_Setting', 'Cinnebar/Model/Model_Setting.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Model_Tag', 'Cinnebar/Model/Model_Tag.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Model_Team', 'Cinnebar/Model/Model_Team.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Model_Token', 'Cinnebar/Model/Model_Token.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Model_Url', 'Cinnebar/Model/Model_Url.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Model_User', 'Cinnebar/Model/Model_User.html');
+        				subpackagetree_classe.add(classe);
+        			    			    	
+    			subpackagetree.add(subpackagetree_classe);
+    				
+				
+					var subpackagetree_file = new WebFXTreeItem('File(s)', '');
+			
+							var file = new WebFXTreeItem('Address.php', 'Cinnebar/Model/_model---Address.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Country.php', 'Cinnebar/Model/_model---Country.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Criteria.php', 'Cinnebar/Model/_model---Criteria.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Domain.php', 'Cinnebar/Model/_model---Domain.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Email.php', 'Cinnebar/Model/_model---Email.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Filter.php', 'Cinnebar/Model/_model---Filter.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Info.php', 'Cinnebar/Model/_model---Info.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Language.php', 'Cinnebar/Model/_model---Language.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Login.php', 'Cinnebar/Model/_model---Login.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Model.php', 'Cinnebar/Model/_Model.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Person.php', 'Cinnebar/Model/_model---Person.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Phone.php', 'Cinnebar/Model/_model---Phone.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Role.php', 'Cinnebar/Model/_model---Role.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Session.php', 'Cinnebar/Model/_model---Session.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Setting.php', 'Cinnebar/Model/_model---Setting.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Tag.php', 'Cinnebar/Model/_model---Tag.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Team.php', 'Cinnebar/Model/_model---Team.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Token.php', 'Cinnebar/Model/_model---Token.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Url.php', 'Cinnebar/Model/_model---Url.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('User.php', 'Cinnebar/Model/_model---User.php.html');
+				subpackagetree_file.add(file);
+					
+			subpackagetree.add(subpackagetree_file);
+			
+	  tree.add(subpackagetree);
+							var subpackagetree = new WebFXTreeItem('<span class="sub-package">Pagination</span>', '');
+		
+			
+		    		    			var subpackagetree_classe = new WebFXTreeItem('Interface(s)', '');
+    			
+    			    			        			
+    			subpackagetree.add(subpackagetree_classe);
+    				
+		    		    			var subpackagetree_classe = new WebFXTreeItem('Class(es)', '');
+    			
+    			    			            				var classe = new WebFXTreeItem('Pagination', 'Cinnebar/Pagination/Pagination.html');
+        				subpackagetree_classe.add(classe);
+        			    			    	
+    			subpackagetree.add(subpackagetree_classe);
+    				
+				
+					var subpackagetree_file = new WebFXTreeItem('File(s)', '');
+			
+							var file = new WebFXTreeItem('Pagination.php', 'Cinnebar/Pagination/_Pagination.php.html');
+				subpackagetree_file.add(file);
+					
+			subpackagetree.add(subpackagetree_file);
+			
+	  tree.add(subpackagetree);
+							var subpackagetree = new WebFXTreeItem('<span class="sub-package">Plugin</span>', '');
+		
+			
+		    		    			var subpackagetree_classe = new WebFXTreeItem('Interface(s)', '');
+    			
+    			    			        			    			        			    			        			    			        			
+    			subpackagetree.add(subpackagetree_classe);
+    				
+		    		    			var subpackagetree_classe = new WebFXTreeItem('Class(es)', '');
+    			
+    			    			            				var classe = new WebFXTreeItem('Plugin', 'Cinnebar/Plugin/Plugin.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Plugin_Attach', 'Cinnebar/Plugin/Plugin_Attach.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Plugin_Detach', 'Cinnebar/Plugin/Plugin_Detach.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Plugin_Sortable', 'Cinnebar/Plugin/Plugin_Sortable.html');
+        				subpackagetree_classe.add(classe);
+        			    			    	
+    			subpackagetree.add(subpackagetree_classe);
+    				
+				
+					var subpackagetree_file = new WebFXTreeItem('File(s)', '');
+			
+							var file = new WebFXTreeItem('Attach.php', 'Cinnebar/Plugin/_plugin---Attach.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Detach.php', 'Cinnebar/Plugin/_plugin---Detach.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Plugin.php', 'Cinnebar/Plugin/_Plugin.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Sortable.php', 'Cinnebar/Plugin/_plugin---Sortable.php.html');
+				subpackagetree_file.add(file);
+					
+			subpackagetree.add(subpackagetree_file);
+			
+	  tree.add(subpackagetree);
+							var subpackagetree = new WebFXTreeItem('<span class="sub-package">Sessionhandler</span>', '');
+		
+			
+		    		    			var subpackagetree_classe = new WebFXTreeItem('Interface(s)', '');
+    			
+    			    			        			    			        			    			        			
+    			subpackagetree.add(subpackagetree_classe);
+    				
+		    		    			var subpackagetree_classe = new WebFXTreeItem('Class(es)', '');
+    			
+    			    			            				var classe = new WebFXTreeItem('Sessionhandler', 'Cinnebar/Sessionhandler/Sessionhandler.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Sessionhandler_Apc', 'Cinnebar/Sessionhandler/Sessionhandler_Apc.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Sessionhandler_Database', 'Cinnebar/Sessionhandler/Sessionhandler_Database.html');
+        				subpackagetree_classe.add(classe);
+        			    			    	
+    			subpackagetree.add(subpackagetree_classe);
+    				
+				
+					var subpackagetree_file = new WebFXTreeItem('File(s)', '');
+			
+							var file = new WebFXTreeItem('Apc.php', 'Cinnebar/Sessionhandler/_sessionhandler---Apc.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Database.php', 'Cinnebar/Sessionhandler/_sessionhandler---Database.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Sessionhandler.php', 'Cinnebar/Sessionhandler/_Sessionhandler.php.html');
+				subpackagetree_file.add(file);
+					
+			subpackagetree.add(subpackagetree_file);
+			
+	  tree.add(subpackagetree);
+							var subpackagetree = new WebFXTreeItem('<span class="sub-package">Url</span>', '');
+		
+			
+		    		    			var subpackagetree_classe = new WebFXTreeItem('Interface(s)', '');
+    			
+    			    			        			
+    			subpackagetree.add(subpackagetree_classe);
+    				
+		    		    			var subpackagetree_classe = new WebFXTreeItem('Class(es)', '');
+    			
+    			    			            				var classe = new WebFXTreeItem('Url', 'Cinnebar/Url/Url.html');
+        				subpackagetree_classe.add(classe);
+        			    			    	
+    			subpackagetree.add(subpackagetree_classe);
+    				
+				
+					var subpackagetree_file = new WebFXTreeItem('File(s)', '');
+			
+							var file = new WebFXTreeItem('Url.php', 'Cinnebar/Url/_Url.php.html');
+				subpackagetree_file.add(file);
+					
+			subpackagetree.add(subpackagetree_file);
+			
+	  tree.add(subpackagetree);
+							var subpackagetree = new WebFXTreeItem('<span class="sub-package">Validator</span>', '');
+		
+			
+		    		    			var subpackagetree_classe = new WebFXTreeItem('Interface(s)', '');
+    			
+    			    			        			    			        			    			        			    			        			    			        			    			        			    			        			    			        			
+    			subpackagetree.add(subpackagetree_classe);
+    				
+		    		    			var subpackagetree_classe = new WebFXTreeItem('Class(es)', '');
+    			
+    			    			            				var classe = new WebFXTreeItem('Exception_Plugin', 'Cinnebar/Validator/Exception_Plugin.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Validator', 'Cinnebar/Validator/Validator.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Validator_HasValue', 'Cinnebar/Validator/Validator_HasValue.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Validator_IsDate', 'Cinnebar/Validator/Validator_IsDate.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Validator_IsEmail', 'Cinnebar/Validator/Validator_IsEmail.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Validator_IsNumeric', 'Cinnebar/Validator/Validator_IsNumeric.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Validator_IsUnique', 'Cinnebar/Validator/Validator_IsUnique.html');
+        				subpackagetree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Validator_Range', 'Cinnebar/Validator/Validator_Range.html');
+        				subpackagetree_classe.add(classe);
+        			    			    	
+    			subpackagetree.add(subpackagetree_classe);
+    				
+				
+					var subpackagetree_file = new WebFXTreeItem('File(s)', '');
+			
+							var file = new WebFXTreeItem('Hasvalue.php', 'Cinnebar/Validator/_validator---Hasvalue.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Isdate.php', 'Cinnebar/Validator/_validator---Isdate.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Isemail.php', 'Cinnebar/Validator/_validator---Isemail.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Isnumeric.php', 'Cinnebar/Validator/_validator---Isnumeric.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Isunique.php', 'Cinnebar/Validator/_validator---Isunique.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Plugin.php', 'Cinnebar/Validator/_exception---Plugin.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Range.php', 'Cinnebar/Validator/_validator---Range.php.html');
+				subpackagetree_file.add(file);
+							var file = new WebFXTreeItem('Validator.php', 'Cinnebar/Validator/_Validator.php.html');
+				subpackagetree_file.add(file);
+					
+			subpackagetree.add(subpackagetree_file);
+			
+	  tree.add(subpackagetree);
+	
+document.write(tree);
+}
+</script>
+</div>
+<p class="notes">
+	Generated by 
+	<a href="http://www.phpdoc.org" target="_blank">phpDocumentor <span class="field">1.4.3</span></a>
+</p>
+</body>
+</html>

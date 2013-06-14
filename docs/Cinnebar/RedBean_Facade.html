@@ -1,0 +1,3240 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos  -->
+			<title>Docs For Class RedBean_Facade</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+						<script src="../media/lib/classTree.js"></script>
+												<script language="javascript" type="text/javascript">
+				var imgPlus = new Image();
+				var imgMinus = new Image();
+				imgPlus.src = "../media/images/plus.gif";
+				imgMinus.src = "../media/images/minus.gif";
+				
+				function showNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgMinus.src;
+					oTable.style.display = "block";
+				}
+				
+				function hideNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgPlus.src;
+					oTable.style.display = "none";
+				}
+				
+				function nodeIsVisible(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+									break;
+							}
+					return (oTable && oTable.style.display == "block");
+				}
+				
+				function toggleNodeVisibility(Node){
+					if (nodeIsVisible(Node)){
+						hideNode(Node);
+					}else{
+						showNode(Node);
+					}
+				}
+			</script>
+					</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class RedBean_Facade</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+							<a href="#sec-descendents">Descendents</a>
+			|											<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+		<p class="notes">
+			Located in <a class="field" href="_lib---redbean---rb.php.html">/lib/redbean/rb.php</a> (line <span class="field"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5514">5514</a></span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+	<a name="sec-descendents"></a>
+	<div class="info-box">
+		<div class="info-box-title">Direct descendents</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+			<span class="disabled">Descendents</span>
+			|												<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+								|															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../Cinnebar/R.html">R</a></td>
+					<td>
+											
+										</td>
+				</tr>
+							</table>
+		</div>
+	</div>
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+												<div class="var-title">
+					static <span class="var-type">RedBean_DBAdapter</span>
+					<a href="#$adapter" title="details" class="var-name">$adapter</a>
+				</div>
+																<div class="var-title">
+					static <span class="var-type"><a href="../Cinnebar/RedBean_AssociationManager.html">RedBean_AssociationManager</a></span>
+					<a href="#$associationManager" title="details" class="var-name">$associationManager</a>
+				</div>
+																<div class="var-title">
+					static <span class="var-type">string</span>
+					<a href="#$currentDB" title="details" class="var-name">$currentDB</a>
+				</div>
+																<div class="var-title">
+					static <span class="var-type"><a href="../Cinnebar/RedBean_DuplicationManager.html">RedBean_DuplicationManager</a></span>
+					<a href="#$duplicationManager" title="details" class="var-name">$duplicationManager</a>
+				</div>
+																<div class="var-title">
+					static <span class="var-type">RedBean_ExtAssociationManager</span>
+					<a href="#$extAssocManager" title="details" class="var-name">$extAssocManager</a>
+				</div>
+																<div class="var-title">
+					static <span class="var-type"><a href="../Cinnebar/RedBean_SQLHelper.html">RedBean_SQLHelper</a></span>
+					<a href="#$f" title="details" class="var-name">$f</a>
+				</div>
+																<div class="var-title">
+					static <span class="var-type"><a href="../Cinnebar/RedBean_Finder.html">RedBean_Finder</a></span>
+					<a href="#$finder" title="details" class="var-name">$finder</a>
+				</div>
+																<div class="var-title">
+					static <span class="var-type"><a href="../Cinnebar/RedBean_LabelMaker.html">RedBean_LabelMaker</a></span>
+					<a href="#$labelMaker" title="details" class="var-name">$labelMaker</a>
+				</div>
+																<div class="var-title">
+					static <span class="var-type"><a href="../Cinnebar/RedBean_OODB.html">RedBean_OODB</a></span>
+					<a href="#$redbean" title="details" class="var-name">$redbean</a>
+				</div>
+																<div class="var-title">
+					static <span class="var-type"><a href="../Cinnebar/RedBean_TagManager.html">RedBean_TagManager</a></span>
+					<a href="#$tagManager" title="details" class="var-name">$tagManager</a>
+				</div>
+																<div class="var-title">
+					static <span class="var-type"><a href="../Cinnebar/RedBean_ToolBox.html">RedBean_ToolBox</a></span>
+					<a href="#$toolbox" title="details" class="var-name">$toolbox</a>
+				</div>
+																<div class="var-title">
+					static <span class="var-type">array</span>
+					<a href="#$toolboxes" title="details" class="var-name">$toolboxes</a>
+				</div>
+																<div class="var-title">
+					static <span class="var-type"><a href="../Cinnebar/RedBean_QueryWriter.html">RedBean_QueryWriter</a></span>
+					<a href="#$writer" title="details" class="var-name">$writer</a>
+				</div>
+																																																																																																																							</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+										
+				<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#addDatabase" title="details" class="method-name">addDatabase</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$dsn</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$user</span> = <span class="var-default">null</span>], [<span class="var-type">null|string</span>&nbsp;<span class="var-name">$pass</span> = <span class="var-default">null</span>], [<span class="var-type">bool</span>&nbsp;<span class="var-name">$frozen</span> = <span class="var-default">false</span>])
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#addTags" title="details" class="method-name">addTags</a>
+											(<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$bean</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$tagList</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">bool</span>
+										<a href="#areRelated" title="details" class="method-name">areRelated</a>
+											(<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$bean1</span>, <span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$bean2</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">mixed</span>
+										<a href="#associate" title="details" class="method-name">associate</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$beans1</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$beans2</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$extra</span> = <span class="var-default">null</span>], <span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$bean1</span>, <span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$bean2</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">array</span>
+										<a href="#batch" title="details" class="method-name">batch</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$ids</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#begin" title="details" class="method-name">begin</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#clearRelations" title="details" class="method-name">clearRelations</a>
+											(<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$bean</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#close" title="details" class="method-name">close</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#commit" title="details" class="method-name">commit</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result"><a href="../Cinnebar/RedBean_ToolBox.html">RedBean_ToolBox</a></span>
+										<a href="#configureFacadeWithToolbox" title="details" class="method-name">configureFacadeWithToolbox</a>
+											(<span class="var-type"><a href="../Cinnebar/RedBean_ToolBox.html">RedBean_ToolBox</a></span>&nbsp;<span class="var-name">$tb</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">array</span>
+										<a href="#convertToBeans" title="details" class="method-name">convertToBeans</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$rows</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">integer</span>
+										<a href="#count" title="details" class="method-name">count</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$beanType</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$addSQL</span> = <span class="var-default">''</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">array()</span>])
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#debug" title="details" class="method-name">debug</a>
+											([<span class="var-type">boolean</span>&nbsp;<span class="var-name">$tf</span> = <span class="var-default">true</span>], [<span class="var-type"><a href="../Cinnebar/RedBean_Logger.html">RedBean_Logger</a></span>&nbsp;<span class="var-name">$logger</span> = <span class="var-default">NULL</span>])
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#dependencies" title="details" class="method-name">dependencies</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$dep</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">array</span>
+										<a href="#dispense" title="details" class="method-name">dispense</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$num</span> = <span class="var-default">1</span>], <span class="var-type">integer</span>&nbsp;<span class="var-name">$number</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">array</span>
+										<a href="#dispenseLabels" title="details" class="method-name">dispenseLabels</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$labels</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">array</span>
+										<a href="#dup" title="details" class="method-name">dup</a>
+											(<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$bean</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$trail</span> = <span class="var-default">array()</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$pid</span> = <span class="var-default">false</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$filters</span> = <span class="var-default">array()</span>])
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#each" title="details" class="method-name">each</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$beans</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$types</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$closure</span> = <span class="var-default">null</span>])
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">integer</span>
+										<a href="#exec" title="details" class="method-name">exec</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$values</span> = <span class="var-default">array()</span>])
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">array</span>
+										<a href="#exportAll" title="details" class="method-name">exportAll</a>
+											(<span class="var-type">array|<a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$beans</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$parents</span> = <span class="var-default">false</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$filters</span> = <span class="var-default">array()</span>])
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">array</span>
+										<a href="#find" title="details" class="method-name">find</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span> = <span class="var-default">null</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$values</span> = <span class="var-default">array()</span>])
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">array</span>
+										<a href="#findAll" title="details" class="method-name">findAll</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span> = <span class="var-default">null</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$values</span> = <span class="var-default">array()</span>])
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">array</span>
+										<a href="#findAndExport" title="details" class="method-name">findAndExport</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span> = <span class="var-default">null</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$values</span> = <span class="var-default">array()</span>])
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>
+										<a href="#findLast" title="details" class="method-name">findLast</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span> = <span class="var-default">null</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$values</span> = <span class="var-default">array()</span>])
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>
+										<a href="#findOne" title="details" class="method-name">findOne</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span> = <span class="var-default">null</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$values</span> = <span class="var-default">array()</span>])
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">array</span>
+										<a href="#findOrDispense" title="details" class="method-name">findOrDispense</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span> = <span class="var-default">null</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$values</span> = <span class="var-default">array()</span>])
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#freeze" title="details" class="method-name">freeze</a>
+											([<span class="var-type"></span>&nbsp;<span class="var-name">$tf</span> = <span class="var-default">true</span>], <span class="var-type">boolean|array</span>&nbsp;<span class="var-name">$trueFalse</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">array</span>
+										<a href="#gatherLabels" title="details" class="method-name">gatherLabels</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$beans</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">string</span>
+										<a href="#genSlots" title="details" class="method-name">genSlots</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$array</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">array</span>
+										<a href="#getAll" title="details" class="method-name">getAll</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$values</span> = <span class="var-default">array()</span>])
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">array</span>
+										<a href="#getAssoc" title="details" class="method-name">getAssoc</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$values</span> = <span class="var-default">array()</span>])
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">string</span>
+										<a href="#getCell" title="details" class="method-name">getCell</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$values</span> = <span class="var-default">array()</span>])
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">array</span>
+										<a href="#getCol" title="details" class="method-name">getCol</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$values</span> = <span class="var-default">array()</span>])
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">array</span>
+										<a href="#getColumns" title="details" class="method-name">getColumns</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$table</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">RedBean_DatabaseAdapter</span>
+										<a href="#getDatabaseAdapter" title="details" class="method-name">getDatabaseAdapter</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">RedBean_RedBean</span>
+										<a href="#getRedBean" title="details" class="method-name">getRedBean</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">array</span>
+										<a href="#getRow" title="details" class="method-name">getRow</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$values</span> = <span class="var-default">array()</span>])
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">string</span>
+										<a href="#getVersion" title="details" class="method-name">getVersion</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result"><a href="../Cinnebar/RedBean_QueryWriter.html">RedBean_QueryWriter</a></span>
+										<a href="#getWriter" title="details" class="method-name">getWriter</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">boolean</span>
+										<a href="#hasTag" title="details" class="method-name">hasTag</a>
+											(<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$bean</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$tags</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$all</span> = <span class="var-default">false</span>])
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">type</span>
+										<a href="#isoDate" title="details" class="method-name">isoDate</a>
+											([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$time</span> = <span class="var-default">null</span>])
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">type</span>
+										<a href="#isoDateTime" title="details" class="method-name">isoDateTime</a>
+											([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$time</span> = <span class="var-default">null</span>])
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>
+										<a href="#load" title="details" class="method-name">load</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$id</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>
+										<a href="#loadMulti" title="details" class="method-name">loadMulti</a>
+											(<span class="var-type">string|array</span>&nbsp;<span class="var-name">$types</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$id</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#nuke" title="details" class="method-name">nuke</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#preload" title="details" class="method-name">preload</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$beans</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$types</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$closure</span> = <span class="var-default">null</span>])
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">array</span>
+										<a href="#related" title="details" class="method-name">related</a>
+											(<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a>|array</span>&nbsp;<span class="var-name">$bean</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span> = <span class="var-default">null</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$values</span> = <span class="var-default">array()</span>], <span class="var-type">array</span>&nbsp;<span class="var-name">$val</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>
+										<a href="#relatedOne" title="details" class="method-name">relatedOne</a>
+											(<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$bean</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span> = <span class="var-default">null</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$values</span> = <span class="var-default">array()</span>])
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#renameAssociation" title="details" class="method-name">renameAssociation</a>
+											(<span class="var-type">string|array</span>&nbsp;<span class="var-name">$from</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$to</span> = <span class="var-default">null</span>])
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#rollback" title="details" class="method-name">rollback</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">int</span>
+										<a href="#selectDatabase" title="details" class="method-name">selectDatabase</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#setDatabaseAdapter" title="details" class="method-name">setDatabaseAdapter</a>
+											(<span class="var-type"><a href="../Cinnebar/RedBean_Adapter.html">RedBean_Adapter</a></span>&nbsp;<span class="var-name">$adapter</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#setRedBean" title="details" class="method-name">setRedBean</a>
+											(<span class="var-type"><a href="../Cinnebar/RedBean_OODB.html">RedBean_OODB</a></span>&nbsp;<span class="var-name">$redbean</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#setStrictTyping" title="details" class="method-name">setStrictTyping</a>
+											(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$trueFalse</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#setup" title="details" class="method-name">setup</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$dsn</span> = <span class="var-default">null</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$username</span> = <span class="var-default">null</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$password</span> = <span class="var-default">null</span>])
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#setWriter" title="details" class="method-name">setWriter</a>
+											(<span class="var-type"><a href="../Cinnebar/RedBean_QueryWriter.html">RedBean_QueryWriter</a></span>&nbsp;<span class="var-name">$writer</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">integer</span>
+										<a href="#store" title="details" class="method-name">store</a>
+											(<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a>|<a href="../Cinnebar/RedBean_SimpleModel.html">RedBean_SimpleModel</a></span>&nbsp;<span class="var-name">$bean</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">array</span>
+										<a href="#storeAll" title="details" class="method-name">storeAll</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$beans</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#swap" title="details" class="method-name">swap</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$beans</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$property</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">string</span>
+										<a href="#tag" title="details" class="method-name">tag</a>
+											(<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$bean</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$tagList</span> = <span class="var-default">null</span>])
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">array</span>
+										<a href="#tagged" title="details" class="method-name">tagged</a>
+											(<span class="var-type">$beanType</span>&nbsp;<span class="var-name">$beanType</span>, <span class="var-type">$tagList</span>&nbsp;<span class="var-name">$tagList</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">array</span>
+										<a href="#taggedAll" title="details" class="method-name">taggedAll</a>
+											(<span class="var-type">$beanType</span>&nbsp;<span class="var-name">$beanType</span>, <span class="var-type">$tagList</span>&nbsp;<span class="var-name">$tagList</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#transaction" title="details" class="method-name">transaction</a>
+											(<span class="var-type">callable</span>&nbsp;<span class="var-name">$callback</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">mixed</span>
+										<a href="#trash" title="details" class="method-name">trash</a>
+											(<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a>|<a href="../Cinnebar/RedBean_SimpleModel.html">RedBean_SimpleModel</a></span>&nbsp;<span class="var-name">$bean</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#trashAll" title="details" class="method-name">trashAll</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$beans</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">mixed</span>
+										<a href="#unassociate" title="details" class="method-name">unassociate</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$beans1</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$beans2</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$fast</span> = <span class="var-default">false</span>], <span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$bean1</span>, <span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$bean2</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">array</span>
+										<a href="#unrelated" title="details" class="method-name">unrelated</a>
+											(<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$bean</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span> = <span class="var-default">null</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$values</span> = <span class="var-default">array()</span>])
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#untag" title="details" class="method-name">untag</a>
+											(<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$bean</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$tagList</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#wipe" title="details" class="method-name">wipe</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$beanType</span>)
+									</div>
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																							</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$adapter" id="$adapter"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type">RedBean_DBAdapter</span>
+			<span class="var-name">$adapter</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5534">5534</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$associationManager" id="$associationManager"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type"><a href="../Cinnebar/RedBean_AssociationManager.html">RedBean_AssociationManager</a></span>
+			<span class="var-name">$associationManager</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5538">5538</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$currentDB" id="$currentDB"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type">string</span>
+			<span class="var-name">$currentDB</span>
+			 = <span class="var-default"> ''</span>			(line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5562">5562</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$duplicationManager" id="$duplicationManager"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type"><a href="../Cinnebar/RedBean_DuplicationManager.html">RedBean_DuplicationManager</a></span>
+			<span class="var-name">$duplicationManager</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5550">5550</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$extAssocManager" id="$extAssocManager"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type">RedBean_ExtAssociationManager</span>
+			<span class="var-name">$extAssocManager</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5542">5542</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$f" id="$f"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type"><a href="../Cinnebar/RedBean_SQLHelper.html">RedBean_SQLHelper</a></span>
+			<span class="var-name">$f</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5566">5566</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$finder" id="$finder"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type"><a href="../Cinnebar/RedBean_Finder.html">RedBean_Finder</a></span>
+			<span class="var-name">$finder</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5558">5558</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$labelMaker" id="$labelMaker"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type"><a href="../Cinnebar/RedBean_LabelMaker.html">RedBean_LabelMaker</a></span>
+			<span class="var-name">$labelMaker</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5554">5554</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$redbean" id="$redbean"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type"><a href="../Cinnebar/RedBean_OODB.html">RedBean_OODB</a></span>
+			<span class="var-name">$redbean</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5526">5526</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$tagManager" id="$tagManager"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type"><a href="../Cinnebar/RedBean_TagManager.html">RedBean_TagManager</a></span>
+			<span class="var-name">$tagManager</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5546">5546</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$toolbox" id="$toolbox"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type"><a href="../Cinnebar/RedBean_ToolBox.html">RedBean_ToolBox</a></span>
+			<span class="var-name">$toolbox</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5522">5522</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$toolboxes" id="$toolboxes"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type">array</span>
+			<span class="var-name">$toolboxes</span>
+			 = <span class="var-default">array()</span>			(line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5518">5518</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$writer" id="$writer"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type"><a href="../Cinnebar/RedBean_QueryWriter.html">RedBean_QueryWriter</a></span>
+			<span class="var-name">$writer</span>
+						(line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5530">5530</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodaddDatabase" id="addDatabase"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static addDatabase</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5651">5651</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Adds a database to the facade, afterwards you can select the database using selectDatabase($key).</p>
+<p class="description"><p>Adds a database to the facade, afterwards you can select the database using selectDatabase($key).</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">void</span>
+		<span class="method-name">
+			addDatabase
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$dsn</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$user</span> = <span class="var-default">null</span>], [<span class="var-type">null|string</span>&nbsp;<span class="var-name">$pass</span> = <span class="var-default">null</span>], [<span class="var-type">bool</span>&nbsp;<span class="var-name">$frozen</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: ID for the database</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$dsn</span><span class="var-description">: DSN for the database</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$user</span><span class="var-description">: User for connection</span>			</li>
+					<li>
+				<span class="var-type">null|string</span>
+				<span class="var-name">$pass</span><span class="var-description">: Password for connection</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$frozen</span><span class="var-description">: Whether this database is frozen or not</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodaddTags" id="addTags"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static addTags</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6231">6231</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Part of RedBeanPHP Tagging API.</p>
+<p class="description"><p>Part of RedBeanPHP Tagging API. Adds tags to a bean. If $tagList is a comma separated list of tags all tags will be associated with the bean. You may also pass an array instead of a string.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">void</span>
+		<span class="method-name">
+			addTags
+		</span>
+					(<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$bean</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$tagList</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>
+				<span class="var-name">$bean</span><span class="var-description">: bean</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$tagList</span><span class="var-description">: list of tags to add to bean</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodareRelated" id="areRelated"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static areRelated</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5881">5881</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Checks whether a pair of beans is related N-M. check whether the beans are related in N:1 way.</p>
+<p class="description"><p>Checks whether a pair of beans is related N-M. This function does not check whether the beans are related in N:1 way.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> whether they are related</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">bool</span>
+		<span class="method-name">
+			areRelated
+		</span>
+					(<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$bean1</span>, <span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$bean2</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>
+				<span class="var-name">$bean1</span><span class="var-description">: first bean</span>			</li>
+					<li>
+				<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>
+				<span class="var-name">$bean2</span><span class="var-description">: second bean</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodassociate" id="associate"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static associate</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5811">5811</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Associates two Beans.</p>
+<p class="description"><p>Associates two Beans. This method will associate two beans with eachother. You can then get one of the beans by using the related() function and providing the other bean. You can also provide a base bean in the extra parameter. This base bean allows you to add extra information to the association record. Note that this is for advanced use only and the information will not be added to one of the beans, just to the association record. It's also possible to provide an array or JSON string as base bean. If you pass a scalar this function will interpret the base bean as having one property called 'extra' with the value of the scalar.</p></p>
+	<ul class="tags">
+				<li><span class="field">todo:</span> extract from facade</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">mixed</span>
+		<span class="method-name">
+			associate
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$beans1</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$beans2</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$extra</span> = <span class="var-default">null</span>], <span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$bean1</span>, <span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$bean2</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>
+				<span class="var-name">$bean1</span><span class="var-description">: bean that will be part of the association</span>			</li>
+					<li>
+				<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>
+				<span class="var-name">$bean2</span><span class="var-description">: bean that will be part of the association</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$extra</span><span class="var-description">: bean, scalar, array or JSON providing extra data.</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$beans1</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$beans2</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodbatch" id="batch"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static batch</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5997">5997</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns an array of beans. this method will bring you the correspondig beans.</p>
+<p class="description"><p>Returns an array of beans. Pass a type and a series of ids and this method will bring you the correspondig beans.
+ important note: Because this method loads beans using the load() function (but faster) it will return empty beans with ID 0 for every bean that could not be located. The resulting beans will have the passed IDs as their keys.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> resulting beans (may include empty ones)</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">array</span>
+		<span class="method-name">
+			batch
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$ids</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: type of beans</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$ids</span><span class="var-description">: ids to load</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodbegin" id="begin"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static begin</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6312">6312</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Facade Convience method for adapter transaction system.</p>
+<p class="description"><p>Facade Convience method for adapter transaction system. Begins a transaction.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">void</span>
+		<span class="method-name">
+			begin
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodclearRelations" id="clearRelations"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static clearRelations</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5907">5907</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Clears all associated beans.</p>
+<p class="description"><p>Clears all associated beans. Breaks all many-to-many associations of a bean and a specified type.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">void</span>
+		<span class="method-name">
+			clearRelations
+		</span>
+					(<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$bean</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>
+				<span class="var-name">$bean</span><span class="var-description">: bean you wish to clear many-to-many relations for</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: type of bean you wish to break associatons with</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodclose" id="close"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static close</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6454">6454</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Closes the database connection.</p>
+<p class="description"><p>Closes the database connection.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">void</span>
+		<span class="method-name">
+			close
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodcommit" id="commit"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static commit</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6323">6323</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Facade Convience method for adapter transaction system.</p>
+<p class="description"><p>Facade Convience method for adapter transaction system. Commits a transaction.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">void</span>
+		<span class="method-name">
+			commit
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodconfigureFacadeWithToolbox" id="configureFacadeWithToolbox"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static configureFacadeWithToolbox</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6287">6287</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Configures the facade, want to have a new Writer? A new Object Database or a new Adapter and you want it on-the-fly? Use this method to hot-swap your facade with a new toolbox.</p>
+<p class="description"><p>Configures the facade, want to have a new Writer? A new Object Database or a new Adapter and you want it on-the-fly? Use this method to hot-swap your facade with a new toolbox.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> old, rusty, previously used toolbox</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result"><a href="../Cinnebar/RedBean_ToolBox.html">RedBean_ToolBox</a></span>
+		<span class="method-name">
+			configureFacadeWithToolbox
+		</span>
+					(<span class="var-type"><a href="../Cinnebar/RedBean_ToolBox.html">RedBean_ToolBox</a></span>&nbsp;<span class="var-name">$tb</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../Cinnebar/RedBean_ToolBox.html">RedBean_ToolBox</a></span>
+				<span class="var-name">$tb</span><span class="var-description">: toolbox</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodconvertToBeans" id="convertToBeans"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static convertToBeans</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6167">6167</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Converts a series of rows to beans.</p>
+<p class="description"><p>Converts a series of rows to beans.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">array</span>
+		<span class="method-name">
+			convertToBeans
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$rows</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: type</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$rows</span><span class="var-description">: must contain an array of arrays.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcount" id="count"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static count</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6275">6275</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Counts beans</p>
+<p class="description"><p>Counts beans</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">integer</span>
+		<span class="method-name">
+			count
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$beanType</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$addSQL</span> = <span class="var-default">''</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$params</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$beanType</span><span class="var-description">: type of bean</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$addSQL</span><span class="var-description">: additional SQL snippet (for filtering, limiting)</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$params</span><span class="var-description">: parameters to bind to SQL</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methoddebug" id="debug"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static debug</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5674">5674</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Toggles DEBUG mode.</p>
+<p class="description"><p>Toggles DEBUG mode. In Debug mode all SQL that happens under the hood will be printed to the screen or logged by provided logger.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">void</span>
+		<span class="method-name">
+			debug
+		</span>
+					([<span class="var-type">boolean</span>&nbsp;<span class="var-name">$tf</span> = <span class="var-default">true</span>], [<span class="var-type"><a href="../Cinnebar/RedBean_Logger.html">RedBean_Logger</a></span>&nbsp;<span class="var-name">$logger</span> = <span class="var-default">NULL</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$tf</span>			</li>
+					<li>
+				<span class="var-type"><a href="../Cinnebar/RedBean_Logger.html">RedBean_Logger</a></span>
+				<span class="var-name">$logger</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methoddependencies" id="dependencies"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static dependencies</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6396">6396</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets a list of dependencies.</p>
+<p class="description"><p>Sets a list of dependencies. A dependency list contains an entry for each dependent bean. A dependent bean will be removed if the relation with one of the dependencies gets broken.
+ Example:
+ array(	'page' =&gt; array('book', 'magazine') )
+ A page will be removed if:
+ unset($book-&gt;ownPage[$pageID]);
+ or:
+ unset($magazine-&gt;ownPage[$pageID]);
+ but not if:
+ unset($paper-&gt;ownPage[$pageID]);</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">void</span>
+		<span class="method-name">
+			dependencies
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$dep</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$dep</span><span class="var-description">: list of dependencies</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methoddispense" id="dispense"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static dispense</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5765">5765</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Dispenses a new RedBean OODB Bean for use with the rest of the methods.</p>
+<p class="description"><p>Dispenses a new RedBean OODB Bean for use with the rest of the methods.</p></p>
+	<ul class="tags">
+				<li><span class="field">todo:</span> extract from facade</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">array</span>
+		<span class="method-name">
+			dispense
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$num</span> = <span class="var-default">1</span>], <span class="var-type">integer</span>&nbsp;<span class="var-name">$number</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: type</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$number</span><span class="var-description">: number of beans to dispense</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$num</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methoddispenseLabels" id="dispenseLabels"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static dispenseLabels</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6435">6435</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">A label is a bean with only an id, type and name property.</p>
+<p class="description"><p>A label is a bean with only an id, type and name property. This function will dispense beans for all entries in the array. The values of the array will be assigned to the name property of each individual bean.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> a list of beans with type and name property</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">array</span>
+		<span class="method-name">
+			dispenseLabels
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$labels</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: type of beans you would like to have</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$labels</span><span class="var-description">: list of labels, names for each bean</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methoddup" id="dup"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static dup</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6129">6129</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Makes a copy of a bean. of the bean.</p>
+<p class="description"><p>Makes a copy of a bean. This method makes a deep copy of the bean.The copy will have the following features.<ul><li>All beans in own-lists will be duplicated as well</li><li>All references to shared beans will be copied but not the shared beans themselves</li><li>All references to parent objects (_id fields) will be copied but not the parents themselves</li></ul> In most cases this is the desired scenario for copying beans. This function uses a trail-array to prevent infinite recursion, if a recursive bean is found (i.e. one that already has been processed) the ID of the bean will be returned. This should not happen though.
+ Note: This function does a reflectional database query so it may be slow.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the duplicated bean</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">array</span>
+		<span class="method-name">
+			dup
+		</span>
+					(<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$bean</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$trail</span> = <span class="var-default">array()</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$pid</span> = <span class="var-default">false</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$filters</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>
+				<span class="var-name">$bean</span><span class="var-description">: bean to be copied</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$trail</span><span class="var-description">: for internal usage, pass array()</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$pid</span><span class="var-description">: for internal usage</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$filters</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodeach" id="each"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static each</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6549">6549</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">void</span>
+		<span class="method-name">
+			each
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$beans</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$types</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$closure</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$beans</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$types</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$closure</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodexec" id="exec"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static exec</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6009">6009</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Convenience function to execute Queries directly.</p>
+<p class="description"><p>Convenience function to execute Queries directly. Executes SQL.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> number of affected rows</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">integer</span>
+		<span class="method-name">
+			exec
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$values</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$sql</span><span class="var-description">: sql    SQL query to execute</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$values</span><span class="var-description">: values a list of values to be bound to query parameters</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodexportAll" id="exportAll"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static exportAll</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6147">6147</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Exports a collection of beans. Javascript framework like Dojo or ExtJS.</p>
+<p class="description"><p>Exports a collection of beans. Handy for XML/JSON exports with a Javascript framework like Dojo or ExtJS. What will be exported:<ul><li>contents of the bean</li><li>all own bean lists (recursively)</li><li>all shared beans (not THEIR own lists)</li></ul></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> exported structure</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">array</span>
+		<span class="method-name">
+			exportAll
+		</span>
+					(<span class="var-type">array|<a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$beans</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$parents</span> = <span class="var-default">false</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$filters</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array|<a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>
+				<span class="var-name">$beans</span><span class="var-description">: beans to be exported</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$parents</span><span class="var-description">: whether you want parent beans to be exported</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$filters</span><span class="var-description">: whitelist of types</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodfind" id="find"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static find</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5923">5923</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Finds a bean using a type and a where clause (SQL).</p>
+<p class="description"><p>Finds a bean using a type and a where clause (SQL). As with most Query tools in RedBean you can provide values to be inserted in the SQL statement by populating the value array parameter; you can either use the question mark notation or the slot-notation (:keyname).</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> beans</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">array</span>
+		<span class="method-name">
+			find
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span> = <span class="var-default">null</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$values</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: type   the type of bean you are looking for</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$sql</span><span class="var-description">: sql    SQL query to find the desired bean, starting right after WHERE clause</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$values</span><span class="var-description">: values array of values to be bound to parameters in query</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodfindAll" id="findAll"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static findAll</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5941">5941</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> beans</li>
+				<li><span class="field">see:</span> RedBean_Facade::find
+ The findAll() method differs from the find() method in that it does
+ not assume a WHERE-clause, so this is valid:
+
+ R::findAll('person', ' ORDER BY name DESC ');
+
+ Your SQL does not have to start with a valid WHERE-clause condition.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">array</span>
+		<span class="method-name">
+			findAll
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span> = <span class="var-default">null</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$values</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: type   the type of bean you are looking for</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$sql</span><span class="var-description">: sql    SQL query to find the desired bean, starting right after WHERE clause</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$values</span><span class="var-description">: values array of values to be bound to parameters in query</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodfindAndExport" id="findAndExport"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static findAndExport</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5954">5954</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> arrays</li>
+				<li><span class="field">see:</span> RedBean_Facade::find
+ The variation also exports the beans (i.e. it returns arrays).</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">array</span>
+		<span class="method-name">
+			findAndExport
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span> = <span class="var-default">null</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$values</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: type   the type of bean you are looking for</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$sql</span><span class="var-description">: sql    SQL query to find the desired bean, starting right after WHERE clause</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$values</span><span class="var-description">: values array of values to be bound to parameters in query</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodfindLast" id="findLast"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static findLast</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5980">5980</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">see:</span> RedBean_Facade::find
+ This variation returns the last bean only.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>
+		<span class="method-name">
+			findLast
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span> = <span class="var-default">null</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$values</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: type   the type of bean you are looking for</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$sql</span><span class="var-description">: sql    SQL query to find the desired bean, starting right after WHERE clause</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$values</span><span class="var-description">: values array of values to be bound to parameters in query</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodfindOne" id="findOne"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static findOne</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5967">5967</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">see:</span> RedBean_Facade::find
+ This variation returns the first bean only.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>
+		<span class="method-name">
+			findOne
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span> = <span class="var-default">null</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$values</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: type   the type of bean you are looking for</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$sql</span><span class="var-description">: sql    SQL query to find the desired bean, starting right after WHERE clause</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$values</span><span class="var-description">: values array of values to be bound to parameters in query</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodfindOrDispense" id="findOrDispense"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static findOrDispense</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5789">5789</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Convience method. if no beans are found, it dispenses a bean of that type.</p>
+<p class="description"><p>Convience method. Tries to find beans of a certain type, if no beans are found, it dispenses a bean of that type.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Contains RedBean_OODBBean instances</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">array</span>
+		<span class="method-name">
+			findOrDispense
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span> = <span class="var-default">null</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$values</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: type of bean you are looking for</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$sql</span><span class="var-description">: SQL code for finding the bean</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$values</span><span class="var-description">: parameters to bind to SQL</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodfreeze" id="freeze"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static freeze</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5700">5700</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Toggles fluid or frozen mode. structure is adjusted to accomodate your objects. this is not the case.</p>
+<p class="description"><p>Toggles fluid or frozen mode. In fluid mode the database structure is adjusted to accomodate your objects. In frozen mode this is not the case.
+ You can also pass an array containing a selection of frozen types. Let's call this chilly mode, it's just like fluid mode except that certain types (i.e. tables) aren't touched.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">void</span>
+		<span class="method-name">
+			freeze
+		</span>
+					([<span class="var-type"></span>&nbsp;<span class="var-name">$tf</span> = <span class="var-default">true</span>], <span class="var-type">boolean|array</span>&nbsp;<span class="var-name">$trueFalse</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean|array</span>
+				<span class="var-name">$trueFalse</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$tf</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgatherLabels" id="gatherLabels"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static gatherLabels</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6448">6448</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gathers labels from beans. collects the values of the name properties of each individual bean and stores the names in a new array. default sort function of PHP (sort).</p>
+<p class="description"><p>Gathers labels from beans. This function loops through the beans, collects the values of the name properties of each individual bean and stores the names in a new array. The array then gets sorted using the default sort function of PHP (sort).</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> list of names of beans</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">array</span>
+		<span class="method-name">
+			gatherLabels
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$beans</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$beans</span><span class="var-description">: list of beans to loop</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgenSlots" id="genSlots"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static genSlots</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6358">6358</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Generates question mark slots for an array of values.</p>
+<p class="description"><p>Generates question mark slots for an array of values.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">string</span>
+		<span class="method-name">
+			genSlots
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$array</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$array</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetAll" id="getAll"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static getAll</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6021">6021</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Convenience function to execute Queries directly.</p>
+<p class="description"><p>Convenience function to execute Queries directly. Executes SQL.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">array</span>
+		<span class="method-name">
+			getAll
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$values</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$sql</span><span class="var-description">: sql    SQL query to execute</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$values</span><span class="var-description">: values a list of values to be bound to query parameters</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetAssoc" id="getAssoc"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static getAssoc</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6106">6106</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Convenience function to execute Queries directly.</p>
+<p class="description"><p>Convenience function to execute Queries directly. Executes SQL. Results will be returned as an associative array. The first column in the select clause will be used for the keys in this array and the second column will be used for the values. If only one column is selected in the query, both key and value of the array will have the value of this field for each row.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">array</span>
+		<span class="method-name">
+			getAssoc
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$values</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$sql</span><span class="var-description">: sql    SQL query to execute</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$values</span><span class="var-description">: values a list of values to be bound to query parameters</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetCell" id="getCell"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static getCell</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6033">6033</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Convenience function to execute Queries directly.</p>
+<p class="description"><p>Convenience function to execute Queries directly. Executes SQL.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> scalar</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">string</span>
+		<span class="method-name">
+			getCell
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$values</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$sql</span><span class="var-description">: sql    SQL query to execute</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$values</span><span class="var-description">: values a list of values to be bound to query parameters</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetCol" id="getCol"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static getCol</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6057">6057</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Convenience function to execute Queries directly.</p>
+<p class="description"><p>Convenience function to execute Queries directly. Executes SQL.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">array</span>
+		<span class="method-name">
+			getCol
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$values</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$sql</span><span class="var-description">: sql    SQL query to execute</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$values</span><span class="var-description">: values a list of values to be bound to query parameters</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetColumns" id="getColumns"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static getColumns</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6349">6349</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns a list of columns.</p>
+<p class="description"><p>Returns a list of columns. Format of this array: array( fieldname =&gt; type ) Note that this method only works in fluid mode because it might be quite heavy on production servers!</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> list of columns and their types</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">array</span>
+		<span class="method-name">
+			getColumns
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$table</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$table</span><span class="var-description">: name of the table (not type) you want to get columns of</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetDatabaseAdapter" id="getDatabaseAdapter"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static getDatabaseAdapter</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6515">6515</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Optional accessor for neat code.</p>
+<p class="description"><p>Optional accessor for neat code. Sets the database adapter you want to use.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">RedBean_DatabaseAdapter</span>
+		<span class="method-name">
+			getDatabaseAdapter
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetRedBean" id="getRedBean"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static getRedBean</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6533">6533</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Optional accessor for neat code.</p>
+<p class="description"><p>Optional accessor for neat code. Sets the database adapter you want to use.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">RedBean_RedBean</span>
+		<span class="method-name">
+			getRedBean
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetRow" id="getRow"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static getRow</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6045">6045</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Convenience function to execute Queries directly.</p>
+<p class="description"><p>Convenience function to execute Queries directly. Executes SQL.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">array</span>
+		<span class="method-name">
+			getRow
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$values</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$sql</span><span class="var-description">: sql    SQL query to execute</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$values</span><span class="var-description">: values a list of values to be bound to query parameters</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetVersion" id="getVersion"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static getVersion</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5575">5575</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get version</p>
+<p class="description"><p>Get version</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">string</span>
+		<span class="method-name">
+			getVersion
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetWriter" id="getWriter"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static getWriter</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6524">6524</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Optional accessor for neat code.</p>
+<p class="description"><p>Optional accessor for neat code. Sets the database adapter you want to use.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result"><a href="../Cinnebar/RedBean_QueryWriter.html">RedBean_QueryWriter</a></span>
+		<span class="method-name">
+			getWriter
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodhasTag" id="hasTag"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static hasTag</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6186">6186</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Part of RedBeanPHP Tagging API.</p>
+<p class="description"><p>Part of RedBeanPHP Tagging API. Tests whether a bean has been associated with one ore more of the listed tags. If the third parameter is TRUE this method will return TRUE only if all tags that have been specified are indeed associated with the given bean, otherwise FALSE. If the third parameter is FALSE this method will return TRUE if one of the tags matches, FALSE if none match.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> whether the bean has been assoc. with the tags</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">boolean</span>
+		<span class="method-name">
+			hasTag
+		</span>
+					(<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$bean</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$tags</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$all</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>
+				<span class="var-name">$bean</span><span class="var-description">: bean to check for tags</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$tags</span><span class="var-description">: list of tags</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$all</span><span class="var-description">: whether they must all match or just some</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodisoDate" id="isoDate"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static isoDate</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6465">6465</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Simple convenience function, returns ISO date formatted representation of $time.</p>
+<p class="description"><p>Simple convenience function, returns ISO date formatted representation of $time.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">type</span>
+		<span class="method-name">
+			isoDate
+		</span>
+					([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$time</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$time</span><span class="var-description">: UNIX timestamp</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodisoDateTime" id="isoDateTime"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static isoDateTime</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6478">6478</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Simple convenience function, returns ISO date time formatted representation of $time.</p>
+<p class="description"><p>Simple convenience function, returns ISO date time formatted representation of $time.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">type</span>
+		<span class="method-name">
+			isoDateTime
+		</span>
+					([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$time</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$time</span><span class="var-description">: UNIX timestamp</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodload" id="load"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static load</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5740">5740</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Loads the bean with the given type and id and returns it.</p>
+<p class="description"><p>Loads the bean with the given type and id and returns it.
+ Usage: $book = R::load('book', $id); -- loads a book bean
+ Can also load one-to-one related beans:</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>
+		<span class="method-name">
+			load
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$id</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: type</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$id</span><span class="var-description">: id of the bean you want to load</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodloadMulti" id="loadMulti"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static loadMulti</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5716">5716</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Loads multiple types of beans with the same ID.</p>
+<p class="description"><p>Loads multiple types of beans with the same ID. This might look like a strange method, however it can be useful for loading a one-to-one relation.
+ Usage: list($author, $bio) = R::load('author, bio', $id);</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>
+		<span class="method-name">
+			loadMulti
+		</span>
+					(<span class="var-type">string|array</span>&nbsp;<span class="var-name">$types</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$id</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string|array</span>
+				<span class="var-name">$types</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$id</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodnuke" id="nuke"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static nuke</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6364">6364</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Nukes the entire database.</p>
+<p class="description"><p>Nukes the entire database.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">void</span>
+		<span class="method-name">
+			nuke
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodpreload" id="preload"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static preload</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6545">6545</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Preloads certain properties for beans.</p>
+<p class="description"><p>Preloads certain properties for beans. Understands aliases.
+ Usage: R::preload($books, array('coauthor'=&gt;'author'));</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">void</span>
+		<span class="method-name">
+			preload
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$beans</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$types</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$closure</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$beans</span><span class="var-description">: beans</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$types</span><span class="var-description">: types to load</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$closure</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodrelated" id="related"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static related</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5855">5855</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns all the beans associated with $bean.</p>
+<p class="description"><p>Returns all the beans associated with $bean. This method will return an array containing all the beans that have been associated once with the associate() function and are still associated with the bean specified. The type parameter indicates the type of beans you are looking for. You can also pass some extra SQL and values for that SQL to filter your results after fetching the related beans.
+ Dont try to make use of subqueries, a subquery using IN() seems to be slower than two queries!
+ Since 3.2, you can now also pass an array of beans instead just one bean as the first parameter.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> beans yielded by your query.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">array</span>
+		<span class="method-name">
+			related
+		</span>
+					(<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a>|array</span>&nbsp;<span class="var-name">$bean</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span> = <span class="var-default">null</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$values</span> = <span class="var-default">array()</span>], <span class="var-type">array</span>&nbsp;<span class="var-name">$val</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a>|array</span>
+				<span class="var-name">$bean</span><span class="var-description">: the bean you have</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: the type of beans you want</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$sql</span><span class="var-description">: SQL snippet for extra filtering</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$val</span><span class="var-description">: values to be inserted in SQL slots</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$values</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodrelatedOne" id="relatedOne"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static relatedOne</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5869">5869</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns only single associated bean.</p>
+<p class="description"><p>Returns only single associated bean.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>
+		<span class="method-name">
+			relatedOne
+		</span>
+					(<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$bean</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span> = <span class="var-default">null</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$values</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>
+				<span class="var-name">$bean</span><span class="var-description">: bean provided</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: type of bean you are searching for</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$sql</span><span class="var-description">: SQL for extra filtering</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$values</span><span class="var-description">: values to be inserted in SQL slots</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodrenameAssociation" id="renameAssociation"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static renameAssociation</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6558">6558</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Facade method for RedBean_QueryWriter_AQueryWriter::renameAssocation()</p>
+<p class="description"><p>Facade method for RedBean_QueryWriter_AQueryWriter::renameAssocation()</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">void</span>
+		<span class="method-name">
+			renameAssociation
+		</span>
+					(<span class="var-type">string|array</span>&nbsp;<span class="var-name">$from</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$to</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string|array</span>
+				<span class="var-name">$from</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$to</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodrollback" id="rollback"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static rollback</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6334">6334</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Facade Convience method for adapter transaction system.</p>
+<p class="description"><p>Facade Convience method for adapter transaction system. Rolls back a transaction.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">void</span>
+		<span class="method-name">
+			rollback
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodselectDatabase" id="selectDatabase"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static selectDatabase</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5660">5660</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Selects a different database for the Facade to work with.</p>
+<p class="description"><p>Selects a different database for the Facade to work with.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> 1</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">int</span>
+		<span class="method-name">
+			selectDatabase
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: Key of the database to select</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetDatabaseAdapter" id="setDatabaseAdapter"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static setDatabaseAdapter</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6488">6488</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Optional accessor for neat code.</p>
+<p class="description"><p>Optional accessor for neat code. Sets the database adapter you want to use.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">void</span>
+		<span class="method-name">
+			setDatabaseAdapter
+		</span>
+					(<span class="var-type"><a href="../Cinnebar/RedBean_Adapter.html">RedBean_Adapter</a></span>&nbsp;<span class="var-name">$adapter</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../Cinnebar/RedBean_Adapter.html">RedBean_Adapter</a></span>
+				<span class="var-name">$adapter</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetRedBean" id="setRedBean"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static setRedBean</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6506">6506</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Optional accessor for neat code.</p>
+<p class="description"><p>Optional accessor for neat code. Sets the database adapter you want to use.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">void</span>
+		<span class="method-name">
+			setRedBean
+		</span>
+					(<span class="var-type"><a href="../Cinnebar/RedBean_OODB.html">RedBean_OODB</a></span>&nbsp;<span class="var-name">$redbean</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../Cinnebar/RedBean_OODB.html">RedBean_OODB</a></span>
+				<span class="var-name">$redbean</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetStrictTyping" id="setStrictTyping"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static setStrictTyping</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5776">5776</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Toggles strict bean type names.</p>
+<p class="description"><p>Toggles strict bean type names. If set to true (default) this will forbid the use of underscores and uppercase characters in bean type strings (R::dispense).</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">void</span>
+		<span class="method-name">
+			setStrictTyping
+		</span>
+					(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$trueFalse</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$trueFalse</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetup" id="setup"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static setup</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5589">5589</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Kickstarts redbean for you. RedBean. try to create a SQLite database in /tmp called red.</p>
+<p class="description"><p>Kickstarts redbean for you. This method should be called before you start using RedBean. The Setup() method can be called without any arguments, in this case it will try to create a SQLite database in /tmp called red.db (this only works on UNIX-like systems).</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">void</span>
+		<span class="method-name">
+			setup
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$dsn</span> = <span class="var-default">null</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$username</span> = <span class="var-default">null</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$password</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$dsn</span><span class="var-description">: Database connection string</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$username</span><span class="var-description">: Username for database</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$password</span><span class="var-description">: Password for database</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetWriter" id="setWriter"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static setWriter</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6497">6497</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Optional accessor for neat code.</p>
+<p class="description"><p>Optional accessor for neat code. Sets the database adapter you want to use.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">void</span>
+		<span class="method-name">
+			setWriter
+		</span>
+					(<span class="var-type"><a href="../Cinnebar/RedBean_QueryWriter.html">RedBean_QueryWriter</a></span>&nbsp;<span class="var-name">$writer</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../Cinnebar/RedBean_QueryWriter.html">RedBean_QueryWriter</a></span>
+				<span class="var-name">$writer</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodstore" id="store"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static store</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5686">5686</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Stores a RedBean OODB Bean and returns the ID.</p>
+<p class="description"><p>Stores a RedBean OODB Bean and returns the ID.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> id</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">integer</span>
+		<span class="method-name">
+			store
+		</span>
+					(<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a>|<a href="../Cinnebar/RedBean_SimpleModel.html">RedBean_SimpleModel</a></span>&nbsp;<span class="var-name">$bean</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a>|<a href="../Cinnebar/RedBean_SimpleModel.html">RedBean_SimpleModel</a></span>
+				<span class="var-name">$bean</span><span class="var-description">: bean</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodstoreAll" id="storeAll"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static storeAll</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6409">6409</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Short hand function to store a set of beans at once, IDs will be returned as an array. function.</p>
+<p class="description"><p>Short hand function to store a set of beans at once, IDs will be returned as an array. For information please consult the R::store() function. A loop saver.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> list of resulting IDs</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">array</span>
+		<span class="method-name">
+			storeAll
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$beans</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$beans</span><span class="var-description">: list of beans to be stored</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodswap" id="swap"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static swap</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6156">6156</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">deprecated:</span> </li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">void</span>
+		<span class="method-name">
+			swap
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$beans</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$property</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$beans</span><span class="var-description">: beans</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$property</span><span class="var-description">: property</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodtag" id="tag"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static tag</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6216">6216</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Part of RedBeanPHP Tagging API.</p>
+<p class="description"><p>Part of RedBeanPHP Tagging API. Tags a bean or returns tags associated with a bean. If $tagList is null or omitted this method will return a comma separated list of tags associated with the bean provided. If $tagList is a comma separated list (string) of tags all tags will be associated with the bean. You may also pass an array instead of a string.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">string</span>
+		<span class="method-name">
+			tag
+		</span>
+					(<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$bean</span>, [<span class="var-type">mixed</span>&nbsp;<span class="var-name">$tagList</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>
+				<span class="var-name">$bean</span><span class="var-description">: bean</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$tagList</span><span class="var-description">: tags</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodtagged" id="tagged"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static tagged</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6243">6243</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Part of RedBeanPHP Tagging API.</p>
+<p class="description"><p>Part of RedBeanPHP Tagging API. Returns all beans that have been tagged with one of the tags given.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">array</span>
+		<span class="method-name">
+			tagged
+		</span>
+					(<span class="var-type">$beanType</span>&nbsp;<span class="var-name">$beanType</span>, <span class="var-type">$tagList</span>&nbsp;<span class="var-name">$tagList</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">$beanType</span>
+				<span class="var-name">$beanType</span><span class="var-description">: type of bean you are looking for</span>			</li>
+					<li>
+				<span class="var-type">$tagList</span>
+				<span class="var-name">$tagList</span><span class="var-description">: list of tags to match</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodtaggedAll" id="taggedAll"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static taggedAll</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6255">6255</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Part of RedBeanPHP Tagging API.</p>
+<p class="description"><p>Part of RedBeanPHP Tagging API. Returns all beans that have been tagged with ALL of the tags given.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">array</span>
+		<span class="method-name">
+			taggedAll
+		</span>
+					(<span class="var-type">$beanType</span>&nbsp;<span class="var-name">$beanType</span>, <span class="var-type">$tagList</span>&nbsp;<span class="var-name">$tagList</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">$beanType</span>
+				<span class="var-name">$beanType</span><span class="var-description">: type of bean you are looking for</span>			</li>
+					<li>
+				<span class="var-type">$tagList</span>
+				<span class="var-name">$tagList</span><span class="var-description">: list of tags to match</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodtransaction" id="transaction"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static transaction</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5624">5624</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Starts a transaction within a closure (or other valid callback).</p>
+<p class="description"><p>Starts a transaction within a closure (or other valid callback). If an Exception is thrown inside, the operation is automatically rolled back. If no Exception happens, it commits automatically. It also supports (simulated) nested transactions (that is useful when you have many methods that needs transactions but are unaware of each other). ex: 		$from = 1; 		$to = 2; 		$ammount = 300;
+ 		R::transaction(function() use($from, $to, $ammount) 	    { 			$accountFrom = R::load('account', $from); 			$accountTo = R::load('account', $to);
+ 			$accountFrom-&gt;money -= $ammount; 			$accountTo-&gt;money += $ammount;
+ 			R::store($accountFrom); 			R::store($accountTo);      });</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">void</span>
+		<span class="method-name">
+			transaction
+		</span>
+					(<span class="var-type">callable</span>&nbsp;<span class="var-name">$callback</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">callable</span>
+				<span class="var-name">$callback</span><span class="var-description">: Closure (or other callable) with the transaction logic</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodtrash" id="trash"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static trash</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5750">5750</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Deletes the specified bean.</p>
+<p class="description"><p>Deletes the specified bean.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">mixed</span>
+		<span class="method-name">
+			trash
+		</span>
+					(<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a>|<a href="../Cinnebar/RedBean_SimpleModel.html">RedBean_SimpleModel</a></span>&nbsp;<span class="var-name">$bean</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a>|<a href="../Cinnebar/RedBean_SimpleModel.html">RedBean_SimpleModel</a></span>
+				<span class="var-name">$bean</span><span class="var-description">: bean to be deleted</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodtrashAll" id="trashAll"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static trashAll</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6421">6421</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Short hand function to trash a set of beans at once.</p>
+<p class="description"><p>Short hand function to trash a set of beans at once. For information please consult the R::trash() function. A loop saver.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">void</span>
+		<span class="method-name">
+			trashAll
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$beans</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$beans</span><span class="var-description">: list of beans to be trashed</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodunassociate" id="unassociate"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static unassociate</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5830">5830</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Breaks the association between two beans.</p>
+<p class="description"><p>Breaks the association between two beans. This functions breaks the association between a pair of beans. After calling this functions the beans will no longer be associated with eachother. Calling related() with either one of the beans will no longer return the other bean.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">mixed</span>
+		<span class="method-name">
+			unassociate
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$beans1</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$beans2</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$fast</span> = <span class="var-default">false</span>], <span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$bean1</span>, <span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$bean2</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>
+				<span class="var-name">$bean1</span><span class="var-description">: bean</span>			</li>
+					<li>
+				<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>
+				<span class="var-name">$bean2</span><span class="var-description">: bean</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$beans1</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$beans2</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$fast</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodunrelated" id="unrelated"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static unrelated</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a5895">5895</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The opposite of related(). associated with the bean provided.</p>
+<p class="description"><p>The opposite of related(). Returns all the beans that are not associated with the bean provided.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> beans</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">array</span>
+		<span class="method-name">
+			unrelated
+		</span>
+					(<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$bean</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$sql</span> = <span class="var-default">null</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$values</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>
+				<span class="var-name">$bean</span><span class="var-description">: bean provided</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: type of bean you are searching for</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$sql</span><span class="var-description">: SQL for extra filtering</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$values</span><span class="var-description">: values to be inserted in SQL slots</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methoduntag" id="untag"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static untag</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6199">6199</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Part of RedBeanPHP Tagging API.</p>
+<p class="description"><p>Part of RedBeanPHP Tagging API. Removes all sepcified tags from the bean. The tags specified in the second parameter will no longer be associated with the bean.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">void</span>
+		<span class="method-name">
+			untag
+		</span>
+					(<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>&nbsp;<span class="var-name">$bean</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$tagList</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../Cinnebar/RedBean_OODBBean.html">RedBean_OODBBean</a></span>
+				<span class="var-name">$bean</span><span class="var-description">: tagged bean</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$tagList</span><span class="var-description">: list of tags (names)</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodwipe" id="wipe"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static wipe</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6263">6263</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Wipes all beans of type $beanType.</p>
+<p class="description"><p>Wipes all beans of type $beanType.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">void</span>
+		<span class="method-name">
+			wipe
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$beanType</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$beanType</span><span class="var-description">: type of bean you want to destroy entirely.</span>			</li>
+				</ul>
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Fri, 14 Jun 2013 16:53:45 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos  -->
+			<title>Docs For Class R</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+						<script src="../media/lib/classTree.js"></script>
+												<script language="javascript" type="text/javascript">
+				var imgPlus = new Image();
+				var imgMinus = new Image();
+				imgPlus.src = "../media/images/plus.gif";
+				imgMinus.src = "../media/images/minus.gif";
+				
+				function showNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgMinus.src;
+					oTable.style.display = "block";
+				}
+				
+				function hideNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgPlus.src;
+					oTable.style.display = "none";
+				}
+				
+				function nodeIsVisible(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+									break;
+							}
+					return (oTable && oTable.style.display == "block");
+				}
+				
+				function toggleNodeVisibility(Node){
+					if (nodeIsVisible(Node)){
+						hideNode(Node);
+					}else{
+						showNode(Node);
+					}
+				}
+			</script>
+					</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class R</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-vars">Vars</a>
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">usedby:</span> <a href="../Cinnebar/Sessionhandler/Sessionhandler_Database.html#methoddestroy">Sessionhandler_Database::destroy()</a></li>
+				<li><span class="field">usedby:</span> <a href="../Cinnebar/Sessionhandler/Sessionhandler_Database.html#methodwrite">Sessionhandler_Database::write()</a></li>
+				<li><span class="field">usedby:</span> <a href="../Cinnebar/Sessionhandler/Sessionhandler_Database.html#methodread">Sessionhandler_Database::read()</a></li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_lib---redbean---rb.php.html">/lib/redbean/rb.php</a> (line <span class="field"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a7289">7289</a></span>)
+		</p>
+		
+				
+		<pre><a href="../Cinnebar/RedBean_Facade.html">RedBean_Facade</a>
+   |
+   --R</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-vars">Vars</a>
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+										
+				<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#graph" title="details" class="method-name">graph</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$array</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$filterEmpty</span> = <span class="var-default">false</span>])
+									</div>
+																							</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			
+							<h4>Inherited Variables</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../Cinnebar/RedBean_Facade.html">RedBean_Facade</a></span></p>
+					<blockquote>
+													<span class="var-title">
+								<span class="var-name"><a href="../Cinnebar/RedBean_Facade.html#var$adapter">RedBean_Facade::$adapter</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../Cinnebar/RedBean_Facade.html#var$associationManager">RedBean_Facade::$associationManager</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../Cinnebar/RedBean_Facade.html#var$currentDB">RedBean_Facade::$currentDB</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../Cinnebar/RedBean_Facade.html#var$duplicationManager">RedBean_Facade::$duplicationManager</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../Cinnebar/RedBean_Facade.html#var$extAssocManager">RedBean_Facade::$extAssocManager</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../Cinnebar/RedBean_Facade.html#var$f">RedBean_Facade::$f</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../Cinnebar/RedBean_Facade.html#var$finder">RedBean_Facade::$finder</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../Cinnebar/RedBean_Facade.html#var$labelMaker">RedBean_Facade::$labelMaker</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../Cinnebar/RedBean_Facade.html#var$redbean">RedBean_Facade::$redbean</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../Cinnebar/RedBean_Facade.html#var$tagManager">RedBean_Facade::$tagManager</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../Cinnebar/RedBean_Facade.html#var$toolbox">RedBean_Facade::$toolbox</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../Cinnebar/RedBean_Facade.html#var$toolboxes">RedBean_Facade::$toolboxes</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../Cinnebar/RedBean_Facade.html#var$writer">RedBean_Facade::$writer</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-vars">Vars</a>
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodgraph" id="graph"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static graph</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a7290">7290</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">void</span>
+		<span class="method-name">
+			graph
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$array</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$filterEmpty</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$array</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$filterEmpty</span>			</li>
+				</ul>
+		
+			
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../Cinnebar/RedBean_Facade.html">RedBean_Facade</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodaddDatabase">RedBean_Facade::addDatabase()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodaddTags">RedBean_Facade::addTags()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodareRelated">RedBean_Facade::areRelated()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodassociate">RedBean_Facade::associate()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodbatch">RedBean_Facade::batch()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodbegin">RedBean_Facade::begin()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodclearRelations">RedBean_Facade::clearRelations()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodclose">RedBean_Facade::close()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodcommit">RedBean_Facade::commit()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodconfigureFacadeWithToolbox">RedBean_Facade::configureFacadeWithToolbox()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodconvertToBeans">RedBean_Facade::convertToBeans()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodcount">RedBean_Facade::count()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methoddebug">RedBean_Facade::debug()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methoddependencies">RedBean_Facade::dependencies()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methoddispense">RedBean_Facade::dispense()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methoddispenseLabels">RedBean_Facade::dispenseLabels()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methoddup">RedBean_Facade::dup()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodeach">RedBean_Facade::each()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodexec">RedBean_Facade::exec()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodexportAll">RedBean_Facade::exportAll()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodfind">RedBean_Facade::find()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodfindAll">RedBean_Facade::findAll()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodfindAndExport">RedBean_Facade::findAndExport()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodfindLast">RedBean_Facade::findLast()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodfindOne">RedBean_Facade::findOne()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodfindOrDispense">RedBean_Facade::findOrDispense()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodfreeze">RedBean_Facade::freeze()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodgatherLabels">RedBean_Facade::gatherLabels()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodgenSlots">RedBean_Facade::genSlots()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodgetAll">RedBean_Facade::getAll()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodgetAssoc">RedBean_Facade::getAssoc()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodgetCell">RedBean_Facade::getCell()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodgetCol">RedBean_Facade::getCol()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodgetColumns">RedBean_Facade::getColumns()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodgetDatabaseAdapter">RedBean_Facade::getDatabaseAdapter()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodgetRedBean">RedBean_Facade::getRedBean()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodgetRow">RedBean_Facade::getRow()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodgetVersion">RedBean_Facade::getVersion()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodgetWriter">RedBean_Facade::getWriter()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodhasTag">RedBean_Facade::hasTag()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodisoDate">RedBean_Facade::isoDate()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodisoDateTime">RedBean_Facade::isoDateTime()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodload">RedBean_Facade::load()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodloadMulti">RedBean_Facade::loadMulti()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodnuke">RedBean_Facade::nuke()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodpreload">RedBean_Facade::preload()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodrelated">RedBean_Facade::related()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodrelatedOne">RedBean_Facade::relatedOne()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodrenameAssociation">RedBean_Facade::renameAssociation()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodrollback">RedBean_Facade::rollback()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodselectDatabase">RedBean_Facade::selectDatabase()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodsetDatabaseAdapter">RedBean_Facade::setDatabaseAdapter()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodsetRedBean">RedBean_Facade::setRedBean()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodsetStrictTyping">RedBean_Facade::setStrictTyping()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodsetup">RedBean_Facade::setup()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodsetWriter">RedBean_Facade::setWriter()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodstore">RedBean_Facade::store()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodstoreAll">RedBean_Facade::storeAll()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodswap">RedBean_Facade::swap()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodtag">RedBean_Facade::tag()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodtagged">RedBean_Facade::tagged()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodtaggedAll">RedBean_Facade::taggedAll()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodtransaction">RedBean_Facade::transaction()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodtrash">RedBean_Facade::trash()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodtrashAll">RedBean_Facade::trashAll()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodunassociate">RedBean_Facade::unassociate()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodunrelated">RedBean_Facade::unrelated()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methoduntag">RedBean_Facade::untag()</a></span><br>
+													<span class="method-name"><a href="../Cinnebar/RedBean_Facade.html#methodwipe">RedBean_Facade::wipe()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Fri, 14 Jun 2013 16:53:43 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos  -->
+			<title>Docs For Class RedBean_Plugin_Cooker</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+						<script src="../media/lib/classTree.js"></script>
+												<script language="javascript" type="text/javascript">
+				var imgPlus = new Image();
+				var imgMinus = new Image();
+				imgPlus.src = "../media/images/plus.gif";
+				imgMinus.src = "../media/images/minus.gif";
+				
+				function showNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgMinus.src;
+					oTable.style.display = "block";
+				}
+				
+				function hideNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgPlus.src;
+					oTable.style.display = "none";
+				}
+				
+				function nodeIsVisible(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+									break;
+							}
+					return (oTable && oTable.style.display == "block");
+				}
+				
+				function toggleNodeVisibility(Node){
+					if (nodeIsVisible(Node)){
+						hideNode(Node);
+					}else{
+						showNode(Node);
+					}
+				}
+			</script>
+					</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class RedBean_Plugin_Cooker</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+                <p class="implements">
+            Implements interfaces:
+            <ul>
+                <li><a href="../Cinnebar/RedBean_Plugin.html">RedBean_Plugin</a></li>            </ul>
+        </p>
+        		<!-- ========== Info from phpDoc block ========= -->
+		<p class="notes">
+			Located in <a class="field" href="_lib---redbean---rb.php.html">/lib/redbean/rb.php</a> (line <span class="field"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6767">6767</a></span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+										
+				<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#enableBeanLoading" title="details" class="method-name">enableBeanLoading</a>
+											(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$yesNo</span>)
+									</div>
+																																						
+				<div class="method-definition">
+					static 						<span class="method-result">void</span>
+										<a href="#setUseNullFlagSt" title="details" class="method-name">setUseNullFlagSt</a>
+											(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$yesNo</span>)
+									</div>
+																										
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#graph" title="details" class="method-name">graph</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$array</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$filterEmpty</span> = <span class="var-default">false</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setToolbox" title="details" class="method-name">setToolbox</a>
+											(<span class="var-type">RedBean_Toolbox</span>&nbsp;<span class="var-name">$toolbox</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setUseNullFlag" title="details" class="method-name">setUseNullFlag</a>
+											(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$yesNo</span>)
+									</div>
+																			</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodenableBeanLoading" id="enableBeanLoading"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static enableBeanLoading</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6783">6783</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">If you enable bean loading graph will load beans if there is an ID in the array.</p>
+<p class="description"><p>If you enable bean loading graph will load beans if there is an ID in the array. This is very powerful but can also cause security issues if a user knows how to manipulate beans and there is no model based ID validation.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">void</span>
+		<span class="method-name">
+			enableBeanLoading
+		</span>
+					(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$yesNo</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$yesNo</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetUseNullFlagSt" id="setUseNullFlagSt"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static setUseNullFlagSt</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6892">6892</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Static version of setUseNullFlag.</p>
+<p class="description"><p>Static version of setUseNullFlag.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">void</span>
+		<span class="method-name">
+			setUseNullFlagSt
+		</span>
+					(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$yesNo</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$yesNo</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgraph" id="graph"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">graph</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6833">6833</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Turns an array (post/request array) into a collection of beans.</p>
+<p class="description"><p>Turns an array (post/request array) into a collection of beans. Handy for turning forms into bean structures that can be stored with a single call.
+ Typical usage:
+ $struct = R::graph($_POST); R::store($struct);
+ Example of a valid array:
+	$form = array(		'type' =&gt; 'order',		'ownProduct' =&gt; array(			array('id' =&gt; 171, 'type' =&gt; 'product'),		),		'ownCustomer' =&gt; array(			array('type' =&gt; 'customer', 'name' =&gt; 'Bill')		), 		'sharedCoupon' =&gt; array(			array('type' =&gt; 'coupon', 'name' =&gt; '123'),			array('type' =&gt; 'coupon', 'id' =&gt; 3)		)	);
+ Each entry in the array will become a property of the bean. The array needs to have a type-field indicating the type of bean it is going to be. The array can have nested arrays. A nested array has to be named conform the bean-relation conventions, i.e. ownPage/sharedPage each entry in the nested array represents another bean.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> beans</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			graph
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$array</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$filterEmpty</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$array</span><span class="var-description">: array to be turned into a bean collection</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$filterEmpty</span><span class="var-description">: whether you want to exclude empty beans</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetToolbox" id="setToolbox"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setToolbox</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6792">6792</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the toolbox to be used by graph()</p>
+<p class="description"><p>Sets the toolbox to be used by graph()</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setToolbox
+		</span>
+					(<span class="var-type">RedBean_Toolbox</span>&nbsp;<span class="var-name">$toolbox</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">RedBean_Toolbox</span>
+				<span class="var-name">$toolbox</span><span class="var-description">: toolbox</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetUseNullFlag" id="setUseNullFlag"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setUseNullFlag</span> (line <span class="line-number"><a href="../__filesource/fsource_Cinnebar__libredbeanrb.php.html#a6883">6883</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Toggles the use-NULL flag.</p>
+<p class="description"><p>Toggles the use-NULL flag.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setUseNullFlag
+		</span>
+					(<span class="var-type">boolean</span>&nbsp;<span class="var-name">$yesNo</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$yesNo</span>			</li>
+				</ul>
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Fri, 14 Jun 2013 16:53:47 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>
