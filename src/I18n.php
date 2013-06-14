@@ -22,9 +22,10 @@ class I18n
      *
      * @param string $text to translate
      * @param string (optional) $language iso code of the language to use for translation
+     * @param array (optional) $values to mix with the i18n->name of a token
      * @return string
      */
-    static public function __($text, $language = null)
+    static public function __($text, $language = null, array $values = array())
     {
         if ($language === null) $language = Flight::get('language');
         if ( ! $token = R::findOne('token', ' name = ?', array($text))) {
@@ -32,6 +33,7 @@ class I18n
             $token->name = $text;
             R::store($token);
         }
+        if ( ! empty($values)) return vsprintf($token->i18n($language)->name, $values);
         return $token->i18n($language)->name;
     }
 }

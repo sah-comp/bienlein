@@ -30,10 +30,20 @@
 
 	<body>
 		<!--[if lt IE 7]>
-		<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+		<?php echo Flight::textile(I18n::__('browser_is_ancient')) ?>
 		<![endif]-->
+		
+		<!-- Header (optional) -->
+		<?php echo isset($header) ? $header : null ?>
+		<!-- End of optional header -->
 
+        <!-- Content (required) -->
 		<?php echo $content; ?>
+		<!-- End of required content -->
+		
+		<!-- Footer (optional) -->
+		<?php echo isset($footer) ? $footer : null ?>
+		<!-- End of optional footer -->
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script src="/js/script.js"></script>

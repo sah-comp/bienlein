@@ -28,6 +28,16 @@ Point your browser to http://example.com/install and follow the instructions.
 Start writing template, models and controllers until you have a shiny new application handy.
 
 
+Docs
+----
+
+I have to write documentation and examples about helpers and conventions, maybe:
+
+* Url::build
+* Gravatar::src
+* Flight::textile
+
+
 Notes to self
 -------------
 

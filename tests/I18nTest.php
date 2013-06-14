@@ -25,6 +25,17 @@ $token2->name = 'test_goodmorning';
 $token2->ownTranslation = array($translation_de2, $translation_en2);
 R::store($token2);
 
+// setup some test token with replacement slots
+$token3 = R::dispense('token');
+list($translation_de3, $translation_en3) = R::dispense('tokeni18n', 2);
+$translation_de3->language = 'de';
+$translation_de3->name = 'Guten Morgen %s';
+$translation_en3->language = 'en';
+$translation_en3->name = 'Good morning %s';
+$token3->name = 'test_goodmorning_w_name';
+$token3->ownTranslation = array($translation_de3, $translation_en3);
+R::store($token3);
+
 class I18nTest extends PHPUnit_Framework_TestCase
 {
     public function setup()
@@ -51,5 +62,13 @@ class I18nTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('Guten Morgen', I18n::__($token, 'de'));
         $this->assertEquals('Good morning', I18n::__($token, 'en'));
         $this->assertEquals('Guten Morgen', I18n::__($token, 'de'));
+    }
+    
+    public function testI18nTranslationWithValues()
+    {
+        $token = 'test_goodmorning_w_name';
+        $this->assertEquals('Guten Morgen Stephan', I18n::__($token, 'de', array('Stephan')));
+        $this->assertEquals('Good morning Lord Helmet', I18n::__($token, 'en', array('Lord Helmet')));
+        $this->assertEquals('Guten Morgen Walt', I18n::__($token, 'de', array('Walt')));
     }
 }

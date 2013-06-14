@@ -9,13 +9,13 @@
  */
 
 /**
- * Admin controller.
+ * Admin user controller.
  *
  * @package Cinnebar
  * @subpackage Controller
  * @version $Id$
  */
-class Controller_Admin extends Controller
+class Controller_Admin_User extends Controller
 {
     /**
      * Displays the admin index page.
@@ -25,9 +25,11 @@ class Controller_Admin extends Controller
         session_start();
         Auth::check();
         Flight::render('admin/navigation', array(), 'navigation');
-        Flight::render('admin/index', array(), 'content');
+        Flight::render('admin/user/index', array(
+            'records' => R::findAll('user')
+        ), 'content');
         Flight::render('html5', array(
-            'title' => I18n::__('admin_head_title'),
+            'title' => I18n::__('admin_user_head_title'),
             'language' => Flight::get('language')
         ));
     }

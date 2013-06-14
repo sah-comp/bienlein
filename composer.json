@@ -13,7 +13,8 @@
 	"require": {
 		"php": ">=5.3.3",
 		"mikecao/flight": "dev-master",
-		"ircmaxell/password-compat": "dev-master"
+		"ircmaxell/password-compat": "dev-master",
+        "netcarver/textile": "v2.5.1"
 	},
 	"require-dev": {
 	    "gabordemooij/redbean": "3.4.*",
