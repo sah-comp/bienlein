@@ -9,11 +9,9 @@
  */
 
 /**
- * Change the default language.
- *
- * @todo I expected Flight::route('(/@language:[a-z]{2})(/*)'), function($language) {}) to work?!
+ * Change the default language and continue with other routes.
  */
-Flight::route('(/@language:[a-z]{2})(/[0-9a-z]+)(/[0-9a-z]+)', function($language) {
+Flight::route('(/@language:[a-z]{2})(/*)', function($language) {
     if (in_array($language, Flight::get('possible_languages'))) {
         Flight::set('language', $language);   
     }
@@ -31,20 +29,16 @@ Flight::route('(/[a-z]{2})/', array('Controller_Welcome', 'index'));
 Flight::route('(/[a-z]{2})/install', array('Controller_Install', 'index'));
 
 /**
- * Route to the login controller.
+ * Route to the login/logout controllers.
  */
 Flight::route('(/[a-z]{2})/login', array('Controller_Login', 'index'));
-
-/**
- * Route to the logout controller.
- */
 Flight::route('(/[a-z]{2})/logout', array('Controller_Logout', 'index'));
 
 /**
- * Route to the system controller.
+ * Route to the admin controller.
  */
-Flight::route('(/[a-z]{2})/admin', array('Controller_Admin', 'index'));
 Flight::route('(/[a-z]{2})/admin/user', array('Controller_Admin', 'user'));
+Flight::route('(/[a-z]{2})/admin(/*)', array('Controller_Admin', 'index'));
 
 /**
  * Show a 404 error page if no route has jumped in yet.

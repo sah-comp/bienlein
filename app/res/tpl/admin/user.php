@@ -13,6 +13,7 @@
     <header>
         <h1>Admin</h1>
         <h2>User</h2>
+        <?php echo $navigation ?>
     </header>
 </article>
 <!-- End of admin user page -->

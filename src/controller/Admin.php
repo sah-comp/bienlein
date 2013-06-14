@@ -24,6 +24,7 @@ class Controller_Admin extends Controller
     {
         session_start();
         Auth::check();
+        Flight::render('admin/navigation', array(), 'navigation');
         Flight::render('admin/index', array(), 'content');
         Flight::render('html5', array(
             'title' => I18n::__('admin_head_title'),
@@ -38,6 +39,7 @@ class Controller_Admin extends Controller
     {
         session_start();
         Auth::check();
+        Flight::render('admin/navigation', array(), 'navigation');
         Flight::render('admin/user', array(), 'content');
         Flight::render('html5', array(
             'title' => I18n::__('admin_head_title'),
