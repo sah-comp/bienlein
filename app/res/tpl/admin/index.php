@@ -10,10 +10,6 @@
 ?>
 <!-- admin index page -->
 <article>
-    <header>
-        <h1>Admin</h1>
-        <h2>Index</h2>
-        <?php echo $navigation ?>
-    </header>
+    <h1>What to show on the admin index page?</h1>
 </article>
 <!-- End of admin index page -->

@@ -29,12 +29,25 @@ class Auth extends Controller
      */
     static public function check()
     {
-        @session_start();
+		if (self::validate()) return true;
+        self::redirect('/login/?goto='.urlencode(Flight::request()->url));
+    }
+
+	/**
+	 * Returns true if the session is authenticated or false if not.
+	 *
+	 * In case the session is validated, the current user bean is mapped
+	 * to Flight.
+	 *
+	 * @uses Flight::map() to map a user bean in case a validate one is found
+	 * @return bool
+	 */
+    static public function validate()
+    {
         if (isset($_SESSION['user']['id'])) {
-            Flight::set('user', R::load('user', $_SESSION['user']['id']));
+			Flight::set('user', R::load('user', $_SESSION['user']['id']));
             return true;
         }
-        $loginpage = '/login/?goto='.urlencode(Flight::request()->url);
-        self::redirect($loginpage);
-    }
+		return false;
+	}
 }

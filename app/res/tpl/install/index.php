@@ -51,7 +51,7 @@
                     <?php echo I18n::__('install_email_label') ?>
                 </label>
                 <input
-                    type="text"
+                    type="email"
                     id="install-email"
                     name="dialog[email]"
                     placeholder="<?php echo I18n::__('install_email_placeholder') ?>"

@@ -37,8 +37,9 @@ Flight::route('(/[a-z]{2})/logout', array('Controller_Logout', 'index'));
 /**
  * Route to the admin controller.
  */
+Flight::route('(/[a-z]{2})/admin/user/add', array('Controller_Admin_User', 'add'));
 Flight::route('(/[a-z]{2})/admin/user', array('Controller_Admin_User', 'index'));
-Flight::route('(/[a-z]{2})/admin(/*)', array('Controller_Admin', 'index'));
+Flight::route('(/[a-z]{2})/admin(/index)', array('Controller_Admin', 'index'));
 
 /**
  * Catch all before notFound.

@@ -3,6 +3,17 @@ Cinnebar
 
 Layout for web development using PHPUnit, Flight, RedBeanPHP and Boilerplate stuff.
 
+Todo
+----
+
+Write complete documentation for installation:
+
+* Download from github
+* Composer
+* Database creation
+* Setup virtual host
+* Install controller
+
 
 Features
 --------

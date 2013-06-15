@@ -14,7 +14,17 @@
         <li>
             <a
                 href="<?php echo Url::build('/account/') ?>">
-                <?php echo I18n::__('user_account_nav') ?>
+				<figure
+					class="gravatar inline">
+					<img
+						src="<?php echo Gravatar::src(Flight::get('user')->email, 16) ?>"
+						width="16"
+						height="16"
+						alt="<?php echo Flight::get('user')->name ?>" />
+					<figcaption>
+						<?php echo Flight::get('user')->name ?>
+					</figcaption>
+				</figure>
             </a>
         </li>
         <li>
@@ -27,7 +37,7 @@
     <ul class="nav nav-main">
         <li>
             <a
-                href="<?php echo Url::build('/admin/index/') ?>">
+                href="<?php echo Url::build('/admin/') ?>">
                 <?php echo I18n::__('admin_index_nav') ?>
             </a>
         </li>
@@ -36,6 +46,14 @@
                 href="<?php echo Url::build('/admin/user/') ?>">
                 <?php echo I18n::__('admin_user_nav') ?>
             </a>
+			<ul>
+				<li>
+					<a
+		                href="<?php echo Url::build('/admin/user/add/') ?>">
+		                <?php echo I18n::__('admin_user_add_nav') ?>
+		            </a>
+				</li>
+			</ul>
         </li>
     </ul>
 </nav>

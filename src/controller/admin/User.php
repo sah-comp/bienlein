@@ -18,15 +18,44 @@
 class Controller_Admin_User extends Controller
 {
     /**
-     * Displays the admin index page.
+     * Displays the user index page.
      */
     static public function index()
     {
         session_start();
         Auth::check();
+		// Pick up the pieces
         Flight::render('admin/navigation', array(), 'navigation');
-        Flight::render('admin/user/index', array(
+		Flight::render('shared/header', array(), 'header');
+		Flight::render('shared/footer', array(), 'footer');
+        Flight::render('model/user/list/default', array(
             'records' => R::findAll('user')
+        ), 'content');
+        Flight::render('html5', array(
+            'title' => I18n::__('admin_user_head_title'),
+            'language' => Flight::get('language')
+        ));
+    }
+
+    /**
+     * Displays page to add a new user.
+     */
+    static public function add()
+    {
+        session_start();
+        Auth::check();
+		$user = R::dispense('user');
+		if (Flight::request()->method == 'POST') {
+            $user = R::graph(Flight::request()->data->dialog, true);
+            R::store($user);
+            self::redirect('/admin/user/');
+        }
+		// Pick up the pieces
+        Flight::render('admin/navigation', array(), 'navigation');
+		Flight::render('shared/header', array(), 'header');
+		Flight::render('shared/footer', array(), 'footer');
+        Flight::render('model/user/form/default', array(
+            'record' => $user
         ), 'content');
         Flight::render('html5', array(
             'title' => I18n::__('admin_user_head_title'),
