@@ -8,7 +8,7 @@
  * @version $Id$
  */
 ?>
-<!-- Admin User form -->
+<!-- user form -->
 <form
     id="form-user"
     class="dialog user"
@@ -84,4 +84,4 @@
         <input type="submit" name="submit" value="<?php echo I18n::__('user_submit') ?>" />
     </div>
 </form>
-<!-- End of admin user form -->
+<!-- End of user form -->

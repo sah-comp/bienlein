@@ -17,7 +17,22 @@
  */
 class Controller_Scaffold extends Controller
 {
-    /**
+	/**
+	 * Start a session and try to authenticate user.
+	 *
+	 * If the session was not authenticated client will be redirected to
+	 * the login screen with goto parameter set to the original resource.
+	 *
+	 * @uses Auth::check()
+	 * @return void
+	 */
+	protected function setup()
+	{
+		session_start();
+        Auth::check();
+	}
+
+	/**
      * Displays the index page of a given type.
 	 *
 	 * @param string $type of the bean to list
@@ -25,29 +40,16 @@ class Controller_Scaffold extends Controller
      */
     public function index($type, $layout = 'default')
     {
-        session_start();
-        Auth::check();
+		$this->setup();
 		$record = R::dispense($type);
 		if (Flight::request()->method == 'POST') {
             //handle a selection
             $this->redirect("/admin/$type/");
         }
-		// Pick up the pieces
-        Flight::render('admin/navigation', array(), 'navigation');
-		Flight::render('shared/header', array(), 'header');
-		Flight::render('shared/footer', array(), 'footer');
-		
+		$records = R::findAll($type);
 		$template = "model/$type/list/$layout";
 		if ( ! Flight::view()->exists($template)) $template = 'scaffold/list';
-		
-        Flight::render($template, array(
-			'record' => $record,
-            'records' => R::findAll($type)
-        ), 'content');
-        Flight::render('html5', array(
-            'title' => I18n::__("{$type}_head_title"),
-            'language' => Flight::get('language')
-        ));
+		$this->render($template, $record, $records);
     }
 
     /**
@@ -59,29 +61,16 @@ class Controller_Scaffold extends Controller
      */
     public function add($type, $id = null, $layout = 'default')
     {
-        session_start();
-        Auth::check();
+		$this->setup();
 		$record = R::dispense($type);
 		if (Flight::request()->method == 'POST') {
             $record = R::graph(Flight::request()->data->dialog, true);
             R::store($record);
             $this->redirect("/admin/$type/");
         }
-		// Pick up the pieces
-        Flight::render('admin/navigation', array(), 'navigation');
-		Flight::render('shared/header', array(), 'header');
-		Flight::render('shared/footer', array(), 'footer');
-		
 		$template = "model/$type/form/$layout";
 		if ( ! Flight::view()->exists($template)) $template = 'scaffold/form';
-		
-        Flight::render($template, array(
-            'record' => $record
-        ), 'content');
-        Flight::render('html5', array(
-            'title' => I18n::__("{$type}_head_title"),
-            'language' => Flight::get('language')
-        ));
+		$this->render($template, $record);
     }
 
     /**
@@ -93,29 +82,16 @@ class Controller_Scaffold extends Controller
      */
     public function edit($type, $id, $layout = 'default')
     {
-        session_start();
-        Auth::check();
+		$this->setup();
 		$record = R::load($type, $id);
 		if (Flight::request()->method == 'POST') {
             $record = R::graph(Flight::request()->data->dialog, true);
             R::store($record);
             $this->redirect("/admin/$type/");
         }
-		// Pick up the pieces
-        Flight::render('admin/navigation', array(), 'navigation');
-		Flight::render('shared/header', array(), 'header');
-		Flight::render('shared/footer', array(), 'footer');
-		
 		$template = "model/$type/form/$layout";
 		if ( ! Flight::view()->exists($template)) $template = 'scaffold/form';
-		
-        Flight::render($template, array(
-            'record' => $record
-        ), 'content');
-        Flight::render('html5', array(
-            'title' => I18n::__("{$type}_head_title"),
-            'language' => Flight::get('language')
-        ));
+		$this->render($template, $record);
     }
 
     /**
@@ -126,8 +102,7 @@ class Controller_Scaffold extends Controller
      */
     public function delete($type, $id)
     {
-        session_start();
-        Auth::check();
+		$this->setup();
 		$record = R::load($type, $id);
 		if (Flight::request()->method == 'POST') {
             $record = R::graph(Flight::request()->data->dialog, true);
@@ -135,19 +110,33 @@ class Controller_Scaffold extends Controller
             $this->redirect("/admin/$type/");
         }
 		// Pick up the pieces
-        Flight::render('admin/navigation', array(), 'navigation');
-		Flight::render('shared/header', array(), 'header');
-		Flight::render('shared/footer', array(), 'footer');
-		
 		$template = "model/$type/form/$layout";
 		if ( ! Flight::view()->exists($template)) $template = 'scaffold/form';
-		
-        Flight::render($template, array(
-            'record' => $record
+		$this->render($template, $record);
+    }
+
+	/**
+	 * Renders a scaffold page.
+	 *
+	 * @param string $template is the name of the content-template to render
+	 * @param RedBean_OODBBean $record holds the current bean
+	 * @param array (optional) $records may contain a list of beans
+	 */
+	protected function render($template, 
+							RedBean_OODBBean $record, array $records = array())
+	{
+        Flight::render('shared/navigation/account', array(), 'navigation_account');
+		Flight::render('shared/navigation/main', array(), 'navigation_main');
+        Flight::render('shared/navigation', array(), 'navigation');
+		Flight::render('shared/header', array(), 'header');
+		Flight::render('shared/footer', array(), 'footer');
+		Flight::render($template, array(
+            'record' => $record,
+			'records' => $records
         ), 'content');
         Flight::render('html5', array(
-            'title' => I18n::__("{$type}_head_title"),
+            'title' => I18n::__("{$record->getMeta('type')}_head_title"),
             'language' => Flight::get('language')
         ));
-    }
+	}
 }

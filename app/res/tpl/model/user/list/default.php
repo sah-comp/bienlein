@@ -8,7 +8,7 @@
  * @version $Id$
  */
 ?>
-<!-- admin user page -->
+<!-- user list -->
 <?php if ( ! isset($records) || ! is_array($records)): ?>
 <div class="alert alert-warning">
     <h4><?php echo I18n::__('alert_record_empty') ?></h4>
@@ -33,4 +33,4 @@
 </a>
 <?php endforeach ?>
 <?php endif ?>
-<!-- End of admin user page -->
+<!-- End of user list -->

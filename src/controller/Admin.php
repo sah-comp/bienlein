@@ -25,7 +25,9 @@ class Controller_Admin extends Controller
         session_start();
         Auth::check();
 		// Pick up the pieces
-        Flight::render('admin/navigation', array(), 'navigation');
+        Flight::render('shared/navigation/account', array(), 'navigation_account');
+        Flight::render('shared/navigation/main', array(), 'navigation_main');
+        Flight::render('shared/navigation', array(), 'navigation');
 		Flight::render('shared/header', array(), 'header');
 		Flight::render('shared/footer', array(), 'footer');
         Flight::render('admin/index', array(), 'content');

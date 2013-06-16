@@ -12,4 +12,5 @@
 <p>
 	Form of <?php echo $record->getMeta('type') ?>s.
 </p>
+<pre><?php print_r($record->export()) ?></pre>
 <!-- End of scaffold form -->
