@@ -20,7 +20,7 @@ class Controller_Login extends Controller
     /**
      * Renders the login page and handles a login attempt on POST.
      */
-    static public function index()
+    public function index()
     {
         session_start();
         $login = R::dispense('login');

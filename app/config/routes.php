@@ -10,6 +10,8 @@
 
 /**
  * Change the default language and continue with other routes.
+ *
+ * @todo maybe set language bean to have locale and so on?
  */
 Flight::route('(/@language:[a-z]{2})(/*)', function($language) {
     if (in_array($language, Flight::get('possible_languages'))) {
@@ -47,20 +49,24 @@ Flight::route('(/[a-z]{2})/logout', function() {
 });
 
 /**
+ * Routes to the scaffold controller.
+ */
+Flight::route('(/[a-z]{2})/admin/@type:[a-z]+/edit/@id:[0-9]+', function($type, $id) {
+	$scaffoldController = new Controller_Scaffold();
+	$scaffoldController->edit($type, $id);
+});
+Flight::route('(/[a-z]{2})/admin/@type:[a-z]+/add(/@id:[0-9]+)', function($type, $id) {
+	$scaffoldController = new Controller_Scaffold();
+	$scaffoldController->add($type, $id);
+});
+Flight::route('(/[a-z]{2})/admin/@type:[a-z]+(/index)', function($type) {
+	$scaffoldController = new Controller_Scaffold();
+	$scaffoldController->index($type);
+});
+
+/**
  * Routes to the admin controller.
  */
-Flight::route('(/[a-z]{2})/admin/user/edit/@id:[0-9]+', function() {
-	$adminUserController = new Controller_Admin_User();
-	$adminUserController->edit($id);
-});
-Flight::route('(/[a-z]{2})/admin/user/add', function() {
-	$adminUserController = new Controller_Admin_User();
-	$adminUserController->add();
-});
-Flight::route('(/[a-z]{2})/admin/user(/index)', function() {
-	$adminUserController = new Controller_Admin_User();
-	$adminUserController->index();
-});
 Flight::route('(/[a-z]{2})/admin(/index)', function() {
 	$adminController = new Controller_Admin();
 	$adminController->index();
@@ -69,7 +75,7 @@ Flight::route('(/[a-z]{2})/admin(/index)', function() {
 /**
  * Catch all before notFound.
  *
- * @todo Lets go through our CMS later on
+ * @todo Lets go through our CMS (Frontend) controller later on to check that URL
  */
 Flight::route('(/[a-z]{2})(/*)', function() {
     Flight::render('404', array(), 'content');

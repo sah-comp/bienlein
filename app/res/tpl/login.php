@@ -42,7 +42,8 @@
                     name="dialog[uname]"
                     placeholder="<?php echo I18n::__('login_username_placeholder') ?>"
                     value="<?php echo htmlspecialchars($record->uname) ?>"
-                    required="required" />
+                    required="required"
+ 					autofocus="autofocus" />
             </div>
             <div
                 class="row<?php echo $record->hasError('pw') ? ' error' : '' ?>">

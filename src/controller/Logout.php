@@ -20,7 +20,7 @@ class Controller_Logout extends Controller
     /**
      * Resets and destroys the current session, then redirects to /.
      */
-    static public function index()
+    public function index()
     {
         session_start();
         unset($_SESSION);

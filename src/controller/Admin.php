@@ -20,7 +20,7 @@ class Controller_Admin extends Controller
     /**
      * Displays the admin index page.
      */
-    static public function index()
+    public function index()
     {
         session_start();
         Auth::check();

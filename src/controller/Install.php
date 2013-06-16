@@ -20,7 +20,7 @@ class Controller_Install extends Controller
     /**
      * Renders the install page and handles POST request.
      */
-    static public function index()
+    public function index()
     {
         session_start();
         $user = R::dispense('user');

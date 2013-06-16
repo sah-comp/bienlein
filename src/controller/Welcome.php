@@ -20,7 +20,7 @@ class Controller_Welcome extends Controller
     /**
      * Renders the welcome page.
      */
-    static public function index()
+    public function index()
     {
         Flight::render('welcome/welcome_'.Flight::get('language'), array(), 'content');
         Flight::render('html5', array(
