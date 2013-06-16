@@ -28,7 +28,7 @@ class Controller_Install extends Controller
                 password_verify(Flight::request()->data->pass, CINNEBAR_INSTALL_PASS)) {
             $user = R::graph(Flight::request()->data->dialog, true);
             R::store($user);
-            self::redirect('/admin');
+            $this->redirect('/admin');
         }
         // either no yet submitted or the credentials given failed
         Flight::render('install/index', array(

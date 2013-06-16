@@ -25,6 +25,6 @@ class Controller_Logout extends Controller
         session_start();
         unset($_SESSION);
         session_destroy();
-        self::redirect('/');
+        $this->redirect('/');
     }
 }

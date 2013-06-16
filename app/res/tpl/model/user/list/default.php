@@ -16,18 +16,21 @@
 </div>
 <?php else: ?>
 <?php foreach ($records as $id => $record): ?>
-<figure
-	id="user-<?php echo $id ?>"
-	class="gravatar">
-    <img
-        src="<?php echo Gravatar::src($record->email, 64) ?>"
-        width="64"
-        height="64"
-        alt="<?php echo htmlspecialchars($record->name) ?>" />
-    <figcaption>
-        <?php echo htmlspecialchars($record->name) ?>
-    </figcaption>
-</figure>
+<a
+	href="<?php echo Url::build('/admin/user/edit/%d', array($record->getId())) ?>">
+	<figure
+		id="user-<?php echo $id ?>"
+		class="gravatar">
+	    <img
+	        src="<?php echo Gravatar::src($record->email, 64) ?>"
+	        width="64"
+	        height="64"
+	        alt="<?php echo htmlspecialchars($record->name) ?>" />
+	    <figcaption>
+	        <?php echo htmlspecialchars($record->name) ?>
+	    </figcaption>
+	</figure>
+</a>
 <?php endforeach ?>
 <?php endif ?>
 <!-- End of admin user page -->

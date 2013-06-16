@@ -28,7 +28,7 @@ class Controller_Login extends Controller
             $login = R::graph(Flight::request()->data->dialog, true);
             if ($login->trial()) {
                 $_SESSION['user']['id'] = $login->user->getId();
-                self::redirect(Flight::request()->data->goto, $raw = true);
+                $this->redirect(Flight::request()->data->goto, $raw = true);
             } 
         }
         // either no yet submitted or the credentials given failed

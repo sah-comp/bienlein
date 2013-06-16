@@ -21,25 +21,50 @@ Flight::route('(/@language:[a-z]{2})(/*)', function($language) {
 /**
  * Route the root to our welcome controller.
  */
-Flight::route('(/[a-z]{2})/', array('Controller_Welcome', 'index'));
+Flight::route('(/[a-z]{2})/', function() {
+	$welcomeController = new Controller_Welcome();
+	$welcomeController->index();
+});
 
 /**
  * Route to the install controller.
  */
-Flight::route('(/[a-z]{2})/install', array('Controller_Install', 'index'));
+Flight::route('(/[a-z]{2})/install', function() {
+	$installController = new Controller_Install();
+	$installController->index();
+});
 
 /**
- * Route to the login/logout controllers.
+ * Routes to the login/logout controllers.
  */
-Flight::route('(/[a-z]{2})/login', array('Controller_Login', 'index'));
-Flight::route('(/[a-z]{2})/logout', array('Controller_Logout', 'index'));
+Flight::route('(/[a-z]{2})/login', function() {
+	$loginController = new Controller_Login();
+	$loginController->index();
+});
+Flight::route('(/[a-z]{2})/logout', function() {
+	$logoutController = new Controller_Logout();
+	$logoutController->index();
+});
 
 /**
- * Route to the admin controller.
+ * Routes to the admin controller.
  */
-Flight::route('(/[a-z]{2})/admin/user/add', array('Controller_Admin_User', 'add'));
-Flight::route('(/[a-z]{2})/admin/user', array('Controller_Admin_User', 'index'));
-Flight::route('(/[a-z]{2})/admin(/index)', array('Controller_Admin', 'index'));
+Flight::route('(/[a-z]{2})/admin/user/edit/@id:[0-9]+', function() {
+	$adminUserController = new Controller_Admin_User();
+	$adminUserController->edit($id);
+});
+Flight::route('(/[a-z]{2})/admin/user/add', function() {
+	$adminUserController = new Controller_Admin_User();
+	$adminUserController->add();
+});
+Flight::route('(/[a-z]{2})/admin/user(/index)', function() {
+	$adminUserController = new Controller_Admin_User();
+	$adminUserController->index();
+});
+Flight::route('(/[a-z]{2})/admin(/index)', function() {
+	$adminController = new Controller_Admin();
+	$adminController->index();
+});
 
 /**
  * Catch all before notFound.
