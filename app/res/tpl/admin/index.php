@@ -10,6 +10,8 @@
 ?>
 <!-- admin index page -->
 <article>
-    <h1>What to show on the admin index page?</h1>
+	<header>
+    	<h1>What to show on the admin index page?</h1>
+	</header>
 </article>
 <!-- End of admin index page -->

@@ -11,10 +11,7 @@
 <!-- Install -->
 <article>
     <header>
-        <hgroup>
-            <h1><?php echo I18n::__('install_h1') ?></h1>
-            <h2><?php echo I18n::__('install_h2') ?></h2>
-        </hgroup>
+		<h1><?php echo I18n::__('install_h1') ?></h1>
     </header>
     <form
         id="form-install"

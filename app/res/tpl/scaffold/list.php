@@ -9,7 +9,8 @@
  */
 ?>
 <!-- Scaffold list -->
-<p>
-	List of <?php echo $record->getMeta('type') ?>s.
-</p>
+<div class="alert alert-warning">
+    <h4><?php echo I18n::__('scaffold_alert_missing_list_h4') ?></h4>
+    <p><?php echo I18n::__('scaffold_alert_missing_list_p') ?></p>
+</div>
 <!-- End of scaffold list -->

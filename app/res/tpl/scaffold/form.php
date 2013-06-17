@@ -9,8 +9,8 @@
  */
 ?>
 <!-- Scaffold form -->
-<p>
-	Form of <?php echo $record->getMeta('type') ?>s.
-</p>
-<pre><?php print_r($record->export()) ?></pre>
+<div class="alert alert-warning">
+    <h4><?php echo I18n::__('scaffold_alert_missing_form_h4') ?></h4>
+    <p><?php echo I18n::__('scaffold_alert_missing_form_p') ?></p>
+</div>
 <!-- End of scaffold form -->
