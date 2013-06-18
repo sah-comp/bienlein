@@ -66,6 +66,23 @@ class Model extends RedBean_SimpleModel
     }
     
     /**
+     * Returns an array of possible actions.
+     *
+     * Overwrite this function on your bean models.
+     *
+     * @return array
+     */
+    public function getActions()
+    {
+        return array(
+            'index' => array('delete'),
+            'add' => array('add', 'edit', 'index'),
+            'edit' => array('edit', 'next_edit', 'prev_edit', 'index'),
+            'delete' => array('index')
+        );
+    }
+    
+    /**
      * Returns or sets the auto tag flag.
      *
      * @param bool (optional) $switch

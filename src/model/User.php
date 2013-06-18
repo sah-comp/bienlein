@@ -20,11 +20,34 @@ class Model_User extends Model
     /**
      * Returns the current user bean or an empty user bean.
      *
+     * A session must have been started before calling this method.
+     *
      * @return RedBean_OODBBean
      */
     public function current()
     {
+        if (isset($_SESSION['user']['id'])) return R::load('user', $_SESSION['user']['id']);
         return R::dispense('user');
+    }
+    
+    /**
+     * Adds a notification message for this user.
+     *
+     * @param string $message
+     */
+    public function notify($message)
+    {
+        if (empty($message) || ! $this->bean->getId()) return false;
+        $notification = R::dispense('notification');
+        $notification->content = $message;
+        try {
+            R::store($notification);
+            R::associate($this->bean, $notification);
+            return true;
+        }
+        catch (Exception $e) {
+            return false;
+        }
     }
 
     /**
@@ -50,6 +73,7 @@ class Model_User extends Model
      */
     public function dispense()
     {
+        $this->bean->name = I18n::__('user_name_guest');
         $this->autoInfo(true);
         $this->addValidator('name', new Validator_HasValue());
         $this->addValidator('pw', new Validator_HasValue());

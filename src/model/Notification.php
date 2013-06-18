@@ -9,12 +9,12 @@
  */
 
 /**
- * Action model.
+ * Notification model.
  *
  * @package Cinnebar
  * @subpackage Model
  * @version $Id$
  */
-class Model_Action extends Model
+class Model_Notification extends Model
 {
 }

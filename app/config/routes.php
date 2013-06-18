@@ -11,11 +11,11 @@
 /**
  * Change the default language and continue with other routes.
  *
- * @todo maybe set language bean to have locale and so on?
+ * @todo maybe use language bean? What should happen if a unknown/inactive lang is requested?
  */
 Flight::route('(/@language:[a-z]{2})(/*)', function($language) {
     if (in_array($language, Flight::get('possible_languages'))) {
-        Flight::set('language', $language);   
+        Flight::set('language', $language);
     }
     return true;
 });
@@ -51,17 +51,21 @@ Flight::route('(/[a-z]{2})/logout', function() {
 /**
  * Routes to the scaffold controller.
  */
+ Flight::route('(/[a-z]{2})/admin/@type:[a-z]+/add(/@id:[0-9]+)', function($type, $id) {
+ 	$scaffoldController = new Controller_Scaffold('/admin', $type, $id);
+ 	$scaffoldController->add();
+ });
 Flight::route('(/[a-z]{2})/admin/@type:[a-z]+/edit/@id:[0-9]+', function($type, $id) {
-	$scaffoldController = new Controller_Scaffold();
-	$scaffoldController->edit($type, $id);
+	$scaffoldController = new Controller_Scaffold('/admin', $type, $id);
+	$scaffoldController->edit();
 });
-Flight::route('(/[a-z]{2})/admin/@type:[a-z]+/add(/@id:[0-9]+)', function($type, $id) {
-	$scaffoldController = new Controller_Scaffold();
-	$scaffoldController->add($type, $id);
+Flight::route('(/[a-z]{2})/admin/@type:[a-z]+/delete/@id:[0-9]+', function($type, $id) {
+	$scaffoldController = new Controller_Scaffold('/admin', $type, $id);
+	$scaffoldController->delete();
 });
 Flight::route('(/[a-z]{2})/admin/@type:[a-z]+(/index)', function($type) {
-	$scaffoldController = new Controller_Scaffold();
-	$scaffoldController->index($type);
+	$scaffoldController = new Controller_Scaffold('/admin', $type);
+	$scaffoldController->index();
 });
 
 /**

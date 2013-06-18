@@ -18,6 +18,13 @@
 class Controller
 {
     /**
+     * Constructs a new Controller.
+     */
+    public function __construct()
+    {
+    }
+
+    /**
      * Runs a plugin from the plugin directory.
      *
      * @param string $method
