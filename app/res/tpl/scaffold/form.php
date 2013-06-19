@@ -17,7 +17,7 @@
     </header>
     <form
         id="form-<?php echo $record->getMeta('type') ?>"
-        class="dialog dialog-<?php echo $record->getMeta('type') ?> action-<?php echo $current_action ?>"
+        class="panel panel-<?php echo $record->getMeta('type') ?> action-<?php echo $current_action ?>"
         method="POST"
         action=""
         accept-charset="utf-8"

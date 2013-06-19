@@ -14,7 +14,7 @@
     <input type="hidden" name="dialog[id]" value="<?php echo $record->getId() ?>" />
 </div>
 <fieldset>
-    <legend><?php echo I18n::__('user_legend') ?></legend>
+    <legend class="verbose"><?php echo I18n::__('user_legend') ?></legend>
     <div
         class="row<?php echo $record->hasError('name') ? ' error' : '' ?>">
         <label

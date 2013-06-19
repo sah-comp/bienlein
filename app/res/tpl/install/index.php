@@ -15,7 +15,7 @@
     </header>
     <form
         id="form-install"
-        class="dialog install"
+        class="panel install"
         method="POST"
         action=""
         accept-charset="utf-8">

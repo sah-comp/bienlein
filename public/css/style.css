@@ -406,7 +406,7 @@ ol ul {
 
 
 /* ==|== primary styles =====================================================
-   Author: johndoe@example.com
+   Author: info@sah-company.com
    ========================================================================== */
 
 /* Set your font stuff for the document here */
@@ -525,6 +525,11 @@ mark {background-color: #fcd700; color: #000; font-style: italic; font-weight: b
 
 /* Account navigation */
 .account-navigation a {
+    font-size: smaller;
+}
+
+/* Panel navigation */
+.panel-navigation a {
     font-size: smaller;
 }
 

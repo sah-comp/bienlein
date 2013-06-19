@@ -21,6 +21,12 @@
 		            href="<?php echo Url::build('/admin/user/') ?>">
 		            <?php echo I18n::__('admin_user_nav') ?>
 		        </a>
+		    </li>		    
+			<li>
+		        <a
+		            href="<?php echo Url::build('/admin/language/') ?>">
+		            <?php echo I18n::__('admin_language_nav') ?>
+		        </a>
 		    </li>
 		</ul>
     </li>

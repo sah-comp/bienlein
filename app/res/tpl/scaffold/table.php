@@ -9,7 +9,7 @@
  */
 ?>
 <?php $_attributes = $record->getAttributes($layout) ?>
-<!-- user table -->
+<!-- <?php echo $record->getMeta('type') ?> scaffold table -->
 <table>
     
     <caption>
@@ -143,7 +143,7 @@
             <td class="edit">
                 <a
                     class="edit"
-                	href="<?php echo Url::build('/admin/user/edit/%d/%d/%d/%d/', array($_record->getId(), $offset, $order, $dir)) ?>">
+                	href="<?php echo Url::build('/admin/%s/edit/%d/%d/%d/%d/%s/', array($_record->getMeta('type'), $_record->getId(), $offset, $order, $dir, $layout)) ?>">
                     <?php echo I18n::__('scaffold_action_edit') ?>
                 </a>
             </td>
@@ -159,8 +159,14 @@
             </td>
             
             <!-- body attributes -->
-            <?php foreach ($record->getAttributes('table') as $attribute): ?>
-            <td><?php echo htmlspecialchars($_record->{$attribute['name']}) ?></td>
+            <?php foreach ($_attributes as $_attribute): ?>
+            <td>
+                <?php if (isset($_attribute['callback'])): ?>
+                    <?php echo htmlspecialchars($_record->{$_attribute['callback']['name']}()) ?>
+                <?php else: ?>
+                    <?php echo htmlspecialchars($_record->{$_attribute['name']}) ?>
+                <?php endif ?>
+            </td>
             <?php endforeach ?>
             <!-- end of body attributes -->
             
@@ -169,4 +175,4 @@
     </tbody>
     
 </table>
-<!-- End of user table -->
+<!-- End of scaffold table -->

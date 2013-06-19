@@ -15,7 +15,7 @@
     </header>
     <form
         id="form-login"
-        class="dialog login"
+        class="panel login"
         method="POST"
         action=""
         accept-charset="utf-8">

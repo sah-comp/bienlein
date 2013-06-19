@@ -370,7 +370,7 @@ SQL;
             foreach ($attributeValidators as $validator) {
                 if ( ! $validator->validate($this->bean->$attribute)) {
                     $suggest = false;
-                    $this->addError(I18n::__(get_class($validator).'_invalid'), $attribute);
+                    $this->addError(I18n::__(strtolower(get_class($validator)).'_invalid'), $attribute);
                 }
             }
         }

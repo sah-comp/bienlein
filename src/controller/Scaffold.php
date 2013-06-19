@@ -372,7 +372,8 @@ class Controller_Scaffold extends Controller
         $this->page = $page;
         $this->order = $order;
         $this->dir = $dir;
-        $this->template = "model/{$this->type}/{$this->layout}";
+        //$this->template = "model/{$this->type}/{$this->layout}";
+        $this->template = "scaffold/{$this->layout}";
 		if (Flight::request()->method == 'POST') {
 		    //clear filter?
 		    if (Flight::request()->data->submit == I18n::__('filter_submit_clear')) {
@@ -418,22 +419,25 @@ class Controller_Scaffold extends Controller
      *
      * On a GET request a form is represented that has to be filled in by the client. On a POST
      * request a new bean is created and the client is redirected to a choosen next url.
+     *
+     * @param string $layout
      */
-    public function add()
+    public function add($layout)
     {
         Permission::check(Flight::get('user'), $this->type, 'add');
+        $this->layout = $layout;
         $this->action = 'add';
         $this->template = "model/{$this->type}/add";
 		if (Flight::request()->method == 'POST') {
             $this->record = R::graph(Flight::request()->data->dialog, true);
+            $this->setNextAction(Flight::request()->data->next_action);
             if ($this->doRedbeanAction()) {
-                $this->setNextAction(Flight::request()->data->next_action);
                 if ($this->getNextAction() == 'add') {
-                    $this->redirect("{$this->base_url}/{$this->type}/add/");
+                    $this->redirect("{$this->base_url}/{$this->type}/add/{$this->layout}/");
                 } elseif ($this->getNextAction() == 'edit') {
-                    $this->redirect("{$this->base_url}/{$this->type}/edit/{$this->record->getId()}");
+                    $this->redirect("{$this->base_url}/{$this->type}/edit/{$this->record->getId()}/1/0/0/");
                 }
-                $this->redirect("{$this->base_url}/{$this->type}/");
+                $this->redirect("{$this->base_url}/{$this->type}/{$this->layout}/");
             }
         }
 		$this->render();
@@ -448,50 +452,33 @@ class Controller_Scaffold extends Controller
      * @param int $page
      * @param int $order
      * @param int $dir
+     * @param string $layout
      */
-    public function edit($page, $order, $dir)
+    public function edit($page, $order, $dir, $layout)
     {
         Permission::check(Flight::get('user'), $this->type, 'edit');
         $this->action = 'edit';
         $this->page = $page;
         $this->order = $order;
         $this->dir = $dir;
+        $this->layout = $layout;
         $this->template = "model/{$this->type}/edit";
 		if (Flight::request()->method == 'POST') {
             $this->record = R::graph(Flight::request()->data->dialog, true);
-            if ($this->doRedbeanAction()) {            
-                $this->setNextAction(Flight::request()->data->next_action);
+            $this->setNextAction(Flight::request()->data->next_action);
+            if ($this->doRedbeanAction()) {
                 if ($this->getNextAction() == 'edit') {
-                    $this->redirect("{$this->base_url}/{$this->type}/edit/{$this->record->getId()}");
+                    $this->redirect("{$this->base_url}/{$this->type}/edit/{$this->record->getId()}/{$this->page}/{$this->order}/{$this->dir}/{$this->layout}/");
                 } elseif ($this->getNextAction() == 'next_edit' && 
                                                 $next_id = $this->id_at_offset($this->page + 1)) {
                     $next_page = $this->page + 1;
-                    $this->redirect("{$this->base_url}/{$this->type}/edit/{$next_id}/{$next_page}/{$this->order}/{$this->dir}/");
+                    $this->redirect("{$this->base_url}/{$this->type}/edit/{$next_id}/{$next_page}/{$this->order}/{$this->dir}/{$this->layout}/");
                 } elseif ($this->getNextAction() == 'prev_edit' && 
                                                 $prev_id = $this->id_at_offset($this->page - 1)) {
                         $prev_page = $this->page - 1;
-                        $this->redirect("{$this->base_url}/{$this->type}/edit/{$prev_id}/{$prev_page}/{$this->order}/{$this->dir}/");
+                        $this->redirect("{$this->base_url}/{$this->type}/edit/{$prev_id}/{$prev_page}/{$this->order}/{$this->dir}/{$this->layout}/");
                 }
-                $this->redirect("{$this->base_url}/{$this->type}/");
-            }
-        }
-		$this->render();
-    }
-
-    /**
-     * Displays page to delete an existing bean after confirmation.
-     *
-     * On a GET request a form is represented to confirm the deletion on the bean while on a POST
-     * request the bean is deleted and client is redirected to the index view.
-     */
-    public function delete()
-    {
-        Permission::check(Flight::get('user'), $this->type, 'delete');
-        $this->action = 'delete';
-        $this->template = "model/{$this->type}/delete";
-		if (Flight::request()->method == 'POST') {
-            if ($this->doRedbeanAction('trash')) {
-                $this->redirect("{$this->base_url}/{$this->type}/");
+                $this->redirect("{$this->base_url}/{$this->type}/{$this->layout}/");
             }
         }
 		$this->render();

@@ -8,7 +8,7 @@
  * @version $Id$
  */
 ?>
-<ul class="dialog-navigation">
+<ul class="panel-navigation">
 	<li>
 		<a
 			href="<?php echo Url::build("{$base_url}/{$type}/{$layout}/1/{$order}/{$dir}") ?>">
@@ -17,7 +17,7 @@
 	</li>
 	<li>
 		<a
-			href="<?php echo Url::build("{$base_url}/{$type}/add/") ?>">
+			href="<?php echo Url::build("{$base_url}/{$type}/add/{$layout}/") ?>">
 			<?php echo I18n::__('scaffold_action_add') ?>
 		</a>
 	</li>
