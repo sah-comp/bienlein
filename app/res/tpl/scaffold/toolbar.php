@@ -11,7 +11,7 @@
 <ul class="dialog-navigation">
 	<li>
 		<a
-			href="<?php echo Url::build("{$base_url}/{$type}/") ?>">
+			href="<?php echo Url::build("{$base_url}/{$type}/{$layout}/1/{$order}/{$dir}") ?>">
 			<?php echo I18n::__('scaffold_action_list') ?>
 		</a>
 	</li>

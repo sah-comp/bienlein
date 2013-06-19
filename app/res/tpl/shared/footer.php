@@ -9,5 +9,7 @@
  */
 ?>
 <footer>
-	<p><?php echo I18n::__('app_footer', null, array()) ?></p>
+    <?php if (isset($pagination) && is_a($pagination, 'Pagination')): ?>
+    <?php echo $pagination->render() ?>
+    <?php endif ?>
 </footer>

@@ -180,18 +180,17 @@ class Pagination
 		{
 			// with link
 			$query = array(
+			    $this->layout,
 				$this->page - 1,
-				$this->limit,
-				$this->layout,
 				$this->order,
 				$this->dir
 			);
-			$s .= '<li class="prev">'.$this->ahref($this->url.implode('/', $query), __('pagination_page_prev')).'</li>'."\n";
+			$s .= '<li class="prev">'.$this->ahref($this->url.implode('/', $query), I18n::__('pagination_page_prev')).'</li>'."\n";
 		}
 		else
 		{
 			// without link
-			$s .= '<li class="prev">'.__('pagination_page_prev').'</li>'."\n";
+			$s .= '<li class="prev">'.I18n::__('pagination_page_prev').'</li>'."\n";
 		}
 		
 		// digg style pagination list
@@ -202,18 +201,17 @@ class Pagination
 		{
 			// with link
 			$query = array(
+			    $this->layout,
 				$this->page + 1,
-				$this->limit,
-				$this->layout,
 				$this->order,
 				$this->dir
 			);
-			$s .= '<li class="next">'.$this->ahref($this->url.implode('/', $query), __('pagination_page_next')).'</li>'."\n";
+			$s .= '<li class="next">'.$this->ahref($this->url.implode('/', $query), I18n::__('pagination_page_next')).'</li>'."\n";
 		}
 		else
 		{
 			// without link
-			$s .= '<li class="next">'.__('pagination_page_next').'</li>'."\n";
+			$s .= '<li class="next">'.I18n::__('pagination_page_next').'</li>'."\n";
 		}
 		
 		$s .= '</ul>'."\n";
@@ -243,9 +241,8 @@ class Pagination
 				{
 					// other than current page
 					$query = array(
+    				    $this->layout,
 						$n,
-						$this->limit,
-        				$this->layout,
 						$this->order,
 						$this->dir
 					);
@@ -272,9 +269,8 @@ class Pagination
 					{
 						// other than current page
 						$query = array(
+        				    $this->layout,
 							$n,
-							$this->limit,
-            				$this->layout,
 							$this->order,
 							$this->dir
 						);
@@ -290,9 +286,8 @@ class Pagination
 				$s .= '<li>&#8230</li>'."\n";
 				$s .= '<li>';
 				$query = array(
+				    $this->layout,
 					$this->max_pages - 1,
-					$this->limit,
-    				$this->layout,
 					$this->order,
 					$this->dir
 				);
@@ -300,9 +295,8 @@ class Pagination
 				$s .= '</li>'."\n";
 				$s .= '<li>';
 				$query = array(
+				    $this->layout,
 					$this->max_pages,
-					$this->limit,
-    				$this->layout,
 					$this->order,
 					$this->dir
 				);
@@ -315,9 +309,8 @@ class Pagination
 				// In the middle, hide pages beginning and end
 				$s .= '<li>';
 				$query = array(
+				    $this->layout,
 					1,
-					$this->limit,
-    				$this->layout,
 					$this->order,
 					$this->dir
 				);
@@ -325,9 +318,8 @@ class Pagination
 				$s .= '</li>'."\n";
 				$s .= '<li>';
 				$query = array(
+				    $this->layout,
 					2,
-					$this->limit,
-    				$this->layout,
 					$this->order,
 					$this->dir
 				);
@@ -342,9 +334,8 @@ class Pagination
 					{
 						// other than current page
 						$query = array(
+        				    $this->layout,
 							$n,
-							$this->limit,
-            				$this->layout,
 							$this->order,
 							$this->dir
 						);
@@ -361,9 +352,8 @@ class Pagination
 				
 				$s .= '<li>';
 				$query = array(
+				    $this->layout,
 					$this->max_pages - 1,
-					$this->limit,
-    				$this->layout,
 					$this->order,
 					$this->dir
 				);
@@ -371,9 +361,8 @@ class Pagination
 				$s .= '</li>'."\n";
 				$s .= '<li>';
 				$query = array(
+				    $this->layout,
 					$this->max_pages,
-					$this->limit,
-    				$this->layout,
 					$this->order,
 					$this->dir
 				);
@@ -386,9 +375,8 @@ class Pagination
 				// At the end, hide pages from the beginning
 				$s .= '<li>';
 				$query = array(
+				    $this->layout,
 					1,
-					$this->limit,
-    				$this->layout,
 					$this->order,
 					$this->dir
 				);
@@ -396,9 +384,8 @@ class Pagination
 				$s .= '</li>'."\n";
 				$s .= '<li>';
 				$query = array(
+				    $this->layout,
 					2,
-					$this->limit,
-    				$this->layout,
 					$this->order,
 					$this->dir
 				);
@@ -413,9 +400,8 @@ class Pagination
 					{
 						// other than current page
 						$query = array(
+        				    $this->layout,
 							$n,
-							$this->limit,
-            				$this->layout,
 							$this->order,
 							$this->dir
 						);

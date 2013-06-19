@@ -18,6 +18,36 @@
 class Model_User extends Model
 {
     /**
+     * Returns an array with attributes for lists.
+     *
+     * @param string (optional) $layout
+     * @return array
+     */
+    public function getAttributes($layout = 'table')
+    {
+        return array(
+            array(
+                'name' => 'name',
+                'sort' => array(
+                    'name' => 'user.name'
+                ),
+                'filter' => array(
+                    'tag' => 'text'
+                )
+            ),
+            array(
+                'name' => 'email',
+                'sort' => array(
+                    'name' => 'user.email'
+                ),
+                'filter' => array(
+                    'tag' => 'text'
+                )
+            )
+        );
+    }
+    
+    /**
      * Returns the current user bean or an empty user bean.
      *
      * A session must have been started before calling this method.

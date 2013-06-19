@@ -55,17 +55,24 @@ Flight::route('(/[a-z]{2})/logout', function() {
  	$scaffoldController = new Controller_Scaffold('/admin', $type, $id);
  	$scaffoldController->add();
  });
-Flight::route('(/[a-z]{2})/admin/@type:[a-z]+/edit/@id:[0-9]+', function($type, $id) {
+Flight::route('(/[a-z]{2})/admin/@type:[a-z]+/edit/@id:[0-9]+(/@page:[0-9]+)(/@order:[0-9]+)(/@dir:[0-1]{1})', function($type, $id, $page, $order, $dir) {
+    if ($page === null) $page = 1;
+    if ($order === null) $order = 0;
+    if ($dir === null) $dir = 0;
 	$scaffoldController = new Controller_Scaffold('/admin', $type, $id);
-	$scaffoldController->edit();
+	$scaffoldController->edit($page, $order, $dir);
 });
 Flight::route('(/[a-z]{2})/admin/@type:[a-z]+/delete/@id:[0-9]+', function($type, $id) {
 	$scaffoldController = new Controller_Scaffold('/admin', $type, $id);
 	$scaffoldController->delete();
 });
-Flight::route('(/[a-z]{2})/admin/@type:[a-z]+(/index)', function($type) {
+Flight::route('(/[a-z]{2})/admin/@type:[a-z]+(/@layout:[a-z]+)(/@page:[0-9]+)(/@order:[0-9]+)(/@dir:[0-1]{1})', function($type, $layout, $page, $order, $dir) {
+    if ($layout === null) $layout = 'table';
+    if ($page === null) $page = 1;
+    if ($order === null) $order = 0;
+    if ($dir === null) $dir = 0;
 	$scaffoldController = new Controller_Scaffold('/admin', $type);
-	$scaffoldController->index();
+	$scaffoldController->index($layout, $page, $order, $dir);
 });
 
 /**

@@ -76,6 +76,56 @@ class Model extends RedBean_SimpleModel
     protected $auto_info = false;
     
     /**
+     * Returns an array with attributes for lists.
+     *
+     * @param string (optional) $layout
+     * @return array
+     */
+    public function getAttributes($layout = 'table')
+    {
+        return array(
+            array(
+                'name' => 'id',
+                'sort' => array(
+                    'name' => $this->bean->getMeta('type').'.name'
+                ),
+                'filter' => array(
+                    'tag' => 'number'
+                )
+            )
+        );
+    }
+    
+    /**
+     * Returns SQL string.
+     *
+     * @param string (optional) $fields to select
+     * @param string (optional) $where
+     * @param string (optional) $order
+     * @param int (optional) $offset
+     * @param int (optional) $limit
+     * @return string $sql
+     */
+    public function getSql($fields = 'id', $where = '1', $order = 'id', $offset = null, $limit = null)
+    {
+		$sql = <<<SQL
+		SELECT
+		    {$fields}
+		FROM
+		    {$this->bean->getMeta('type')}
+		WHERE
+		    {$where}
+		ORDER BY
+		    {$order}
+SQL;
+        //add optional limit
+        if ($offset || $limit) {
+            $sql .= " LIMIT {$offset}, {$limit}";
+        }
+        return $sql;
+    }
+    
+    /**
      * Returns automatic keywords for this bean.
      *
      * @param array (optional) $tags which the user may has entered
