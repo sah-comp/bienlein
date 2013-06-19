@@ -8,7 +8,7 @@
  * @version $Id$
  */
 ?>
-<!-- user form details -->
+<!-- user add form -->
 <div>
     <input type="hidden" name="dialog[type]" value="<?php echo $record->getMeta('type') ?>" />
     <input type="hidden" name="dialog[id]" value="<?php echo $record->getId() ?>" />
@@ -92,4 +92,4 @@
             value="1" />
     </div>
 </fieldset>
-<!-- End of user form details -->
+<!-- End of user add form -->

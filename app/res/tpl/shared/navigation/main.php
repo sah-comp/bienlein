@@ -9,7 +9,7 @@
  */
 ?>
 <!-- main navigation -->
-<ul class="nav nav-main">
+<ul class="main-navigation">
     <li>
         <a
             href="<?php echo Url::build('/admin/') ?>">

@@ -8,7 +8,7 @@
  * @version $Id$
  */
 ?>
-<!-- user form details -->
+<!-- user delete form -->
 <div>
     <input type="hidden" name="dialog[type]" value="<?php echo $record->getMeta('type') ?>" />
     <input type="hidden" name="dialog[id]" value="<?php echo $record->getId() ?>" />
@@ -70,8 +70,27 @@
             type="password"
             id="user-pw"
             name="dialog[pw]"
-            value=""
-            required="required" />
+            value="<?php echo htmlspecialchars($record->pw) ?>"
+            required="required"
+            readonly="readonly" />
+    </div>
+    <div
+        class="row<?php echo $record->hasError('isadmin') ? ' error' : '' ?>">
+        <input
+            type="hidden"
+            name="dialog[isadmin]"
+            value="0" />
+        <label
+            for="user-isadmin"
+            class="cb">
+            <?php echo I18n::__('user_label_isadmin') ?>
+        </label>
+        <input
+            id="user-isadmin"
+            type="checkbox"
+            name="dialog[isadmin]"
+            <?php echo ($record->isadmin) ? 'checked="checked"' : '' ?>
+            value="1" />
     </div>
 </fieldset>
-<!-- End of user form details -->
+<!-- End of user delete form -->

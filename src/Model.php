@@ -18,11 +18,34 @@
 class Model extends RedBean_SimpleModel
 {
     /**
+     * Defines the validation mode to throw an exception.
+     */
+    const VALIDATION_MODE_EXCEPTION = 1;
+
+    /**
+     * Defines the validation mode to store an valid or invalid state with the bean.
+     */
+    const VALIDATION_MODE_IMPLICIT = 2;
+
+    /**
+     * Defines the validation mode to simply return the result of a validation.
+     */
+    const VALIDATION_MODE_EXPLICIT = 4;
+
+    /**
      * Container for the validators.
      *
      * @var array
      */
     protected $validators = array();
+    
+    /**
+     * Holds the validation mode where 1 = Exception, 2 = Implicit attribute, 4 = Explicit.
+     * Affects all beans.
+     *
+     * @var int
+     */
+    protected static $validation_mode = self::VALIDATION_MODE_EXCEPTION;
     
     /**
      * Container for the converters.
@@ -75,11 +98,19 @@ class Model extends RedBean_SimpleModel
     public function getActions()
     {
         return array(
-            'index' => array('delete'),
+            'index' => array('idle', 'expunge'),
             'add' => array('add', 'edit', 'index'),
             'edit' => array('edit', 'next_edit', 'prev_edit', 'index'),
             'delete' => array('index')
         );
+    }
+    
+    /**
+     * Expunge as an alternative to R::trash().
+     */
+    public function expunge()
+    {
+        R::trash($this->bean);
     }
     
     /**
@@ -232,6 +263,28 @@ class Model extends RedBean_SimpleModel
     {
         return $this->hasError();
     }
+    
+    /**
+     * Set the validation mode.
+     *
+     * This applies to all your beans at once.
+     *
+     * @param bool $mode
+     */
+    public function setValidationMode($mode)
+    {
+        self::$validation_mode = $mode;
+    }
+    
+    /**
+     * Returns the current validation mode.
+     *
+     * @return bool
+     */
+    public function getValidationMode()
+    {
+        return self::$validation_mode;
+    }
 
     /**
      * Add a validator to the attribute.
@@ -253,18 +306,37 @@ class Model extends RedBean_SimpleModel
     /**
      * Returns true or false wether the model validates or not.
      *
+     * @uses $invalid
+     *
      * @return bool
+     * @throws Exception_Validation if validation mode is set to exception (default)
      */
     public function validate()
     {
+        if (isset($this->bean->invalid) && $this->bean->invalid) $this->bean->invalid = false;
         if (empty($this->validators)) return true;
-        $valid = true;
+        $suggest = true;
         foreach ($this->validators as $attribute => $attributeValidators) {
             foreach ($attributeValidators as $validator) {
-                $valid = $validator->validate($this->bean->$attribute);
+                if ( ! $validator->validate($this->bean->$attribute)) {
+                    $suggest = false;
+                    $this->addError(I18n::__(get_class($validator).'_invalid'), $attribute);
+                }
             }
         }
-        return $valid;
+        if ($suggest === true) return true;
+        //validation failed, react according to validation mode
+        switch (self::$validation_mode) {
+            case self::VALIDATION_MODE_EXCEPTION:
+                throw new Exception_Validation("Invalid {$this->bean->getMeta('type')}#{$this->bean->getId()}");
+                break;
+            case self::VALIDATION_MODE_IMPLICIT:
+                $this->bean->invalid = true;
+                break;
+            default:
+                //nothing, only return false
+        }
+        return false;
     }
     
     /**

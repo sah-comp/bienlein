@@ -73,6 +73,20 @@ class Controller_Scaffold extends Controller
     public $records = array();
     
     /**
+     * Holds the total number of beans found.
+     *
+     * @var int
+     */
+    public $total_records = 1;
+    
+    /**
+     * Container for selected beans.
+     *
+     * @var array
+     */
+    public $selection = array();
+    
+    /**
      * Constructs a new Scaffold controller.
      *
      * @param string $base_url for scaffold links and redirects
@@ -117,19 +131,21 @@ class Controller_Scaffold extends Controller
         }
         catch (Exception $e) {
             R::rollback();
-            $this->notifyAbout('failure');
+            $this->notifyAbout('error');
             return false;
         }
     }
     
     /**
-     * Add a notification to the user.
+     * Add a notification for currnet user.
      *
-     * @param string $type of the notification about the current action
+     * @param string $type of the notification (alert)
+     * @param int (optional) $count number of beans affected
      */
-    protected function notifyAbout($type)
+    protected function notifyAbout($type, $count = null)
     {
-        Flight::get('user')->notify(I18n::__("{$this->type}_{$type}_{$this->action}"));
+        Flight::get('user')->notify(I18n::__("scaffold_{$type}_{$this->action}", 
+                                                            null, array($count)), $type);
     }
     
     /**
@@ -189,6 +205,32 @@ class Controller_Scaffold extends Controller
         return $this->record->getId();
     }
     
+    /**
+     * Apply a given action to a selection of beans.
+     *
+     * @param array $selection of beans on which the given action should be applied
+     * @param string $action to apply
+     */
+    protected function applyToSelection(array $selection = array(), $action = 'idle')
+    {
+        if (empty($selection)) return false;
+        R::begin();
+        try {
+            foreach ($selection as $id => $switch) {
+                $record = R::load($this->type, $id);
+                $record->$action();
+            }
+            R::commit();
+            $this->notifyAbout('success', count($selection));
+            return true;
+        }
+        catch (Exception $e) {
+            R::rollback();
+            $this->notifyAbout('error', count($selection));
+            return false;
+        }
+    }
+    
 	/**
      * Displays the index page of a given type.
      *
@@ -198,11 +240,17 @@ class Controller_Scaffold extends Controller
     public function index()
     {
         $this->action = 'index';//aka browse
+        Permission::check(Flight::get('user'), $this->type, $this->action);
 		if (Flight::request()->method == 'POST') {
             //handle a selection
-            $this->redirect("{$this->base_url}/{$this->type}/");
+            $this->selection = Flight::request()->data->selection;
+            if ($this->applyToSelection($this->selection[$this->type], 
+                                                Flight::request()->data->next_action)) {
+                $this->redirect("{$this->base_url}/{$this->type}/");
+            }
         }
 		$this->records = $this->getCollection();
+		$this->total_records = count($this->records);
 		$this->render();
     }
 
@@ -215,19 +263,18 @@ class Controller_Scaffold extends Controller
     public function add()
     {
         $this->action = 'add';
+        Permission::check(Flight::get('user'), $this->type, $this->action);
 		if (Flight::request()->method == 'POST') {
             $this->record = R::graph(Flight::request()->data->dialog, true);
-
-            //R::store($this->record);
-            $this->doRedbeanAction();
-
-            $this->setNextAction(Flight::request()->data->next_action);
-            if ($this->getNextAction() == 'add') {
-                $this->redirect("{$this->base_url}/{$this->type}/add/");
-            } elseif ($this->getNextAction() == 'edit') {
-                $this->redirect("{$this->base_url}/{$this->type}/edit/{$this->record->getId()}");
+            if ($this->doRedbeanAction()) {
+                $this->setNextAction(Flight::request()->data->next_action);
+                if ($this->getNextAction() == 'add') {
+                    $this->redirect("{$this->base_url}/{$this->type}/add/");
+                } elseif ($this->getNextAction() == 'edit') {
+                    $this->redirect("{$this->base_url}/{$this->type}/edit/{$this->record->getId()}");
+                }
+                $this->redirect("{$this->base_url}/{$this->type}/");
             }
-            $this->redirect("{$this->base_url}/{$this->type}/");
         }
 		$this->render();
     }
@@ -241,21 +288,20 @@ class Controller_Scaffold extends Controller
     public function edit()
     {
         $this->action = 'edit';
+        Permission::check(Flight::get('user'), $this->type, $this->action);
 		if (Flight::request()->method == 'POST') {
             $this->record = R::graph(Flight::request()->data->dialog, true);
-
-            //R::store($this->record);
-            $this->doRedbeanAction();
-            
-            $this->setNextAction(Flight::request()->data->next_action);
-            if ($this->getNextAction() == 'edit') {
-                $this->redirect("{$this->base_url}/{$this->type}/edit/{$this->record->getId()}");
-            } elseif ($this->getNextAction() == 'next_edit') {
-                $this->redirect("{$this->base_url}/{$this->type}/edit/{$this->getNextRecordId()}");
-            } elseif ($this->getNextAction() == 'prev_edit') {
-                    $this->redirect("{$this->base_url}/{$this->type}/edit/{$this->getPrevRecordId()}");
+            if ($this->doRedbeanAction()) {            
+                $this->setNextAction(Flight::request()->data->next_action);
+                if ($this->getNextAction() == 'edit') {
+                    $this->redirect("{$this->base_url}/{$this->type}/edit/{$this->record->getId()}");
+                } elseif ($this->getNextAction() == 'next_edit') {
+                    $this->redirect("{$this->base_url}/{$this->type}/edit/{$this->getNextRecordId()}");
+                } elseif ($this->getNextAction() == 'prev_edit') {
+                        $this->redirect("{$this->base_url}/{$this->type}/edit/{$this->getPrevRecordId()}");
+                }
+                $this->redirect("{$this->base_url}/{$this->type}/");
             }
-            $this->redirect("{$this->base_url}/{$this->type}/");
         }
 		$this->render();
     }
@@ -269,11 +315,11 @@ class Controller_Scaffold extends Controller
     public function delete()
     {
         $this->action = 'delete';
+        Permission::check(Flight::get('user'), $this->type, $this->action);
 		if (Flight::request()->method == 'POST') {
-		    
-            $this->doRedbeanAction('trash');
-            
-            $this->redirect("{$this->base_url}/{$this->type}/");
+            if ($this->doRedbeanAction('trash')) {
+                $this->redirect("{$this->base_url}/{$this->type}/");
+            }
         }
 		$this->render();
     }
@@ -286,6 +332,8 @@ class Controller_Scaffold extends Controller
 	 */
 	protected function render()
 	{
+	    Flight::render('shared/notification', array(), 'notification');
+	    //
         Flight::render('shared/navigation/account', array(), 'navigation_account');
 		Flight::render('shared/navigation/main', array(), 'navigation_main');
         Flight::render('shared/navigation', array(), 'navigation');
@@ -297,7 +345,9 @@ class Controller_Scaffold extends Controller
 		Flight::render('shared/footer', array(), 'footer');
 		Flight::render("model/{$this->type}/{$this->action}", array(
             'record' => $this->record,
-			'records' => $this->records
+			'records' => $this->records,
+			'selection' => $this->selection,
+			'total_records' => $this->total_records
         ), 'form_details');
         Flight::render('scaffold/form', array(
             'actions' => $this->record->getActions(),

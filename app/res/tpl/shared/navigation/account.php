@@ -9,7 +9,7 @@
  */
 ?>
 <!-- account menu -->
-<ul class="nav nav-user">
+<ul class="account-navigation">
     <li>
         <a
             href="<?php echo Url::build('/account/') ?>">

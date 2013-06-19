@@ -34,11 +34,13 @@ class Model_User extends Model
      * Adds a notification message for this user.
      *
      * @param string $message
+     * @param string (optional) $class can be info, warning, success, danger and so on
      */
-    public function notify($message)
+    public function notify($message, $class = 'info')
     {
         if (empty($message) || ! $this->bean->getId()) return false;
         $notification = R::dispense('notification');
+        $notification->class = $class;
         $notification->content = $message;
         try {
             R::store($notification);
@@ -48,6 +50,22 @@ class Model_User extends Model
         catch (Exception $e) {
             return false;
         }
+    }
+    
+    /**
+     * Returns an array with unread notification(s) of this user.
+     *
+     * If optional parameter is set to false the notifcations are not 
+     * deleted after loading.
+     *
+     * @param bool (optional) $readOnlyOnce defaults to true
+     * @return array
+     */
+    public function getNotifications($readOnlyOnce = true)
+    {
+        $all = R::related($this->bean, 'notification', ' 1 ORDER BY stamp');
+        if ($readOnlyOnce === true) R::trashAll($all);
+        return $all;
     }
 
     /**
@@ -75,9 +93,18 @@ class Model_User extends Model
     {
         $this->bean->name = I18n::__('user_name_guest');
         $this->autoInfo(true);
-        $this->addValidator('name', new Validator_HasValue());
+        $this->addValidator('name', array(
+            new Validator_HasValue()
+        ));
+        $this->addValidator('shortname', array(
+            new Validator_HasValue(),
+            new Validator_IsUnique(array('bean' => $this->bean, 'attribute' => 'shortname'))
+        ));
         $this->addValidator('pw', new Validator_HasValue());
-        $this->addValidator('email', new Validator_IsEmail());
+        $this->addValidator('email', array(
+            new Validator_IsEmail(),
+            new Validator_IsUnique(array('bean' => $this->bean, 'attribute' => 'email'))
+        ));
     }
     
     /**

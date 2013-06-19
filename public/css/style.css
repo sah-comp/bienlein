@@ -523,6 +523,11 @@ mark {background-color: #fcd700; color: #000; font-style: italic; font-weight: b
     font-style: italic;
 }
 
+/* Account navigation */
+.account-navigation a {
+    font-size: smaller;
+}
+
 
 
 /* Forms */
@@ -597,6 +602,13 @@ textarea {
 	border-radius: 8px;
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;    
+}
+
+/* Mix, rip and burn some of the above together */
+
+/* within a dialog a errornous input field will be erdbeer colored */
+form.dialog div.row.error label {
+    color: #7a0b0a;
 }
 
 

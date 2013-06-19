@@ -39,16 +39,64 @@ class UserModelTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($this->userAsBean->getId() != 0);
     }
     
-    public function testUserStoreInvalidBean()
+    public function testUserStoreInvalidBeanDefaultValidationModeExplicit()
     {
         $invalidUser = R::dispense('user');
+        $invalidUser->setValidationMode(Model::VALIDATION_MODE_EXPLICIT);
         $invalidUser->name = 'Donald Duck';
         $invalidUser->shortname = 'dd';
         $invalidUser->email = 'donaldexample.com'; //invalid email address
         $invalidUser->pw = 'secret';
         $this->assertFalse($invalidUser->validate());
-        //R::store($invalidUser);
-        //$this->assertTrue($invalidUser->getId() == 0);
+    }
+    
+    public function testUserStoreInvalidBeanDefaultValidationModeImplicit()
+    {
+        $invalidUser = R::dispense('user');
+        $invalidUser->setValidationMode(Model::VALIDATION_MODE_IMPLICIT);
+        $invalidUser->name = 'Donald Duck';
+        $invalidUser->shortname = 'dd';
+        $invalidUser->email = 'donaldexample.com'; //invalid email address
+        $invalidUser->pw = 'secret';
+        $this->assertFalse($invalidUser->validate());
+        R::store($invalidUser);
+        $this->assertTrue($invalidUser->getId() != 0);
+        $this->assertNotEquals(false, $invalidUser->invalid);
+    }
+    
+    /**
+     * @expectedException Exception_Validation
+     */
+    public function testUserStoreInvalidBeanDefaultValidationModeException()
+    {
+        $invalidUser = R::dispense('user');
+        $invalidUser->setValidationMode(Model::VALIDATION_MODE_EXCEPTION);
+        $invalidUser->name = 'Donald Duck';
+        $invalidUser->shortname = 'dd';
+        $invalidUser->email = 'donaldexample.com'; //invalid email address
+        $invalidUser->pw = 'secret';
+        $this->assertFalse($invalidUser->validate());
+        R::store($invalidUser);
+    }
+    
+    public function testUserNotify()
+    {
+        $this->userAsBean->name = 'Receiver';
+        $this->userAsBean->shortname = 'rec';
+        $this->userAsBean->email = 'receiver@example.com';
+        $this->userAsBean->pw = 'secret';
+        R::store($this->userAsBean);
+        $this->assertTrue($this->userAsBean->getId() != 0);
+        $this->userAsBean->notify('My test notification 1');
+        $this->userAsBean->notify('My test notification 2');
+        $notifications = $this->userAsBean->getNotifications();
+        $this->assertTrue(is_array($notifications));
+        $this->assertTrue(count($notifications) == 2);
+        // once loaded the notifications where deleted
+        $notifications = $this->userAsBean->getNotifications();
+        $this->assertTrue(is_array($notifications));
+        $this->assertTrue(count($notifications) == 0);
+        $this->userAsBean->notify('My test notification, to have something in the test db');
     }
  
     public function testLoginSQLInjection1()
@@ -105,7 +153,7 @@ class UserModelTest extends PHPUnit_Framework_TestCase
     
     public function testLoginWithNameGood()
     {
-        $this->login->uname = 'John Doe';
+        $this->login->uname = 'jd';
         $this->login->pw = 'secret';
         $this->assertTrue($this->login->trial());
         $this->assertTrue(is_a($this->login->user, 'RedBean_OODBBean'));
@@ -121,14 +169,33 @@ class UserModelTest extends PHPUnit_Framework_TestCase
         $this->assertEmpty($this->login->pw);
     }
 
+    public function testUserBugIsUniqueValidators()
+    {
+        $user = R::dispense('user');
+        $user->name = 'Someone Lastname';
+        $user->shortname = 'some';
+        $user->email = 'some@example.com';
+        $user->pw = 'somesecret';
+        R::store($user);
+        $this->assertTrue($user->getId() != 0);
+        // some changes and restoring
+        
+        $reloaded = R::load('user', $user->getId());
+        
+        $reloaded->shortname = 'wow';
+        R::store($reloaded);
+    }
+
     public function testUserChangePassword()
     {
         $user = R::dispense('user');
-        $user->name = 'Walt Disney';
-        $user->shortname = 'walt';
-        $user->email = 'walt@example.com';
+        $user->name = 'Walter Disney';
+        $user->shortname = 'waltdi';
+        $user->email = 'waltdi@example.com';
         $user->pw = 'mickey';
         R::store($user);
+        // reload user, because the validators get messed up else
+        $user = R::load('user', $user->getId());
         // hmm.. dataProvider? for above
         $this->assertFalse($user->changePassword('wrongpassword', 'mickeymouse', 'mickeymouse'));
         $this->assertFalse($user->changePassword('wrongpassword', '', '')); //empty new password
@@ -136,7 +203,7 @@ class UserModelTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($user->changePassword('mickey', 'mickeymouse', 'mickeymouse'));
         R::store($user);
         // just for the sake of it
-        $this->login->uname = 'walt';
+        $this->login->uname = 'waltdi';
         $this->login->pw = 'mickeymouse';
         $this->assertTrue($this->login->trial());
         $this->assertTrue($this->login->user->getId() == $user->getId());

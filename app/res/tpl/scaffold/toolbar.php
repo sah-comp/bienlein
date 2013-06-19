@@ -1,4 +1,14 @@
-<ul class="nav nav-toolbar">
+<?php
+/**
+ * Cinnebar.
+ *
+ * @package Cinnebar
+ * @subpackage Template
+ * @author $Author$
+ * @version $Id$
+ */
+?>
+<ul class="dialog-navigation">
 	<li>
 		<a
 			href="<?php echo Url::build("{$base_url}/{$type}/") ?>">

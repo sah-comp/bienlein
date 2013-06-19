@@ -77,6 +77,17 @@ Flight::route('(/[a-z]{2})/admin(/index)', function() {
 });
 
 /**
+ * Forbidden.
+ */
+Flight::route('(/[a-z]{2})/forbidden', function() {
+    Flight::render('403', array(), 'content');
+    Flight::render('html5', array(
+        'language' => Flight::get('language'),
+        'title' => I18n::__('forbidden_head_title')
+    ));
+});
+
+/**
  * Catch all before notFound.
  *
  * @todo Lets go through our CMS (Frontend) controller later on to check that URL

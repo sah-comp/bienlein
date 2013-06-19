@@ -9,12 +9,12 @@
  */
 
 /**
- * Plugin Exception.
+ * Validation Exception.
  *
  * @package Cinnebar
  * @subpackage Exception
  * @version $Id$
  */
-class Exception_Plugin extends Exception
+class Exception_Validation extends Exception
 {
 }

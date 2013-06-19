@@ -27,7 +27,7 @@ class Model_Login extends Model
      */
     public function trial()
     {
-        if ( ! $user = R::findOne('user', 'email=:uname OR name=:uname OR shortname=:uname', array(
+        if ( ! $user = R::findOne('user', 'email=:uname OR shortname=:uname', array(
             ':uname' => $this->bean->uname
         ))) {
             $this->addError(I18n::__('login_uname_not_found'), 'uname');

@@ -8,7 +8,7 @@
  * @version $Id$
  */
 ?>
-<!-- user form details -->
+<!-- edit user form -->
 <div>
     <input type="hidden" name="dialog[type]" value="<?php echo $record->getMeta('type') ?>" />
     <input type="hidden" name="dialog[id]" value="<?php echo $record->getId() ?>" />
@@ -62,6 +62,20 @@
             required="required" />
     </div>
     <div
+        class="row<?php echo $record->hasError('pw') ? ' error' : '' ?>">
+        <label
+            for="user-pw">
+            <?php echo I18n::__('user_pw_label') ?>
+        </label>
+        <input
+            type="password"
+            id="user-pw"
+            name="dialog[pw]"
+            value="<?php echo htmlspecialchars($record->pw) ?>"
+            required="required"
+            readonly="readonly" />
+    </div>
+    <div
         class="row<?php echo $record->hasError('isadmin') ? ' error' : '' ?>">
         <input
             type="hidden"
@@ -80,4 +94,4 @@
             value="1" />
     </div>
 </fieldset>
-<!-- End of user form details -->
+<!-- End of edit user form -->

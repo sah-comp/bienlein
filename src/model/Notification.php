@@ -17,4 +17,15 @@
  */
 class Model_Notification extends Model
 {
+    /**
+     * Update.
+     */
+    public function update()
+    {
+        if ( ! $this->bean->getId()) {
+            $this->bean->stamp = time();
+            $this->bean->read = false;
+        }
+        parent::update();
+    }
 }

@@ -37,6 +37,10 @@
 		<?php echo isset($header) ? $header : null ?>
 		<!-- End of optional header -->
 
+		<!-- Notification (optional) -->
+		<?php echo isset($notification) ? $notification : null ?>
+		<!-- End of optional notification -->
+
         <!-- Content (required) -->
 		<?php echo $content; ?>
 		<!-- End of required content -->
