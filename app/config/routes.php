@@ -29,14 +29,6 @@ Flight::route('(/[a-z]{2})/', function() {
 });
 
 /**
- * Route to the install controller.
- */
-Flight::route('(/[a-z]{2})/install', function() {
-	$installController = new Controller_Install();
-	$installController->index();
-});
-
-/**
  * Routes to the login/logout controllers.
  */
 Flight::route('(/[a-z]{2})/login', function() {
@@ -79,6 +71,30 @@ Flight::route('(/[a-z]{2})/admin/@type:[a-z]+(/@layout:[a-z]+)(/@page:[0-9]+)(/@
 Flight::route('(/[a-z]{2})/admin(/index)', function() {
 	$adminController = new Controller_Admin();
 	$adminController->index();
+});
+
+/**
+ * Route to the account controller.
+ */
+Flight::route('(/[a-z]{2})/account', function() {
+	$accountController = new Controller_Account();
+	$accountController->index();
+});
+Flight::route('(/[a-z]{2})/account/changepassword', function() {
+	$accountController = new Controller_Account();
+	$accountController->changepassword();
+});
+Flight::route('(/[a-z]{2})/account/lostpassword', function() {
+	$accountController = new Controller_Account();
+	$accountController->lostpassword();
+});
+
+/**
+ * Route to the install controller.
+ */
+Flight::route('(/[a-z]{2})/install', function() {
+	$installController = new Controller_Install();
+	$installController->index();
 });
 
 /**

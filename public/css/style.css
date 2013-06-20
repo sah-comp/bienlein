@@ -585,6 +585,21 @@ textarea {
     -webkit-box-shadow: 0px 1em 1em rgba(0, 0, 0, .66);
 }
 
+/* more stuff */
+.panel table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.panel table thead th {
+    text-align: left;
+}
+
+.panel table thead th.switch,
+.panel table thead th.edit {
+    width: 20px;
+}
+
 .circular .circular-48 {
 	width: 48px;
 	height: 48px;

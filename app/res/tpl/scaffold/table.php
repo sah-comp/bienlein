@@ -65,7 +65,7 @@
                     value="<?php echo $record->getMeta('type') ?>" />
                 <input
                     type="submit"
-                    class="ir filter-refresh"
+                    class="filter-refresh"
                     name="submit"
                     title="<?php echo I18n::__('filter_submit_refresh') ?>"
                     value="<?php echo I18n::__('filter_submit_refresh') ?>" />
@@ -74,7 +74,7 @@
             <th>
                 <input
                     type="submit"
-                    class="ir filter-clear"
+                    class="filter-clear"
                     name="submit"
                     title="<?php echo I18n::__('filter_submit_clear') ?>"
                     value="<?php echo I18n::__('filter_submit_clear') ?>" />

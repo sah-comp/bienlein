@@ -2,11 +2,6 @@
 /**
  * Configuration example.
  *
- * Copy this file and rename it to config.php. Then open it with your favorite
- * editor and make all changes you fancy.
- *
- * @todo Keep this up-to-date with the latest config.php
- *
  * @package Cinnebar
  * @subpackage Configuration
  * @author $Author$
@@ -19,14 +14,25 @@
 mb_internal_encoding('UTF-8');
 
 /**
+ * Define constant install password.
+ */
+define('CINNEBAR_INSTALL_PASS', password_hash('secret', PASSWORD_DEFAULT));
+
+/**
+ * Error logging on.
+ */
+Flight::set('flight.log_errors', true);
+
+/**
  * Add a path to your src directory for autoloading.
  */
 Flight::path(__DIR__ . '/../../src');
+Flight::path(__DIR__ . '/../../app');
 
 /**
  * Setup our database.
  */
-R::setup('mysql:host=localhost;dbname=DBNAME', 'UNAME', 'SECRET');
+R::setup('mysql:host=localhost;dbname=DBNAME', 'UNAME', 'PASSWD');
 
 /**
  * Allow RedBean Cooker Plugin to load beans for compatibility.
@@ -35,6 +41,8 @@ RedBean_Plugin_Cooker::enableBeanLoading(true);
 
 /**
  * Set the path to the default views directory.
+ *
+ * Your controllers may easily change this back and forth.
  */
 Flight::set('flight.views.path', __DIR__ . '/../res/tpl');
 
@@ -53,4 +61,40 @@ Flight::set('possible_languages', array('de', 'en'));
 /**
  * Set the default language.
  */
+Flight::set('default_language', 'de');
+
+/**
+ * Set the current language.
+ */
 Flight::set('language', 'de');
+
+/**
+ * Textile.
+ */
+Flight::map('textile', function($text, $restricted = false) {
+    $parser = new Textile('html5');
+    return $parser->TextileThis($text);
+});
+
+// There shall be non url rewriter and session id gets handled by cookies only
+ini_set('url_rewriter.tags', '');
+ini_set('session.use_trans_sid', '0');
+ini_set('session.use_cookies', '1');
+ini_set('session.use_only_cookies', '1');
+
+$sessionhandler = new Sessionhandler_Database();
+session_set_save_handler(array($sessionhandler, 'open'),
+                         array($sessionhandler, 'close'),
+                         array($sessionhandler, 'read'),
+                         array($sessionhandler, 'write'),
+                         array($sessionhandler, 'destroy'),
+                         array($sessionhandler, 'gc'));
+register_shutdown_function('session_write_close');
+
+/**
+ * Set the session name.
+ *
+ * If you have changed session parameter or handling in a new release change
+ * the session name to ensure that older sessions are no longer used.
+ */
+session_name('CINNEBARv1');

@@ -11,10 +11,8 @@
 <!-- Error 404 article -->
 <article>
     <header>
-		<hgroup>
-        	<h1>Error 404</h1>
-        	<h2>Page not found</h2>
-		</hgroup>
+    	<h1>Error 404</h1>
+    	<h2>Page not found</h2>
     </header>
     <p>I did my very best but i just could not find the page you were looking for.</p>
     <ul>
