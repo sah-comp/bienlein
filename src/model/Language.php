@@ -38,7 +38,7 @@ class Model_Language extends Model
             array(
                 'name' => 'name',
                 'sort' => array(
-                    'name' => 'name'
+                    'name' => 'language.name'
                 ),
                 'filter' => array(
                     'tag' => 'text'

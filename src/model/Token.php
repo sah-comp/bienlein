@@ -51,6 +51,39 @@ class Model_Token extends Model
     }
     
     /**
+     * Returns SQL string.
+     *
+     * @param string (optional) $fields to select
+     * @param string (optional) $where
+     * @param string (optional) $order
+     * @param int (optional) $offset
+     * @param int (optional) $limit
+     * @return string $sql
+     */
+    public function getSql($fields = 'id', $where = '1', $order = null, $offset = null, $limit = null)
+    {
+		$sql = <<<SQL
+		SELECT
+		    {$fields}
+		FROM
+		    {$this->bean->getMeta('type')}
+		LEFT JOIN
+		    {$this->bean->getMeta('type')}i18n AS i18n ON i18n.{$this->bean->getMeta('type')}_id = {$this->bean->getMeta('type')}.id
+		WHERE
+		    {$where}
+SQL;
+        //add optional order by
+        if ($order) {
+            $sql .= " ORDER BY {$order}";
+        }
+        //add optional limit
+        if ($offset || $limit) {
+            $sql .= " LIMIT {$offset}, {$limit}";
+        }
+        return $sql;
+    }
+    
+    /**
      * Returns the translated token.
      *
      * @return string

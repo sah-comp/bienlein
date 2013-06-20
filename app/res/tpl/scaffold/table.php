@@ -22,7 +22,12 @@
                 &nbsp;
             </th>
             <th class="switch">
-                &nbsp;
+                <input
+                    class="all"
+                    type="checkbox"
+                    name="void"
+                    value="1"
+                    title="<?php echo I18n::__('scaffold_select_all') ?>" />
             </th>
             <!-- header attributes -->
             <?php foreach ($_attributes as $_i => $_attribute): ?>
@@ -117,16 +122,7 @@
     
     <tfoot>
         <tr>
-            <td>&nbsp;</td>
-            <td>
-                <input
-                    class="all"
-                    type="checkbox"
-                    name="void"
-                    value="1"
-                    title="<?php echo I18n::__('scaffold_select_all') ?>" />
-            </td>
-            <td colspan="<?php echo count($_attributes) ?>">
+            <td colspan="<?php echo count($_attributes)+2 ?>">
                 &nbsp;
             </td>
         </tr>

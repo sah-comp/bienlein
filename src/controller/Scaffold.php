@@ -259,7 +259,6 @@ class Controller_Scaffold extends Controller
 			//R::debug(false);
 			return true;
 		} catch (Exception $e) {
-            error_log($e);
 			$this->records = array();
 			return false;
 		}
