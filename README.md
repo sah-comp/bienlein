@@ -94,6 +94,11 @@ cd /path/to/project/tests
 
 ../vendor/bin/phpunit .
 
+Changing Foldernames?
+---------------------
+
+How to commit changes in upper-lower case folder- and filenaming?
+
 
 Website
 -------
