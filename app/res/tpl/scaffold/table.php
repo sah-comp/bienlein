@@ -65,7 +65,7 @@
                     value="<?php echo $record->getMeta('type') ?>" />
                 <input
                     type="submit"
-                    class="filter-refresh"
+                    class="ir filter-refresh"
                     name="submit"
                     title="<?php echo I18n::__('filter_submit_refresh') ?>"
                     value="<?php echo I18n::__('filter_submit_refresh') ?>" />
@@ -74,7 +74,7 @@
             <th>
                 <input
                     type="submit"
-                    class="filter-clear"
+                    class="ir filter-clear"
                     name="submit"
                     title="<?php echo I18n::__('filter_submit_clear') ?>"
                     value="<?php echo I18n::__('filter_submit_clear') ?>" />
@@ -136,9 +136,9 @@
             id="<?php echo $_record->getMeta('type') ?>-<?php echo $_record->getId() ?>"
             class="bean bean-<?php echo $_record->getMeta('type') ?>">
             <!-- table cells of the real bean -->     
-            <td class="edit">
+            <td>
                 <a
-                    class="edit"
+                    class="ir action action-edit"
                 	href="<?php echo Url::build('/admin/%s/edit/%d/%d/%d/%d/%s/', array($_record->getMeta('type'), $_record->getId(), $offset, $order, $dir, $layout)) ?>">
                     <?php echo I18n::__('scaffold_action_edit') ?>
                 </a>

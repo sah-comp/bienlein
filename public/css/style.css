@@ -597,7 +597,30 @@ textarea {
 
 .panel table thead th.switch,
 .panel table thead th.edit {
-    width: 20px;
+    width: 2em;
+    height: 2em;
+}
+
+a.action.action-edit {
+    display: block;
+    width: 2em;
+    height: 2em;
+    background: url(/img/glyphicons/glyphicons_030_pencil.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+input[type=submit].filter-refresh {
+    background-image: url(/img/glyphicons/glyphicons_320_filter.png);
+    background-position: center center;
+    width: 2em;
+    height: auto;
+}
+input[type=submit].filter-clear {
+    background-image: url(/img/glyphicons/glyphicons_192_circle_remove.png);
+    background-position: center center;
+    width: 2em;
+    height: auto;
 }
 
 .circular .circular-48 {
