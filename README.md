@@ -94,10 +94,11 @@ cd /path/to/project/tests
 
 ../vendor/bin/phpunit .
 
-Changing Foldernames?
----------------------
+Problems
+--------
 
-How to commit changes in upper-lower case folder- and filenaming?
+Today i noticed that a case-sensitive server would not find my classes in src. So i went ahead and changed the folder and filenames as needed. But Git for Mac ignored my changes. I googled a tip where to change the ignorecase flag for the mac here http://www.garron.me/en/bits/git-ignorecase-rename-lowercase-uppercase.html and did so. After a commit i noticed that now i had both folder, the one lowercase and the other uppercase. I reverted the change in the .git/config file and had some trouble because now all my folders where gone. As a git dummy i tried revert, but messed that up. How to avoid this? Is this only on a Mac? Does it happen only when ignorecase is set to false after folders have already been created? No answer for a dancer.
+
 
 
 Website
