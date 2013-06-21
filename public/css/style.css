@@ -410,77 +410,59 @@ ol ul {
    ========================================================================== */
 
 /* Set your font stuff for the document here */
-body {font: 100% "Georgia", Palantino serif;}
+body {font: 1.2em/1 "Georgia", Palantino serif;}
 
 
 /* Layout with 2-columns and footer sticking to the bottom */
 html {
-    height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 body {
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
+    margin: 0 0 6.5em;
 }
 
-.wrapper {
-    width: 100%;
-    min-height: 100%;
-    position: relative;
+body > footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 4.5em;
+    padding: 1em;
 }
 
-.main  {
-    width: 90%;
-    padding: 5%;
-    padding-bottom: 5em;
-}
-
-.content,
-.sidebar {
-    width: 70%;
+.app-info,
+.sys-info {
+    padding: 1em 0;
+    color: gray;
+    font-size: smaller;
     float: left;
 }
-.sidebar {
-    width: 28%;
+.app-info a {
+    color: gray;
+    text-decoration: none;
+}
+.sys-info {
     float: right;
 }
-.master-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 5em; /* See definition of .content */
+
+.notification {
+    padding: 1em;
 }
 
-.content {
-    line-height: 1.25;
+/* headlines */
+h1, h2, h3, h4, h5, h6, p, ul, ol {
+    margin-bottom: 1em;
 }
 
-.content h1 {
-    font: .7em/1 'Helvetica', 'Arial', sans-serif;
-    text-transform: uppercase;
-    font-weight: 400;
-    letter-spacing: 2px;
-    color: #222;
-}
-.content h2 {
-    font-size: 2.22em;
-    /*color: gray;*/
-    letter-spacing: -1px;
-    font-style: italic;
-}
-
-.content p {
-    margin: 1em 0;
-}
-
-.content ul,
-.content ol {
+/* list stuff */
+ul {
     list-style: disc;
-    margin-left: 1.2em;
+    padding-left: 1.2em;
 }
 
-.content ol {
-    list-style: lower-roman;
+ul li ul {
+    margin-bottom: inherit;
 }
 
 
@@ -490,8 +472,8 @@ body {
 /* we like off-black for text */
 body, select, input, textarea {color: #222;}
 
-a {color: #03f;}
-a:hover {color: #69f;}
+a {color: #333;} /*#03f*/
+a:hover {color: #666;} /*#69f*/
 
 /* Custom text-selection colors (remove any text shadows: twitter.com/miketaylr/status/12228805301) */
 ::-moz-selection{background: #fcd700; color: #fff; text-shadow: none;}
@@ -504,40 +486,167 @@ ins {background-color: #fcd700; color: #000; text-decoration: none;}
 mark {background-color: #fcd700; color: #000; font-style: italic; font-weight: bold;}
 
 
+/* article */
+article header {
+    position: relative;
+}
 
+article header h1,
+article > p {
+    padding: 0.5em 1em;
+    margin: 0;
+}
 
 /* Main navigation */
-.main-navigation a {
-    text-decoration: none;
-    border-bottom: 1px dotted silver;
-}
-.main-navigation a:hover {
-    border-bottom-color: red;
+body > header > nav {
+    background-color: rgb(254, 254, 254);
 }
 
-.main-navigation .current > a {
-    font-weight: bold;
+body > header > h1 {
+    margin: 0;
+    padding: 0;
 }
 
-.main-navigation .active > a {
-    font-style: italic;
+a.logo {
+    display: block;
+    width: 3em;
+    height: 2em;
+    background-image: url(/img/logo.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 16px 16px;
+}
+
+ul.main-navigation,
+ul.main-navigation ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	line-height: 1;
+    border-top: 1px solid silver;
+	border-bottom: 1px solid silver;
+}
+
+ul.main-navigation > li {
+	position: relative;
+	float: left;
+}
+/*
+ul.main-navigation > li:last-child {
+    margin-right: 1em;
+}
+*/
+ul.main-navigation li ul > li {
+    border-bottom: 1px solid silver;
+}
+
+ul.main-navigation li ul > li:last-child {
+    border-bottom: 0;
+}
+
+ul.main-navigation a {
+	text-decoration: none;
+	display: block;
+	padding: 0.5em 1em 0.5em 1em;
+	/*text-shadow: 0px -1px -1px #eee;*/
+}
+
+ul.main-navigation li.parent {
+    background-image: url(/img/desc.png);
+    background-repeat: no-repeat;
+    background-position: center right;
+}
+
+/* sub-menu of master nav */
+ul.main-navigation li ul {
+    margin: 0;
+    background-color: rgb(254, 254, 254);
+    position: absolute;
+    min-width: 100%;
+    top: 2em;
+    margin-top: -1px;
+    left: -1px;
+	display: none;
+	z-index: 1;
+	border: 1px solid silver;
+	border-top: 1px solid white;
+    /*box-shadow: 1px 1px 1px rgb(128, 128, 128);*/
+}
+
+ul.main-navigation li ul li {
+	position: relative;
+	display: block;
+	white-space: nowrap;
+    background: none;
+	width: 100%;
+}
+
+ul.main-navigation > li:hover ul {
+    display: block;
 }
 
 /* Account navigation */
-.account-navigation a {
-    font-size: smaller;
+ul.account-navigation,
+ul.panel-navigation {
+    position: absolute;
+    top: 0.5em;
+    right: 1em;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
 }
 
-/* Panel navigation */
-.panel-navigation a {
-    font-size: smaller;
+ul.account-navigation li,
+ul.panel-navigation li {
+    display: inline;
+    float: left;
 }
 
+ul.account-navigation a img {
+    float: left;
+    margin-right: 0.25em;
+}
+
+ul.account-navigation a,
+ul.panel-navigation a {
+    display: block;
+    font-size: 0.8em;
+    padding: 0.222em 0.444em;
+    text-decoration: none;
+}
+
+/* Pagination menu */
+ul.pagination-navigation {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+ul.pagination-navigation li {
+    display: inline-block;
+}
+
+ul.pagination-navigation li.prev {
+    float: left;
+}
+
+ul.pagination-navigation li.next {
+    float: right;
+}
+
+ul.pagination-navigation a {
+    display: block;
+    padding: 0.222em 0.444em;
+    border: 1px solid gray;
+    text-decoration: none;
+}
 
 
 /* Forms */
 form {
-    padding: 1em;
+    padding: 0.5em 1em;
 }
 form div.row {
     margin-bottom: 0.5em;
@@ -572,6 +681,347 @@ textarea {
     padding: 0.25em;
 }
 
+/* detailed form stuff */
+.panel .buttons {
+    text-align: right;
+}
+
+.panel legend {
+    display: none;
+}
+
+.panel {
+    padding-top: 1em;
+    border-top: 1px solid silver;
+}
+
+.panel .row {
+    position: relative;
+    margin-bottom: 1em;
+}
+
+.panel .row.last,
+.panel .row:first-child {
+    margin-bottom: 0;
+}
+
+.panel .tab-container {
+    position: relative;
+}
+
+.panel .tab {
+}
+
+.panel label {
+    float: left;
+    width: 23.404255317%;
+    padding-top: 0.444em;
+    white-space: nowrap;
+    text-align: right;
+}
+
+.panel label.cb {
+    text-align: left;
+    width: auto;
+    padding-left: 27.666%;
+}
+
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=url],
+input[type=number],
+input[type=date],
+input[type=time],
+input[type=datetime],
+input[type=tel],
+input[type=file],
+textarea,
+select {
+    width: 74.468085099%;
+    /*float: right;*/
+    margin-left: 2%;
+    padding: 0.222em;
+}
+input[type=file],
+input[type=datetime] {
+    width: auto;
+}
+
+.panel .upload {
+    position: relative;
+}
+input.uploaded,
+input.uploaded[readonly="readonly"] {
+   padding-right: 34px;
+   background-image: url(../images/glyphicons/glyphicons_134_inbox_in.png);
+   background-position: right center;
+   background-repeat: no-repeat;
+   background-size: 20px 22px;
+}
+.panel .upload input[type=file] {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /*z-index: 1;*/
+    opacity: 0;
+    margin-left: 0;
+}
+
+.panel .preview {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+input[type=number],
+input.number,
+select {
+    width: auto;
+}
+
+.panel select.cb {
+    /*margin-left: 32%;*/
+    margin-left: 27.666%;
+}
+
+.panel .autowidth {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+
+/* label in .tab will stretch */
+.panel .tab [class*="span"] label,
+.panel label.left {
+    width: 100%;
+    margin: 0;
+    text-align: left;
+}
+
+/* input, textarea and select in a tab will stretch */
+.panel .tab [class*="span"] input,
+.panel .tab [class*="span"] textarea,
+.panel .tab [class*="span"] select {
+    width: 100%;
+    margin-left: 0;
+}
+
+.panel .tab [class*="span"] input[type=checkbox] {
+    position: static;
+    left: auto;
+    width: auto;
+}
+
+input[required=required] {
+    font-weight: bold;
+}
+
+input[readonly=readonly] {
+    padding-right: 20px;
+    background: url(../images/glyphicons/glyphicons_203_lock.png) right center no-repeat;
+    background-size: 16px 19px;
+}
+
+.container input[type=text],
+.container input[type=password],
+.container input[type=email],
+.container input[type=url],
+.container input[type=number],
+.container input[type=date],
+.container input[type=time],
+.container input[type=url],
+.container input[type=tel],
+.container textarea,
+.container select {
+    margin-left: 0;
+    width: 100%;
+    padding: 0.222em;
+}
+
+
+
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=email]:focus,
+input[type=url]:focus,
+input[type=number]:focus,
+input[type=date]:focus,
+input[type=time]:focus,
+input[type=url]:focus,
+input[type=tel]:focus,
+textarea:focus {
+    background-color: #feffbc;
+}
+
+input[type=checkbox],
+input[type=radio] {
+    margin: 0 0.222em 0 2%;
+    width: auto;
+    padding: 0;
+}
+input[type=number],
+input.number,
+input.monetary {
+    text-align: right;
+}
+
+.panel .row input[type=checkbox],
+.panel .row input[type=radio] {
+    position: absolute;
+    left: 23.404255317%;
+    /*left: 28%;*/
+    top: 0.6em;
+}
+
+.panel .container {
+    min-height: 34px;
+}
+
+.panel .container.autoheight {
+    min-height: 0;
+}
+
+.panel .container input[type=checkbox],
+.panel .container input[type=radio] {
+    position: static;
+    left: auto;
+}
+
+/* form table stuff */
+.panel table {
+    table-layout: fixed;
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+.panel table thead th {
+    text-align: left;
+}
+
+.panel table thead th.switch,
+.panel table thead th.edit {
+    width: 24px;
+    background-color: white;
+}
+
+/* adjust top if you want a higher main-menu */
+.panel table caption {
+    text-align: center;
+    font-size: smaller;
+    color: gray;
+    padding: 0.5em 0 1em 0;
+}
+
+.panel th,
+.panel td {
+    text-align: left;
+    font-size: 1em;
+    padding: 0.222em 0.444em;
+}
+
+.panel th,
+.panel td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.panel th.number,
+.panel td.number {
+    text-align: right;
+}
+
+.panel thead tr {
+    background-color: gray;
+}
+
+.panel thead tr.filter {
+    background-color: white;
+    color: black;
+}
+
+
+.panel a.action.action-edit {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url(/img/glyphicons/glyphicons_030_pencil.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+}
+
+.panel input[type=submit].filter-refresh {
+    width: 24px;
+    height: 24px;
+    background-image: url(/img/glyphicons/glyphicons_320_filter.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: auto 16px;
+}
+.panel input[type=submit].filter-clear {
+    width: 24px;
+    height: 24px;
+    background-image: url(/img/glyphicons/glyphicons_192_circle_remove.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+}
+
+.panel tfoot tr {
+    background-color: silver;
+}
+
+.panel thead th {
+    color: white;
+    white-space: nowrap;
+    font-weight: normal;
+    vertical-align: top;
+}
+
+.panel thead tr.filter th {
+    color: inherit;
+    padding: 0.25em;
+}
+
+.panel thead tr.filter input[type=text].filter {
+    width: 100%;
+    margin-left: 0;
+}
+
+.panel thead th.active {
+    background-color: rgb(33, 33, 33);
+}
+
+.panel thead th.order a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    background-repeat: no-repeat;
+    background-position: center right;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.panel thead th.order.dir-ASC a {
+    padding-right: 1em;
+    background-image: url(/img/asc.png);
+}
+
+.panel thead th.order.dir-DESC a {
+    padding-right: 1em;
+    background-image: url(/img/desc.png);
+}
+
+.panel tbody tr:nth-child(odd) {
+    background-color: rgb(243, 246, 250);
+}
+
 /* Rounded gravatar: A background-image tag in html */
 .circular {
 	width: 72px;
@@ -583,44 +1033,6 @@ textarea {
 	background-repeat: no-repeat;
 	background-color: white; /* stanze */
     -webkit-box-shadow: 0px 1em 1em rgba(0, 0, 0, .66);
-}
-
-/* more stuff */
-.panel table {
-    table-layout: fixed;
-    width: 100%;
-}
-
-.panel table thead th {
-    text-align: left;
-}
-
-.panel table thead th.switch,
-.panel table thead th.edit {
-    width: 2em;
-    height: 2em;
-}
-
-a.action.action-edit {
-    display: block;
-    width: 2em;
-    height: 2em;
-    background: url(/img/glyphicons/glyphicons_030_pencil.png);
-    background-position: center center;
-    background-repeat: no-repeat;
-}
-
-input[type=submit].filter-refresh {
-    background-image: url(/img/glyphicons/glyphicons_320_filter.png);
-    background-position: center center;
-    width: 2em;
-    height: auto;
-}
-input[type=submit].filter-clear {
-    background-image: url(/img/glyphicons/glyphicons_192_circle_remove.png);
-    background-position: center center;
-    width: 2em;
-    height: auto;
 }
 
 .circular .circular-48 {
@@ -650,7 +1062,7 @@ input[type=submit].filter-clear {
 /* Mix, rip and burn some of the above together */
 
 /* within a dialog a errornous input field will be erdbeer colored */
-form.dialog div.row.error label {
+.panel div.row.error label {
     color: #7a0b0a;
 }
 

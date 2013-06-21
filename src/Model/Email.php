@@ -17,4 +17,11 @@
  */
 class Model_Email extends Model
 {
+    /**
+     * Dispense.
+     */
+    public function dispense()
+    {
+        $this->addValidator('value', new Validator_IsEmail());
+    }
 }

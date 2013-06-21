@@ -9,8 +9,8 @@
  */
 ?>
 <!-- main navigation -->
-<ul class="main-navigation">
-    <li>
+<ul class="main-navigation clearfix">
+    <li class="parent">
         <a
             href="<?php echo Url::build('/admin/') ?>">
             <?php echo I18n::__('admin_index_nav') ?>

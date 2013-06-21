@@ -9,21 +9,16 @@
  */
 ?>
 <!-- account menu -->
-<ul class="account-navigation">
+<ul class="account-navigation clearfix">
     <li>
         <a
             href="<?php echo Url::build('/account/') ?>">
-			<figure
-				class="gravatar inline">
-				<img
-					src="<?php echo Gravatar::src(Flight::get('user')->email, 16) ?>"
-					width="16"
-					height="16"
-					alt="<?php echo Flight::get('user')->name ?>" />
-				<figcaption>
-					<?php echo Flight::get('user')->name ?>
-				</figcaption>
-			</figure>
+			<img
+				src="<?php echo Gravatar::src(Flight::get('user')->email, 16) ?>"
+				width="16"
+				height="16"
+				alt="<?php echo htmlspecialchars(Flight::get('user')->name) ?>" />
+			<?php echo htmlspecialchars(Flight::get('user')->name) ?>
         </a>
     </li>
     <li>

@@ -92,4 +92,15 @@ SQL;
     {
         return $this->i18n(Flight::get('language'))->name;
     }
+    
+    /**
+     * Dispense.
+     */
+    public function dispense()
+    {
+        $this->addValidator('name', array(
+            new Validator_HasValue(),
+            new Validator_IsUnique(array('bean' => $this->bean, 'attribute' => 'name'))
+        ));
+    }
 }

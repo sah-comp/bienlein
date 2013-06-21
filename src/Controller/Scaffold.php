@@ -91,7 +91,7 @@ class Controller_Scaffold extends Controller
      *
      * @var int
      */
-    public $limit = 23;
+    public $limit = 17;
     
     /**
      * Holds the default layout for index.
@@ -231,14 +231,14 @@ class Controller_Scaffold extends Controller
         $attributes = $this->record->getAttributes($this->layout);
         $order = $attributes[$this->order]['sort']['name'].' '.$this->dir_map[$this->dir];
         $sqlCollection = $this->record->getSql(
-            "{$this->type}.id AS id", 
+            "DISTINCT({$this->type}.id) AS id", 
             $where, 
             $order, 
             $this->offset($this->page, $this->limit), 
             $this->limit
         );
         $sqlTotal = $this->record->getSql(
-            "COUNT({$this->type}.id) AS total", 
+            "COUNT(DISTINCT({$this->type}.id)) AS total", 
             $where, 
             $order
         );
@@ -513,7 +513,8 @@ class Controller_Scaffold extends Controller
             'record' => $this->record,
 			'records' => $this->records,
 			'selection' => $this->selection,
-			'total_records' => $this->total_records
+			'total_records' => $this->total_records,
+			'dir_map' => $this->dir_map
         ), 'form_details');
         Flight::render('scaffold/form', array(
             'actions' => $this->record->getActions(),

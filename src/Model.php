@@ -99,6 +99,9 @@ class Model extends RedBean_SimpleModel
     /**
      * Returns SQL string.
      *
+     * Use with DISTINCT([table].id) to fetch all beans or use with COUNT(DISTINCT([table].id))
+     * to get the total number of records matching the optional where clause.
+     *
      * @param string (optional) $fields to select
      * @param string (optional) $where
      * @param string (optional) $order

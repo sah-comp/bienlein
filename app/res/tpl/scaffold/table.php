@@ -36,7 +36,7 @@
                     $_dir = 0;
                     if ($order == $_i):
                         $_dir = ! $dir;
-                        $_class .= ' active dir-'.$_dir;
+                        $_class .= ' active dir-'.$dir_map[$_dir];
                     endif;
                     if (isset($_attribute['class'])) $_class .= ' '.$_attribute['class'];
                 ?>

@@ -121,7 +121,7 @@ class Model_User extends Model
      */
     public function dispense()
     {
-        $this->bean->name = I18n::__('user_name_guest');
+        //$this->bean->name = I18n::__('user_name_guest');
         $this->autoInfo(true);
         $this->addValidator('name', array(
             new Validator_HasValue()

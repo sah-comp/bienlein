@@ -100,16 +100,6 @@ class Model_Filter extends Model
     }
     
     /**
-     * Returns array of filter criterias.
-     *
-     * @return array
-     */
-    public function criterias()
-    {
-        return $this->bean->ownCriteria;
-    }
-    
-    /**
      * Returns a criteria bean for a certain filter attribute.
      *
      * @param array $attribute

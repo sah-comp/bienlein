@@ -22,5 +22,6 @@ class Model_Person extends Model
      */
     public function dispense()
     {
+        $this->addValidator('name', new Validator_HasValue());
     }
 }
