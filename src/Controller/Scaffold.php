@@ -427,6 +427,10 @@ class Controller_Scaffold extends Controller
         $this->layout = $layout;
         $this->action = 'add';
         $this->template = "model/{$this->type}/add";
+        if ( ! Flight::view()->exists($this->template)) {
+            // if there is no special "add" template, we fallback to "edit"
+            $this->template = "model/{$this->type}/edit";
+        }
 		if (Flight::request()->method == 'POST') {
             $this->record = R::graph(Flight::request()->data->dialog, true);
             $this->setNextAction(Flight::request()->data->next_action);
@@ -524,7 +528,9 @@ class Controller_Scaffold extends Controller
 			'records' => $this->records
         ), 'content');
         Flight::render('html5', array(
-            'title' => I18n::__("scaffold_head_title_{$this->action}"),
+            'title' => I18n::__("scaffold_head_title_{$this->action}", null, array(
+                I18n::__("domain_{$this->type}")
+            )),
             'language' => Flight::get('language')
         ));
 	}

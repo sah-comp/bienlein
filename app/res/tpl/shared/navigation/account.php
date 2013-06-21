@@ -24,7 +24,7 @@
     <li>
         <a
             href="<?php echo Url::build('/logout/') ?>">
-            <?php echo I18n::__('user_logout_nav') ?>
+            <?php echo I18n::__('account_logout_nav') ?>
         </a>
     </li>
 </ul>

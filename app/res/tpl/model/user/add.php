@@ -26,7 +26,7 @@
             type="text"
             id="user-name"
             name="dialog[name]"
-            placeholder="<?php echo I18n::__('user_name_placeholder') ?>"
+            placeholder="<?php echo I18n::__('user_placeholder_name') ?>"
             value="<?php echo htmlspecialchars($record->name) ?>"
             required="required" />
     </div>
@@ -41,7 +41,7 @@
             type="email"
             id="user-email"
             name="dialog[email]"
-            placeholder="<?php echo I18n::__('user_email_placeholder') ?>"
+            placeholder="<?php echo I18n::__('user_placeholder_email') ?>"
             value="<?php echo htmlspecialchars($record->email) ?>"
             required="required" />
     </div>
@@ -56,7 +56,7 @@
             type="text"
             id="user-shortname"
             name="dialog[shortname]"
-            placeholder="<?php echo I18n::__('user_shortname_placeholder') ?>"
+            placeholder="<?php echo I18n::__('user_placeholder_shortname') ?>"
             value="<?php echo htmlspecialchars($record->shortname) ?>"
             required="required" />
     </div>

@@ -30,7 +30,7 @@ class Model_Login extends Model
         if ( ! $user = R::findOne('user', 'email=:uname OR shortname=:uname', array(
             ':uname' => $this->bean->uname
         ))) {
-            $this->addError(I18n::__('login_uname_not_found'), 'uname');
+            $this->addError(I18n::__('login_user_not_found'), 'uname');
             return false;
         }
         if ( ! password_verify($this->bean->pw, $user->pw)) {
