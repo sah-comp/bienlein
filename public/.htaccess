@@ -11,6 +11,17 @@ AddDefaultCharset utf-8
 AddCharset utf-8 .html .css .js .xml .json .rss
 
 #
+# X-UA Compatible
+#
+<IfModule mod_headers.c>
+    Header set X-UA-Compatible "IE=Edge,chrome=1"
+    #mod_headers can't match by content-type, but we don't want to send this header on *everything*...
+    <FilesMatch "\.(js|css|gif|png|jpe?g|pdf|xml|oga|ogg|m4a|ogv|mp4|m4v|webm|svg|svgz|eot|ttf|otf|woff|ico|webp|appcache|manifest|htc|crx|xpi|safariextz|vcf)$" >
+        Header unset X-UA-Compatible
+    </FilesMatch>
+</IfModule>
+
+#
 # Use index.php as directory index and index.html as second choice
 #
 DirectoryIndex index.php index.html

@@ -17,7 +17,7 @@
         id="form-login"
         class="panel login"
         method="POST"
-        action=""
+        action="?"
         accept-charset="utf-8">
         <div>
             <input type="hidden" name="dialog[type]" value="<?php echo $record->getMeta('type') ?>" />

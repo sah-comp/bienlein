@@ -17,7 +17,7 @@
         id="form-install"
         class="panel install"
         method="POST"
-        action=""
+        action="?"
         accept-charset="utf-8">
         <div>
             <input type="hidden" name="dialog[type]" value="<?php echo $record->getMeta('type') ?>" />
