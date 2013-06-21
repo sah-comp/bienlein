@@ -115,7 +115,7 @@ class Controller_Install extends Controller
         $languages[0]->name = 'Deutsch';
         $languages[0]->enabled = true;
         $languages[1]->iso = 'en';
-        $languages[1]->name = 'British English';
+        $languages[1]->name = 'English';
         $languages[1]->enabled = false;
         $languages[2]->iso = 'us';
         $languages[2]->name = 'US-English';
@@ -403,14 +403,14 @@ class Controller_Install extends Controller
             'us' => 'German'
         ));
         I18n::make('language_en', array(
-            'de' => 'Britisch-Englisch',
-            'en' => 'British English',
-            'us' => 'British English'
+            'de' => 'Englisch',
+            'en' => 'English',
+            'us' => 'English'
         ));
         I18n::make('language_us', array(
-            'de' => 'US-Englisch',
-            'en' => 'US-English',
-            'us' => 'US-English'
+            'de' => 'US Englisch',
+            'en' => 'US English',
+            'us' => 'US English'
         ));
         I18n::make('language_h1', array(
             'de' => 'Sprachen',
@@ -711,6 +711,72 @@ class Controller_Install extends Controller
             'de' => 'liegt ausserhalb des gültigen Bereiches',
             'en' => 'is out of range',
             'us' => 'is out of range'
+        ));
+        //account
+        I18n::make('account_h1', array(
+            'de' => 'Benutzerkonto',
+            'en' => 'Profile',
+            'us' => 'Profile'
+        ));
+        I18n::make('account_head_title', array(
+            'de' => 'Benutzerkonto',
+            'en' => 'Profile',
+            'us' => 'Profile'
+        ));
+        I18n::make('account_index_nav', array(
+            'de' => 'Profil',
+            'en' => 'Profile',
+            'us' => 'Profile'
+        ));
+        I18n::make('account_changepassword_nav', array(
+            'de' => 'Kennwort',
+            'en' => 'Password',
+            'us' => 'Password'
+        ));
+        I18n::make('account_legend', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('account_newpassword_label', array(
+            'de' => 'Neues Kennwort',
+            'en' => 'New password',
+            'us' => 'New password'
+        ));
+        I18n::make('account_repeatedpassword_label', array(
+            'de' => 'Wiederholung',
+            'en' => 'Repeat password',
+            'us' => 'Repeat password'
+        ));
+        I18n::make('account_submit', array(
+            'de' => 'Aktualisieren',
+            'en' => 'Update',
+            'us' => 'Update'
+        ));
+        I18n::make('account_submit_changepassword', array(
+            'de' => 'Kennwort ändern',
+            'en' => 'Change password',
+            'us' => 'Change password'
+        ));
+        I18n::make('account_edit_success', array(
+            'de' => 'Benutzerkonto ist geändert',
+            'en' => 'Profile updated',
+            'us' => 'Profile updated'
+        ));
+        I18n::make('account_edit_failure', array(
+            'de' => 'Benutzerkonto ist nicht geändert',
+            'en' => 'Profile was not updated',
+            'us' => 'Profile was not updated'
+        ));
+        I18n::make('account_changepassword_success', array(
+            'de' => 'Kennwort ist geändert',
+            'en' => 'Password was changed',
+            'us' => 'Password was changed'
+        ));
+        I18n::make('account_changepassword_failure', array(
+            'de' => 'Kennwort wurde nicht geändert',
+            'en' => 'Password was not changed',
+            'us' => 'Password was not changed'
         ));
     }
     
