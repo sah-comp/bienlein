@@ -150,7 +150,6 @@
                     class="selector"
                     name="selection[<?php echo $_record->getMeta('type') ?>][<?php echo $_record->getId() ?>]"
                     value="1"
-                    title="<?php echo I18n::__('scaffold_selector_tooltip') ?>"
                     <?php echo (isset($selection[$_record->getMeta('type')][$_record->getId()]) && $selection[$_record->getMeta('type')][$_record->getId()]) ? 'checked="checked"' : '' ?> />
             </td>
             

@@ -36,4 +36,25 @@ class I18n
         if ( ! empty($values)) return vsprintf($token->i18n($language)->name, $values);
         return $token->i18n($language)->name;
     }
+    
+    /**
+     * Generates a translated token from an array.
+     *
+     * @param string $text
+     * @param array $translations
+     * @return bool
+     */
+    static public function make($text, array $translations)
+    {
+        $token = R::dispense('token');
+        $token->name = $text;
+        foreach ($translations as $language => $translation) {
+            $tokeni18n = R::dispense('tokeni18n');
+            $tokeni18n->name = $translation;
+            $tokeni18n->language = $language;
+            $token->ownTokeni18n[] = $tokeni18n;
+        }
+        R::store($token);
+        return true;
+    }
 }

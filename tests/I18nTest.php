@@ -71,4 +71,19 @@ class I18nTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('Good morning Lord Helmet', I18n::__($token, 'en', array('Lord Helmet')));
         $this->assertEquals('Guten Morgen Walt', I18n::__($token, 'de', array('Walt')));
     }
+    
+    public function testI18nMake()
+    {
+        $text = 'test_bacon';
+        $translations = array(
+            'de' => 'Schinken',
+            'en' => 'Ham',
+            'us' => 'Bacon'
+        );
+        $this->assertTrue(I18n::make($text, $translations));
+        $this->assertEquals('Schinken', I18n::__($text, 'de'));
+        $this->assertEquals('Ham', I18n::__($text, 'en'));
+        $this->assertEquals('Bacon', I18n::__($text, 'us'));
+    }
+    
 }

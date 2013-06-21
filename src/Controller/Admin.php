@@ -25,6 +25,7 @@ class Controller_Admin extends Controller
         session_start();
         Auth::check();
 		// Pick up the pieces
+		Flight::render('shared/notification', array(), 'notification');
         Flight::render('shared/navigation/account', array(), 'navigation_account');
         Flight::render('shared/navigation/main', array(), 'navigation_main');
         Flight::render('shared/navigation', array(), 'navigation');

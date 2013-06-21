@@ -8,10 +8,10 @@
  * @version $Id$
  */
 ?>
-<!-- Install -->
+<!-- Install en -->
 <article>
     <header>
-		<h1><?php echo I18n::__('install_h1') ?></h1>
+		<h1>Installation</h1>
     </header>
     <form
         id="form-install"
@@ -25,33 +25,34 @@
             <input type="hidden" name="dialog[isadmin]" value="1" />
         </div>
         <fieldset>
-            <legend><?php echo I18n::__('install_legend') ?></legend>
+            <legend>Installpassphrase</legend>
             <div
                 class="row">
                 <label
                     for="install-pass">
-                    <?php echo I18n::__('install_pass_label') ?>
+                    Passphrase to allow installation
                 </label>
                 <input
                     type="password"
                     id="install-pass"
                     name="pass"
-                    required="required" />
+                    required="required"
+                    autofocus="autofocus" />
             </div>
         </fieldset>
         <fieldset>
-            <legend><?php echo I18n::__('install_user_legend') ?></legend>
+            <legend>Adminstrator account information</legend>
             <div
                 class="row<?php echo $record->hasError('email') ? ' error' : '' ?>">
                 <label
                     for="install-email">
-                    <?php echo I18n::__('install_email_label') ?>
+                    Email
                 </label>
                 <input
                     type="email"
                     id="install-email"
                     name="dialog[email]"
-                    placeholder="<?php echo I18n::__('install_email_placeholder') ?>"
+                    placeholder="john.doe@example.com"
                     value="<?php echo htmlspecialchars($record->email) ?>"
                     required="required" />
             </div>
@@ -59,13 +60,13 @@
                 class="row<?php echo $record->hasError('name') ? ' error' : '' ?>">
                 <label
                     for="install-name">
-                    <?php echo I18n::__('install_name_label') ?>
+                    Name
                 </label>
                 <input
                     type="text"
                     id="install-name"
                     name="dialog[name]"
-                    placeholder="<?php echo I18n::__('install_name_placeholder') ?>"
+                    placeholder="John Doe"
                     value="<?php echo htmlspecialchars($record->name) ?>"
                     required="required" />
             </div>
@@ -73,13 +74,13 @@
                 class="row<?php echo $record->hasError('shortname') ? ' error' : '' ?>">
                 <label
                     for="install-shortname">
-                    <?php echo I18n::__('install_shortname_label') ?>
+                    Screenname
                 </label>
                 <input
                     type="text"
                     id="install-shortname"
                     name="dialog[shortname]"
-                    placeholder="<?php echo I18n::__('install_shortname_placeholder') ?>"
+                    placeholder="admin"
                     value="<?php echo htmlspecialchars($record->shortname) ?>"
                     required="required" />
             </div>
@@ -87,7 +88,7 @@
                 class="row<?php echo $record->hasError('pw') ? ' error' : '' ?>">
                 <label
                     for="install-pw">
-                    <?php echo I18n::__('install_pw_label') ?>
+                    Password
                 </label>
                 <input
                     type="password"
@@ -98,7 +99,7 @@
             </div>
         </fieldset>
         <div class="buttons">
-            <input type="submit" name="submit" value="<?php echo I18n::__('install_submit') ?>" />
+            <input type="submit" name="submit" value="Install" />
         </div>
     </form>
 </article>

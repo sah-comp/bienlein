@@ -33,7 +33,7 @@
                 <?php foreach ($actions[$current_action] as $action): ?>
                 <option
                     value="<?php echo $action ?>"
-                    <?php echo ($next_action == $action) ? 'selected="selected"' : '' ?>><?php echo I18n::__('action_'.$action) ?></option>
+                    <?php echo ($next_action == $action) ? 'selected="selected"' : '' ?>><?php echo I18n::__("action_{$action}_select") ?></option>
                 <?php endforeach ?>
             </select>
             <input

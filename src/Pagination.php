@@ -173,7 +173,7 @@ class Pagination
 			// uups, there is only one page in total
 			return '';
 		}
-		$s = '<ul class="pagination-navigation">'."\n";
+		$s = '<ul class="pagination-navigation clearfix">'."\n";
 		
 		// prev page
 		if ($this->has_previous_page)
