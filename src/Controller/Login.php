@@ -28,12 +28,13 @@ class Controller_Login extends Controller
             $login = R::graph(Flight::request()->data->dialog, true);
             if ($login->trial()) {
                 $_SESSION['user']['id'] = $login->user->getId();
+                $_SESSION['backend']['language'] = Flight::get('language');
                 $this->redirect(Flight::request()->data->goto, $raw = true);
             } 
         }
         // either no yet submitted or the credentials given failed
         Flight::render('login', array(
-            'goto' => Flight::request()->query->goto,
+            'goto' => htmlspecialchars(Flight::request()->query->goto),
             'record' => $login
         ), 'content');
         Flight::render('html5', array(

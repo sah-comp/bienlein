@@ -653,6 +653,15 @@ ul.pagination-navigation a {
 form {
     padding: 0.5em 1em;
 }
+
+form.langchooser {
+    padding: 0 0.444em;
+}
+
+form.langchooser select {
+    font-size: small;
+}
+
 form div.row {
     margin-bottom: 0.5em;
 }
@@ -759,7 +768,7 @@ input[type=datetime] {
 input.uploaded,
 input.uploaded[readonly="readonly"] {
    padding-right: 34px;
-   background-image: url(../images/glyphicons/glyphicons_134_inbox_in.png);
+   background-image: url(/img/glyphicons/glyphicons_134_inbox_in.png);
    background-position: right center;
    background-repeat: no-repeat;
    background-size: 20px 22px;
@@ -826,7 +835,7 @@ input[required=required] {
 
 input[readonly=readonly] {
     padding-right: 20px;
-    background: url(../images/glyphicons/glyphicons_203_lock.png) right center no-repeat;
+    background: url(/img/glyphicons/glyphicons_203_lock.png) right center no-repeat;
     background-size: 16px 19px;
 }
 
@@ -1034,7 +1043,7 @@ input.monetary {
 	border-radius: 36px;
 	-webkit-border-radius: 36px;
 	-moz-border-radius: 36px;
-	background: url(../images/glyphicons/glyphicons_003_user.png) center center;
+	background: url(/img/glyphicons/glyphicons_003_user.png) center center;
 	background-repeat: no-repeat;
 	background-color: white; /* stanze */
     -webkit-box-shadow: 0px 1em 1em rgba(0, 0, 0, .66);

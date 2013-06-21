@@ -74,6 +74,14 @@ Flight::route('(/[a-z]{2})/admin(/index)', function() {
 });
 
 /**
+ * Routes to the language controller.
+ */
+Flight::route('POST (/[a-z]{2})/language/set', function() {
+	$languageController = new Controller_Language();
+	$languageController->set();
+});
+
+/**
  * Route to the account controller.
  */
 Flight::route('(/[a-z]{2})/account', function() {

@@ -21,7 +21,7 @@
         <label
             for="user-name"
             class="<?php echo $record->hasError('name') ? 'error' : '' ?>">
-            <?php echo I18n::__('user_name_label') ?>
+            <?php echo I18n::__('user_label_name') ?>
         </label>
         <input
             type="text"
@@ -36,7 +36,7 @@
         <label
             for="user-email"
             class="<?php echo $record->hasError('email') ? 'error' : '' ?>">
-            <?php echo I18n::__('user_email_label') ?>
+            <?php echo I18n::__('user_label_email') ?>
         </label>
         <input
             type="email"

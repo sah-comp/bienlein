@@ -61,6 +61,21 @@ class Model_User extends Model
     }
     
     /**
+     * Returns the current backend iso language code.
+     *
+     * A session must have already been started before using this.
+     *
+     * @return string
+     */
+    public function getLanguage()
+    {
+        if ( ! isset($_SESSION['backend']['language'])) {
+            $_SESSION['backend']['language'] = Flight::get('language');
+        }
+        return $_SESSION['backend']['language'];
+    }
+    
+    /**
      * Adds a notification message for this user.
      *
      * @param string $message

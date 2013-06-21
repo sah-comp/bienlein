@@ -1,6 +1,6 @@
 <?php
 /**
- * Configuration example.
+ * Cinnebar.
  *
  * @package Cinnebar
  * @subpackage Configuration
@@ -16,12 +16,12 @@ mb_internal_encoding('UTF-8');
 /**
  * Define constant install password.
  */
-define('CINNEBAR_INSTALL_PASS', password_hash('secret', PASSWORD_DEFAULT));
+define('CINNEBAR_INSTALL_PASS', password_hash('Banana', PASSWORD_DEFAULT));
 
 /**
- * Error logging on.
+ * Error logging off.
  */
-Flight::set('flight.log_errors', true);
+Flight::set('flight.log_errors', false);
 
 /**
  * Add a path to your src directory for autoloading.
@@ -32,7 +32,7 @@ Flight::path(__DIR__ . '/../../app');
 /**
  * Setup our database.
  */
-R::setup('mysql:host=localhost;dbname=DBNAME', 'UNAME', 'PASSWD');
+R::setup('mysql:host=localhost;dbname=bienlein', 'USERNAME', 'SECRET');
 
 /**
  * Allow RedBean Cooker Plugin to load beans for compatibility.
@@ -54,17 +54,19 @@ Flight::set('flight.views.path', __DIR__ . '/../res/tpl');
 Flight::set('full_path', '');
 
 /**
- * Set possible languages.
- */
-Flight::set('possible_languages', array('de', 'en'));
-
-/**
  * Set the default language.
  */
 Flight::set('default_language', 'de');
 
 /**
+ * Set possible languages.
+ */
+Flight::set('possible_languages', R::dispense('language')->getEnabled('de'));
+
+/**
  * Set the current language.
+ *
+ * This get changed by our routes if the called url begins with a 2-character iso code.
  */
 Flight::set('language', 'de');
 

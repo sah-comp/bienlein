@@ -90,7 +90,7 @@ SQL;
      */
     public function translated($attribute = 'name')
     {
-        return $this->i18n(Flight::get('language'))->name;
+        return $this->i18n(Flight::get('user')->getLanguage())->name;
     }
     
     /**

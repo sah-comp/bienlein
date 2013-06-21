@@ -48,6 +48,21 @@ class Model_Language extends Model
     }
     
     /**
+     * Returns an array with iso codes of enabled languages.
+     *
+     * @param string (optional) $default_language
+     * @return array
+     */
+    public function getEnabled($default_language = 'de')
+    {
+        $langs = R::getCol('SELECT iso FROM language WHERE enabled = ? AND iso != ?', array(
+            true, $default_language
+        ));
+        $langs[] = $default_language;
+        return $langs;
+    }
+    
+    /**
      * Dispense.
      */
     public function dispense()
