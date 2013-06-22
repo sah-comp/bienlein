@@ -641,6 +641,16 @@ class Controller_Install extends Controller
             'en' => 'Systemadministrator',
             'us' => 'Systemadministrator'
         ));
+        I18n::make('user_label_isbanned', array(
+            'de' => 'Konto ist zur Zeit gesperrt',
+            'en' => 'Banned',
+            'us' => 'Banned'
+        ));
+        I18n::make('user_label_isdeleted', array(
+            'de' => 'Konto zur Löschung vorgesehen',
+            'en' => 'Deleted',
+            'us' => 'Deleted'
+        ));
         //110
         I18n::make('user_label_name', array(
             'de' => 'Name',

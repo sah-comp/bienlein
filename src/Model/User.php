@@ -76,6 +76,26 @@ class Model_User extends Model
     }
     
     /**
+     * Returns wether the user is banned or not.
+     *
+     * @return bool
+     */
+    public function isBanned()
+    {
+        return $this->bean->isbanned;
+    }
+    
+    /**
+     * Returns wether the user is deleted or not.
+     *
+     * @return bool
+     */
+    public function isDeleted()
+    {
+        return $this->bean->isdeleted;
+    }
+    
+    /**
      * Adds a notification message for this user.
      *
      * @param string $message

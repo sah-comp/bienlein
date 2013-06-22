@@ -36,16 +36,18 @@ class Auth extends Controller
 	/**
 	 * Returns true if the session is authenticated or false if not.
 	 *
-	 * In case the session is validated, the current user bean is mapped
-	 * to Flight.
+	 * In case the session is validated, the current user bean is set.
+     * If the user account was banned or deleted in the meantime, the session
+     * will no longer be validated.
 	 *
-	 * @uses Flight::map() to map a user bean in case a validate one is found
+	 * @uses Flight::set()
 	 * @return bool
 	 */
     static public function validate()
     {
         if (isset($_SESSION['user']['id'])) {
 			Flight::set('user', R::load('user', $_SESSION['user']['id']));
+			if (Flight::get('user')->isBanned() || Flight::get('user')->isDeleted()) return false;
             return true;
         }
 		return false;

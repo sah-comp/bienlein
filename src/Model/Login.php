@@ -33,6 +33,10 @@ class Model_Login extends Model
             $this->addError(I18n::__('login_user_not_found'), 'uname');
             return false;
         }
+        if ($user->isBanned() || $user->isDeleted()) {
+            $this->addError(I18n::__('login_user_not_available'));
+            return false;            
+        }
         if ( ! password_verify($this->bean->pw, $user->pw)) {
             $this->addError(I18n::__('login_pw_wrong'), 'pw');
             return false;

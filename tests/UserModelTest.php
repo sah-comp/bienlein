@@ -142,6 +142,35 @@ class UserModelTest extends PHPUnit_Framework_TestCase
         $this->assertFalse($this->login->trial());
     }
     
+    public function testLoginFailedBecauseOfBan()
+    {
+        $this->userAsBean->name = 'I am a good Shepard, but banned';
+        $this->userAsBean->shortname = 'shep';
+        $this->userAsBean->email = 'shep@example.com';
+        $this->userAsBean->pw = 'secret2';
+        $this->userAsBean->isbanned = true;
+        R::store($this->userAsBean);
+        $this->assertTrue($this->userAsBean->getId() != 0);
+        $this->login->uname = 'shep';
+        $this->login->pw = 'secret2';
+        $this->assertFalse($this->login->trial());
+    }
+    
+    public function testLoginFailedBecauseOfSuspension()
+    {
+        $this->userAsBean->name = 'I am a good Sheep, but deleted';
+        $this->userAsBean->shortname = 'sheep';
+        $this->userAsBean->email = 'sheep@example.com';
+        $this->userAsBean->pw = 'secret23';
+        $this->userAsBean->isbanned = false;
+        $this->userAsBean->isdeleted = true;
+        R::store($this->userAsBean);
+        $this->assertTrue($this->userAsBean->getId() != 0);
+        $this->login->uname = 'sheep';
+        $this->login->pw = 'secret23';
+        $this->assertFalse($this->login->trial());
+    }
+    
     public function testLoginWithEmailGood()
     {
         $this->login->uname = 'info@example.com';

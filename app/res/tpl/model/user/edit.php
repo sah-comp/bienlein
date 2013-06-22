@@ -93,5 +93,41 @@
             <?php echo ($record->isadmin) ? 'checked="checked"' : '' ?>
             value="1" />
     </div>
+    <div
+        class="row<?php echo $record->hasError('isbanned') ? ' error' : '' ?>">
+        <input
+            type="hidden"
+            name="dialog[isbanned]"
+            value="0" />
+        <label
+            for="user-isbanned"
+            class="cb">
+            <?php echo I18n::__('user_label_isbanned') ?>
+        </label>
+        <input
+            id="user-isbanned"
+            type="checkbox"
+            name="dialog[isbanned]"
+            <?php echo ($record->isbanned) ? 'checked="checked"' : '' ?>
+            value="1" />
+    </div>
+    <div
+        class="row<?php echo $record->hasError('isdeleted') ? ' error' : '' ?>">
+        <input
+            type="hidden"
+            name="dialog[isdeleted]"
+            value="0" />
+        <label
+            for="user-isdeleted"
+            class="cb">
+            <?php echo I18n::__('user_label_isdeleted') ?>
+        </label>
+        <input
+            id="user-isdeleted"
+            type="checkbox"
+            name="dialog[isdeleted]"
+            <?php echo ($record->isdeleted) ? 'checked="checked"' : '' ?>
+            value="1" />
+    </div>
 </fieldset>
 <!-- End of edit user form -->

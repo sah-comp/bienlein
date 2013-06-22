@@ -285,6 +285,8 @@ CREATE TABLE `user` (
   `shortname` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `pw` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `isadmin` tinyint(3) unsigned DEFAULT NULL,
+  `isdeleted` tinyint(3) unsigned DEFAULT NULL,
+  `isbanned` tinyint(3) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 SET character_set_client = @saved_cs_client;
