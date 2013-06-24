@@ -371,6 +371,32 @@ class Controller_Install extends Controller
         
         
         // latest addition 2013-06-24
+        I18n::make('scaffold_success_add', array(
+            'de' => 'Ein Eintrag wurde erfolgreich hinzugefügt',
+            'en' => 'Added a new item successfully',
+            'us' => 'Added a new item successfully'
+        ));
+        I18n::make('scaffold_error_add', array(
+            'de' => 'Der Eintrag konnte nicht hinzugefügt werden',
+            'en' => 'The new item was not added',
+            'us' => 'The new item was not added'
+        ));
+        I18n::make('page_label_keywords', array(
+            'de' => 'Suchbegriffe',
+            'en' => 'Keywords',
+            'us' => 'Keywords'
+        ));
+        I18n::make('page_label_desc', array(
+            'de' => 'Beschreibung',
+            'en' => 'Description',
+            'us' => 'Description'
+        ));
+        I18n::make('template_region_tab', array(
+            'de' => 'Bereiche',
+            'en' => 'Regions',
+            'us' => 'Regions'
+        ));
+        
         I18n::make('cms_h1', array(
             'de' => 'CMS',
             'en' => 'CMS',

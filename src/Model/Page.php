@@ -94,7 +94,7 @@ SQL;
     public function update()
     {
         foreach ($this->bean->ownSlice as $id => $slice) {
-            if ( ! $slice->module || ! $slice->content) {
+            if ( ! $slice->module) {
                 unset($this->bean->ownSlice[$id]);
             }
         }
