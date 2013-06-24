@@ -34,6 +34,8 @@ In your project directory do:
 
 composer install
 
+In directory public create a folder upload and make it writeable for PHP.
+
 Point your browser to http://example.com/install and follow the instructions.
 
 Start writing template, models and controllers until you have a shiny new application handy.
