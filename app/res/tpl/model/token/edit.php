@@ -8,7 +8,6 @@
  * @version $Id$
  */
 ?>
-<?php $_languages = R::find('language', ' enabled = ?', array(true)) ?>
 <!-- token edit form -->
 <div>
     <input type="hidden" name="dialog[type]" value="<?php echo $record->getMeta('type') ?>" />
@@ -43,11 +42,18 @@
 </fieldset>
 
 <div class="tab-container">
+    <?php Flight::render('shared/navigation/tabs', array(
+        'tab_id' => 'token-tabs',
+        'tabs' => array(
+            'token-translation' => I18n::__('token_translation_tab')
+        ),
+        'default_tab' => 'token-translation'
+    )) ?>
     <fieldset
         id="token-translation"
         class="tab">
         <legend class="verbose"><?php echo I18n::__('tokeni18n_legend') ?></legend>
-        <?php foreach ($_languages as $_id => $_language): ?>
+        <?php foreach (R::find('language', ' enabled = ?', array(true)) as $_id => $_language): ?>
             <?php $_tokeni18n = $record->i18n($_language->iso) ?>
             <div class="row <?php echo ($_tokeni18n->hasError('name')) ? 'error' : ''; ?>">
                 <input

@@ -26,7 +26,7 @@
         <fieldset>
             <legend><?php echo I18n::__('account_legend_changepassword') ?></legend>
             <div
-                class="row<?php echo $record->hasError('pw') ? ' error' : '' ?>">
+                class="row <?php echo $record->hasError('pw') ? 'error' : '' ?>">
                 <label
                     for="user-pw">
                     <?php echo I18n::__('user_pw_label') ?>
@@ -39,7 +39,7 @@
                     required="required" />
             </div>
             <div
-                class="row<?php echo $record->hasError('pwnew') ? ' error' : '' ?>">
+                class="row <?php echo $record->hasError('pwnew') ? 'error' : '' ?>">
                 <label
                     for="user-pw-new">
                     <?php echo I18n::__('account_newpassword_label') ?>
@@ -52,7 +52,7 @@
                     required="required" />
             </div>
             <div
-                class="row<?php echo $record->hasError('pwrepeated') ? ' error' : '' ?>">
+                class="row <?php echo $record->hasError('pwrepeated') ? 'error' : '' ?>">
                 <label
                     for="user-pw-new">
                     <?php echo I18n::__('account_repeatedpassword_label') ?>

@@ -16,10 +16,9 @@
 <fieldset>
     <legend class="verbose"><?php echo I18n::__('user_legend') ?></legend>
     <div
-        class="row<?php echo $record->hasError('name') ? ' error' : '' ?>">
+        class="row <?php echo $record->hasError('name') ? 'error' : '' ?>">
         <label
-            for="user-name"
-            class="<?php echo $record->hasError('name') ? 'error' : '' ?>">
+            for="user-name">
             <?php echo I18n::__('user_label_name') ?>
         </label>
         <input
@@ -31,10 +30,9 @@
             required="required" />
     </div>
     <div
-        class="row<?php echo $record->hasError('email') ? ' error' : '' ?>">
+        class="row <?php echo $record->hasError('email') ? 'error' : '' ?>">
         <label
-            for="user-email"
-            class="<?php echo $record->hasError('email') ? 'error' : '' ?>">
+            for="user-email">
             <?php echo I18n::__('user_label_email') ?>
         </label>
         <input
@@ -46,10 +44,9 @@
             required="required" />
     </div>
     <div
-        class="row<?php echo $record->hasError('shortname') ? ' error' : '' ?>">
+        class="row <?php echo $record->hasError('shortname') ? 'error' : '' ?>">
         <label
-            for="user-shortname"
-            class="<?php echo $record->hasError('shortname') ? 'error' : '' ?>">
+            for="user-shortname">
             <?php echo I18n::__('user_shortname_label') ?>
         </label>
         <input
@@ -61,7 +58,7 @@
             required="required" />
     </div>
     <div
-        class="row<?php echo $record->hasError('pw') ? ' error' : '' ?>">
+        class="row <?php echo $record->hasError('pw') ? 'error' : '' ?>">
         <label
             for="user-pw">
             <?php echo I18n::__('user_pw_label') ?>
@@ -74,7 +71,7 @@
             required="required" />
     </div>
     <div
-        class="row<?php echo $record->hasError('isadmin') ? ' error' : '' ?>">
+        class="row <?php echo $record->hasError('isadmin') ? 'error' : '' ?>">
         <input
             type="hidden"
             name="dialog[isadmin]"

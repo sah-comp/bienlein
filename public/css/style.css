@@ -719,11 +719,39 @@ textarea {
     margin-bottom: 0;
 }
 
-.panel .tab-container {
+.panel .container {
     position: relative;
 }
 
-.panel .tab {
+.panel .tabs {
+    border-bottom: 1px solid gray;
+    margin-bottom: 1em;
+    height: 1.5em;
+}
+
+ul.tab-navigation {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+ul.tab-navigation li {
+    float: none;
+    display: inline-block;
+}
+
+ul.tab-navigation a {
+    text-decoration: none;
+    border: 1px solid gray;
+    /*border-bottom: 0;*/
+    color: inherit;
+    padding: 0.222em 1em;
+    margin-bottom: -1px;
+}
+
+ul.tab-navigation a.selected {
+    border-bottom: 1px solid white;
 }
 
 .panel label {
@@ -732,6 +760,7 @@ textarea {
     padding-top: 0.444em;
     white-space: nowrap;
     text-align: right;
+    font-weight: normal;
 }
 
 .panel label.cb {
@@ -806,6 +835,23 @@ select {
     margin-right: 0;
 }
 
+.container .detach,
+.container .attach {
+    width: 1.444em;
+    height: 1.444em;/*1em font-size + 2 x 0.222em padding in input fields*/
+    padding: 0;
+    margin: 0;
+    z-index: 1;
+    background-image: url(/img/glyphicons/glyphicons_191_circle_minus.png);
+    position: absolute;
+    right: 6px;
+    bottom: 3px;
+}
+
+.container .attach {
+    background-image: url(/img/glyphicons/glyphicons_190_circle_plus.png);
+}
+
 
 /* label in .tab will stretch */
 .panel .tab [class*="span"] label,
@@ -838,7 +884,7 @@ input[readonly=readonly] {
     background: url(/img/glyphicons/glyphicons_203_lock.png) right center no-repeat;
     background-size: 16px 19px;
 }
-
+/*
 .container input[type=text],
 .container input[type=password],
 .container input[type=email],
@@ -854,6 +900,7 @@ input[readonly=readonly] {
     width: 100%;
     padding: 0.222em;
 }
+*/
 
 
 

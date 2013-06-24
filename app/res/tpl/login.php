@@ -26,10 +26,9 @@
         <fieldset>
             <legend><?php echo I18n::__('login_legend') ?></legend>
             <div
-                class="row<?php echo $record->hasError('uname') ? ' error' : '' ?>">
+                class="row <?php echo $record->hasError('uname') ? 'error' : '' ?>">
                 <label
-                    for="login-username"
-                    class="<?php echo $record->hasError('uname') ? 'error' : '' ?>">
+                    for="login-username">
                     <?php echo I18n::__('login_username_label') ?>
                 </label>
                 <input
@@ -42,7 +41,7 @@
  					autofocus="autofocus" />
             </div>
             <div
-                class="row<?php echo $record->hasError('pw') ? ' error' : '' ?>">
+                class="row <?php echo $record->hasError('pw') ? 'error' : '' ?>">
                 <label
                     for="login-password">
                     <?php echo I18n::__('login_password_label') ?>

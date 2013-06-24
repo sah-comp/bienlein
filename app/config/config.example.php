@@ -16,12 +16,12 @@ mb_internal_encoding('UTF-8');
 /**
  * Define constant install password.
  */
-define('CINNEBAR_INSTALL_PASS', password_hash('Banana', PASSWORD_DEFAULT));
+define('CINNEBAR_INSTALL_PASS', password_hash('INSTALLPW', PASSWORD_DEFAULT));
 
 /**
- * Error logging off.
+ * Error logging on.
  */
-Flight::set('flight.log_errors', false);
+Flight::set('flight.log_errors', true);
 
 /**
  * Add a path to your src directory for autoloading.
@@ -32,7 +32,7 @@ Flight::path(__DIR__ . '/../../app');
 /**
  * Setup our database.
  */
-R::setup('mysql:host=localhost;dbname=bienlein', 'USERNAME', 'SECRET');
+R::setup('mysql:host=localhost;dbname=DBNAME', 'UNAME', 'PASSWORD');
 
 /**
  * Allow RedBean Cooker Plugin to load beans for compatibility.
@@ -52,6 +52,23 @@ Flight::set('flight.views.path', __DIR__ . '/../res/tpl');
  * Example: http://localhost/path/to/public
  */
 Flight::set('full_path', '');
+
+/**
+ * Set the absolute path to your media directory.
+ *
+ * Example: http://localhost/path/to/media
+ */
+Flight::set('media_path', 'upload');
+
+/**
+ * Set the maximum file size for uploads in bytes.
+ */
+Flight::set('max_upload_size', 2097152);
+
+/**
+ * Set the directory where to store user uploaded files.
+ */
+Flight::set('upload_dir', __DIR__ . '/../../public/upload');
 
 /**
  * Set the default language.

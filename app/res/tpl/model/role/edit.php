@@ -29,4 +29,45 @@
             required="required" />
     </div>
 </fieldset>
+<div class="tab-container">
+    <?php Flight::render('shared/navigation/tabs', array(
+        'tab_id' => 'role-tabs',
+        'tabs' => array(
+            'role-translation' => I18n::__('role_translation_tab')
+        ),
+        'default_tab' => 'role-translation'
+    )) ?>
+    <fieldset
+        id="role-translation"
+        class="tab">
+        <legend class="verbose"><?php echo I18n::__('tokeni18n_legend') ?></legend>
+        <?php foreach (R::find('language', ' enabled = ?', array(true)) as $_id => $_language): ?>
+            <?php $_tokeni18n = $record->i18n($_language->iso) ?>
+            <div class="row <?php echo ($_tokeni18n->hasError('name')) ? 'error' : ''; ?>">
+                <input
+                    type="hidden"
+                    name="dialog[ownRolei18n][<?php echo $_id ?>][type]"
+                    value="rolei18n" />
+                <input
+                    type="hidden"
+                    name="dialog[ownRolei18n][<?php echo $_id ?>][id]"
+                    value="<?php echo $_tokeni18n->getId() ?>" />
+                <input
+                    type="hidden"
+                    name="dialog[ownRolei18n][<?php echo $_id ?>][language]"
+                    value="<?php echo $_tokeni18n->language ?>" />
+                <label
+                    for="translation-<?php echo $_language->iso ?>-<?php echo $_tokeni18n->getId() ?>">
+                    <?php echo I18n::__('language_'.$_tokeni18n->language) ?>
+                </label>
+                <textarea
+                    id="translation-<?php echo $_language->iso ?>-<?php echo $_tokeni18n->getId() ?>"
+                    class="scaleable"
+                    name="dialog[ownRolei18n][<?php echo $_id ?>][name]"
+                    cols="60"
+                    rows="2"><?php echo htmlspecialchars($_tokeni18n->name) ?></textarea>
+            </div>
+        <?php endforeach ?>
+    </fieldset>
+</div>
 <!-- end of edit add form -->

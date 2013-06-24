@@ -42,7 +42,7 @@
         <fieldset>
             <legend>Adminstrator account information</legend>
             <div
-                class="row<?php echo $record->hasError('email') ? ' error' : '' ?>">
+                class="row <?php echo $record->hasError('email') ? 'error' : '' ?>">
                 <label
                     for="install-email">
                     Email
@@ -56,7 +56,7 @@
                     required="required" />
             </div>
             <div
-                class="row<?php echo $record->hasError('name') ? ' error' : '' ?>">
+                class="row <?php echo $record->hasError('name') ? 'error' : '' ?>">
                 <label
                     for="install-name">
                     Name
@@ -70,7 +70,7 @@
                     required="required" />
             </div>
             <div
-                class="row<?php echo $record->hasError('shortname') ? ' error' : '' ?>">
+                class="row <?php echo $record->hasError('shortname') ? 'error' : '' ?>">
                 <label
                     for="install-shortname">
                     Screenname
@@ -84,7 +84,7 @@
                     required="required" />
             </div>
             <div
-                class="row<?php echo $record->hasError('pw') ? ' error' : '' ?>">
+                class="row <?php echo $record->hasError('pw') ? 'error' : '' ?>">
                 <label
                     for="install-pw">
                     Password

@@ -173,7 +173,7 @@ class Controller_Scaffold extends Controller
             // next 
             $_SESSION['scaffold'][$this->type]['index']['next_action'] = 'idle';
             $_SESSION['scaffold'][$this->type]['add']['next_action'] = 'add';
-            $_SESSION['scaffold'][$this->type]['edit']['next_action'] = 'next_edit';
+            $_SESSION['scaffold'][$this->type]['edit']['next_action'] = 'edit';
             $_SESSION['scaffold'][$this->type]['delete']['next_action'] = 'index';
         }
         $this->filter = R::load('filter', $_SESSION['scaffold'][$this->type]['filter']['id']);

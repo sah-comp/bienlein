@@ -99,16 +99,253 @@ class Controller_Install extends Controller
         $countries[1]->enabled = false;
         R::storeAll($countries);
         //domain
-        $domains = R::dispense('domain', 8);
-        $domains[0]->name = 'action';
-        $domains[1]->name = 'domain';
-        $domains[2]->name = 'language';
-        $domains[3]->name = 'country';
-        $domains[4]->name = 'user';
-        $domains[5]->name = 'role';
-        $domains[6]->name = 'team';
-        $domains[7]->name = 'token';
-        R::storeAll($domains);
+        $domains = R::dispense('domain', 15);
+
+        $domains[0]->name = 'system';
+        $domains[0]->url = 'system';
+        $domains[0]->blessed = true;
+        $domains[0]->sequence = 0;
+        $sys_i18n = R::dispense('domaini18n', 3);
+        $sys_i18n[0]->language = 'de';
+        $sys_i18n[0]->name = 'System';
+        $sys_i18n[1]->language = 'en';
+        $sys_i18n[1]->name = 'System';
+        $sys_i18n[2]->language = 'us';
+        $sys_i18n[2]->name = 'System';
+        $domains[0]->ownDomaini18n = array(
+            $sys_i18n[0], $sys_i18n[1], $sys_i18n[2]
+        );
+        
+        
+            $domains[1]->name = 'admin';
+            $domains[1]->url = 'admin';
+            $domains[1]->sequence = 10000;
+            $admin_i18n = R::dispense('domaini18n', 3);
+            $admin_i18n[0]->language = 'de';
+            $admin_i18n[0]->name = 'Einstellungen';
+            $admin_i18n[1]->language = 'en';
+            $admin_i18n[1]->name = 'Settings';
+            $admin_i18n[2]->language = 'us';
+            $admin_i18n[2]->name = 'Settings';
+            $domains[1]->ownDomaini18n = array(
+                $admin_i18n[0], $admin_i18n[1], $admin_i18n[2]
+            );
+            
+                $domains[2]->name = 'user';
+                $domains[2]->url = 'admin/user';
+                $domains[2]->sequence = 10;
+                $user_i18n = R::dispense('domaini18n', 3);
+                $user_i18n[0]->language = 'de';
+                $user_i18n[0]->name = 'Benutzerkonten';
+                $user_i18n[1]->language = 'en';
+                $user_i18n[1]->name = 'Accounts';
+                $user_i18n[2]->language = 'us';
+                $user_i18n[2]->name = 'Accounts';
+                $domains[2]->ownDomaini18n = array(
+                    $user_i18n[0], $user_i18n[1], $user_i18n[2]
+                );
+                
+                $domains[3]->name = 'language';
+                $domains[3]->url = 'admin/language';
+                $domains[3]->sequence = 20;
+                $lang_i18n = R::dispense('domaini18n', 3);
+                $lang_i18n[0]->language = 'de';
+                $lang_i18n[0]->name = 'Sprachen';
+                $lang_i18n[1]->language = 'en';
+                $lang_i18n[1]->name = 'Languages';
+                $lang_i18n[2]->language = 'us';
+                $lang_i18n[2]->name = 'Languages';
+                $domains[3]->ownDomaini18n = array(
+                    $lang_i18n[0], $lang_i18n[1], $lang_i18n[2]
+                );
+                
+                $domains[4]->name = 'country';
+                $domains[4]->url = 'admin/country';
+                $domains[4]->sequence = 30;
+                $country_i18n = R::dispense('domaini18n', 3);
+                $country_i18n[0]->language = 'de';
+                $country_i18n[0]->name = 'Länder';
+                $country_i18n[1]->language = 'en';
+                $country_i18n[1]->name = 'Countries';
+                $country_i18n[2]->language = 'us';
+                $country_i18n[2]->name = 'Countries';
+                $domains[4]->ownDomaini18n = array(
+                    $country_i18n[0], $country_i18n[1], $country_i18n[2]
+                );
+                
+                $domains[5]->name = 'domain';
+                $domains[5]->url = 'admin/domain';
+                $domains[5]->sequence = 40;
+                $domain_i18n = R::dispense('domaini18n', 3);
+                $domain_i18n[0]->language = 'de';
+                $domain_i18n[0]->name = 'Verzeichnisse';
+                $domain_i18n[1]->language = 'en';
+                $domain_i18n[1]->name = 'Domains';
+                $domain_i18n[2]->language = 'us';
+                $domain_i18n[2]->name = 'Domains';
+                $domains[5]->ownDomaini18n = array(
+                    $domain_i18n[0], $domain_i18n[1], $domain_i18n[2]
+                );
+                
+                $domains[6]->name = 'action';
+                $domains[6]->url = 'admin/action';
+                $domains[6]->sequence = 50;
+                $action_i18n = R::dispense('domaini18n', 3);
+                $action_i18n[0]->language = 'de';
+                $action_i18n[0]->name = 'Kommandos';
+                $action_i18n[1]->language = 'en';
+                $action_i18n[1]->name = 'Actions';
+                $action_i18n[2]->language = 'us';
+                $action_i18n[2]->name = 'Actions';
+                $domains[6]->ownDomaini18n = array(
+                    $action_i18n[0], $action_i18n[1], $action_i18n[2]
+                );
+                
+                $domains[7]->name = 'role';
+                $domains[7]->url = 'admin/role';
+                $domains[7]->sequence = 60;
+                $role_i18n = R::dispense('domaini18n', 3);
+                $role_i18n[0]->language = 'de';
+                $role_i18n[0]->name = 'Rollen';
+                $role_i18n[1]->language = 'en';
+                $role_i18n[1]->name = 'Roles';
+                $role_i18n[2]->language = 'us';
+                $role_i18n[2]->name = 'Roles';
+                $domains[7]->ownDomaini18n = array(
+                    $role_i18n[0], $role_i18n[1], $role_i18n[2]
+                );
+                
+                $domains[8]->name = 'team';
+                $domains[8]->url = 'admin/team';
+                $domains[8]->sequence = 70;
+                $team_i18n = R::dispense('domaini18n', 3);
+                $team_i18n[0]->language = 'de';
+                $team_i18n[0]->name = 'Teams';
+                $team_i18n[1]->language = 'en';
+                $team_i18n[1]->name = 'Groups';
+                $team_i18n[2]->language = 'us';
+                $team_i18n[2]->name = 'Groups';
+                $domains[8]->ownDomaini18n = array(
+                    $team_i18n[0], $team_i18n[1], $team_i18n[2]
+                );
+                
+                $domains[9]->name = 'token';
+                $domains[9]->url = 'admin/token';
+                $domains[9]->sequence = 80;
+                $token_i18n = R::dispense('domaini18n', 3);
+                $token_i18n[0]->language = 'de';
+                $token_i18n[0]->name = 'Übersetzungen';
+                $token_i18n[1]->language = 'en';
+                $token_i18n[1]->name = 'Translations';
+                $token_i18n[2]->language = 'us';
+                $token_i18n[2]->name = 'Translations';
+                $domains[9]->ownDomaini18n = array(
+                    $token_i18n[0], $token_i18n[1], $token_i18n[2]
+                );
+                
+            $domains[10]->name = 'cms';
+            $domains[10]->url = 'cms';
+            $domains[10]->sequence = 0;
+            $cms_i18n = R::dispense('domaini18n', 3);
+            $cms_i18n[0]->language = 'de';
+            $cms_i18n[0]->name = 'CMS';
+            $cms_i18n[1]->language = 'en';
+            $cms_i18n[1]->name = 'CMS';
+            $domain_i18n[2]->language = 'us';
+            $cms_i18n[2]->name = 'CMS';
+            $domains[10]->ownDomaini18n = array(
+                $cms_i18n[0], $cms_i18n[1], $cms_i18n[2]
+            );
+            
+                $domains[11]->name = 'media';
+                $domains[11]->url = 'cms/media';
+                $domains[11]->sequence = 10;
+                $media_i18n = R::dispense('domaini18n', 3);
+                $media_i18n[0]->language = 'de';
+                $media_i18n[0]->name = 'Medien';
+                $media_i18n[1]->language = 'en';
+                $media_i18n[1]->name = 'Media';
+                $media_i18n[2]->language = 'us';
+                $media_i18n[2]->name = 'Media';
+                $domains[11]->ownDomaini18n = array(
+                    $media_i18n[0], $media_i18n[1], $media_i18n[2]
+                );
+                
+                $domains[12]->name = 'page';
+                $domains[12]->url = 'cms/page';
+                $domains[12]->sequence = 20;
+                $page_i18n = R::dispense('domaini18n', 3);
+                $page_i18n[0]->language = 'de';
+                $page_i18n[0]->name = 'Webseiten';
+                $page_i18n[1]->language = 'en';
+                $page_i18n[1]->name = 'Webpages';
+                $page_i18n[2]->language = 'us';
+                $page_i18n[2]->name = 'Webpages';
+                $domains[12]->ownDomaini18n = array(
+                    $page_i18n[0], $page_i18n[1], $page_i18n[2]
+                );
+                
+                $domains[13]->name = 'module';
+                $domains[13]->url = 'cms/module';
+                $domains[13]->sequence = 30;
+                $module_i18n = R::dispense('domaini18n', 3);
+                $module_i18n[0]->language = 'de';
+                $module_i18n[0]->name = 'Modulen';
+                $module_i18n[1]->language = 'en';
+                $module_i18n[1]->name = 'Modules';
+                $module_i18n[2]->language = 'us';
+                $module_i18n[2]->name = 'Modules';
+                $domains[13]->ownDomaini18n = array(
+                    $module_i18n[0], $module_i18n[1], $module_i18n[2]
+                );
+                
+                $domains[14]->name = 'template';
+                $domains[14]->url = 'cms/template';
+                $domains[14]->sequence = 40;
+                $template_i18n = R::dispense('domaini18n', 3);
+                $template_i18n[0]->language = 'de';
+                $template_i18n[0]->name = 'Templates';
+                $template_i18n[1]->language = 'en';
+                $template_i18n[1]->name = 'Templates';
+                $template_i18n[2]->language = 'us';
+                $template_i18n[2]->name = 'Templates';
+                $domains[14]->ownDomaini18n = array(
+                    $template_i18n[0], $template_i18n[1], $template_i18n[2]
+                );
+                
+        // make a tree
+        $domains[1]->ownDomain = array(
+            $domains[2],
+            $domains[3],
+            $domains[4],
+            $domains[5],
+            $domains[6],
+            $domains[7],
+            $domains[8],
+            $domains[9]
+        );
+        $domains[10]->ownDomain = array(
+            $domains[11],
+            $domains[12],
+            $domains[13],
+            $domains[14]
+        );  
+        $domains[0]->ownDomain = array(
+            $domains[1], $domains[10]
+        );
+        //store system tree       
+        R::store($domains[0]);
+
+        //modules
+        $modules = R::dispense('module', 3);
+        $modules[0]->name = 'textile';
+        $modules[0]->enabled = true;
+        $modules[1]->name = 'text';
+        $modules[1]->enabled = true;
+        $modules[2]->name = 'image';
+        $modules[2]->enabled = true;
+        R::storeAll($modules);
+        
         //language
         $languages = R::dispense('language', 3);
         $languages[0]->iso = 'de';
@@ -131,6 +368,333 @@ class Controller_Install extends Controller
         $team->name = 'Development';
         R::store($team);
         //token
+        
+        
+        // latest addition 2013-06-24
+        I18n::make('cms_h1', array(
+            'de' => 'CMS',
+            'en' => 'CMS',
+            'us' => 'CMS'
+        ));
+        I18n::make('scaffold_detach_linktext', array(
+            'de' => 'Entfernen',
+            'en' => 'Detach',
+            'us' => 'Detach'
+        ));
+        I18n::make('scaffold_attach_linktext', array(
+            'de' => 'Hinzufügen',
+            'en' => 'Attach',
+            'us' => 'Attach'
+        ));
+        I18n::make('domain_label_parent', array(
+            'de' => 'Übergeordnet',
+            'en' => 'Parent',
+            'us' => 'Parent'
+        ));
+        I18n::make('domain_parent_none', array(
+            'de' => 'Ohne',
+            'en' => 'None',
+            'us' => 'None'
+        ));
+        I18n::make('domain_label_invisible', array(
+            'de' => 'Nicht sichtbar',
+            'en' => 'Invisible',
+            'us' => 'Invisible'
+        ));
+        I18n::make('domain_label_sequence', array(
+            'de' => 'Reihenfolge',
+            'en' => 'Sequence',
+            'us' => 'Sequence'
+        ));
+        I18n::make('token_translation_tab', array(
+            'de' => 'Übersetzungen',
+            'en' => 'Translations',
+            'us' => 'Translations'
+        ));
+        I18n::make('user_setting_tab', array(
+            'de' => 'Einstellungen',
+            'en' => 'Settings',
+            'us' => 'Settings'
+        ));
+        I18n::make('user_role_tab', array(
+            'de' => 'Rollen',
+            'en' => 'Roles',
+            'us' => 'Roles'
+        ));
+        I18n::make('user_team_tab', array(
+            'de' => 'Teams',
+            'en' => 'Groups',
+            'us' => 'Groups'
+        ));
+        I18n::make('user_legend_setting', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('user_legend_role', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('user_legend_team', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('role_translation_tab', array(
+            'de' => 'Übersetzungen',
+            'en' => 'Translations',
+            'us' => 'Translations'
+        ));
+        I18n::make('team_translation_tab', array(
+            'de' => 'Übersetzungen',
+            'en' => 'Translations',
+            'us' => 'Translations'
+        ));
+        I18n::make('domain_translation_tab', array(
+            'de' => 'Übersetzungen',
+            'en' => 'Translations',
+            'us' => 'Translations'
+        ));
+        I18n::make('domain_label_url', array(
+            'de' => 'URL',
+            'en' => 'URL',
+            'us' => 'URL'
+        ));
+        I18n::make('domain_placeholder_url', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('page_h1', array(
+            'de' => 'Webseiten',
+            'en' => 'Webpages',
+            'us' => 'Webpages'
+        ));
+        I18n::make('page_legend', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('page_label_name', array(
+            'de' => 'Titel',
+            'en' => 'Title',
+            'us' => 'Title'
+        ));
+        I18n::make('page_legend_meta', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('page_label_domain', array(
+            'de' => 'Verzeichnis',
+            'en' => 'Domain',
+            'us' => 'Domain'
+        ));
+        I18n::make('page_placeholder_name', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('page_label_invisible', array(
+            'de' => 'Nicht sichtbar',
+            'en' => 'Invisible',
+            'us' => 'Invisible'
+        ));
+        I18n::make('page_domain_none', array(
+            'de' => 'Ohne',
+            'en' => 'None',
+            'us' => 'None'
+        ));
+        I18n::make('page_label_template', array(
+            'de' => 'Template',
+            'en' => 'Template',
+            'us' => 'Template'
+        ));
+        I18n::make('page_label_sequence', array(
+            'de' => 'Reihenfolge',
+            'en' => 'Sequence',
+            'us' => 'Sequence'
+        ));
+        I18n::make('page_template_none', array(
+            'de' => 'Ohne',
+            'en' => 'None',
+            'us' => 'None'
+        ));
+        I18n::make('page_region_tab', array(
+            'de' => 'Bereiche',
+            'en' => 'Regions',
+            'us' => 'Regions'
+        ));
+        I18n::make('page_meta_tab', array(
+            'de' => 'Meta',
+            'en' => 'Meta',
+            'us' => 'Meta'
+        ));
+        I18n::make('page_legend_region', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('page_label_url', array(
+            'de' => 'URL',
+            'en' => 'URL',
+            'us' => 'URL'
+        ));
+        I18n::make('page_placeholder_url', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('template_h1', array(
+            'de' => 'Templates',
+            'en' => 'Templates',
+            'us' => 'Templates'
+        ));
+        I18n::make('template_legend', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('template_label_name', array(
+            'de' => 'Name',
+            'en' => 'Name',
+            'us' => 'Name'
+        ));
+        I18n::make('template_placeholder_name', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('template_legend_region', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('region_legend', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('region_label_name', array(
+            'de' => '%d Bereich',
+            'en' => '%d Region',
+            'us' => '%d Region'
+        ));
+        I18n::make('region_placeholder_name', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('module_h1', array(
+            'de' => 'Modulen',
+            'en' => 'Modules',
+            'us' => 'Modules'
+        ));
+        I18n::make('module_legend', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('module_label_name', array(
+            'de' => 'Name',
+            'en' => 'Name',
+            'us' => 'Name'
+        ));
+        I18n::make('module_placeholder_name', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('module_label_enabled', array(
+            'de' => 'Aktiviert',
+            'en' => 'Enabled',
+            'us' => 'Enabled'
+        ));
+        I18n::make('slice_module_select', array(
+            'de' => 'Modul wählen&hellip;',
+            'en' => 'Choose module&hellip;',
+            'us' => 'Choose module&hellip;'
+        ));
+        I18n::make('slice_module_not_set', array(
+            'de' => '&hellip; um Inhalte einzutragen',
+            'en' => '&hellip; and enter content',
+            'us' => '&hellip; and enter content'
+        ));
+        I18n::make('slice_media_select', array(
+            'de' => 'Medium&hellip;',
+            'en' => 'Media&hellip;',
+            'us' => 'Media&hellip;'
+        ));
+        I18n::make('module_textile', array(
+            'de' => 'Textile',
+            'en' => 'Textile',
+            'us' => 'Textile'
+        ));
+        I18n::make('module_image', array(
+            'de' => 'Bild',
+            'en' => 'Image',
+            'us' => 'Image'
+        ));
+        I18n::make('module_text', array(
+            'de' => 'Nur-Text',
+            'en' => 'Text-Only',
+            'us' => 'Text-Only'
+        ));
+        I18n::make('media_h1', array(
+            'de' => 'Medien',
+            'en' => 'Media',
+            'us' => 'Media'
+        ));
+        I18n::make('media_legend', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('media_label_name', array(
+            'de' => 'Name',
+            'en' => 'Name',
+            'us' => 'Name'
+        ));
+        I18n::make('media_placeholder_name', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('media_label_desc', array(
+            'de' => 'Beschreibung',
+            'en' => 'Description',
+            'us' => 'Description'
+        ));
+        I18n::make('media_placeholder_desc', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('media_label_file', array(
+            'de' => 'Datei',
+            'en' => 'Filename',
+            'us' => 'Filename'
+        ));
+        I18n::make('media_label_extension', array(
+            'de' => 'Art',
+            'en' => 'Type',
+            'us' => 'Type'
+        ));
+        I18n::make('media_label_size', array(
+            'de' => 'Größe in Bytes',
+            'en' => 'Bytes',
+            'us' => 'Bytes'
+        ));
+        I18n::make('media_label_sanename', array(
+            'de' => 'Datei',
+            'en' => 'File',
+            'us' => 'File'
+        ));
+        
+        
+        
+        
         //10
         I18n::make('account_logout_nav', array(
             'de' => 'Abmelden',

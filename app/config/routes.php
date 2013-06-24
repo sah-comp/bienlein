@@ -74,6 +74,39 @@ Flight::route('(/[a-z]{2})/admin(/index)', function() {
 });
 
 /**
+ * Routes to the scaffold controller for cms.
+ */
+ Flight::route('(/[a-z]{2})/cms/@type:[a-z]+/add(/@id:[0-9]+)(/@layout:[a-z]+)', function($type, $id, $layout) {
+    if ($layout === null) $layout = 'table';
+ 	$scaffoldController = new Controller_Scaffold('/cms', $type, $id);
+ 	$scaffoldController->add($layout);
+ });
+Flight::route('(/[a-z]{2})/cms/@type:[a-z]+/edit/@id:[0-9]+(/@page:[0-9]+)(/@order:[0-9]+)(/@dir:[0-1]{1})(/@layout:[a-z]+)', function($type, $id, $page, $order, $dir, $layout) {
+    if ($layout === null) $layout = 'table';
+    if ($page === null) $page = 1;
+    if ($order === null) $order = 0;
+    if ($dir === null) $dir = 0;
+	$scaffoldController = new Controller_Scaffold('/cms', $type, $id);
+	$scaffoldController->edit($page, $order, $dir, $layout);
+});
+Flight::route('(/[a-z]{2})/cms/@type:[a-z]+(/@layout:[a-z]+)(/@page:[0-9]+)(/@order:[0-9]+)(/@dir:[0-1]{1})', function($type, $layout, $page, $order, $dir) {
+    if ($layout === null) $layout = 'table';
+    if ($page === null) $page = 1;
+    if ($order === null) $order = 0;
+    if ($dir === null) $dir = 0;
+	$scaffoldController = new Controller_Scaffold('/cms', $type);
+	$scaffoldController->index($layout, $page, $order, $dir);
+});
+
+/**
+ * Routes to the cms controller.
+ */
+Flight::route('(/[a-z]{2})/cms(/index)', function() {
+	$cmsController = new Controller_Cms();
+	$cmsController->index();
+});
+
+/**
  * Routes to the language controller.
  */
 Flight::route('POST (/[a-z]{2})/language/set', function() {
