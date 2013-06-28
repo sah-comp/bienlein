@@ -16,7 +16,7 @@ mb_internal_encoding('UTF-8');
 /**
  * Define constant install password.
  */
-define('CINNEBAR_INSTALL_PASS', password_hash('INSTALLPW', PASSWORD_DEFAULT));
+define('CINNEBAR_INSTALL_PASS', password_hash('Banana', PASSWORD_DEFAULT));
 
 /**
  * Error logging on.
@@ -32,7 +32,7 @@ Flight::path(__DIR__ . '/../../app');
 /**
  * Setup our database.
  */
-R::setup('mysql:host=localhost;dbname=DBNAME', 'UNAME', 'PASSWORD');
+R::setup('mysql:host=localhost;dbname=DBNAME', 'UNAME', 'SECRET');
 
 /**
  * Allow RedBean Cooker Plugin to load beans for compatibility.
@@ -88,11 +88,39 @@ Flight::set('possible_languages', R::dispense('language')->getEnabled('de'));
 Flight::set('language', 'de');
 
 /**
+ * Setting.
+ */
+Flight::map('setting', function() {
+    return R::load('setting', 1);//setting there can only be one
+});
+
+/**
  * Textile.
  */
 Flight::map('textile', function($text, $restricted = false) {
     $parser = new Textile('html5');
     return $parser->TextileThis($text);
+});
+
+/**
+ * Blessed folder.
+ */
+Flight::map('blessedfolder', function() {
+    return R::load('domain', Flight::setting()->blessedfolder);//
+});
+
+/**
+ * Sites folder.
+ */
+Flight::map('sitesfolder', function() {
+    return R::load('domain', Flight::setting()->sitesfolder);//
+});
+
+/**
+ * Blessed folder.
+ */
+Flight::map('basecurrency', function() {
+    return R::load('currency', Flight::setting()->basecurrency);//
 });
 
 // There shall be non url rewriter and session id gets handled by cookies only
