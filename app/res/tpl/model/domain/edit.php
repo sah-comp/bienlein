@@ -29,7 +29,7 @@
             <option
                 value="<?php echo $_domain->getId() ?>"
                 <?php echo ($record->getId() == $_domain->getId()) ? 'disabled="disabled"' : '' ?>
-                <?php echo ($record->domain_id == $_domain->getId()) ? 'selected="selected"' : '' ?>><?php echo $_domain->name ?></option>   
+                <?php echo ($record->domain_id == $_domain->getId()) ? 'selected="selected"' : '' ?>><?php echo $_domain->i18n(Flight::get('language'))->name ?></option>   
             <?php endforeach ?>
         </select>
     </div>

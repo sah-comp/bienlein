@@ -18,24 +18,6 @@
 class Model_Page extends Model
 {
     /**
-     * Returns a string with all slices rendered.
-     *
-     * @return string
-     */
-    public function render()
-    {
-        $ret = array();
-        foreach ($this->bean->template->ownRegion as $region_id => $region) {
-            $s = '';
-            foreach ($this->getSlicesByRegion($region_id, false) as $slice_id => $slice) {
-                $s .= $slice->render('frontend')."\n";
-            }
-            $ret[$region->name] = $s;
-        }
-        return implode("\n", $ret);
-    }
-
-    /**
      * Returns an array with attributes for lists.
      *
      * @param string (optional) $layout

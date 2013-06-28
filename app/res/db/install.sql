@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 24, 2013 at 02:18 PM
+-- Generation Time: Jun 28, 2013 at 03:13 PM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.15
 
@@ -65,17 +65,36 @@ CREATE TABLE IF NOT EXISTS `criteria` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `currency`
+--
+
+CREATE TABLE IF NOT EXISTS `currency` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `iso` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `enabled` tinyint(1) unsigned DEFAULT NULL,
+  `sign` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fractionalunit` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `numbertobasic` tinyint(3) unsigned DEFAULT NULL,
+  `exchangerate` double DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `domain`
 --
 
 CREATE TABLE IF NOT EXISTS `domain` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `domain_id` tinyint(3) unsigned DEFAULT NULL,
+  `domain_id` int(11) unsigned DEFAULT NULL,
   `invisible` tinyint(3) unsigned DEFAULT NULL,
-  `sequence` tinyint(3) unsigned DEFAULT NULL,
+  `sequence` int(11) unsigned DEFAULT NULL,
   `url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `index_foreignkey_domain_domain` (`domain_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -133,7 +152,7 @@ CREATE TABLE IF NOT EXISTS `info_page` (
   UNIQUE KEY `UQ_ee9052a72f7f9b71215857e78523438616b13827` (`info_id`,`page_id`),
   KEY `index_for_info_page_page_id` (`page_id`),
   KEY `index_for_info_page_info_id` (`info_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -181,7 +200,7 @@ CREATE TABLE IF NOT EXISTS `media` (
   `desc` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `sanename` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -247,7 +266,7 @@ CREATE TABLE IF NOT EXISTS `page` (
   PRIMARY KEY (`id`),
   KEY `index_foreignkey_page_domain` (`domain_id`),
   KEY `index_foreignkey_page_template` (`template_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -288,7 +307,7 @@ CREATE TABLE IF NOT EXISTS `rolei18n` (
   `role_id` int(11) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_foreignkey_rolei18n_role` (`role_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -307,6 +326,24 @@ CREATE TABLE IF NOT EXISTS `session` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `setting`
+--
+
+CREATE TABLE IF NOT EXISTS `setting` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `blessedfolder` tinyint(1) unsigned DEFAULT NULL,
+  `sitesfolder` tinyint(3) unsigned DEFAULT NULL,
+  `basecurrency` tinyint(1) unsigned DEFAULT NULL,
+  `installed` tinyint(1) unsigned DEFAULT NULL,
+  `fiscalyear` int(11) unsigned DEFAULT NULL,
+  `exchangerateservice` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `exchangeratelastupd` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `slice`
 --
 
@@ -319,7 +356,7 @@ CREATE TABLE IF NOT EXISTS `slice` (
   `content` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_foreignkey_slice_page` (`page_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -346,7 +383,7 @@ CREATE TABLE IF NOT EXISTS `teami18n` (
   `team_id` int(11) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_foreignkey_teami18n_team` (`team_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -417,6 +454,12 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 ALTER TABLE `criteria`
   ADD CONSTRAINT `cons_fk_criteria_filter_id_id` FOREIGN KEY (`filter_id`) REFERENCES `filter` (`id`) ON DELETE SET NULL ON UPDATE SET NULL;
+
+--
+-- Constraints for table `domain`
+--
+ALTER TABLE `domain`
+  ADD CONSTRAINT `cons_fk_domain_domain_id_id` FOREIGN KEY (`domain_id`) REFERENCES `domain` (`id`) ON DELETE SET NULL ON UPDATE SET NULL;
 
 --
 -- Constraints for table `domaini18n`

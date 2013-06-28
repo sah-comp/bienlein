@@ -41,9 +41,18 @@ Flight::route('(/[a-z]{2})/logout', function() {
 });
 
 /**
+ * Routes to the admin controller.
+ */
+Flight::route('(/[a-z]{2})/admin(/index)', function() {
+	$adminController = new Controller_Admin();
+	$adminController->index();
+});
+
+
+/**
  * Routes to the scaffold controller.
  */
- Flight::route('(/[a-z]{2})/admin/@type:[a-z]+/add(/@id:[0-9]+)(/@layout:[a-z]+)', function($type, $id, $layout) {
+Flight::route('(/[a-z]{2})/admin/@type:[a-z]+/add(/@id:[0-9]+)(/@layout:[a-z]+)', function($type, $id, $layout) {
     if ($layout === null) $layout = 'table';
  	$scaffoldController = new Controller_Scaffold('/admin', $type, $id);
  	$scaffoldController->add($layout);
@@ -66,17 +75,17 @@ Flight::route('(/[a-z]{2})/admin/@type:[a-z]+(/@layout:[a-z]+)(/@page:[0-9]+)(/@
 });
 
 /**
- * Routes to the admin controller.
+ * Routes to the cms controller.
  */
-Flight::route('(/[a-z]{2})/admin(/index)', function() {
-	$adminController = new Controller_Admin();
-	$adminController->index();
+Flight::route('(/[a-z]{2})/cms(/index)', function() {
+	$cmsController = new Controller_Cms();
+	$cmsController->index();
 });
 
 /**
  * Routes to the scaffold controller for cms.
  */
- Flight::route('(/[a-z]{2})/cms/@type:[a-z]+/add(/@id:[0-9]+)(/@layout:[a-z]+)', function($type, $id, $layout) {
+Flight::route('(/[a-z]{2})/cms/@type:[a-z]+/add(/@id:[0-9]+)(/@layout:[a-z]+)', function($type, $id, $layout) {
     if ($layout === null) $layout = 'table';
  	$scaffoldController = new Controller_Scaffold('/cms', $type, $id);
  	$scaffoldController->add($layout);
@@ -96,14 +105,6 @@ Flight::route('(/[a-z]{2})/cms/@type:[a-z]+(/@layout:[a-z]+)(/@page:[0-9]+)(/@or
     if ($dir === null) $dir = 0;
 	$scaffoldController = new Controller_Scaffold('/cms', $type);
 	$scaffoldController->index($layout, $page, $order, $dir);
-});
-
-/**
- * Routes to the cms controller.
- */
-Flight::route('(/[a-z]{2})/cms(/index)', function() {
-	$cmsController = new Controller_Cms();
-	$cmsController->index();
 });
 
 /**

@@ -399,6 +399,11 @@ class Controller_Scaffold extends Controller
             }
         }
         $this->getCollection();
+        if ($this->total_records == 0) {
+            Flight::get('user')->notify(I18n::__('scaffold_no_records_add_one'));
+            //return $this->add($this->layout);//this would not work because we dont set form action
+            $this->redirect("{$this->base_url}/{$this->type}/add/{$this->layout}");
+        }
         
         $this->pagination = new Pagination(
             Url::build("{$this->base_url}/{$this->type}/"),

@@ -99,7 +99,7 @@ class Model_Domain extends Model
     public function dispense()
     {
         $this->bean->invisible = false;
-        $this->bean->blessed = false;
+        //$this->bean->blessed = false;
         $this->bean->sequence = 0;
         $this->addValidator('name', array(
             new Validator_HasValue()

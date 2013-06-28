@@ -30,7 +30,7 @@ class Controller_Install extends Controller
      */
     public function index()
     {
-        if ($user = R::findOne('user', ' isadmin = ?', array(true))) $this->redirect('/admin');
+        if ($setting = R::findOne('setting', ' installed = ?', array(true))) $this->redirect('/admin');
         $user = R::dispense('user');
         if (Flight::request()->method == 'POST' && 
                 password_verify(Flight::request()->data->pass, CINNEBAR_INSTALL_PASS)) {
@@ -82,6 +82,9 @@ class Controller_Install extends Controller
      */
     protected function initialFillings()
     {
+        //setting, will be stored at the end of this
+        $setting = R::dispense('setting');
+        //...
         //action
         $actions = R::dispense('action', 4);
         $actions[0]->name = 'add';
@@ -99,11 +102,11 @@ class Controller_Install extends Controller
         $countries[1]->enabled = false;
         R::storeAll($countries);
         //domain
-        $domains = R::dispense('domain', 15);
+        $domains = R::dispense('domain', 16);
 
         $domains[0]->name = 'system';
         $domains[0]->url = 'system';
-        $domains[0]->blessed = true;
+        //$domains[0]->blessed = true;
         $domains[0]->sequence = 0;
         $sys_i18n = R::dispense('domaini18n', 3);
         $sys_i18n[0]->language = 'de';
@@ -157,6 +160,20 @@ class Controller_Install extends Controller
                 $lang_i18n[2]->name = 'Languages';
                 $domains[3]->ownDomaini18n = array(
                     $lang_i18n[0], $lang_i18n[1], $lang_i18n[2]
+                );
+                
+                $domains[15]->name = 'currency';
+                $domains[15]->url = 'admin/currency';
+                $domains[15]->sequence = 25;
+                $curr_i18n = R::dispense('domaini18n', 3);
+                $curr_i18n[0]->language = 'de';
+                $curr_i18n[0]->name = 'Währungen';
+                $curr_i18n[1]->language = 'en';
+                $curr_i18n[1]->name = 'Currencies';
+                $curr_i18n[2]->language = 'us';
+                $curr_i18n[2]->name = 'Currencies';
+                $domains[15]->ownDomaini18n = array(
+                    $curr_i18n[0], $curr_i18n[1], $curr_i18n[2]
                 );
                 
                 $domains[4]->name = 'country';
@@ -322,7 +339,8 @@ class Controller_Install extends Controller
             $domains[6],
             $domains[7],
             $domains[8],
-            $domains[9]
+            $domains[9],
+            $domains[15]
         );
         $domains[10]->ownDomain = array(
             $domains[11],
@@ -335,15 +353,20 @@ class Controller_Install extends Controller
         );
         //store system tree       
         R::store($domains[0]);
+        //make system the blessed folder
+        $setting->blessedfolder = $domains[0]->getId();
+        $setting->sitesfolder = $domains[12]->getId();
 
         //modules
-        $modules = R::dispense('module', 3);
+        $modules = R::dispense('module', 4);
         $modules[0]->name = 'textile';
         $modules[0]->enabled = true;
         $modules[1]->name = 'text';
         $modules[1]->enabled = true;
         $modules[2]->name = 'image';
         $modules[2]->enabled = true;
+        $modules[3]->name = 'html';
+        $modules[3]->enabled = true;
         R::storeAll($modules);
         
         //language
@@ -358,6 +381,36 @@ class Controller_Install extends Controller
         $languages[2]->name = 'US-English';
         $languages[2]->enabled = false;
         R::storeAll($languages);
+        
+        //currency
+        $currencies = R::dispense('currency', 3);
+        $currencies[0]->iso = 'eur';
+        $currencies[0]->name = 'Euro';
+        $currencies[0]->enabled = true;
+        $currencies[0]->sign = '€';
+        $currencies[0]->fractionalunit = 'Cent';
+        $currencies[0]->numbertobasic = 100;
+        $currencies[0]->exchangerate = (double)1.000;
+        //gbp
+        $currencies[1]->iso = 'gbp';
+        $currencies[1]->name = 'Pound Sterling';
+        $currencies[1]->enabled = true;
+        $currencies[1]->sign = '£';
+        $currencies[1]->fractionalunit = 'Pence';
+        $currencies[1]->numbertobasic = 100;
+        $currencies[1]->exchangerate = (double)0.8490;
+        //usd
+        $currencies[2]->iso = 'usd';
+        $currencies[2]->name = 'US Dollar';
+        $currencies[2]->enabled = true;
+        $currencies[2]->sign = '$';
+        $currencies[2]->fractionalunit = 'Cent';
+        $currencies[2]->numbertobasic = 100;
+        $currencies[2]->exchangerate = (double)1.2861;
+        R::storeAll($currencies);
+        
+        $setting->basecurrency = $currencies[0]->getId();
+
         //role
         $roles = R::dispense('role', 2);
         $roles[0]->name = 'Admin';
@@ -367,10 +420,151 @@ class Controller_Install extends Controller
         $team = R::dispense('team');
         $team->name = 'Development';
         R::store($team);
+        //template
+        $template = R::dispense('template');
+        $template->name = 'Default';
+        $region = R::dispense('region');
+        $region->name = 'Content';
+        $template->ownRegion = array(
+            $region
+        );
+        R::store($template);
         //token
         
+        // added 2013-06-28
+        I18n::make('setting_legend', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('setting_legend_currency', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('setting_legend_folder', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('setting_blessedfolder_label', array(
+            'de' => 'Systemordner',
+            'en' => 'Blessed Folder',
+            'us' => 'Blessed Folder'
+        ));
+        I18n::make('setting_sitesfolder_label', array(
+            'de' => 'Webseiten',
+            'en' => 'Websites',
+            'us' => 'Websites'
+        ));
+        I18n::make('setting_fiscalyear_label', array(
+            'de' => 'Rechnungsjahr',
+            'en' => 'Fiscal Year',
+            'us' => 'Fiscal Year'
+        ));
+        I18n::make('setting_basecurrency_label', array(
+            'de' => 'Basiswährung',
+            'en' => 'Base Currency',
+            'us' => 'Base Currency'
+        ));
+        I18n::make('setting_exchangerateservice_label', array(
+            'de' => 'Service',
+            'en' => 'Service',
+            'us' => 'Service'
+        ));
+        I18n::make('setting_loadexchangerates_label', array(
+            'de' => 'Kurse',
+            'en' => 'Rates',
+            'us' => 'Rates'
+        ));
+        I18n::make('setting_loadexchangerates_no', array(
+            'de' => 'Zuletzt aktualisiert %s',
+            'en' => 'Last updated %s',
+            'us' => 'Last updated %s'
+        ));
+        I18n::make('setting_loadexchangerates_yes', array(
+            'de' => 'Jetzt aktualisieren',
+            'en' => 'Update now',
+            'us' => 'Update now'
+        ));
+        I18n::make('setting_folder_tab', array(
+            'de' => 'Ordner',
+            'en' => 'Folders',
+            'us' => 'Folders'
+        ));
+        I18n::make('admin_submit_setting', array(
+            'de' => 'Aktualisieren',
+            'en' => 'Update',
+            'us' => 'Update'
+        ));
+        I18n::make('setting_currency_tab', array(
+            'de' => 'Währung und Kurse',
+            'en' => 'Currency and Rates',
+            'us' => 'Currency and Rates'
+        ));
+        I18n::make('currency_h1', array(
+            'de' => 'Währungen',
+            'en' => 'Currencies',
+            'us' => 'Currencies'
+        ));
+        I18n::make('currency_legend', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('currency_label_iso', array(
+            'de' => 'ISO',
+            'en' => 'ISO',
+            'us' => 'ISO'
+        ));
+        I18n::make('currency_label_enabled', array(
+            'de' => 'Aktiviert',
+            'en' => 'Active',
+            'us' => 'Active'
+        ));
+        I18n::make('currency_label_name', array(
+            'de' => 'Name',
+            'en' => 'Name',
+            'us' => 'Name'
+        ));
+        I18n::make('currency_label_sign', array(
+            'de' => 'Zeichen',
+            'en' => 'Sign',
+            'us' => 'Sign'
+        ));
+        I18n::make('currency_label_fractionalunit', array(
+            'de' => 'Kleinste Einheit',
+            'en' => 'Fractional Unit',
+            'us' => 'Fractional Unit'
+        ));
+        I18n::make('currency_label_numbertobasic', array(
+            'de' => 'Basiszahl',
+            'en' => 'Number to Basic',
+            'us' => 'Number to Basic'
+        ));
+        I18n::make('currency_exchangerate_label', array(
+            'de' => 'Kurs',
+            'en' => 'Exchangerate',
+            'us' => 'Exchangerate'
+        ));
         
-        // latest addition 2013-06-24
+        
+        // added 2013-06-24
+        I18n::make('scaffold_no_records_add_one', array(
+            'de' => 'Es sind noch keine Einträge vorhanden. Erstellen Sie den ersten.',
+            'en' => 'Go ahead and add the first item',
+            'us' => 'Go ahead and add the first item'
+        ));
+        I18n::make('scaffold_success_index', array(
+            'de' => 'Die Aktion wurde auf %d Einträge angewandt',
+            'en' => 'Action was applied to %d items',
+            'us' => 'Action was applied to %d items'
+        ));
+        I18n::make('scaffold_error_index', array(
+            'de' => 'Die Aktion konnte nicht auf die Auswahl angewandt werden',
+            'en' => 'Action was not applied the selection',
+            'us' => 'Action was not applied the selection'
+        ));
         I18n::make('scaffold_success_add', array(
             'de' => 'Ein Eintrag wurde erfolgreich hinzugefügt',
             'en' => 'Added a new item successfully',
@@ -666,6 +860,11 @@ class Controller_Install extends Controller
             'de' => 'Nur-Text',
             'en' => 'Text-Only',
             'us' => 'Text-Only'
+        ));
+        I18n::make('module_html', array(
+            'de' => 'HTML',
+            'en' => 'HTML',
+            'us' => 'HTML'
         ));
         I18n::make('media_h1', array(
             'de' => 'Medien',
@@ -1378,6 +1577,13 @@ class Controller_Install extends Controller
             'en' => 'Password was not changed',
             'us' => 'Password was not changed'
         ));
+        
+        //at the end we save setting
+        $setting->installed = true;
+        $setting->fiscalyear = date('Y');
+        $setting->exchangerateservice = 'http://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml';//
+        $setting->exchangeratelastupd = date('Y-m-d');//never did
+        R::store($setting);
     }
     
     /**
