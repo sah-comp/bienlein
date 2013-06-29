@@ -57,6 +57,23 @@ class Model_Domain extends Model
     }
     
     /**
+     * Returns the permission bean for the given method name.
+     *
+     * @param string $method_name
+     * @return RedBean_OODBBean $permission
+     */
+    public function getPermission($method_name)
+    {
+        if ( ! $permission = R::findOne('permission', ' method = ? AND domain_id = ?', array(
+            $method_name,
+            $this->bean->getId()
+        ))) {
+            $permission = R::dispense('permission');
+        }
+        return $permission;
+    }
+    
+    /**
      * Builds a hierarchical menu from an adjancy bean.
      *
      * @param string (optional) $url_prefix as a kind of basehref, e.g. 'http://localhost/s/de'
@@ -91,6 +108,19 @@ class Model_Domain extends Model
             );
         }
         return $menu;
+    }
+    
+    /**
+     * Update.
+     */
+    public function update()
+    {
+        if ($this->bean->domain_id) {
+            $this->bean->domain = R::load('domain', $this->bean->domain_id);
+        }
+        else {
+            unset($this->bean->domain);
+        }
     }
     
     /**

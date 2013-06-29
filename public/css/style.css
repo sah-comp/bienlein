@@ -659,6 +659,8 @@ form.langchooser {
 }
 
 form.langchooser select {
+    padding: 0;
+    margin: 0;
     font-size: small;
 }
 
@@ -742,12 +744,11 @@ ul.tab-navigation li {
 }
 
 ul.tab-navigation a {
+    background-color: white;
     text-decoration: none;
     border: 1px solid gray;
-    /*border-bottom: 0;*/
     color: inherit;
     padding: 0.222em 1em;
-    margin-bottom: -1px;
 }
 
 ul.tab-navigation a.selected {
@@ -761,6 +762,10 @@ ul.tab-navigation a.selected {
     white-space: nowrap;
     text-align: right;
     font-weight: normal;
+}
+
+th.label {
+    width: 25.404255317%;
 }
 
 .panel label.cb {
@@ -789,6 +794,9 @@ select {
 input[type=file],
 input[type=datetime] {
     width: auto;
+}
+.panel .row select {
+    margin-top: 0.444em;
 }
 
 .panel .upload {

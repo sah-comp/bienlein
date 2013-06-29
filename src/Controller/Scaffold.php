@@ -200,6 +200,7 @@ class Controller_Scaffold extends Controller
             return true;
         }
         catch (Exception $e) {
+            error_log($e);
             R::rollback();
             $this->notifyAbout('error');
             return false;
@@ -335,6 +336,7 @@ class Controller_Scaffold extends Controller
     {
         if (empty($selection)) return false;
         if ( ! is_array($selection)) return false;
+        Permission::check(Flight::get('user'), $this->type, $action);
         R::begin();
         try {
             foreach ($selection as $id => $switch) {
@@ -464,7 +466,7 @@ class Controller_Scaffold extends Controller
      */
     public function edit($page, $order, $dir, $layout)
     {
-        Permission::check(Flight::get('user'), $this->type, 'edit');
+        Permission::check(Flight::get('user'), $this->type, 'read');
         $this->action = 'edit';
         $this->page = $page;
         $this->order = $order;
@@ -472,6 +474,7 @@ class Controller_Scaffold extends Controller
         $this->layout = $layout;
         $this->template = "model/{$this->type}/edit";
 		if (Flight::request()->method == 'POST') {
+		    Permission::check(Flight::get('user'), $this->type, 'edit');//check for edit perm now
             $this->record = R::graph(Flight::request()->data->dialog, true);
             $this->setNextAction(Flight::request()->data->next_action);
             if ($this->doRedbeanAction()) {

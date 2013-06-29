@@ -10,15 +10,12 @@
 ?>
 <!-- Error 404 article -->
 <article>
-    <header>
-    	<h1>Error 404</h1>
-    	<h2>Page not found</h2>
-    </header>
-    <p>I did my very best but i just could not find the page you were looking for.</p>
-    <ul>
-        <li>Maybe the page was deleted for some reason</li>
-        <li>Otherwise you may have typed a wrong address into your browser bar?</li>
-        <li>You are welcome to <a href="<?php echo Url::build('/') ?>">start from the beginning</a></li>
-    </ul>
+    <article>
+        <header>
+        	<h1><?php echo I18n::__('http_error_404_h1') ?></h1>
+        	<h2><?php echo I18n::__('http_error_404_h2') ?></h2>
+        </header>
+        <?php echo Flight::textile(I18n::__('http_error_404_article')) ?>
+    </article>
 </article>
 <!-- End of Error 404 article -->
