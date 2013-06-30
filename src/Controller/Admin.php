@@ -31,10 +31,11 @@ class Controller_Admin extends Controller
             $setting = R::graph(Flight::request()->data->dialog, true);
             R::begin();
             try {
-                R::store($setting);
-                if (Flight::request()->data->loadexchangerates == 1 ) {
-                    R::dispense('currency')->loadexchangerates();
+                if (Flight::request()->data->loadexchangerates == 1 &&
+                                                    R::dispense('currency')->loadexchangerates()) {
+                    $setting->exchangeratelastupd = date('Y-m-d');
                 }
+                R::store($setting);
                 R::commit();
                 Flight::get('user')->notify(I18n::__('scaffold_success_edit'), 'success');
                 $this->redirect('/admin/index');
