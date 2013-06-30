@@ -24,10 +24,12 @@ class Controller_Admin extends Controller
     {
         session_start();
         Auth::check();
+        Permission::check(Flight::get('user'), 'admin', 'index');
         // load
         $setting = R::load('setting', 1);
         
 		if (Flight::request()->method == 'POST') {
+            Permission::check(Flight::get('user'), 'admin', 'edit');
             $setting = R::graph(Flight::request()->data->dialog, true);
             R::begin();
             try {

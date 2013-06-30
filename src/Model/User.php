@@ -27,6 +27,15 @@ class Model_User extends Model
     {
         return array(
             array(
+                'name' => 'shortname',
+                'sort' => array(
+                    'name' => 'user.shortname'
+                ),
+                'filter' => array(
+                    'tag' => 'text'
+                )
+            ),
+            array(
                 'name' => 'name',
                 'sort' => array(
                     'name' => 'user.name'

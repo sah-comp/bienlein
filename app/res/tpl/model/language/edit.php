@@ -24,7 +24,6 @@
             id="language-iso"
             type="text"
             name="dialog[iso]"
-            placeholder="<?php echo I18n::__('language_placeholder_iso') ?>"
             value="<?php echo htmlspecialchars($record->iso) ?>"
             required="required" />
     </div>
@@ -54,7 +53,6 @@
             id="language-name"
             type="text"
             name="dialog[name]"
-            placeholder="<?php echo I18n::__('language_placeholder_name') ?>"
             value="<?php echo htmlspecialchars($record->name) ?>"
             required="required" />
     </div>

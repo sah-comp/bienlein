@@ -143,8 +143,7 @@
                     <?php echo I18n::__('scaffold_action_edit') ?>
                 </a>
             </td>
-            <td
-                class="fn fn-name">
+            <td>
                 <input
                     type="checkbox"
                     class="selector"
@@ -155,7 +154,8 @@
             
             <!-- body attributes -->
             <?php foreach ($_attributes as $_attribute): ?>
-            <td>
+            <td
+                class="<?php echo (isset($_attribute['class'])) ? $_attribute['class'] : '' ?>">
                 <?php if (isset($_attribute['callback'])): ?>
                     <?php echo htmlspecialchars($_record->{$_attribute['callback']['name']}()) ?>
                 <?php else: ?>

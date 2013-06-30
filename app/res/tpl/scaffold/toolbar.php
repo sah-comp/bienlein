@@ -17,7 +17,8 @@
 	</li>
 	<li>
 		<a
-			href="<?php echo Url::build("{$base_url}/{$type}/add/{$layout}/") ?>">
+			href="<?php echo Url::build("{$base_url}/{$type}/add/{$layout}/") ?>"
+			accesskey="+">
 			<?php echo I18n::__('action_add_nav') ?>
 		</a>
 	</li>

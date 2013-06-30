@@ -24,12 +24,12 @@
             <input type="hidden" name="dialog[isadmin]" value="1" />
         </div>
         <fieldset>
-            <legend>Installpassphrase</legend>
+            <legend>Password</legend>
             <div
                 class="row">
                 <label
                     for="install-pass">
-                    Passphrase to allow installation
+                    Password
                 </label>
                 <input
                     type="password"
@@ -37,6 +37,9 @@
                     name="pass"
                     required="required"
                     autofocus="autofocus" />
+                <p class="info">
+                    The installation password is set in your configuration file.
+                </p>
             </div>
         </fieldset>
         <fieldset>

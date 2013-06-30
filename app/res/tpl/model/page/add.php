@@ -25,7 +25,6 @@
             id="page-name"
             type="text"
             name="dialog[name]"
-            placeholder="<?php echo I18n::__('page_placeholder_name') ?>"
             value="<?php echo htmlspecialchars($record->name) ?>"
             required="required" />
     </div>
@@ -75,7 +74,6 @@
             id="page-url"
             type="text"
             name="dialog[url]"
-            placeholder="<?php echo I18n::__('page_placeholder_url') ?>"
             value="<?php echo htmlspecialchars($record->url) ?>" />
     </div>
     <div class="row <?php echo ($record->hasError('invisible')) ? 'error' : ''; ?>">

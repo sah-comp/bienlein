@@ -764,6 +764,16 @@ ul.tab-navigation a.selected {
     font-weight: normal;
 }
 
+.panel p.info {
+    margin-top: 0.25em;
+    /*margin-left: 30%;*/
+    margin-left: 25.404255317%;
+    margin-bottom: 0;
+    font-size: small;
+    padding-left: 0.5em;
+    color: gray;
+}
+
 th.label {
     width: 25.404255317%;
 }

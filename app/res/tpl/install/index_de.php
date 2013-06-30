@@ -29,7 +29,7 @@
                 class="row">
                 <label
                     for="install-pass">
-                    Installationscode
+                    Kennwort
                 </label>
                 <input
                     type="password"
@@ -37,6 +37,9 @@
                     name="pass"
                     required="required"
                     autofocus="autofocus" />
+                <p class="info">
+                    Das Kennwort für die Installationsfreigabe wird in der Konfigurationsdatei festgelegt.
+                </p>
             </div>
         </fieldset>
         <fieldset>
@@ -51,7 +54,7 @@
                     type="email"
                     id="install-email"
                     name="dialog[email]"
-                    placeholder="vorname.nachname@example.com"
+                    placeholder="hans@mustermensch.de"
                     value="<?php echo htmlspecialchars($record->email) ?>"
                     required="required" />
             </div>
@@ -65,7 +68,7 @@
                     type="text"
                     id="install-name"
                     name="dialog[name]"
-                    placeholder="Vor- und Nachname"
+                    placeholder="Hans Mustermensch"
                     value="<?php echo htmlspecialchars($record->name) ?>"
                     required="required" />
             </div>
@@ -79,7 +82,7 @@
                     type="text"
                     id="install-shortname"
                     name="dialog[shortname]"
-                    placeholder="Admin"
+                    placeholder="admin"
                     value="<?php echo htmlspecialchars($record->shortname) ?>"
                     required="required" />
             </div>

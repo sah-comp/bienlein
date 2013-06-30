@@ -74,6 +74,16 @@ class Model_Currency extends Model
                 'filter' => array(
                     'tag' => 'text'
                 )
+            ),
+            array(
+                'name' => 'exchangerate',
+                'sort' => array(
+                    'name' => 'currency.exchangerate'
+                ),
+                'class' => 'number',
+                'filter' => array(
+                    'tag' => 'text'
+                )
             )
         );
     }

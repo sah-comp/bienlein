@@ -24,7 +24,6 @@
             id="token-name"
             type="text"
             name="dialog[name]"
-            placeholder="<?php echo I18n::__('token_placeholder_name') ?>"
             value="<?php echo htmlspecialchars($record->name) ?>"
             required="required" />
     </div>
@@ -36,8 +35,11 @@
         <textarea
             id="token-desc"
             name="dialog[desc]"
-            rows="3"
-            placeholder="<?php echo I18n::__('token_placeholder_desc') ?>"><?php echo htmlspecialchars($record->desc) ?></textarea>
+            placeholder="<?php echo I18n::__('token_placeholder_desc') ?>"
+            rows="3"><?php echo htmlspecialchars($record->desc) ?></textarea>
+            <p class="info">
+                <?php echo I18n::__('token_info_desc') ?>
+            </p>
     </div>
 </fieldset>
 

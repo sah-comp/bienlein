@@ -39,7 +39,6 @@
             id="media-name"
             type="text"
             name="dialog[name]"
-            placeholder="<?php echo I18n::__('media_placeholder_name') ?>"
             value="<?php echo htmlspecialchars($record->name) ?>" />
     </div>
     <div class="row <?php echo ($record->hasError('desc')) ? 'error' : ''; ?>">
@@ -51,8 +50,7 @@
             id="media-desc"
             name="dialog[desc]"
             rows="5"
-            cols="60"
-            placeholder="<?php echo I18n::__('media_placeholder_desc') ?>"><?php echo htmlspecialchars($record->desc) ?></textarea>
+            cols="60"><?php echo htmlspecialchars($record->desc) ?></textarea>
     </div>
 </fieldset>
 <!-- end of media edit form -->

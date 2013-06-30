@@ -29,13 +29,12 @@
                 class="row <?php echo $record->hasError('uname') ? 'error' : '' ?>">
                 <label
                     for="login-username">
-                    <?php echo I18n::__('login_username_label') ?>
+                    <?php echo I18n::__('login_label_username') ?>
                 </label>
                 <input
                     type="text"
                     id="login-username"
                     name="dialog[uname]"
-                    placeholder="<?php echo I18n::__('login_username_placeholder') ?>"
                     value="<?php echo htmlspecialchars($record->uname) ?>"
                     required="required"
  					autofocus="autofocus" />
@@ -44,7 +43,7 @@
                 class="row <?php echo $record->hasError('pw') ? 'error' : '' ?>">
                 <label
                     for="login-password">
-                    <?php echo I18n::__('login_password_label') ?>
+                    <?php echo I18n::__('login_label_password') ?>
                 </label>
                 <input
                     type="password"

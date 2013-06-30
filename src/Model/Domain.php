@@ -49,6 +49,7 @@ class Model_Domain extends Model
                 'sort' => array(
                     'name' => 'domain.sequence'
                 ),
+                'class' => 'number',
                 'filter' => array(
                     'tag' => 'number'
                 )

@@ -20,7 +20,7 @@
     <div class="row <?php echo ($record->hasError('fiscalyear')) ? 'error' : ''; ?>">
         <label
             for="setting-fiscalyear">
-            <?php echo I18n::__('setting_fiscalyear_label') ?>
+            <?php echo I18n::__('setting_label_fiscalyear') ?>
         </label>
         <input
             id="setting-fiscalyear"
@@ -49,7 +49,7 @@
             <label
                 for="setting-blessedfolder"
                 class="<?php echo ($record->hasError('blessedfolder')) ? 'error' : ''; ?>">
-                <?php echo I18n::__('setting_blessedfolder_label') ?>
+                <?php echo I18n::__('setting_label_blessedfolder') ?>
             </label>
             <select
                 id="setting-blessedfolder"
@@ -65,7 +65,7 @@
             <label
                 for="setting-sitesfolder"
                 class="<?php echo ($record->hasError('sitesfolder')) ? 'error' : ''; ?>">
-                <?php echo I18n::__('setting_sitesfolder_label') ?>
+                <?php echo I18n::__('setting_label_sitesfolder') ?>
             </label>
             <select
                 id="setting-sitesfolder"
@@ -87,7 +87,7 @@
             <label
                 for="setting-basecurrency"
                 class="<?php echo ($record->hasError('basecurrency')) ? 'error' : ''; ?>">
-                <?php echo I18n::__('setting_basecurrency_label') ?>
+                <?php echo I18n::__('setting_label_basecurrency') ?>
             </label>
             <select
                 id="setting-basecurrency"
@@ -103,7 +103,7 @@
             class="row <?php echo $record->hasError('exchangerateservice') ? 'error' : '' ?>">
             <label
                 for="setting-exchangerateservice">
-                <?php echo I18n::__('setting_exchangerateservice_label') ?>
+                <?php echo I18n::__('setting_label_exchangerateservice') ?>
             </label>
             <input
                 type="text"
@@ -114,7 +114,7 @@
         <div class="row">
             <label
                 for="setting-loadexchangerates">
-                <?php echo I18n::__('setting_loadexchangerates_label') ?>
+                <?php echo I18n::__('setting_label_loadexchangerates') ?>
             </label>
             <select
                 id="setting-loadexchangerates"

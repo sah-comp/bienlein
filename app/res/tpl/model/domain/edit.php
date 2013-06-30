@@ -42,7 +42,6 @@
             id="domain-name"
             type="text"
             name="dialog[name]"
-            placeholder="<?php echo I18n::__('domain_placeholder_name') ?>"
             value="<?php echo htmlspecialchars($record->name) ?>"
             required="required" />
     </div>
@@ -55,7 +54,6 @@
             id="domain-url"
             type="text"
             name="dialog[url]"
-            placeholder="<?php echo I18n::__('domain_placeholder_url') ?>"
             value="<?php echo htmlspecialchars($record->url) ?>" />
     </div>
     <div class="row">
@@ -109,7 +107,7 @@
             <thead>
                 <tr class="">
                     <th class="label">
-                        <?php echo I18n::__('domain_action_label') ?>
+                        <?php echo I18n::__('domain_label_action') ?>
                     </th>
                     <?php foreach ($_roles as $_role_id => $_role): ?>
                     <th>

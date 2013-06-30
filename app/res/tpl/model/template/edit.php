@@ -24,7 +24,6 @@
             id="template-name"
             type="text"
             name="dialog[name]"
-            placeholder="<?php echo I18n::__('template_placeholder_name') ?>"
             value="<?php echo htmlspecialchars($record->name) ?>"
             required="required" />
     </div>
@@ -76,7 +75,6 @@
                     id="region-<?php echo $_region_id ?>-name"
                     type="text"
                     name="dialog[ownRegion][<?php echo $_region_id ?>][name]"
-                    placeholder="<?php echo I18n::__('region_placeholder_name') ?>"
                     value="<?php echo htmlspecialchars($_region->name) ?>"
                     required="required" />
             </div>

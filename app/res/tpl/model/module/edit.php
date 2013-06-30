@@ -24,7 +24,6 @@
             id="module-name"
             type="text"
             name="dialog[name]"
-            placeholder="<?php echo I18n::__('module_placeholder_name') ?>"
             value="<?php echo htmlspecialchars($record->name) ?>"
             required="required" />
     </div>

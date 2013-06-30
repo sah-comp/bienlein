@@ -92,7 +92,7 @@
     <div class="row <?php echo ($record->hasError('exchangerate')) ? 'error' : ''; ?>">
         <label
             for="currency-exchangerate">
-            <?php echo I18n::__('currency_exchangerate_label') ?>
+            <?php echo I18n::__('currency_label_exchangerate') ?>
         </label>
         <input
             id="currency-exchangerate"
@@ -100,5 +100,8 @@
             class="number"
             name="dialog[exchangerate]"
             value="<?php echo htmlspecialchars($record->exchangerate) ?>" />
+            <p class="info">
+                <?php echo I18n::__('currency_info_basecurrency', null, array(Flight::basecurrency()->name)) ?>
+            </p>
     </div>
 </fieldset>

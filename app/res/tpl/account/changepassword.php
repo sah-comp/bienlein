@@ -29,7 +29,7 @@
                 class="row <?php echo $record->hasError('pw') ? 'error' : '' ?>">
                 <label
                     for="user-pw">
-                    <?php echo I18n::__('user_pw_label') ?>
+                    <?php echo I18n::__('user_label_pw') ?>
                 </label>
                 <input
                     type="password"
@@ -42,7 +42,7 @@
                 class="row <?php echo $record->hasError('pwnew') ? 'error' : '' ?>">
                 <label
                     for="user-pw-new">
-                    <?php echo I18n::__('account_newpassword_label') ?>
+                    <?php echo I18n::__('account_label_newpassword') ?>
                 </label>
                 <input
                     type="password"
@@ -55,7 +55,7 @@
                 class="row <?php echo $record->hasError('pwrepeated') ? 'error' : '' ?>">
                 <label
                     for="user-pw-new">
-                    <?php echo I18n::__('account_repeatedpassword_label') ?>
+                    <?php echo I18n::__('account_label_repeatedpassword') ?>
                 </label>
                 <input
                     type="password"
