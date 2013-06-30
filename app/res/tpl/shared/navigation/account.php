@@ -18,7 +18,7 @@
 				width="16"
 				height="16"
 				alt="<?php echo htmlspecialchars(Flight::get('user')->name) ?>" />
-			<?php echo htmlspecialchars(Flight::get('user')->name) ?>
+			<?php echo htmlspecialchars(Flight::get('user')->getName()) ?>
         </a>
     </li>
     <li>

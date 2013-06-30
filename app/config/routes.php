@@ -83,6 +83,22 @@ Flight::route('(/[a-z]{2})/cms(/index)', function() {
 });
 
 /**
+ * Routes to the cms controller to add a new domain.
+ */
+Flight::route('(/[a-z]{2})/cms/node/add', function() {
+	$cmsController = new Controller_Cms();
+	$cmsController->add('domain');
+});
+
+/**
+ * Routes to the cms controller to add a new domain.
+ */
+Flight::route('(/[a-z]{2})/cms/node/@id:[0-9]+', function($id) {
+	$cmsController = new Controller_Cms();
+	$cmsController->node($id);
+});
+
+/**
  * Routes to the scaffold controller for cms.
  */
 Flight::route('(/[a-z]{2})/cms/@type:[a-z]+/add(/@id:[0-9]+)(/@layout:[a-z]+)', function($type, $id, $layout) {

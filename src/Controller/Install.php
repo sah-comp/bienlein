@@ -1471,7 +1471,7 @@ class Controller_Install extends Controller
             'en' => 'Password',
             'us' => 'Password'
         ));
-        I18n::make('user_shortname_label', array(
+        I18n::make('user_label_shortname', array(
             'de' => 'Kurzname',
             'en' => 'Screenname',
             'us' => 'Screenname'

@@ -61,6 +61,16 @@ class Model_User extends Model
     }
     
     /**
+     * Returns the users screenname, depending on what the user has choose in the profile.
+     *
+     * @return string $name
+     */
+    public function getName()
+    {
+        return $this->bean->{$this->bean->screenname};
+    }
+    
+    /**
      * Returns the current backend iso language code.
      *
      * A session must have already been started before using this.
@@ -156,6 +166,7 @@ class Model_User extends Model
      */
     public function dispense()
     {
+        $this->bean->screenname = 'shortname';
         $this->autoInfo(true);
         $this->addValidator('name', array(
             new Validator_HasValue()

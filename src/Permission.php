@@ -23,15 +23,17 @@ class Permission extends Controller
      * If permision is not given client is redirected to a 403 forbidden page
      * otherwise true will be returned.
      *
+     * @todo set goto query parameter with the last allowed url, not just the current url
+     *
      * @param RedBean_OODBBean $user
-     * @param string $domain
-     * @param string $action
+     * @param mixed $domain either a bean or a string with the domain name
+     * @param string $action_name
      * @return bool
      */
-    static public function check(RedBean_OODBBean $user, $domain, $action)
+    static public function check(RedBean_OODBBean $user, $domain, $action_name)
     {
         if ($user->isadmin) return true;
-        if (self::validate($user, $domain, $action)) return true;
+        if (self::validate($user, $domain, $action_name)) return true;
         self::redirect('/forbidden/?goto'.urlencode(Flight::request()->url));
     }
     
@@ -40,13 +42,15 @@ class Permission extends Controller
      * the requested action boolean true will be returned.
      *
      * @param RedBean_OODBBean $user
-     * @param string $domain_name
+     * @param mixed $domain either a bean or a string
      * @param string $action_name
      * @return bool
      */
-    static public function validate(RedBean_OODBBean $user, $domain_name, $action_name) {
+    static public function validate(RedBean_OODBBean $user, $domain, $action_name) {
         if ( ! $user->sharedRole) return false;
-        if ( ! $domain = R::findOne('domain', 'name = ?', array($domain_name))) return false;
+        if ( ! is_a($domain, 'RedBean_OODBBean')) {
+            if ( ! $domain = R::findOne('domain', 'name = ?', array($domain))) return false;
+        }
         $permission = self::getPermission($domain, $action_name);
         foreach ($user->sharedRole as $id => $role) {
             if (isset($permission->sharedRole[$id])) return true;

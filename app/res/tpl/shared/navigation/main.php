@@ -9,7 +9,8 @@
  */
 ?>
 <!-- main navigation -->
-<?php echo Flight::blessedfolder()->hierMenu('/', Flight::get('language'))->render(array(
-    'class' => 'main-navigation clearfix'
-)); ?>
+<?php echo Flight::blessedfolder()
+                    ->hierMenu('/', Flight::get('language'))
+                    ->render(array('class' => 'main-navigation clearfix'));
+?>
 <!-- End of admin navigation -->

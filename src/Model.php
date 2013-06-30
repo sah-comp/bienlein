@@ -97,6 +97,25 @@ class Model extends RedBean_SimpleModel
     }
     
     /**
+     * Returns the root bean of a hierarchy.
+     *
+     * If the optional parameter is set the last bean before the parent bean with
+     * the given id will be returnded. Stop by sitesfolder id for example when you
+     * want to cut the tree a certain level when building a simple cms based on domain.
+     *
+     * @uses getRoot() to return the domain up one level
+     *
+     * @param int (optional) $stop_id of the domain to cut the bubble up route
+     * @return RedBean_OODBBean $root
+     */
+    public function getRoot($stop_id = 0)
+    {
+        if ( ! $this->bean->domain) return $this->bean;
+        if ($this->bean->domain->getId() == $stop_id) return $this->bean;
+        return $this->bean->domain->getRoot($stop_id);
+    }
+    
+    /**
      * Returns SQL string.
      *
      * Use with DISTINCT([table].id) to fetch all beans or use with COUNT(DISTINCT([table].id))
