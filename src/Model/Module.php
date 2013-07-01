@@ -34,6 +34,18 @@ class Model_Module extends Model
                 'filter' => array(
                     'tag' => 'text'
                 )
+            ),
+            array(
+                'name' => 'enabled',
+                'sort' => array(
+                    'name' => 'module.enabled'
+                ),
+                'callback' => array(
+                    'name' => 'boolean'
+                ),
+                'filter' => array(
+                    'tag' => 'bool'
+                )
             )
         );
     }

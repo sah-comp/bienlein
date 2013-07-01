@@ -52,6 +52,18 @@ class Model_User extends Model
                 'filter' => array(
                     'tag' => 'text'
                 )
+            ),
+            array(
+                'name' => 'isadmin',
+                'sort' => array(
+                    'name' => 'user.isadmin'
+                ),
+                'callback' => array(
+                    'name' => 'boolean'
+                ),
+                'filter' => array(
+                    'tag' => 'bool'
+                )
             )
         );
     }

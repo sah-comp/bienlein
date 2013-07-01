@@ -38,7 +38,10 @@ class Model_Criteria extends Model
  	);
 
     /**
-     * Holds possible search operators depending on the tag type.
+     * Holds possible search operators depending on the filter tag type.
+     *
+     * A simple scaffold filter criteria will always use the first operator. E.g. if you
+     * have a filter tag text then the where clause will use bw (begins with).
      *
      * @var array
      */
@@ -50,7 +53,8 @@ class Model_Criteria extends Model
          'email' => array('bw', 'ew', 'eq', 'neq', 'like', 'notlike'),
          'textarea' => array('bw', 'ew', 'eq', 'neq', 'like', 'notlike'),
          'in' => array('in'),
-         'select' => array('eq')
+         'select' => array('eq'),
+         'bool' => array('eq')
      );
 
      /**

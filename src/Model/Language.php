@@ -43,6 +43,18 @@ class Model_Language extends Model
                 'filter' => array(
                     'tag' => 'text'
                 )
+            ),
+            array(
+                'name' => 'enabled',
+                'sort' => array(
+                    'name' => 'language.enabled'
+                ),
+                'callback' => array(
+                    'name' => 'boolean'
+                ),
+                'filter' => array(
+                    'tag' => 'bool'
+                )
             )
         );
     }

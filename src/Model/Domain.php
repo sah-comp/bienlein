@@ -53,6 +53,18 @@ class Model_Domain extends Model
                 'filter' => array(
                     'tag' => 'number'
                 )
+            ),
+            array(
+                'name' => 'invisible',
+                'sort' => array(
+                    'name' => 'domain.invisible'
+                ),
+                'callback' => array(
+                    'name' => 'boolean'
+                ),
+                'filter' => array(
+                    'tag' => 'bool'
+                )
             )
         );
     }

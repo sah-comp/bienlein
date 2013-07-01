@@ -40,7 +40,7 @@ class Model_Filter extends Model
     	$n = 0;
     	foreach ($criterias as $id=>$criteria) {
     	    if ( ! $criteria->op) continue; // skip all entries that say any!
-            if ( ! $criteria->value) continue; // skip all entries that say any !
+            if ( $criteria->value === null || $criteria->value === '') continue; // skip all empty
     		$n++;
     		$logic = 'AND ';//$criteria->logic;
     		if ($n == 1) $logic = '';

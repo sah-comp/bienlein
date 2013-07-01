@@ -84,6 +84,18 @@ class Model_Currency extends Model
                 'filter' => array(
                     'tag' => 'text'
                 )
+            ),
+            array(
+                'name' => 'enabled',
+                'sort' => array(
+                    'name' => 'currency.enabled'
+                ),
+                'callback' => array(
+                    'name' => 'boolean'
+                ),
+                'filter' => array(
+                    'tag' => 'bool'
+                )
             )
         );
     }

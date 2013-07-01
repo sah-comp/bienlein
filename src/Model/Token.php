@@ -51,6 +51,16 @@ class Model_Token extends Model
     }
     
     /**
+     * Returns the translated token.
+     *
+     * @return string
+     */
+    public function translated()
+    {
+        return $this->i18n(Flight::get('user')->getLanguage())->name;
+    }
+    
+    /**
      * Returns SQL string.
      *
      * @param string (optional) $fields to select
@@ -81,16 +91,6 @@ SQL;
             $sql .= " LIMIT {$offset}, {$limit}";
         }
         return $sql;
-    }
-    
-    /**
-     * Returns the translated token.
-     *
-     * @return string
-     */
-    public function translated($attribute = 'name')
-    {
-        return $this->i18n(Flight::get('user')->getLanguage())->name;
     }
     
     /**

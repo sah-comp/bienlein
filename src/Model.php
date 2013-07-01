@@ -97,6 +97,18 @@ class Model extends RedBean_SimpleModel
     }
     
     /**
+     * Returns a string representing a boolean state of an beans attribute.
+     *
+     * @param string $attribute name to represent as a true or false string
+     * @return string
+     */
+    public function boolean($attribute)
+    {
+        if ($this->bean->{$attribute}) return I18n::__('bool_true');
+        return I18n::__('bool_false');
+    }
+    
+    /**
      * Returns the root bean of a hierarchy.
      *
      * If the optional parameter is set the last bean before the parent bean with
@@ -110,9 +122,20 @@ class Model extends RedBean_SimpleModel
      */
     public function getRoot($stop_id = 0)
     {
-        if ( ! $this->bean->domain) return $this->bean;
-        if ($this->bean->domain->getId() == $stop_id) return $this->bean;
-        return $this->bean->domain->getRoot($stop_id);
+        if ( ! $this->bean->{$this->bean->getMeta('type')}) return $this->bean;
+        if ($this->bean->{$this->bean->getMeta('type')}->getId() == $stop_id) return $this->bean;
+        return $this->bean->{$this->bean->getMeta('type')}->getRoot($stop_id);
+    }
+    
+    /**
+     * Returns an array with direct descendents of this bean.
+     *
+     * @return array $children
+     */
+    public function getChildren()
+    {
+        $own = 'own'.ucfirst($this->bean->getMeta('type'));
+        return $this->bean->{$own};
     }
     
     /**
