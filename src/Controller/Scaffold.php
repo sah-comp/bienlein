@@ -295,7 +295,7 @@ class Controller_Scaffold extends Controller
         $order = $attributes[$this->order]['sort']['name'].' '.$this->dir_map[$this->dir];
     	try {
     		return R::getCell(
-    		    $this->record->getSql("{$this->type}.id AS id", $where, $order, $offset, 1), 
+    		    $this->record->getSql("DISTINCT({$this->type}.id) AS id", $where, $order, $offset, 1), 
     		    $this->filter->getFilterValues()
     		);
     	} catch (Exception $e) {
