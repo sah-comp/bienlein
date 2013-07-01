@@ -452,6 +452,16 @@ class Controller_Install extends Controller
         );
         R::store($template);
         //token
+        I18n::make('bool_true', array(
+            'de' => 'Ja',
+            'en' => 'Yes',
+            'us' => 'Yes'
+        ));
+        I18n::make('bool_false', array(
+            'de' => 'Nein',
+            'en' => 'No',
+            'us' => 'No'
+        ));
         I18n::make('scaffold_no_records_add_denied', array(
             'de' => 'Es sind keine Einträge vorhanden',
             'en' => 'No items found',
@@ -729,7 +739,7 @@ class Controller_Install extends Controller
             'us' => 'None'
         ));
         I18n::make('domain_label_invisible', array(
-            'de' => 'Nicht sichtbar',
+            'de' => 'Unsichtbar',
             'en' => 'Invisible',
             'us' => 'Invisible'
         ));
