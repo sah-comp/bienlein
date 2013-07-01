@@ -16,6 +16,32 @@ $(document).ready(function() {
     }
     
     /**
+     * Click on a sitemap link will load the domain and fill the content-container.
+     */
+    $("#sitemap a").live("click", function(event) {
+        event.preventDefault();
+        $.get($(this).attr('href'), function(data) {
+            $('#content-container').empty();
+            $('#content-container').append(data);
+        }, 'html');
+        $("#sitemap a").removeClass('active');
+        $(this).addClass('active');
+    });
+    
+    /**
+     * Click on a pages-container link will load the page and fill the page-container.
+     */
+    $("#pages-container a").live("click", function(event) {
+        event.preventDefault();
+        $.get($(this).attr('href'), function(data) {
+            $('#page-container').empty();
+            $('#page-container').append(data);
+        }, 'html');
+        $("#pages-container a").removeClass('active');
+        $(this).addClass('active');
+    });
+    
+    /**
 	 * all and future detach links send a post request and then
 	 * fade out and finally detach the element.
 	 */
