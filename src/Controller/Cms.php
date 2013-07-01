@@ -30,9 +30,6 @@ class Controller_Cms extends Controller
         session_start();
         Auth::check();
         Permission::check(Flight::get('user'), 'cms', 'index');
-        //are the sites?
-        $records = Flight::sitesfolder()->getChildren();
-        $record = R::dispense('domain');
 		// Pick up the pieces
 		Flight::render('shared/notification', array(), 'notification');
         Flight::render('shared/navigation/account', array(), 'navigation_account');
@@ -42,8 +39,11 @@ class Controller_Cms extends Controller
 		Flight::render('shared/footer', array(), 'footer');
         Flight::render('cms/toolbar', array(), 'toolbar');
         Flight::render('cms/index', array(
-            'record' => $record,
-            'records' => $records
+            'sitemap' => Flight::sitesfolder()
+                                ->hierMenu('/cms/node/', Flight::get('user')->getLanguage(), true, 'id')
+                                ->render(array('class' => 'sitemap-navigation clearfix')),
+            'pages' => '&nbsp;',
+            'page' => I18n::__('cms_choose_a_node')
         ), 'content');
 		// Use a layout to pack it all
         Flight::render('html5', array(
@@ -55,17 +55,43 @@ class Controller_Cms extends Controller
     /**
      * Edit a node.
      *
-     * @param string $type
+     * @param int $id of the domain (node)
      */
     public function node($id)
     {
         session_start();
         Auth::check();
         $domain = R::load('domain', $id);
-        $root = $domain->getRoot($stop_at = Flight::sitesfolder()->getId());
-        Permission::check(Flight::get('user'), $domain, 'edit');
+        //$root = $domain->getRoot($stop_at = Flight::sitesfolder()->getId());
+        //Permission::check(Flight::get('user'), $domain, 'edit');
 		// Pick up the pieces
-		echo 'You want to edit node '.$id;
+		//echo 'You want to edit node '.$id;
+		$pages = $domain->getPages(Flight::get('user')->getLanguage());
+		$page = R::dispense('page');
+		if ( ! empty($pages)) $page = reset($pages);
+		Flight::render('cms/container/pages', array(
+		    'page' => $page,
+		    'pages' => $pages
+		), 'pages');
+		Flight::render('cms/container/page', array(
+		    'page' => $page
+		), 'page');
+		Flight::render('cms/container/content', array());
+    }
+    
+    /**
+     * Edit a page.
+     *
+     * @param int $id of the page
+     */
+    public function page($id)
+    {
+        session_start();
+        Auth::check();
+        $page = R::load('page', $id);
+		Flight::render('cms/container/page', array(
+		    'page' => $page
+		));
     }
     
     /**
