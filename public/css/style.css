@@ -809,6 +809,10 @@ input[type=datetime] {
     margin-top: 0.444em;
 }
 
+select.filter-select {
+    margin-top: 0.333em;
+}
+
 .panel .upload {
     position: relative;
 }
