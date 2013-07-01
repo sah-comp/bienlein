@@ -70,6 +70,20 @@ class Model_Domain extends Model
     }
     
     /**
+     * Returns an array with page beans.
+     *
+     * @param string $language
+     * @return array
+     */
+    public function getPages($language)
+    {
+        return R::find('page', 'domain_id = ? AND language = ? ORDER BY sequence', array(
+            $this->bean->getId(),
+            $language
+        ));
+    }
+    
+    /**
      * Returns the permission bean for the given method name.
      *
      * @param string $method_name
