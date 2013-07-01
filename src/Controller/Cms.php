@@ -18,13 +18,21 @@
 class Controller_Cms extends Controller
 {
     /**
-     * Displays the admin index page.
+     * Displays the cms index page.
+     *
+     * Domains that are direct children of the sitesfolder are by definition sites.
+     * The index page offers the option to fill in a form to add a new site. When a site
+     * was added successfully a notification is given and the client will be redirected
+     * to that new node.
      */
     public function index()
     {
         session_start();
         Auth::check();
         Permission::check(Flight::get('user'), 'cms', 'index');
+        //are the sites?
+        $records = Flight::sitesfolder()->getChildren();
+        $record = R::dispense('domain');
 		// Pick up the pieces
 		Flight::render('shared/notification', array(), 'notification');
         Flight::render('shared/navigation/account', array(), 'navigation_account');
@@ -33,7 +41,10 @@ class Controller_Cms extends Controller
 		Flight::render('shared/header', array(), 'header');
 		Flight::render('shared/footer', array(), 'footer');
         Flight::render('cms/toolbar', array(), 'toolbar');
-        Flight::render('cms/index', array(), 'content');
+        Flight::render('cms/index', array(
+            'record' => $record,
+            'records' => $records
+        ), 'content');
 		// Use a layout to pack it all
         Flight::render('html5', array(
             'title' => I18n::__('admin_head_title'),
