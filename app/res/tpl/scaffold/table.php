@@ -104,12 +104,34 @@
                     type="hidden"
                     name="filter[ownCriteria][<?php echo $_i ?>][attribute]"
                     value="<?php echo htmlspecialchars($_criteria->attribute) ?>" />
+
+                <?php if ($_criteria->tag == 'bool'): ?>
+                <select
+                    class="filter-select"
+                    name="filter[ownCriteria][<?php echo $_i ?>][value]">
+                    <option
+                        value="">
+                        <?php echo I18n::__('filter_placeholder_any') ?>
+                    </option>
+                    <?php foreach (array(
+                        0 => I18n::__('bool_false'),
+                        1 => I18n::__('bool_true')
+                        ) as $_bool_val => $_bool_text): ?>
+                    <option
+                        value="<?php echo $_bool_val ?>"
+                        <?php echo ($_criteria->value != '' && $_bool_val == (int)$_criteria->value) ? 'selected="selected"' : '' ?>>
+                        <?php echo $_bool_text ?>
+                    </option>
+                    <?php endforeach ?>
+                </select>
+                <?php else: ?>
                 <input
                     type="text"
                     class="filter"
                     name="filter[ownCriteria][<?php echo $_i ?>][value]"
                     value="<?php echo htmlspecialchars($_criteria->value) ?>"
                     placeholder="<?php echo I18n::__('filter_placeholder_any') ?>" />
+                <?php endif ?>
                 <?php else: ?>
                     &nbsp;
                 <?php endif ?>
@@ -157,7 +179,7 @@
             <td
                 class="<?php echo (isset($_attribute['class'])) ? $_attribute['class'] : '' ?>">
                 <?php if (isset($_attribute['callback'])): ?>
-                    <?php echo htmlspecialchars($_record->{$_attribute['callback']['name']}()) ?>
+                    <?php echo htmlspecialchars($_record->{$_attribute['callback']['name']}($_attribute['name'])) ?>
                 <?php else: ?>
                     <?php echo htmlspecialchars($_record->{$_attribute['name']}) ?>
                 <?php endif ?>

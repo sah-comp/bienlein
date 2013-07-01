@@ -17,14 +17,18 @@
         </nav>
 	</header>
 	
-	<div id="websites">
+	<ul id="websites">
 	    <!-- main navigation -->
-        <?php echo Flight::sitesfolder()
-                            ->hierMenu('/cms/node/', Flight::get('user')->getLanguage(), true, 'id')
-                            ->render(array('class' => 'sitemap-navigation clearfix'));
-        ?>
+        <?php foreach ($records as $_id => $_record): ?>
+        <li>
+            <a
+                href="<?php echo Url::build('/cms/node/%d', array($_record->getId())) ?>">
+            <?php echo $_record->i18n(Flight::get('user')->getLanguage())->name ?>
+            </a>
+        </li>
+        <?php endforeach ?>
         <!-- End of admin navigation -->
-	</div>
+	</ul>
 	
 </article>
 <!-- End of cms index page -->
