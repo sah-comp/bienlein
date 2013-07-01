@@ -725,7 +725,7 @@ textarea {
     position: relative;
 }
 
-.panel .tabs {
+.tabs {
     border-bottom: 1px solid gray;
     margin-bottom: 1em;
     height: 1.5em;
@@ -1103,6 +1103,50 @@ input.monetary {
 
 .panel tbody tr:nth-child(odd) {
     background-color: rgb(243, 246, 250);
+}
+
+/* cms, sitemap */
+#cms-container {
+    position: relative;
+    border-top: 1px solid silver;
+    padding-top: 1em;
+}
+#sitemap ul {
+    line-height: 1.5;
+    margin: 0;
+    padding-left: 1em;
+    list-style: none;
+}
+
+#sitemap a,
+#pages-container a {
+    display: block;
+    text-decoration: none;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+#sitemap a:hover,
+#sitemap a.active,
+#pages-container a:hover,
+#pages-container a.active {
+    color: red;
+}
+
+#pages-container .unpublished {
+    color: gray;
+}
+
+#pages-container,
+#page-container {
+    position: relative;
+    line-height: 1.5;
+}
+
+#pages-container ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 /* Rounded gravatar: A background-image tag in html */
