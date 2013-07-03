@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 28, 2013 at 03:13 PM
+-- Generation Time: Jul 03, 2013 at 09:27 AM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.15
 
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `criteria` (
   `filter_id` int(11) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_foreignkey_criteria_filter` (`filter_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -122,7 +122,7 @@ CREATE TABLE IF NOT EXISTS `filter` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `model` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -152,7 +152,7 @@ CREATE TABLE IF NOT EXISTS `info_page` (
   UNIQUE KEY `UQ_ee9052a72f7f9b71215857e78523438616b13827` (`info_id`,`page_id`),
   KEY `index_for_info_page_page_id` (`page_id`),
   KEY `index_for_info_page_info_id` (`info_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -259,14 +259,43 @@ CREATE TABLE IF NOT EXISTS `page` (
   `domain_id` int(11) unsigned DEFAULT NULL,
   `invisible` tinyint(3) unsigned DEFAULT NULL,
   `template_id` int(11) unsigned DEFAULT NULL,
-  `sequence` tinyint(3) unsigned DEFAULT NULL,
-  `url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sequence` int(11) unsigned DEFAULT NULL,
   `keywords` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `desc` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_foreignkey_page_domain` (`domain_id`),
   KEY `index_foreignkey_page_template` (`template_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `permission`
+--
+
+CREATE TABLE IF NOT EXISTS `permission` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `method` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `domain_id` int(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_foreignkey_permission_domain` (`domain_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `permission_role`
+--
+
+CREATE TABLE IF NOT EXISTS `permission_role` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `role_id` int(11) unsigned DEFAULT NULL,
+  `permission_id` int(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UQ_95e80a2c1e59e79fb65e2920266bc06199ea20cb` (`permission_id`,`role_id`),
+  KEY `index_for_permission_role_role_id` (`role_id`),
+  KEY `index_for_permission_role_permission_id` (`permission_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -356,7 +385,7 @@ CREATE TABLE IF NOT EXISTS `slice` (
   `content` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_foreignkey_slice_page` (`page_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -442,6 +471,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `isadmin` tinyint(3) unsigned DEFAULT NULL,
   `isdeleted` tinyint(3) unsigned DEFAULT NULL,
   `isbanned` tinyint(3) unsigned DEFAULT NULL,
+  `screenname` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -500,6 +530,19 @@ ALTER TABLE `notification_user`
 ALTER TABLE `page`
   ADD CONSTRAINT `cons_fk_page_domain_id_id` FOREIGN KEY (`domain_id`) REFERENCES `domain` (`id`) ON DELETE SET NULL ON UPDATE SET NULL,
   ADD CONSTRAINT `cons_fk_page_template_id_id` FOREIGN KEY (`template_id`) REFERENCES `template` (`id`) ON DELETE SET NULL ON UPDATE SET NULL;
+
+--
+-- Constraints for table `permission`
+--
+ALTER TABLE `permission`
+  ADD CONSTRAINT `cons_fk_permission_domain_id_id` FOREIGN KEY (`domain_id`) REFERENCES `domain` (`id`) ON DELETE SET NULL ON UPDATE SET NULL;
+
+--
+-- Constraints for table `permission_role`
+--
+ALTER TABLE `permission_role`
+  ADD CONSTRAINT `permission_role_ibfk_2` FOREIGN KEY (`permission_id`) REFERENCES `permission` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `permission_role_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `region`
