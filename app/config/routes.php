@@ -85,17 +85,33 @@ Flight::route('(/[a-z]{2})/cms(/index)', function() {
 /**
  * Routes to the cms controller to add a new domain.
  */
-Flight::route('(/[a-z]{2})/cms/node/add', function() {
+Flight::route('POST (/[a-z]{2})/cms/add/@type:[a-z]+', function($type) {
 	$cmsController = new Controller_Cms();
-	$cmsController->add('domain');
+	$cmsController->add($type);
+});
+
+/**
+ * Routes to the cms controller to arrange (sort) beans.
+ */
+Flight::route('(/[a-z]{2})/cms/sortable/@type:[a-z]+/@var:[a-z]+', function($type, $var) {
+	$cmsController = new Controller_Cms();
+	$cmsController->sortable($type, $var);
 });
 
 /**
  * Routes to the cms controller to view a domain node.
  */
-Flight::route('(/[a-z]{2})/cms/node/@id:[0-9]+', function($id) {
+Flight::route('(/[a-z]{2})/cms/node/@id:[0-9]+(/@page_id:[0-9]+)', function($id, $page_id) {
 	$cmsController = new Controller_Cms();
-	$cmsController->node($id);
+	$cmsController->node($id, $page_id);
+});
+
+/**
+ * Routes to the cms controller to update the meta information of a page.
+ */
+Flight::route('POST (/[a-z]{2})/cms/meta/@id:[0-9]+', function($id) {
+	$cmsController = new Controller_Cms();
+	$cmsController->meta($id);
 });
 
 /**
@@ -104,6 +120,14 @@ Flight::route('(/[a-z]{2})/cms/node/@id:[0-9]+', function($id) {
 Flight::route('(/[a-z]{2})/cms/page/@id:[0-9]+', function($id) {
 	$cmsController = new Controller_Cms();
 	$cmsController->page($id);
+});
+
+/**
+ * Routes to the cms controller to edit a slice.
+ */
+Flight::route('(/[a-z]{2})/cms/slice/@id:[0-9]+', function($id) {
+	$cmsController = new Controller_Cms();
+	$cmsController->slice($id);
 });
 
 /**
@@ -179,12 +203,16 @@ Flight::route('(/[a-z]{2})/forbidden', function() {
  *
  * @todo Lets go through our CMS (Frontend) controller later on to check that URL
  */
-Flight::route('(/[a-z]{2})(/*)', function() {
+Flight::route('(/[a-z]{2})(/@url:*)', function($url) {
+    $cmsController = new Controller_Cms();
+	$cmsController->frontend($url);
+    /*
     Flight::render('404', array(), 'content');
     Flight::render('html5', array(
         'language' => Flight::get('language'),
         'title' => I18n::__('notfound_head_title')
     ));
+    */
 });
 
 /**
