@@ -22,7 +22,7 @@ class Plugin_Sortable extends Plugin
 	 * Updates all given beans of a certain type after being sorted by client in frontend.
 	 *
 	 * @param string $type
-	 * @param string (optional) $varname is the name of the variable the list of sortable items is in
+	 * @param string $varname is the name of the variable the list of sortable items is in
 	 * @return void
 	 */
 	public function execute($type, $varname = 'sequence')
