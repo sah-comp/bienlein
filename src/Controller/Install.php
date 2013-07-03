@@ -1526,9 +1526,9 @@ class Controller_Install extends Controller
             'us' => 'Translation'
         ));
         I18n::make('token_label_name', array(
-            'de' => 'Menomic',
-            'en' => 'Menomic',
-            'us' => 'Menomic'
+            'de' => 'Mneomic',
+            'en' => 'Mneomic',
+            'us' => 'Mneomic'
         ));
         I18n::make('token_legend', array(
             'de' => '',
