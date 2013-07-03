@@ -48,7 +48,9 @@ class Controller_Cms extends Controller
         $page = reset($pages);
         $template_data = array(
             'title' => $page->name,
-            'language' => Flight::get('language')
+            'language' => Flight::get('language'),
+            'meta_keywords' => $page->keywords,
+            'meta_description' => $page->desc
         );
         //load the contents and push it into our template data
         foreach ($pages as $id => $page) {
@@ -67,7 +69,7 @@ class Controller_Cms extends Controller
             }
         }
         //render with template of (first) page or which one?
-        Flight::render('default', $template_data);
+        Flight::render($page->template->name, $template_data);
     }
 
     /**
