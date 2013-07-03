@@ -31,21 +31,10 @@
         <!-- content -->
         <div
             id="content-container"
-            class="row span10">
-            <!-- pages -->
-        	<div
-        	    id="pages-container"
-        	    class="span3">
-        	    <?php echo $pages ?>
-        	</div>
-        	<!-- end of pages -->
-        	<!-- page -->
-        	<div
-        	    id="page-container"
-        	    class="span9">
-        	    <?php echo $page ?>
-        	</div>
-        	<!-- end of page -->
+            class="span10">
+            <!-- pages and page placeholder -->
+        	<p class="sitemap-choose"><?php echo I18n::__('cms_choose_a_node') ?></p>
+        	<!-- end of pages and page placeholder -->
         </div>
         <!-- end of content -->
 	</div>

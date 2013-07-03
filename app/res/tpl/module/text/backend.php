@@ -8,7 +8,12 @@
  * @version $Id$
  */
 ?>
-<textarea 
-    name="dialog[ownSlice][<?php echo $record->region_id.'-'.$record->getId() ?>][content]"
-    rows="8"
-    cols="60"><?php echo htmlspecialchars($record->content) ?></textarea>
+<fieldset>
+    <legend class="verbose"><?php echo I18n::__('module_legend_text') ?></legend>
+    <div class="row">
+        <textarea
+            name="dialog[content]"
+            rows="8"
+            cols="60"><?php echo htmlspecialchars($record->content) ?></textarea>
+    </div>
+</fieldset>

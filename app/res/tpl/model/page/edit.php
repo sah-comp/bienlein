@@ -165,13 +165,13 @@
                 name="dialog[invisible]"
                 value="0" />
             <input
-                id="domain-invisible"
+                id="page-invisible"
                 type="checkbox"
                 name="dialog[invisible]"
                 <?php echo ($record->invisible) ? 'checked="checked"' : '' ?>
                 value="1" />
             <label
-                for="domain-invisible"
+                for="page-invisible"
                 class="cb">
                 <?php echo I18n::__('page_label_invisible') ?>
             </label>

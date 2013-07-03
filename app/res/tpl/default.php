@@ -21,7 +21,7 @@
 
 		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         
-		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/default.css">
 		<!--[if lt IE 9]>
         <script src="/js/html5shiv.js"></script>
         <![endif]-->
@@ -47,10 +47,5 @@
 		<!-- Footer (optional) -->
 		<?php echo isset($footer) ? $footer : null ?>
 		<!-- End of optional footer -->
-
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js"></script>
-        <script src="/js/jquery.idTabs.min.js"></script>
-		<script src="/js/script.js"></script>
 	</body>
 </html>

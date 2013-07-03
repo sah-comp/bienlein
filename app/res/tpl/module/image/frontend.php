@@ -8,4 +8,4 @@
  * @version $Id$
  */
 ?>
-<img src="<?php echo Url::build(Flight::get('media_path').'/'.$record->content) ?>" alt="" />
+<img src="<?php echo Flight::get('media_path').'/'.$record->content ?>" alt="" />
