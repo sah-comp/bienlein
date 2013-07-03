@@ -119,6 +119,7 @@ SQL;
     public function dispense()
     {
         if (Flight::has('user')) $this->bean->language = Flight::get('user')->getLanguage();
+        $this->bean->template = R::findOne('template', 'name = ?', array('default'));
         $this->autoInfo(true);
         $this->addValidator('name', new Validator_HasValue());
         $this->addValidator('language', new Validator_HasValue());
