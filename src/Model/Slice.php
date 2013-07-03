@@ -34,4 +34,12 @@ class Model_Slice extends Model
             'record' => $this->bean
         ));
     }
+    
+    /**
+     * Dispense.
+     */
+    public function dispense()
+    {
+        $this->addValidator('module', new Validator_HasValue());
+    }
 }
