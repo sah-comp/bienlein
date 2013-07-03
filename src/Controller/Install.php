@@ -115,7 +115,7 @@ class Controller_Install extends Controller
         $countries[1]->enabled = false;
         R::storeAll($countries);
         //domain
-        $domains = R::dispense('domain', 16);
+        $domains = R::dispense('domain', 17);
 
         $domains[0]->name = 'system';
         $domains[0]->url = 'system';
@@ -317,6 +317,7 @@ class Controller_Install extends Controller
                 
                 $domains[12]->name = 'page';
                 $domains[12]->url = 'cms/page';
+                $domains[12]->invisible = true;//page domain is invisible, we use cms
                 $domains[12]->sequence = 9200;
                 $page_i18n = R::dispense('domaini18n', 3);
                 $page_i18n[0]->language = 'de';
@@ -328,6 +329,20 @@ class Controller_Install extends Controller
                 $domains[12]->ownDomaini18n = array(
                     $page_i18n[0], $page_i18n[1], $page_i18n[2]
                 );
+                
+                    $domains[16]->name = 'about';
+                    $domains[16]->url = 'about';
+                    $domains[16]->sequence = 9210;
+                    $site_i18n = R::dispense('domaini18n', 3);
+                    $site_i18n[0]->language = 'de';
+                    $site_i18n[0]->name = 'Über';
+                    $site_i18n[1]->language = 'en';
+                    $site_i18n[1]->name = 'About';
+                    $site_i18n[2]->language = 'us';
+                    $site_i18n[2]->name = 'About';
+                    $domains[16]->ownDomaini18n = array(
+                        $site_i18n[0], $site_i18n[1], $site_i18n[2]
+                    );
                 
                 $domains[13]->name = 'module';
                 $domains[13]->url = 'cms/module';
@@ -369,12 +384,15 @@ class Controller_Install extends Controller
             $domains[9],
             $domains[15]
         );
+        $domains[12]->ownDomain = array(
+            $domains[16]
+        );
         $domains[10]->ownDomain = array(
             $domains[11],
             $domains[12],
             $domains[13],
             $domains[14]
-        );  
+        );
         $domains[0]->ownDomain = array(
             $domains[1], $domains[10]
         );
@@ -452,6 +470,87 @@ class Controller_Install extends Controller
         );
         R::store($template);
         //token
+        I18n::make('cms_url_not_found', array(
+            'de' => 'Die URL %s konnte nicht gefunden werden',
+            'en' => 'URL %s was not found on this server',
+            'us' => 'URL %s was not found on this server'
+        ));
+        I18n::make('cms_url_has_no_pages', array(
+            'de' => 'Die URL %s hat keine Inhalte',
+            'en' => 'URL %s has no content yet',
+            'us' => 'URL %s has no content yet'
+        ));
+        
+        I18n::make('cms_add_page', array(
+            'de' => 'Fügen Sie eine neue Seite hinzu',
+            'en' => 'Add a new page',
+            'us' => 'Add a new page'
+        ));
+        I18n::make('cms_choose_a_node', array(
+            'de' => 'Wählen Sie einen Ordner aus',
+            'en' => 'Select a folder',
+            'us' => 'Select a folder'
+        ));
+        I18n::make('cms_sitemap_nav', array(
+            'de' => 'Verzeichnis',
+            'en' => 'Sitemap',
+            'us' => 'Sitemap'
+        ));
+        I18n::make('module_legend_textile', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('module_legend_text', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('module_legend_image', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('module_legend_html', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('module_submit', array(
+            'de' => 'Aktualisieren',
+            'en' => 'Update',
+            'us' => 'Update'
+        ));
+        I18n::make('module_submit_choose', array(
+            'de' => 'Hinzufügen',
+            'en' => 'Add',
+            'us' => 'Add'
+        ));
+        I18n::make('module_submit_delete', array(
+            'de' => 'Entfernen',
+            'en' => 'Delete',
+            'us' => 'Delete'
+        ));
+        I18n::make('page_submit', array(
+            'de' => 'Aktualisieren',
+            'en' => 'Update',
+            'us' => 'Update'
+        ));
+        I18n::make('page_submit_delete', array(
+            'de' => 'Entfernen',
+            'en' => 'Delete',
+            'us' => 'Delete'
+        ));
+        I18n::make('cms_addpage_w_template', array(
+            'de' => 'Neue Seite mit Template&hellip;',
+            'en' => 'New page with template&hellip;',
+            'us' => 'New page with template&hellip;'
+        ));
+        I18n::make('page_name_untitled', array(
+            'de' => 'Unbenannt',
+            'en' => 'Untitled',
+            'us' => 'Untitled'
+        ));
         I18n::make('bool_true', array(
             'de' => 'Ja',
             'en' => 'Yes',
