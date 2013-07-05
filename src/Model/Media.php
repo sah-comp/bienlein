@@ -99,8 +99,18 @@ class Model_Media extends Model
                 'sort' => array(
                     'name' => 'media.size'
                 ),
+                'class' => 'number',
                 'filter' => array(
                     'tag' => 'number'
+                )
+            ),
+            array(
+                'name' => 'name',
+                'sort' => array(
+                    'name' => 'media.name'
+                ),
+                'filter' => array(
+                    'tag' => 'text'
                 )
             ),
             array(
