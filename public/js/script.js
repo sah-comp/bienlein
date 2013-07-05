@@ -57,7 +57,7 @@ $(document).ready(function() {
             $("#"+container).empty();
             $("#"+container).append(data);
         }, "html");
-        $(".slice-container").removeClass("active");
+        //$(".slice-container").removeClass("active");
         $(this).addClass("active");
     });
     
