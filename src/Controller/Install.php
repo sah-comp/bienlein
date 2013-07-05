@@ -470,6 +470,27 @@ class Controller_Install extends Controller
         );
         R::store($template);
         //token
+        I18n::make('module_textile_missing_content', array(
+            'de' => 'Leeres Textile',
+            'en' => 'Empty Textile',
+            'us' => 'Empty Textile'
+        ));
+        I18n::make('module_text_missing_content', array(
+            'de' => 'Ohne Text',
+            'en' => 'Empty Text',
+            'us' => 'Empty Text'
+        ));
+        I18n::make('module_image_missing_media', array(
+            'de' => 'Fehlendes oder nicht ausgewähltes Bild',
+            'en' => 'Image is missing or none is selected',
+            'us' => 'Image is missing or none is selected'
+        ));
+        I18n::make('module_html_missing_content', array(
+            'de' => 'Fehlendes HTML',
+            'en' => 'Missing HTML',
+            'us' => 'Missing HTML'
+        ));
+        
         I18n::make('slice_label_tag', array(
             'de' => 'Tag',
             'en' => 'Tag',
