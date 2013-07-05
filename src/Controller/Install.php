@@ -470,6 +470,57 @@ class Controller_Install extends Controller
         );
         R::store($template);
         //token
+        I18n::make('slice_label_tag', array(
+            'de' => 'Tag',
+            'en' => 'Tag',
+            'us' => 'Tag'
+        ));
+        I18n::make('slice_label_class', array(
+            'de' => 'Klasse',
+            'en' => 'Class',
+            'us' => 'Class'
+        ));
+        I18n::make('slice_label_css', array(
+            'de' => 'Stilangaben',
+            'en' => 'Style',
+            'us' => 'Style'
+        ));
+        I18n::make('slice_placeholder_tag', array(
+            'de' => 'Optional umschließender HTML Tag',
+            'en' => 'Optional HTML tag to wrap this module',
+            'us' => 'Optional HTML tag to wrap this module'
+        ));
+        I18n::make('slice_placeholder_class', array(
+            'de' => 'Optionale Angabe einer CSS Klasse',
+            'en' => 'Optional CSS class',
+            'us' => 'Optional CSS class'
+        ));
+        I18n::make('slice_placeholder_css', array(
+            'de' => 'Optionale CSS Stilangaben',
+            'en' => 'Optional CSS styles',
+            'us' => 'Optional CSS styles'
+        ));
+        I18n::make('module_image_placeholder_content', array(
+            'de' => 'Beschreiben Sie das Bild',
+            'en' => 'Describe the image',
+            'us' => 'Describe the image'
+        ));
+        I18n::make('module_textile_placeholder_content', array(
+            'de' => 'h1. Überschrift',
+            'en' => 'h1. Headline',
+            'us' => 'h1. Headline'
+        ));
+        I18n::make('module_text_placeholder_content', array(
+            'de' => 'Lorem ipsum',
+            'en' => 'Lorem ipsum',
+            'us' => 'Lorem ipsum'
+        ));
+        I18n::make('module_html_placeholder_content', array(
+            'de' => '<div class="custom">Hallo Welt</div>',
+            'en' => '<div class="custom">Hello World</div>',
+            'us' => '<div class="custom">Hello World</div>'
+        ));
+        
         I18n::make('cms_url_not_found', array(
             'de' => 'Die URL %s konnte nicht gefunden werden',
             'en' => 'URL %s was not found on this server',

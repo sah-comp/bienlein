@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 03, 2013 at 09:27 AM
+-- Generation Time: Jul 05, 2013 at 02:38 PM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.15
 
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `criteria` (
   `filter_id` int(11) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_foreignkey_criteria_filter` (`filter_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -122,7 +122,7 @@ CREATE TABLE IF NOT EXISTS `filter` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `model` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -383,6 +383,9 @@ CREATE TABLE IF NOT EXISTS `slice` (
   `module` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `page_id` int(11) unsigned DEFAULT NULL,
   `content` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `tag` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `class` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `css` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_foreignkey_slice_page` (`page_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
