@@ -681,6 +681,10 @@ form.page-add {
     padding-left: 1em;
 }
 
+.page-meta .buttons {
+    padding-left: 1em;
+}
+
 a.toggle-options {
     display: block;
     padding-left: 16px;
@@ -752,6 +756,10 @@ textarea {
 .panel .buttons,
 .inline .buttons {
     text-align: right;
+}
+
+.buttons input[type=submit].danger {
+    float: left;
 }
 
 .panel legend,
