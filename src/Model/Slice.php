@@ -18,6 +18,23 @@
 class Model_Slice extends Model
 {
     /**
+     * Returns an option bean.
+     *
+     * @param string $name
+     * @return RedBean_OODBBean
+     */
+    public function getOption($name)
+    {
+        if ( ! $option = R::findOne('sliceoption', 'slice_id = ? AND name = ?', array($this->bean->getId(), $name)))
+        {
+            $option = R::dispense('sliceoption');
+            $option->name = $name;
+            $option->value = null;
+        }
+        return $option;
+    }
+
+    /**
      * Outputs a template based on this slice module.
      *
      * @uses $module
