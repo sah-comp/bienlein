@@ -29,22 +29,11 @@ class Controller_Cms extends Controller
      *
      * @todo make use of 404 error when url not found and show warning if url is good, but has no pages
      *
-     * @param string $url
+     * @param RedBean_OODBean $domain to render
+     * @param array $pages
      */
-    public function frontend($url)
+    public function frontend(RedBean_OODBBean $domain, array $pages = array())
     {
-        if ( ! $domain = R::findOne('domain', 'url = ?', array($url))) {
-            //no such url found
-            echo I18n::__('cms_url_not_found', null, array($url));
-            return;
-        }
-        //we have a folder
-        //get pages
-        $pages = $domain->getPages(Flight::get('language'));
-        if (empty($pages)) {
-            echo I18n::__('cms_url_has_no_pages', null, array($url));
-            return;
-        }
         $page = reset($pages);
         $template_data = array(
             'title' => $page->name,
