@@ -59,4 +59,23 @@ class Model_Slice extends Model
     {
         $this->addValidator('module', new Validator_HasValue());
     }
+    
+    /**
+     * update.
+     */
+    public function update()
+    {
+        if ($this->bean->page && $this->bean->page->domain) $this->bean->page->domain->lastmodified = time();
+        parent::update();
+    }
+    
+    /**
+     * after_update will send page a modified event.
+     *
+     * @uses Model_Page::wasModified()
+     */
+    public function after_update()
+    {
+        //$this->bean->page->wasModified(time());
+    }
 }

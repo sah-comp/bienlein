@@ -100,6 +100,7 @@ SQL;
         }
         if ($this->bean->domain_id) {
             $this->bean->domain = R::load('domain', $this->bean->domain_id);
+            $this->bean->domain->lastmodified = time();
         } else {
             unset($this->bean->domain); //clear domain?!
         }
