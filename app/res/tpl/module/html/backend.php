@@ -15,6 +15,6 @@
             name="dialog[content]"
             rows="8"
             cols="60"
-            placeholder="<?php echo I18n::__('module_html_placeholder_content') ?>"><?php echo htmlspecialchars($record->content) ?></textarea>
+            placeholder="<?php echo htmlspecialchars(I18n::__('module_html_placeholder_content')) ?>"><?php echo htmlspecialchars($record->content) ?></textarea>
     </div>
 </fieldset>
