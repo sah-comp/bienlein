@@ -13,7 +13,7 @@
  *
  * @todo maybe use language bean? What should happen if a unknown/inactive lang is requested?
  */
-Flight::route('(/@language:[a-z]{2})(/*)', function($language) {
+Flight::route('(/@language:[a-z]{2})', function($language) {
     if (in_array($language, Flight::get('possible_languages'))) {
         Flight::set('language', $language);
     }
@@ -197,28 +197,22 @@ Flight::route('(/[a-z]{2})/forbidden', function() {
         'title' => I18n::__('forbidden_head_title')
     ));
 });
-
 /**
- * Catch all before notFound.
+ * Show a 404 error page if no route has jumped in yet and the url can not be found in domain beans.
  *
- * @todo Lets go through our CMS (Frontend) controller later on to check that URL
- */
-Flight::route('(/[a-z]{2})(/@url:*)', function($url) {
-    $cmsController = new Controller_Cms();
-	$cmsController->frontend($url);
-    /*
-    Flight::render('404', array(), 'content');
-    Flight::render('html5', array(
-        'language' => Flight::get('language'),
-        'title' => I18n::__('notfound_head_title')
-    ));
-    */
-});
-
-/**
- * Show a 404 error page if no route has jumped in yet.
+ * This is the last resort, all other urls of your domain tree should have been covered by
+ * routes before the notFound escape.
  */
 Flight::map('notFound', function() {
+    if ($domain = R::findOne('domain', ' url = ? ', array(ltrim(Flight::request()->url, '/')))) {
+        $pages = $domain->getPages(Flight::get('language'));
+        if ( ! empty($pages)) {
+            Flight::lastModified($domain->lastmodified);
+            $cmsController = new Controller_Cms();
+        	$cmsController->frontend($domain, $pages);
+        	Flight::stop();
+        }
+    }
     Flight::render('404', array(), 'content');
     Flight::render('html5', array(
         'language' => Flight::get('language'),
