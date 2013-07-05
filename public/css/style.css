@@ -681,6 +681,19 @@ form.page-add {
     padding-left: 1em;
 }
 
+a.toggle-options {
+    display: block;
+    padding-left: 16px;
+    background: url(/img/right.png) left center no-repeat;
+    text-decoration: none;
+    margin-left: -0.8em;
+    margin-bottom: 0.5em;
+    
+}
+a.toggle-options.active {
+    background: url(/img/desc.png) left center no-repeat;
+}
+
 .panel.page-add input.fn.fn-page-name {
     margin: 0;
     width: 100%;
@@ -757,8 +770,7 @@ textarea {
     margin-bottom: 1em;
 }
 
-.panel .row.last,
-.panel .row:first-child {
+.panel .row.last {
     margin-bottom: 0;
 }
 
@@ -1191,6 +1203,9 @@ input[type=submit].danger {
 }
 .slice-container.active {
     border-left: 1px solid red;
+}
+.slice-container.ui-state-highlight {
+    border-left: 1px solid green;
 }
 
 p.sitemap-choose,
