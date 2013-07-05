@@ -99,6 +99,10 @@
         </div>
     </fieldset>
     <div class="buttons">
+        <input
+            type="submit"
+            name="submit"
+            value="<?php echo I18n::__('page_submit') ?>" />
         <!-- Ajax does not send the submit button value, so we transport with hidden field -->
         <input
             id="page-delete"
@@ -112,9 +116,5 @@
             name="submit"
             value="<?php echo I18n::__('page_submit_delete') ?>" />
         <!-- End of hidden field to solve missing submit button when ajax(ed) -->
-        <input
-            type="submit"
-            name="submit"
-            value="<?php echo I18n::__('page_submit') ?>" />
     </div>
 </form>

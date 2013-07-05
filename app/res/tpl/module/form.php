@@ -9,7 +9,7 @@
  */
 ?>
 <form
-    id="form-<?php echo $record->getMeta('type') ?>-<?php echo $record->getId() ?>"
+    id="<?php echo $record->getMeta('type') ?>-<?php echo $record->getId() ?>-form"
     data-container="slice-<?php echo $record->getId() ?>"
     class="inline"
     method="POST"
@@ -77,22 +77,23 @@
     </fieldset>
     <?php echo $form_details ?>
     <div class="buttons">
+        <input
+            id="slice-<?php echo $record->getId() ?>-update"
+            type="submit"
+            name="submit"
+            value="<?php echo I18n::__('module_submit') ?>" />            
         <!-- Ajax does not send the submit button value, so we transport with hidden field -->
         <input
-            id="slice-delete"
+            id="slice-<?php echo $record->getId() ?>-delete"
             type="hidden"
             name="delete"
             value="0" />
         <input
             type="submit"
-            onclick="$('#slice-delete').val('1');"
+            onclick="$('#slice-<?php echo $record->getId() ?>-delete').val('1');"
             class="danger"
             name="submit"
             value="<?php echo I18n::__('module_submit_delete') ?>" />
         <!-- End of hidden field to solve missing submit button when ajax(ed) -->
-        <input
-            type="submit"
-            name="submit"
-            value="<?php echo I18n::__('module_submit') ?>" />
     </div>
 </form>
