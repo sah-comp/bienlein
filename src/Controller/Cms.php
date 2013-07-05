@@ -35,14 +35,14 @@ class Controller_Cms extends Controller
     {
         if ( ! $domain = R::findOne('domain', 'url = ?', array($url))) {
             //no such url found
-            echo I18n::__('cms_url_not_found', array($url));
+            echo I18n::__('cms_url_not_found', null, array($url));
             return;
         }
         //we have a folder
         //get pages
         $pages = $domain->getPages(Flight::get('language'));
         if (empty($pages)) {
-            echo I18n::__('cms_url_has_no_pages', array($url));
+            echo I18n::__('cms_url_has_no_pages', null, array($url));
             return;
         }
         $page = reset($pages);
