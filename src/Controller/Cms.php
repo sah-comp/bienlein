@@ -64,6 +64,13 @@ class Controller_Cms extends Controller
                     $slice->render('frontend');
                     $content = ob_get_contents();
                     ob_end_clean();
+                    if (($slice->css || $slice->class) && ! $slice->tag) {
+                        //make it a div tag if we have css or class
+                        $slice->tag = 'div';
+                    }
+                    if ($slice->tag) {
+                        $content = sprintf('<%1$s class="%2$s" style="%3$s">'.$content.'</%1$s>', $slice->tag, $slice->class, $slice->css)."\n";
+                    }
                     $template_data[mb_strtolower($region->name)] .= $content;
                 }
             }
