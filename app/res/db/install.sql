@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 05, 2013 at 02:38 PM
+-- Generation Time: Jul 06, 2013 at 09:38 PM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.15
 
@@ -29,6 +29,27 @@ CREATE TABLE IF NOT EXISTS `action` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `address`
+--
+
+CREATE TABLE IF NOT EXISTS `address` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `label` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `street` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `zip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `city` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `county` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `country_id` int(11) unsigned DEFAULT NULL,
+  `person_id` int(11) unsigned DEFAULT NULL,
+  `formattedaddress` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_foreignkey_address_country` (`country_id`),
+  KEY `index_foreignkey_address_person` (`person_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -60,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `criteria` (
   `filter_id` int(11) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_foreignkey_criteria_filter` (`filter_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -93,6 +114,7 @@ CREATE TABLE IF NOT EXISTS `domain` (
   `invisible` tinyint(3) unsigned DEFAULT NULL,
   `sequence` int(11) unsigned DEFAULT NULL,
   `url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `lastmodified` int(11) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_foreignkey_domain_domain` (`domain_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -122,7 +144,7 @@ CREATE TABLE IF NOT EXISTS `filter` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `model` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -152,6 +174,22 @@ CREATE TABLE IF NOT EXISTS `info_page` (
   UNIQUE KEY `UQ_ee9052a72f7f9b71215857e78523438616b13827` (`info_id`,`page_id`),
   KEY `index_for_info_page_page_id` (`page_id`),
   KEY `index_for_info_page_info_id` (`info_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `info_person`
+--
+
+CREATE TABLE IF NOT EXISTS `info_person` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `person_id` int(11) unsigned DEFAULT NULL,
+  `info_id` int(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UQ_cfade900b733c586de4479cf31d1b7db6bdc0144` (`info_id`,`person_id`),
+  KEY `index_for_info_person_person_id` (`person_id`),
+  KEY `index_for_info_person_info_id` (`info_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -200,7 +238,7 @@ CREATE TABLE IF NOT EXISTS `media` (
   `desc` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `sanename` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -300,6 +338,68 @@ CREATE TABLE IF NOT EXISTS `permission_role` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `person`
+--
+
+CREATE TABLE IF NOT EXISTS `person` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `nickname` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `language` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `account` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `vatid` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `attention` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `firstname` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `lastname` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `suffix` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `organization` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `company` tinyint(3) unsigned DEFAULT NULL,
+  `jobtitle` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `department` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `phoneticlastname` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `phoneticfirstname` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `phone` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fax` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `person_role`
+--
+
+CREATE TABLE IF NOT EXISTS `person_role` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `role_id` int(11) unsigned DEFAULT NULL,
+  `person_id` int(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UQ_04c1149539014ed74d6c154643c96003907cef67` (`person_id`,`role_id`),
+  KEY `index_for_person_role_role_id` (`role_id`),
+  KEY `index_for_person_role_person_id` (`person_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `person_tag`
+--
+
+CREATE TABLE IF NOT EXISTS `person_tag` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `person_id` int(11) unsigned DEFAULT NULL,
+  `tag_id` int(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UQ_4c8eb2828c6510be7bb21d29e01556243dc3b277` (`person_id`,`tag_id`),
+  KEY `index_for_person_tag_person_id` (`person_id`),
+  KEY `index_for_person_tag_tag_id` (`tag_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `region`
 --
 
@@ -336,7 +436,7 @@ CREATE TABLE IF NOT EXISTS `rolei18n` (
   `role_id` int(11) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_foreignkey_rolei18n_role` (`role_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -382,12 +482,39 @@ CREATE TABLE IF NOT EXISTS `slice` (
   `sequence` tinyint(3) unsigned DEFAULT NULL,
   `module` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `page_id` int(11) unsigned DEFAULT NULL,
-  `content` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `content` text COLLATE utf8_unicode_ci,
   `tag` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `class` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `css` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_foreignkey_slice_page` (`page_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sliceoption`
+--
+
+CREATE TABLE IF NOT EXISTS `sliceoption` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `value` tinyint(1) unsigned DEFAULT NULL,
+  `slice_id` int(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_foreignkey_sliceoption_slice` (`slice_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tag`
+--
+
+CREATE TABLE IF NOT EXISTS `tag` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -483,6 +610,13 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 --
+-- Constraints for table `address`
+--
+ALTER TABLE `address`
+  ADD CONSTRAINT `cons_fk_address_country_id_id` FOREIGN KEY (`country_id`) REFERENCES `country` (`id`) ON DELETE SET NULL ON UPDATE SET NULL,
+  ADD CONSTRAINT `cons_fk_address_person_id_id` FOREIGN KEY (`person_id`) REFERENCES `person` (`id`) ON DELETE SET NULL ON UPDATE SET NULL;
+
+--
 -- Constraints for table `criteria`
 --
 ALTER TABLE `criteria`
@@ -512,6 +646,13 @@ ALTER TABLE `info`
 ALTER TABLE `info_page`
   ADD CONSTRAINT `info_page_ibfk_2` FOREIGN KEY (`info_id`) REFERENCES `info` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `info_page_ibfk_1` FOREIGN KEY (`page_id`) REFERENCES `page` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `info_person`
+--
+ALTER TABLE `info_person`
+  ADD CONSTRAINT `info_person_ibfk_2` FOREIGN KEY (`info_id`) REFERENCES `info` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `info_person_ibfk_1` FOREIGN KEY (`person_id`) REFERENCES `person` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `info_user`
@@ -548,6 +689,20 @@ ALTER TABLE `permission_role`
   ADD CONSTRAINT `permission_role_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`) ON DELETE CASCADE;
 
 --
+-- Constraints for table `person_role`
+--
+ALTER TABLE `person_role`
+  ADD CONSTRAINT `person_role_ibfk_2` FOREIGN KEY (`person_id`) REFERENCES `person` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `person_role_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `person_tag`
+--
+ALTER TABLE `person_tag`
+  ADD CONSTRAINT `person_tag_ibfk_2` FOREIGN KEY (`tag_id`) REFERENCES `tag` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `person_tag_ibfk_1` FOREIGN KEY (`person_id`) REFERENCES `person` (`id`) ON DELETE CASCADE;
+
+--
 -- Constraints for table `region`
 --
 ALTER TABLE `region`
@@ -564,6 +719,12 @@ ALTER TABLE `rolei18n`
 --
 ALTER TABLE `slice`
   ADD CONSTRAINT `cons_fk_slice_page_id_id` FOREIGN KEY (`page_id`) REFERENCES `page` (`id`) ON DELETE SET NULL ON UPDATE SET NULL;
+
+--
+-- Constraints for table `sliceoption`
+--
+ALTER TABLE `sliceoption`
+  ADD CONSTRAINT `cons_fk_sliceoption_slice_id_id` FOREIGN KEY (`slice_id`) REFERENCES `slice` (`id`) ON DELETE SET NULL ON UPDATE SET NULL;
 
 --
 -- Constraints for table `teami18n`

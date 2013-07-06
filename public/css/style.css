@@ -743,6 +743,7 @@ label {
 input[type=text],
 input[type=password],
 input[type=email],
+input[type=tel],
 input[type=url],
 input[type=number],
 input[type=date]
@@ -776,6 +777,10 @@ textarea {
 .panel .row {
     position: relative;
     margin-bottom: 1em;
+}
+
+.panel .row.nomargins {
+    margin: 0;
 }
 
 .panel .row.last {
@@ -888,7 +893,7 @@ select.filter-select {
     margin-left: 27.666%;
 }
 
-.panel .autowidth {
+.panel input.autowidth {
     width: 100%;
     margin-left: 0;
     margin-right: 0;
@@ -1265,7 +1270,8 @@ p.page-choose {
 /* Mix, rip and burn some of the above together */
 
 /* within a dialog a errornous input field will be erdbeer colored */
-.panel div.row.error label {
+.panel div.row.error label,
+.panel label.error {
     color: #7a0b0a;
 }
 

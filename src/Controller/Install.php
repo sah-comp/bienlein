@@ -115,7 +115,7 @@ class Controller_Install extends Controller
         $countries[1]->enabled = false;
         R::storeAll($countries);
         //domain
-        $domains = R::dispense('domain', 17);
+        $domains = R::dispense('domain', 18);
 
         $domains[0]->name = 'system';
         $domains[0]->url = 'system';
@@ -372,6 +372,20 @@ class Controller_Install extends Controller
                     $template_i18n[0], $template_i18n[1], $template_i18n[2]
                 );
                 
+            $domains[17]->name = 'addressbook';
+            $domains[17]->url = 'admin/person';
+            $domains[17]->sequence = 9500;
+            $ab_i18n = R::dispense('domaini18n', 3);
+            $ab_i18n[0]->language = 'de';
+            $ab_i18n[0]->name = 'Adressbuch';
+            $ab_i18n[1]->language = 'en';
+            $ab_i18n[1]->name = 'Addressbook';
+            $ab_i18n[2]->language = 'us';
+            $ab_i18n[2]->name = 'Addressbook';
+            $domains[17]->ownDomaini18n = array(
+                $ab_i18n[0], $ab_i18n[1], $ab_i18n[2]
+            );
+                
         // make a tree
         $domains[1]->ownDomain = array(
             $domains[2],
@@ -394,7 +408,7 @@ class Controller_Install extends Controller
             $domains[14]
         );
         $domains[0]->ownDomain = array(
-            $domains[1], $domains[10]
+            $domains[1], $domains[10], $domains[17]
         );
         //store system tree       
         R::store($domains[0]);
@@ -470,6 +484,191 @@ class Controller_Install extends Controller
         );
         R::store($template);
         //token
+        I18n::make('person_h1', array(
+            'de' => 'Adressbuch',
+            'en' => 'Addressbook',
+            'us' => 'Addressbook'
+        ));
+        I18n::make('person_legend', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('person_legend_name', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('person_legend_organization', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('person_legend_email', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('person_legend_address', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('person_label_nickname', array(
+            'de' => 'Kurzname',
+            'en' => 'Nickname',
+            'us' => 'Nickname'
+        ));
+        I18n::make('person_placeholder_nickname', array(
+            'de' => 'Eindeutiger Name',
+            'en' => 'Unique Name',
+            'us' => 'Unique Name'
+        ));
+        I18n::make('person_label_language', array(
+            'de' => 'Sprache',
+            'en' => 'Language',
+            'us' => 'Language'
+        ));
+        I18n::make('person_label_account', array(
+            'de' => 'Konto',
+            'en' => 'Account',
+            'us' => 'Account'
+        ));
+        I18n::make('person_label_vatid', array(
+            'de' => 'Umsatzsteuer Id',
+            'en' => 'Vat Id',
+            'us' => 'Vat Id'
+        ));
+        I18n::make('person_label_attention', array(
+            'de' => 'Anrede',
+            'en' => 'Attention',
+            'us' => 'Attention'
+        ));
+        I18n::make('person_label_title', array(
+            'de' => 'Titel',
+            'en' => 'Title',
+            'us' => 'Title'
+        ));
+        I18n::make('person_label_firstname', array(
+            'de' => 'Vorname',
+            'en' => 'Firstname',
+            'us' => 'Firstname'
+        ));
+        I18n::make('person_label_lastname', array(
+            'de' => 'Nachname',
+            'en' => 'Surname',
+            'us' => 'Lastname'
+        ));
+        I18n::make('person_label_suffix', array(
+            'de' => 'Zusatz',
+            'en' => 'Suffix',
+            'us' => 'Suffix'
+        ));
+        I18n::make('person_label_organization', array(
+            'de' => 'Organisation',
+            'en' => 'Organisation',
+            'us' => 'Organization'
+        ));
+        I18n::make('person_label_company', array(
+            'de' => 'Firma',
+            'en' => 'Company',
+            'us' => 'Company'
+        ));
+        I18n::make('person_label_jobtitle', array(
+            'de' => 'Position',
+            'en' => 'Jobtitle',
+            'us' => 'Jobtitle'
+        ));
+        I18n::make('person_label_department', array(
+            'de' => 'Abteilung',
+            'en' => 'Department',
+            'us' => 'Department'
+        ));
+        I18n::make('person_label_email', array(
+            'de' => 'E-Mail',
+            'en' => 'Email',
+            'us' => 'Email'
+        ));
+        I18n::make('person_label_phone', array(
+            'de' => 'Telefon',
+            'en' => 'Phone',
+            'us' => 'Phone'
+        ));
+        I18n::make('person_legend_phone', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('person_label_fax', array(
+            'de' => 'Fax',
+            'en' => 'Facsimile',
+            'us' => 'Fax'
+        ));
+        I18n::make('address_label_label', array(
+            'de' => 'Adressart',
+            'en' => 'Addresstype',
+            'us' => 'Addresstype'
+        ));
+        I18n::make('address_label_select', array(
+            'de' => 'Art auswählen&hellip;',
+            'en' => 'Choose type&hellip;',
+            'us' => 'Choose type&hellip;'
+        ));
+        I18n::make('address_label_street', array(
+            'de' => 'Strasse',
+            'en' => 'Street',
+            'us' => 'Street'
+        ));
+        I18n::make('address_label_zip', array(
+            'de' => 'Postleitzahl',
+            'en' => 'Zipcode',
+            'us' => 'Zipcode'
+        ));
+        I18n::make('address_label_city', array(
+            'de' => 'Stadt',
+            'en' => 'City',
+            'us' => 'City'
+        ));
+        I18n::make('address_label_county', array(
+            'de' => 'Bundesland',
+            'en' => 'Region',
+            'us' => 'County'
+        ));
+        I18n::make('address_label_country', array(
+            'de' => 'Land',
+            'en' => 'Country',
+            'us' => 'Country'
+        ));
+        I18n::make('address_country_select', array(
+            'de' => 'Wählen&hellip;',
+            'en' => 'Choose&hellip;',
+            'us' => 'Choose&hellip;'
+        ));
+        I18n::make('address_label_default', array(
+            'de' => 'Standard',
+            'en' => 'Default',
+            'us' => 'Default'
+        ));
+        I18n::make('address_label_delivery', array(
+            'de' => 'Lieferung',
+            'en' => 'Delivery',
+            'us' => 'Pickup'
+        ));
+        I18n::make('address_label_billing', array(
+            'de' => 'Rechnung',
+            'en' => 'Billing',
+            'us' => 'Billing'
+        ));
+        I18n::make('address_label_private', array(
+            'de' => 'Privat',
+            'en' => 'Private',
+            'us' => 'Private'
+        ));
+        I18n::make('address_label_other', array(
+            'de' => 'Sonstige',
+            'en' => 'Sonstige',
+            'us' => 'Sonstige'
+        ));
         I18n::make('module_textile_missing_content', array(
             'de' => 'Leeres Textile',
             'en' => 'Empty Textile',
@@ -1598,9 +1797,9 @@ class Controller_Install extends Controller
             'us' => 'Translation'
         ));
         I18n::make('token_label_name', array(
-            'de' => 'Mneomic',
-            'en' => 'Mneomic',
-            'us' => 'Mneomic'
+            'de' => 'Mnemonik',
+            'en' => 'Mnemonic',
+            'us' => 'Mnemonic'
         ));
         I18n::make('token_legend', array(
             'de' => '',
