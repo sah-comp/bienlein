@@ -215,7 +215,7 @@ Flight::route('(/[a-z]{2})/forbidden', function() {
  * routes before the notFound escape.
  */
 Flight::map('notFound', function() {
-    if ($domain = R::findOne('domain', ' url = ? ', array(ltrim(Flight::request()->url, '/')))) {
+    if ($domain = R::findOne('domain', ' url = ? ', array(trim(Flight::request()->url, '/')))) {
         $pages = $domain->getPages(Flight::get('language'));
         if ( ! empty($pages)) {
             Flight::lastModified($domain->lastmodified);
