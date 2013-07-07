@@ -15,7 +15,7 @@
  * @subpackage Converter
  * @version $Id$
  */
-class Converter_MySqlTime extends Converter
+class Converter_Mysqltime extends Converter
 {
     /**
      * Returns the value as a mysql time value.

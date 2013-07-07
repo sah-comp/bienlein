@@ -15,7 +15,7 @@
  * @subpackage Converter
  * @version $Id$
  */
-class Converter_MySqlDatetime extends Converter
+class Converter_Mysqldatetime extends Converter
 {
     /**
      * Returns the value as a mysql date value.
