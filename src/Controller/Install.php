@@ -106,6 +106,7 @@ class Controller_Install extends Controller
         R::store($role_admin);
         R::store($role_user);
         //country
+        /*
         $countries = R::dispense('country', 2);
         $countries[0]->iso = 'de';
         $countries[0]->name = 'Germany';
@@ -114,8 +115,9 @@ class Controller_Install extends Controller
         $countries[1]->name = 'United Kingdom';
         $countries[1]->enabled = false;
         R::storeAll($countries);
+        */
         //domain
-        $domains = R::dispense('domain', 18);
+        $domains = R::dispense('domain', 20);
 
         $domains[0]->name = 'system';
         $domains[0]->url = 'system';
@@ -385,6 +387,34 @@ class Controller_Install extends Controller
             $domains[17]->ownDomaini18n = array(
                 $ab_i18n[0], $ab_i18n[1], $ab_i18n[2]
             );
+            
+            $domains[18]->name = 'news';
+            $domains[18]->url = 'admin/news';
+            $domains[18]->sequence = 9600;
+            $news_i18n = R::dispense('domaini18n', 3);
+            $news_i18n[0]->language = 'de';
+            $news_i18n[0]->name = 'Nachrichten';
+            $news_i18n[1]->language = 'en';
+            $news_i18n[1]->name = 'News';
+            $news_i18n[2]->language = 'us';
+            $news_i18n[2]->name = 'News';
+            $domains[18]->ownDomaini18n = array(
+                $news_i18n[0], $news_i18n[1], $news_i18n[2]
+            );
+            
+                $domains[19]->name = 'newscat';
+                $domains[19]->url = 'admin/newscat';
+                $domains[19]->sequence = 9610;
+                $newscat_i18n = R::dispense('domaini18n', 3);
+                $newscat_i18n[0]->language = 'de';
+                $newscat_i18n[0]->name = 'Kategorien';
+                $newscat_i18n[1]->language = 'en';
+                $newscat_i18n[1]->name = 'Categories';
+                $newscat_i18n[2]->language = 'us';
+                $newscat_i18n[2]->name = 'Categories';
+                $domains[19]->ownDomaini18n = array(
+                    $newscat_i18n[0], $newscat_i18n[1], $newscat_i18n[2]
+                );
                 
         // make a tree
         $domains[1]->ownDomain = array(
@@ -401,6 +431,9 @@ class Controller_Install extends Controller
         $domains[12]->ownDomain = array(
             $domains[16]
         );
+        $domains[18]->ownDomain = array(
+            $domains[19]
+        );
         $domains[10]->ownDomain = array(
             $domains[11],
             $domains[12],
@@ -408,7 +441,7 @@ class Controller_Install extends Controller
             $domains[14]
         );
         $domains[0]->ownDomain = array(
-            $domains[1], $domains[10], $domains[17]
+            $domains[1], $domains[10], $domains[17], $domains[18]
         );
         //store system tree       
         R::store($domains[0]);
@@ -470,6 +503,10 @@ class Controller_Install extends Controller
         
         $setting->basecurrency = $currencies[0]->getId();
 
+        //newscat
+        $newscat = R::dispense('newscat');
+        $newscat->name = 'Default';
+        R::store($newscat);
         //team
         $team = R::dispense('team');
         $team->name = 'Development';
@@ -484,6 +521,86 @@ class Controller_Install extends Controller
         );
         R::store($template);
         //token
+        I18n::make('country_translation_tab', array(
+            'de' => 'Übersetzungen',
+            'en' => 'Translations',
+            'us' => 'Translations'
+        ));
+        I18n::make('news_label_newscat_id', array(
+            'de' => 'Kategorie',
+            'en' => 'Category',
+            'us' => 'Category'
+        ));
+        I18n::make('newscat_h1', array(
+            'de' => 'Kategorien',
+            'en' => 'Categories',
+            'us' => 'Categories'
+        ));
+        I18n::make('newscat_label_name', array(
+            'de' => 'Name',
+            'en' => 'Name',
+            'us' => 'Name'
+        ));
+        I18n::make('newscat_legend', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('newscat_translation_tab', array(
+            'de' => 'Übersetzungen',
+            'en' => 'Translations',
+            'us' => 'Translations'
+        ));
+        I18n::make('news_h1', array(
+            'de' => 'Nachrichten',
+            'en' => 'News',
+            'us' => 'News'
+        ));
+        I18n::make('news_legend', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('news_label_name', array(
+            'de' => 'Überschrift',
+            'en' => 'Headline',
+            'us' => 'Headline'
+        ));
+        I18n::make('news_label_newscat', array(
+            'de' => 'Kategorie',
+            'en' => 'Category',
+            'us' => 'Category'
+        ));
+        I18n::make('news_label_online', array(
+            'de' => 'Publiziert',
+            'en' => 'Published',
+            'us' => 'Published'
+        ));
+        I18n::make('news_label_teaser', array(
+            'de' => 'Teaser',
+            'en' => 'Teaser',
+            'us' => 'Teaser'
+        ));
+        I18n::make('news_info_teaser', array(
+            'de' => 'Verwenden Sie Textile',
+            'en' => 'You may use Textile',
+            'us' => 'You may use Textile'
+        ));
+        I18n::make('news_label_content', array(
+            'de' => 'Inhalt',
+            'en' => 'Content',
+            'us' => 'Content'
+        ));
+        I18n::make('news_info_content', array(
+            'de' => 'Verwenden Sie Textile',
+            'en' => 'You may use Textile',
+            'us' => 'You may use Textile'
+        ));
+        I18n::make('news_label_pubdatetime', array(
+            'de' => 'Datum und Zeit',
+            'en' => 'Date and Time',
+            'us' => 'Date and Time'
+        ));
         I18n::make('person_h1', array(
             'de' => 'Adressbuch',
             'en' => 'Addressbook',
