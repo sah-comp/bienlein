@@ -51,6 +51,8 @@ Flight::route('(/[a-z]{2})/admin(/index)', function() {
 
 /**
  * Routes to the scaffold controller.
+ *
+ * These routes will handle all models in a basic CURD way.
  */
 Flight::route('(/[a-z]{2})/admin/@type:[a-z]+/add(/@id:[0-9]+)(/@layout:[a-z]+)', function($type, $id, $layout) {
     if ($layout === null) $layout = 'table';
@@ -80,6 +82,15 @@ Flight::route('(/[a-z]{2})/admin/@type:[a-z]+(/@layout:[a-z]+)(/@page:[0-9]+)(/@
 Flight::route('(/[a-z]{2})/cms(/index)', function() {
 	$cmsController = new Controller_Cms();
 	$cmsController->index();
+});
+
+Flight::route('(/[a-z]{2})/cms/sitemap', function() {
+    $layout = 'table';
+    $page = 1;
+    $order = 0;
+    $dir = 0;
+	$scaffoldController = new Controller_Scaffold('/admin', 'domain');
+	$scaffoldController->index($layout, $page, $order, $dir);
 });
 
 /**
