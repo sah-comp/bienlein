@@ -109,11 +109,15 @@ class Model_Domain extends Model
      * @param string (optional) $lng code of the language to retrieve
      * @param bool (optional) $invisibles default to false so that invisible beans wont show up
      * @param string (optional) $attr
+     * @param mixed (optional) $break at which level
      * @param string (optional) $orderclause defaults to 'sequence'
+     * @param int (optional) $level the current depth of the hierarchical menu
      * @return Cinnebar_Menu
      */
-    public function hierMenu($url_prefix = '', $lng = null, $invisible = false, $attr = 'url', $order = 'sequence ASC')
+    public function hierMenu($url_prefix = '', $lng = null, $invisible = false, 
+                            $attr = 'url', $break = null, $order = 'sequence ASC', $level = 0)
     {
+        $level++;
         $sql_invisible = 'AND invisible != 1';
         if ($invisible) {
             $sql_invisible = null;
@@ -129,12 +133,13 @@ class Model_Domain extends Model
             array($this->bean->getId())
         );
         $menu = new Menu();
+        if ($break !== null && $level > $break) return $menu;
         foreach ($records as $record) {
             $menu->add(
                 $record->i18n($lng)->name,
                 Url::build($url_prefix.$record->{$attr}),
                 $record->getMeta('type').'-'.$record->getId(),
-                $record->hierMenu($url_prefix, $lng, $invisible, $attr, $order)
+                $record->hierMenu($url_prefix, $lng, $invisible, $attr, $break, $order, $level)
             );
         }
         return $menu;
