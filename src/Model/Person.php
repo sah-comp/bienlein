@@ -27,6 +27,15 @@ class Model_Person extends Model
     {
         return array(
             array(
+                'name' => 'nickname',
+                'sort' => array(
+                    'name' => 'person.nickname'
+                ),
+                'filter' => array(
+                    'tag' => 'text'
+                )
+            ),
+            array(
                 'name' => 'name',
                 'sort' => array(
                     'name' => 'person.name'
