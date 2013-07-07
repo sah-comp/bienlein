@@ -19,7 +19,7 @@
     <div>
         <input type="hidden" name="dialog[type]" value="page" />
         <input type="hidden" name="dialog[id]" value="<?php echo $page->getId() ?>" />
-        <input type="hidden" name="dialog[language]" value="<?php echo $page->language ?>" />
+        <input type="hidden" name="dialog[language]" value="<?php echo Flight::get('user')->getLanguage() ?>" />
         <input type="hidden" name="dialog[domain_id]" value="<?php echo $page->domain_id ?>" />
         <input type="hidden" name="dialog[sequence]" value="<?php echo $page->sequence ?>" />
     </div>
