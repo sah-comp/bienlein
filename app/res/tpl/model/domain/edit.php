@@ -12,6 +12,7 @@
 <div>
     <input type="hidden" name="dialog[type]" value="<?php echo $record->getMeta('type') ?>" />
     <input type="hidden" name="dialog[id]" value="<?php echo $record->getId() ?>" />
+    <input type="hidden" name="dialog[lastmodified]" value="<?php echo $record->lastmodified ?>" />
 </div>
 <fieldset>
     <legend class="verbose"><?php echo I18n::__('domain_legend') ?></legend>
