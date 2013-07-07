@@ -34,12 +34,12 @@ class Controller_Cms extends Controller
      */
     public function frontend(RedBean_OODBBean $domain, array $pages = array())
     {
-        $page = reset($pages);
+        $first_page = reset($pages);
         $template_data = array(
-            'title' => $page->name,
+            'title' => $first_page->name,
             'language' => Flight::get('language'),
-            'meta_keywords' => $page->keywords,
-            'meta_description' => $page->desc
+            'meta_keywords' => $first_page->keywords,
+            'meta_description' => $first_page->desc
         );
         //load the contents and push it into our template data
         foreach ($pages as $id => $page) {
@@ -65,7 +65,7 @@ class Controller_Cms extends Controller
             }
         }
         //render with template of (first) page or which one?
-        Flight::render($page->template->name, $template_data);
+        Flight::render($first_page->template->name, $template_data);
     }
 
     /**
