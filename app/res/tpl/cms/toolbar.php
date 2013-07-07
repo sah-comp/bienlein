@@ -11,7 +11,7 @@
 <ul class="panel-navigation">
 	<li>
 		<a
-			href="<?php echo Url::build("/admin/domain/") ?>">
+			href="<?php echo Url::build("/cms/sitemap/") ?>">
 			<?php echo I18n::__('cms_sitemap_nav') ?>
 		</a>
 	</li>
