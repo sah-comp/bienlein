@@ -70,6 +70,51 @@ class Model_Domain extends Model
     }
     
     /**
+     * Returns either an array with rendered content or false if domain has no content.
+     *
+     * @param string $language
+     * @return mixed either false or an array for use with template
+     */
+    public function getContent($language)
+    {
+        $pages = $this->getPages($language);
+        if (empty($pages)) return false;
+        $first_page = reset($pages);
+        $template_data = array(
+            'template' => $first_page->template->name,
+            'domain' => $this->bean,
+            'title' => $first_page->name,
+            'language' => $language,
+            'meta_keywords' => $first_page->keywords,
+            'meta_description' => $first_page->desc
+        );
+        //load the contents and push it into our template data
+        foreach ($pages as $id => $page) {
+            foreach ($page->template->ownRegion as $region_id => $region) {
+                $slices = $page->getSlicesByRegion($region_id, false);
+                foreach ($slices as $slice_id => $slice) {
+                    if ( ! isset($template_data[mb_strtolower($region->name)])) {
+                        $template_data[mb_strtolower($region->name)] = '';
+                    }
+                    ob_start();
+                    $slice->render('frontend');
+                    $content = ob_get_contents();
+                    ob_end_clean();
+                    if (($slice->css || $slice->class) && ! $slice->tag) {
+                        //make it a div tag if we have css or class
+                        $slice->tag = 'div';
+                    }
+                    if ($slice->tag) {
+                        $content = sprintf('<%1$s class="%2$s" style="%3$s">'.$content.'</%1$s>', $slice->tag, $slice->class, $slice->css)."\n";
+                    }
+                    $template_data[mb_strtolower($region->name)] .= $content;
+                }
+            }
+        } 
+        return $template_data;       
+    }
+    
+    /**
      * Returns an array with page beans.
      *
      * @param string $language

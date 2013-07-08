@@ -216,13 +216,8 @@ Flight::route('(/[a-z]{2})/forbidden', function() {
  */
 Flight::map('notFound', function() {
     if ($domain = R::findOne('domain', ' url = ? ', array(trim(Flight::request()->url, '/')))) {
-        $pages = $domain->getPages(Flight::get('language'));
-        if ( ! empty($pages)) {
-            Flight::lastModified($domain->lastmodified);
-            $cmsController = new Controller_Cms();
-        	$cmsController->frontend($domain, $pages);
-        	Flight::stop();
-        }
+        $cmsController = new Controller_Cms();
+    	$cmsController->frontend($domain);
     }
     Flight::render('404', array(), 'content');
     Flight::render('html5', array(

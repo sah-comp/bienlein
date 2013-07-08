@@ -25,48 +25,18 @@ class Controller_Cms extends Controller
     public $trigger_meta = false;
     
     /**
-     * Display the cms content of a certain url or a 404 page if no url was found.
+     * Renders a domain when it has pages.
      *
-     * @todo make use of 404 error when url not found and show warning if url is good, but has no pages
+     * @uses Model_Domain::getContent()
      *
      * @param RedBean_OODBean $domain to render
-     * @param array $pages
      */
-    public function frontend(RedBean_OODBBean $domain, array $pages = array())
+    public function frontend(RedBean_OODBBean $domain)
     {
-        $first_page = reset($pages);
-        $template_data = array(
-            'domain' => $domain,
-            'title' => $first_page->name,
-            'language' => Flight::get('language'),
-            'meta_keywords' => $first_page->keywords,
-            'meta_description' => $first_page->desc
-        );
-        //load the contents and push it into our template data
-        foreach ($pages as $id => $page) {
-            foreach ($page->template->ownRegion as $region_id => $region) {
-                $slices = $page->getSlicesByRegion($region_id, false);
-                foreach ($slices as $slice_id => $slice) {
-                    if ( ! isset($template_data[mb_strtolower($region->name)])) {
-                        $template_data[mb_strtolower($region->name)] = '';
-                    }
-                    ob_start();
-                    $slice->render('frontend');
-                    $content = ob_get_contents();
-                    ob_end_clean();
-                    if (($slice->css || $slice->class) && ! $slice->tag) {
-                        //make it a div tag if we have css or class
-                        $slice->tag = 'div';
-                    }
-                    if ($slice->tag) {
-                        $content = sprintf('<%1$s class="%2$s" style="%3$s">'.$content.'</%1$s>', $slice->tag, $slice->class, $slice->css)."\n";
-                    }
-                    $template_data[mb_strtolower($region->name)] .= $content;
-                }
-            }
-        }
-        //render with template of (first) page or which one?
-        Flight::render($first_page->template->name, $template_data);
+        if ( ! $template_data = $domain->getContent(Flight::get('language'))) return false;
+        Flight::lastModified($domain->lastmodified);
+        Flight::render($template_data['template'], $template_data);
+        Flight::stop();
     }
 
     /**
