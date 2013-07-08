@@ -521,6 +521,21 @@ class Controller_Install extends Controller
         );
         R::store($template);
         //token
+        I18n::make('person_legend_url', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('person_label_url', array(
+            'de' => 'Webseite',
+            'en' => 'Website',
+            'us' => 'Website'
+        ));
+        I18n::make('person_label_name', array(
+            'de' => 'Name',
+            'en' => 'Name',
+            'us' => 'Name'
+        ));
         I18n::make('country_translation_tab', array(
             'de' => 'Übersetzungen',
             'en' => 'Translations',
