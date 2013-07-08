@@ -79,6 +79,7 @@ class Model_Domain extends Model
     {
         $pages = $this->getPages($language);
         if (empty($pages)) return false;
+        R::preload($pages, array('template'));
         $first_page = reset($pages);
         $template_data = array(
             'mytemplate' => $first_page->template->name,
