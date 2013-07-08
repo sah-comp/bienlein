@@ -526,6 +526,11 @@ class Controller_Install extends Controller
             'en' => '',
             'us' => ''
         ));
+        I18n::make('person_legend_role', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
         I18n::make('person_label_url', array(
             'de' => 'Webseite',
             'en' => 'Website',
@@ -535,6 +540,11 @@ class Controller_Install extends Controller
             'de' => 'Name',
             'en' => 'Name',
             'us' => 'Name'
+        ));
+        I18n::make('person_label_enabled', array(
+            'de' => 'Aktiv',
+            'en' => 'Active',
+            'us' => 'Active'
         ));
         I18n::make('country_translation_tab', array(
             'de' => 'Übersetzungen',
