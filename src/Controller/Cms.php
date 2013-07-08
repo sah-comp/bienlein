@@ -35,7 +35,7 @@ class Controller_Cms extends Controller
     {
         if ( ! $template_data = $domain->getContent(Flight::get('language'))) return false;
         Flight::lastModified($domain->lastmodified);
-        Flight::render($template_data['template'], $template_data);
+        Flight::render($template_data['mytemplate'], $template_data);
         Flight::stop();
     }
 

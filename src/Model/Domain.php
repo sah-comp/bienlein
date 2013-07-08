@@ -81,7 +81,7 @@ class Model_Domain extends Model
         if (empty($pages)) return false;
         $first_page = reset($pages);
         $template_data = array(
-            'template' => $first_page->template->name,
+            'mytemplate' => $first_page->template->name,
             'domain' => $this->bean,
             'title' => $first_page->name,
             'language' => $language,
