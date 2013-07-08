@@ -401,7 +401,7 @@ class Controller_Scaffold extends Controller
             }
         }
         $this->getCollection();
-        if ($this->total_records == 0) {
+        if (R::count($this->type) == 0) {
             if (Permission::check(Flight::get('user'), $this->type, 'add')) {
                 Flight::get('user')->notify(I18n::__('scaffold_no_records_add_one'));
                 //return $this->add($this->layout);//this would not work because we dont set form action
