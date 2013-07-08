@@ -36,9 +36,27 @@ class Model_Person extends Model
                 )
             ),
             array(
-                'name' => 'name',
+                'name' => 'lastname',
                 'sort' => array(
-                    'name' => 'person.name'
+                    'name' => 'person.lastname'
+                ),
+                'filter' => array(
+                    'tag' => 'text'
+                )
+            ),
+            array(
+                'name' => 'firstname',
+                'sort' => array(
+                    'name' => 'person.firstname'
+                ),
+                'filter' => array(
+                    'tag' => 'text'
+                )
+            ),
+            array(
+                'name' => 'organization',
+                'sort' => array(
+                    'name' => 'person.organization'
                 ),
                 'filter' => array(
                     'tag' => 'text'
@@ -60,6 +78,18 @@ class Model_Person extends Model
                 ),
                 'filter' => array(
                     'tag' => 'text'
+                )
+            ),
+            array(
+                'name' => 'enabled',
+                'sort' => array(
+                    'name' => 'person.enabled'
+                ),
+                'callback' => array(
+                    'name' => 'boolean'
+                ),
+                'filter' => array(
+                    'tag' => 'bool'
                 )
             )
         );
