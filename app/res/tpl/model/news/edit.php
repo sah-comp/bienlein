@@ -48,6 +48,23 @@
             <?php echo I18n::__('news_label_online') ?>
         </label>
     </div>
+    <div class="row <?php echo ($record->hasError('archived')) ? 'error' : ''; ?>">
+        <input
+            type="hidden"
+            name="dialog[archived]"
+            value="0" />
+        <input
+            id="news-archived"
+            type="checkbox"
+            name="dialog[archived]"
+            <?php echo ($record->archived) ? 'checked="checked"' : '' ?>
+            value="1" />
+        <label
+            for="news-archived"
+            class="cb">
+            <?php echo I18n::__('news_label_archived') ?>
+        </label>
+    </div>
     <div class="row <?php echo ($record->hasError('pubdatetime')) ? 'error' : ''; ?>">
         <label
             for="news-pubdatetime">
