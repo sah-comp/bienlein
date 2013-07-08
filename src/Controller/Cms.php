@@ -36,6 +36,7 @@ class Controller_Cms extends Controller
     {
         $first_page = reset($pages);
         $template_data = array(
+            'domain' => $domain,
             'title' => $first_page->name,
             'language' => Flight::get('language'),
             'meta_keywords' => $first_page->keywords,
