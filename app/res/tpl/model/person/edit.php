@@ -91,6 +91,23 @@
                 value="<?php echo htmlspecialchars($record->vatid) ?>" />
         </div>
     </div>
+    <div class="row <?php echo ($record->hasError('enabled')) ? 'error' : ''; ?>">
+        <input
+            type="hidden"
+            name="dialog[enabled]"
+            value="0" />
+        <input
+            id="person-enabled"
+            type="checkbox"
+            name="dialog[enabled]"
+            <?php echo ($record->enabled) ? 'checked="checked"' : '' ?>
+            value="1" />
+        <label
+            for="person-enabled"
+            class="cb">
+            <?php echo I18n::__('person_label_enabled') ?>
+        </label>
+    </div>
     <!-- end of grid based data -->
 </fieldset>
 <fieldset>

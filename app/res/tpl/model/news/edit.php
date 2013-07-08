@@ -16,10 +16,9 @@
 </div>
 <fieldset>
     <legend class="verbose"><?php echo I18n::__('news_legend') ?></legend>
-    <div class="row">
+    <div class="row <?php echo ($record->hasError('newscat_id')) ? 'error' : ''; ?>">
         <label
-            for="news-newscat"
-            class="<?php echo ($record->hasError('newscat_id')) ? 'error' : ''; ?>">
+            for="news-newscat">
             <?php echo I18n::__('news_label_newscat') ?>
         </label>
         <select
@@ -32,7 +31,7 @@
             <?php endforeach ?>
         </select>
     </div>
-    <div class="row">
+    <div class="row <?php echo ($record->hasError('online')) ? 'error' : ''; ?>">
         <input
             type="hidden"
             name="dialog[online]"
@@ -45,7 +44,7 @@
             value="1" />
         <label
             for="news-online"
-            class="cb <?php echo ($record->hasError('online')) ? 'error' : ''; ?>">
+            class="cb">
             <?php echo I18n::__('news_label_online') ?>
         </label>
     </div>

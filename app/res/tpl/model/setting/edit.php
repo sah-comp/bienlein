@@ -61,10 +61,9 @@
                 <?php endforeach ?>
             </select>
         </div>
-        <div class="row">
+        <div class="row <?php echo ($record->hasError('sitesfolder')) ? 'error' : ''; ?>">
             <label
-                for="setting-sitesfolder"
-                class="<?php echo ($record->hasError('sitesfolder')) ? 'error' : ''; ?>">
+                for="setting-sitesfolder">
                 <?php echo I18n::__('setting_label_sitesfolder') ?>
             </label>
             <select
@@ -83,10 +82,9 @@
         class="tab"
         style="display: none;">
         <legend class="verbose"><?php echo I18n::__('setting_legend_currency') ?></legend>
-        <div class="row">
+        <div class="row <?php echo ($record->hasError('basecurrency')) ? 'error' : ''; ?>">
             <label
-                for="setting-basecurrency"
-                class="<?php echo ($record->hasError('basecurrency')) ? 'error' : ''; ?>">
+                for="setting-basecurrency">
                 <?php echo I18n::__('setting_label_basecurrency') ?>
             </label>
             <select

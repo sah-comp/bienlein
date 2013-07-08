@@ -16,10 +16,9 @@
 </div>
 <fieldset>
     <legend class="verbose"><?php echo I18n::__('domain_legend') ?></legend>
-    <div class="row">
+    <div class="row <?php echo ($record->hasError('domain_id')) ? 'error' : ''; ?>">
         <label
-            for="domain-parent"
-            class="<?php echo ($record->hasError('domain_id')) ? 'error' : ''; ?>">
+            for="domain-parent">
             <?php echo I18n::__('domain_label_parent') ?>
         </label>
         <select
@@ -57,7 +56,7 @@
             name="dialog[url]"
             value="<?php echo htmlspecialchars($record->url) ?>" />
     </div>
-    <div class="row">
+    <div class="row <?php echo ($record->hasError('invisible')) ? 'error' : ''; ?>">
         <input
             type="hidden"
             name="dialog[invisible]"
@@ -70,14 +69,13 @@
             value="1" />
         <label
             for="domain-invisible"
-            class="cb <?php echo ($record->hasError('invisible')) ? 'error' : ''; ?>">
+            class="cb">
             <?php echo I18n::__('domain_label_invisible') ?>
         </label>
     </div>
-    <div class="row">
+    <div class="row <?php echo ($record->hasError('sequence')) ? 'error' : ''; ?>">
         <label
-            for="domain-sequence"
-            class="<?php echo ($record->hasError('sequence')) ? 'error' : ''; ?>">
+            for="domain-sequence">
             <?php echo I18n::__('domain_label_sequence') ?>
         </label>
         <input
