@@ -244,6 +244,20 @@
     </div>
 </fieldset>
 <fieldset>
+    <legend class="verbose"><?php echo I18n::__('person_legend_url') ?></legend>
+    <div class="row <?php echo ($record->hasError('url')) ? 'error' : ''; ?>">
+        <label
+            for="person-url">
+            <?php echo I18n::__('person_label_url') ?>
+        </label>
+        <input
+            id="person-url"
+            type="text"
+            name="dialog[url]"
+            value="<?php echo htmlspecialchars($record->url) ?>" />
+    </div>
+</fieldset>
+<fieldset>
     <legend class="verbose"><?php echo I18n::__('person_legend_address') ?></legend>
     <?php $record->ownAddress[] = R::dispense('address') ?>
     <?php $index = 0 ?>
