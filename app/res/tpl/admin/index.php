@@ -9,7 +9,7 @@
  */
 ?>
 <!-- admin index page -->
-<article>
+<article class="main">
 	<header>
     	<h1><?php echo I18n::__('admin_h1') ?></h1>
 	</header>

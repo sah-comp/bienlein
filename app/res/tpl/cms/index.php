@@ -9,7 +9,7 @@
  */
 ?>
 <!-- cms index page -->
-<article>
+<article class="main">
 	<header>
     	<h1><?php echo I18n::__('cms_h1') ?></h1>
     	<nav>

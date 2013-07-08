@@ -9,7 +9,7 @@
  */
 ?>
 <!-- Install en -->
-<article>
+<article class="main">
     <header>
 		<h1>Installation</h1>
     </header>

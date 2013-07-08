@@ -9,7 +9,7 @@
  */
 ?>
 <!-- Login -->
-<article>
+<article class="main">
     <header>
 		<h1><?php echo I18n::__('login_h1') ?></h1>
     </header>

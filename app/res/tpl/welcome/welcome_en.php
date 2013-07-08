@@ -9,7 +9,7 @@
  */
 ?>
 <!-- Article that welcomes users -->
-<article>
+<article class="main">
     <header>
         <h1>Welcome</h1>
     </header>

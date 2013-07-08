@@ -9,7 +9,7 @@
  */
 ?>
 <!-- Error 403 article -->
-<article>
+<article class="main">
     <header>
     	<h1><?php echo I18n::__('http_error_403_h1') ?></h1>
     	<h2><?php echo I18n::__('http_error_403_h2') ?></h2>

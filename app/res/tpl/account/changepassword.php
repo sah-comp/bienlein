@@ -9,7 +9,7 @@
  */
 ?>
 <!-- Account -->
-<article>
+<article class="main">
     <header>
 		<h1><?php echo I18n::__('account_h1') ?></h1>
 		<nav>

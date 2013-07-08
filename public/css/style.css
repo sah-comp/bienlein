@@ -497,13 +497,13 @@ article header {
     position: relative;
 }
 
-article header h1,
-article header h2,
-article header h3,
-article header h4,
-article header h5,
-article header h6,
-article > p {
+article.main header h1,
+article.main header h2,
+article.main header h3,
+article.main header h4,
+article.main header h5,
+article.main header h6,
+article.main > p {
     padding: 0.5em 1em;
     margin: 0;
 }
