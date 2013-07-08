@@ -521,6 +521,11 @@ class Controller_Install extends Controller
         );
         R::store($template);
         //token
+        I18n::make('news_label_archived', array(
+            'de' => 'Archiviert',
+            'en' => 'Archived',
+            'us' => 'Archived'
+        ));
         I18n::make('person_legend_url', array(
             'de' => '',
             'en' => '',
