@@ -74,7 +74,7 @@
             id="news-pubdatetime"
             type="datetime"
             name="dialog[pubdatetime]"
-            value="<?php echo htmlspecialchars($record->pubdatetime) ?>"
+            value="<?php echo htmlspecialchars($record->localizedDateTime('pubdatetime')) ?>"
             required="required" />
     </div>
     <div class="row <?php echo ($record->hasError('name')) ? 'error' : ''; ?>">
