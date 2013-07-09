@@ -94,6 +94,17 @@ class Model_Person extends Model
             )
         );
     }
+    
+    /**
+     * Returns an address bean of this person with a given label.
+     *
+     * @param string $label defaults to 'default'
+     * @return RedBean_OODBBean $address
+     */
+    public function getAddress($label = 'default')
+    {
+        return R::findOne('address', 'label = ? AND person_id = ?', array($label, $this->bean->getId()));
+    }
 
     /**
      * Returns keywords from this bean for tagging.
