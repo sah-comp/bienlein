@@ -109,6 +109,45 @@ class Model extends RedBean_SimpleModel
     }
     
     /**
+     * Returns a localized datetime string.
+     *
+     * @param string $attribute name to localize
+     * @return string
+     */
+    public function localizedDateTime($attribute)
+    {
+        if ( ! Flight::setlocale()) return $this->bean->{$attribute};
+        $templates = Flight::get('templates');
+        return strftime($templates['datetime'], strtotime($this->bean->{$attribute}));
+    }
+    
+    /**
+     * Returns a localized date string.
+     *
+     * @param string $attribute name to localize
+     * @return string
+     */
+    public function localizedDate($attribute)
+    {
+        if ( ! Flight::setlocale()) return $this->bean->{$attribute};
+        $templates = Flight::get('templates');
+        return strftime($templates['date'], strtotime($this->bean->{$attribute}));
+    }
+
+    /**
+     * Returns a localized time string.
+     *
+     * @param string $attribute name to localize
+     * @return string
+     */
+    public function localizedTime($attribute)
+    {
+        if ( ! Flight::setlocale()) return $this->bean->{$attribute};
+        $templates = Flight::get('templates');
+        return strftime($templates['time'], strtotime($this->bean->{$attribute}));
+    }
+    
+    /**
      * Returns the root bean of a hierarchy.
      *
      * If the optional parameter is set the last bean before the parent bean with
