@@ -87,7 +87,7 @@ class Controller_Cms extends Controller
         //Permission::check(Flight::get('user'), $domain, 'edit');
 		// Pick up the pieces
 		//echo 'You want to edit node '.$id;
-		$pages = $domain->getPages(Flight::get('user')->getLanguage(), true);
+		$pages = $domain->getPages(Flight::get('user')->getLanguage());
 		if (empty($pages)) {
 		    $page = R::dispense('page');
 		}
