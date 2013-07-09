@@ -73,11 +73,12 @@ class Model_Domain extends Model
      * Returns either an array with rendered content or false if domain has no content.
      *
      * @param string $language
+     * @param mixed (optional) $invisible defaults to null, if null all pages are found
      * @return mixed either false or an array for use with template
      */
-    public function getContent($language)
+    public function getContent($language, $invisible = null)
     {
-        $pages = $this->getPages($language);
+        $pages = $this->getPages($language, $invisible);
         if (empty($pages)) return false;
         R::preload($pages, array('template'));
         $first_page = reset($pages);
