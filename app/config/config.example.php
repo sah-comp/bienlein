@@ -32,7 +32,7 @@ Flight::path(__DIR__ . '/../../app');
 /**
  * Setup our database.
  */
-R::setup('mysql:host=localhost;dbname=DBNAME', 'ROOT', 'SECRET');
+R::setup('mysql:host=localhost;dbname=DBNAME', 'UNAME', 'SECRET');
 
 /**
  * Allow RedBean Cooker Plugin to load beans for compatibility.
@@ -88,6 +88,15 @@ Flight::set('possible_languages', R::dispense('language')->getEnabled('de'));
 Flight::set('language', 'de');
 
 /**
+ * Sets some template for localization.
+ */
+Flight::set('templates', array(
+    'date' => '%x',
+    'time' => '%X',
+    'datetime' => '%x %X'
+));
+
+/**
  * Setting.
  */
 Flight::map('setting', function() {
@@ -120,7 +129,14 @@ Flight::map('sitesfolder', function() {
  * Blessed folder.
  */
 Flight::map('basecurrency', function() {
-    return R::load('currency', Flight::setting()->basecurrency);//
+    return R::load('currency', Flight::setting()->basecurrency);
+});
+
+/**
+ * Sets a locale category according to the current language.
+ */
+Flight::map('setlocale', function($category = LC_TIME) {
+    return setlocale($category, Flight::get('language').'_'.strtoupper(Flight::get('language')).'.UTF-8');
 });
 
 // There shall be non url rewriter and session id gets handled by cookies only
