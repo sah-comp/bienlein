@@ -39,6 +39,18 @@ class Model_News extends Model
                 )
             ),
             array(
+                'name' => 'pubdatetime',
+                'sort' => array(
+                    'name' => 'news.pubdatetime'
+                ),
+                'callback' => array(
+                    'name' => 'localizedDateTime'
+                ),
+                'filter' => array(
+                    'tag' => 'datetime'
+                )
+            ),
+            array(
                 'name' => 'name',
                 'sort' => array(
                     'name' => 'news.name'
@@ -51,6 +63,18 @@ class Model_News extends Model
                 'name' => 'online',
                 'sort' => array(
                     'name' => 'news.online'
+                ),
+                'callback' => array(
+                    'name' => 'boolean'
+                ),
+                'filter' => array(
+                    'tag' => 'bool'
+                )
+            ),
+            array(
+                'name' => 'archived',
+                'sort' => array(
+                    'name' => 'news.archived'
                 ),
                 'callback' => array(
                     'name' => 'boolean'
