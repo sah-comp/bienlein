@@ -31,7 +31,7 @@ class Model_Criteria extends Model
  		'ew' => '%1$s like ?',
  		'lt' => '%1$s < ?',
  		'gt' => '%1$s > ?',
- 		'in' => '%1$s in (%2$s)'
+ 	    'in' => '%1$s in (%2$s)'
  		//'between' => __('filter_op_between'),
  		//'istrue' => __('filter_op_istrue'),
  		//'isfalse' => __('filter_op_isfalse')
@@ -46,15 +46,16 @@ class Model_Criteria extends Model
      * @var array
      */
     public $operators = array(
-         'text' => array('bw', 'ew', 'eq', 'neq', 'like', 'notlike'),
-         'number' => array('eq', 'gt', 'lt', 'neq'),
-         'date' => array('eq', 'gt', 'lt', 'neq'),
-         'time' => array('eq', 'gt', 'lt', 'neq'),
-         'email' => array('bw', 'ew', 'eq', 'neq', 'like', 'notlike'),
-         'textarea' => array('bw', 'ew', 'eq', 'neq', 'like', 'notlike'),
-         'in' => array('in'),
-         'select' => array('eq'),
-         'bool' => array('eq')
+        'text' => array('bw', 'ew', 'eq', 'neq', 'like', 'notlike'),
+        'number' => array('eq', 'gt', 'lt', 'neq'),
+        'date' => array('eq', 'gt', 'lt', 'neq'),
+        'time' => array('eq', 'gt', 'lt', 'neq'),
+        'datetime' => array('eq', 'gt', 'lt', 'neq'),
+        'email' => array('bw', 'ew', 'eq', 'neq', 'like', 'notlike'),
+        'textarea' => array('bw', 'ew', 'eq', 'neq', 'like', 'notlike'),
+        'in' => array('in'),
+        'select' => array('eq'),
+        'bool' => array('eq')
      );
 
      /**
