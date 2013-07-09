@@ -119,15 +119,21 @@ class Model_Domain extends Model
      * Returns an array with page beans.
      *
      * @param string $language
-     * @param int (optional) $invisible
+     * @param mixed (optional) $invisible
      * @return array
      */
-    public function getPages($language, $invisible = 0)
+    public function getPages($language, $invisible = null)
     {
-        return R::find('page', 'domain_id = ? AND language = ? AND invisible = ? ORDER BY sequence', array(
+        if ($invisible !== null) {
+            return R::find('page', 'domain_id = ? AND language = ? AND invisible = ? ORDER BY sequence', array(
+                $this->bean->getId(),
+                $language,
+                $invisible
+            ));
+        }
+        return R::find('page', 'domain_id = ? AND language = ? ORDER BY sequence', array(
             $this->bean->getId(),
-            $language,
-            $invisible
+            $language
         ));
     }
     
