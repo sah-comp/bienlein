@@ -521,6 +521,28 @@ class Controller_Install extends Controller
         );
         R::store($template);
         //token
+        I18n::make('person_label_enabled', array(
+            'de' => 'Aktiv',
+            'en' => 'Active',
+            'us' => 'Active'
+        ));
+        I18n::make('person_label_url', array(
+            'de' => 'Webseite',
+            'en' => 'Website',
+            'us' => 'Website'
+        ));
+        I18n::make('action_copy_nav', array(
+            'de' => 'Kopieren',
+            'en' => 'Copy',
+            'us' => 'Copy'
+        ));
+        I18n::make('scaffold_dup_goto_original', array(
+            'de' => 'Kopie bearbeiten und sichern oder das "Original bearbeiten":%s',
+            'en' => 'Edit and save copy or edit "original":%s',
+            'us' => 'Edit and save copy or edit "original":%s'
+        ));
+        
+        
         I18n::make('news_label_archived', array(
             'de' => 'Archiviert',
             'en' => 'Archived',
