@@ -14,6 +14,11 @@
 mb_internal_encoding('UTF-8');
 
 /**
+ * Set the time zone.
+ */
+date_default_timezone_set('Europe/Berlin');
+
+/**
  * Define constant install password.
  */
 define('CINNEBAR_INSTALL_PASS', password_hash('Secret', PASSWORD_DEFAULT));
@@ -33,6 +38,8 @@ Flight::path(__DIR__ . '/../../app');
  * Setup our database.
  */
 R::setup('mysql:host=localhost;dbname=DBNAME', 'UNAME', 'SECRET');
+R::freeze(false);
+R::$writer->setUseCache(true);
 
 /**
  * Allow RedBean Cooker Plugin to load beans for compatibility.
