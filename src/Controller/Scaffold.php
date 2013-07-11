@@ -451,6 +451,13 @@ class Controller_Scaffold extends Controller
                 }
                 $this->redirect("{$this->base_url}/{$this->type}/{$this->layout}/");
             }
+        } else {
+            if ($this->record->getId()) {
+                $this->record = R::dup($this->record);
+                Flight::get('user')->notify(I18n::__('scaffold_dup_goto_original', null, array(
+                    Url::build("{$this->base_url}/{$this->type}/edit/{$this->id}/{$this->layout}/")
+                )));
+            }
         }
 		$this->render();
     }
@@ -511,6 +518,7 @@ class Controller_Scaffold extends Controller
 		Flight::render('shared/navigation/main', array(), 'navigation_main');
         Flight::render('shared/navigation', array(), 'navigation');
         Flight::render('scaffold/toolbar', array(
+            'record' => $this->record,
             'base_url' => $this->base_url,
             'type' => $this->type,
             'layout' => $this->layout,
