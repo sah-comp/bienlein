@@ -455,7 +455,7 @@ class Controller_Scaffold extends Controller
             if ($this->record->getId()) {
                 $this->record = R::dup($this->record);
                 Flight::get('user')->notify(I18n::__('scaffold_dup_goto_original', null, array(
-                    Url::build("{$this->base_url}/{$this->type}/edit/{$this->id}/{$this->layout}/")
+                    Url::build("{$this->base_url}/{$this->type}/edit/{$this->id}/1/0/0/{$this->layout}/")
                 )));
             }
         }
