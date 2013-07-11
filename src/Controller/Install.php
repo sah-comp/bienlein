@@ -521,6 +521,17 @@ class Controller_Install extends Controller
         );
         R::store($template);
         //token
+        I18n::make('person_address_tab', array(
+            'de' => 'Postanschriften',
+            'en' => 'Postal Addresses',
+            'us' => 'Postal Addresses'
+        ));
+        I18n::make('person_role_tab', array(
+            'de' => 'Rollen',
+            'en' => 'Roles',
+            'us' => 'Roles'
+        ));
+        
         I18n::make('person_label_enabled', array(
             'de' => 'Aktiv',
             'en' => 'Active',
