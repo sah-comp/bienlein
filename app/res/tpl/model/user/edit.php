@@ -13,6 +13,16 @@
     <input type="hidden" name="dialog[type]" value="<?php echo $record->getMeta('type') ?>" />
     <input type="hidden" name="dialog[id]" value="<?php echo $record->getId() ?>" />
     <input type="hidden" name="dialog[pw]" value="<?php echo htmlspecialchars($record->pw) ?>" />
+    
+    <?php if ($record->email): ?>
+    <img
+    	src="<?php echo Gravatar::src($record->email, 72) ?>"
+    	class="gravatar-account circular no-shadow"
+    	width="72"
+    	height="72"
+    	alt="<?php echo htmlspecialchars($record->getName()) ?>" />
+    <?php endif ?>
+    	
 </div>
 <fieldset>
     <legend><?php echo I18n::__('user_legend') ?></legend>

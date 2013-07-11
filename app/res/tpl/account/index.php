@@ -21,7 +21,15 @@
         class="panel panel-<?php echo $record->getMeta('type') ?> action-profile"
         method="POST"
         accept-charset="utf-8"
-        enctype="multipart/form-data">        
+        enctype="multipart/form-data">
+        <div>
+            <img
+        		src="<?php echo Gravatar::src($record->email, 72) ?>"
+        		class="gravatar-account circular no-shadow"
+        		width="72"
+        		height="72"
+        		alt="<?php echo htmlspecialchars($record->getName()) ?>" />
+        </div>     
         <!-- account form -->
         <fieldset>
             <legend><?php echo I18n::__('account_legend') ?></legend>
