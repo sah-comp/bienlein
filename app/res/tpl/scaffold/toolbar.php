@@ -22,4 +22,12 @@
 			<?php echo I18n::__('action_add_nav') ?>
 		</a>
 	</li>
+	<?php if (isset($record) && is_a($record, 'RedBean_OODBBean') && $record->getId()): ?>
+	<li>
+	    <a
+			href="<?php echo Url::build("{$base_url}/{$type}/add/{$record->getId()}/{$layout}/") ?>">
+			<?php echo I18n::__('action_copy_nav') ?>
+		</a>
+	</li>
+	<?php endif ?>
 </ul>
