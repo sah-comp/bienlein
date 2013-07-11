@@ -17,7 +17,7 @@
 				src="<?php echo Gravatar::src(Flight::get('user')->email, 16) ?>"
 				width="16"
 				height="16"
-				alt="<?php echo htmlspecialchars(Flight::get('user')->name) ?>" />
+				alt="<?php echo htmlspecialchars(Flight::get('user')->getName()) ?>" />
 			<?php echo htmlspecialchars(Flight::get('user')->getName()) ?>
         </a>
     </li>
