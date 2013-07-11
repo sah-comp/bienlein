@@ -274,126 +274,142 @@
             value="<?php echo htmlspecialchars($record->url) ?>" />
     </div>
 </fieldset>
-<fieldset>
-    <legend class="verbose"><?php echo I18n::__('person_legend_address') ?></legend>
-    <?php $record->ownAddress[] = R::dispense('address') ?>
-    <?php $index = 0 ?>
-    <?php foreach ($record->ownAddress as $_address_id => $_address): ?>
-    <?php $index++ ?>
-    <div>
-        <input
-            type="hidden"
-            name="dialog[ownAddress][<?php echo $index ?>][type]"
-            value="<?php echo $_address->getMeta('type') ?>" />
-        <input
-            type="hidden"
-            name="dialog[ownAddress][<?php echo $index ?>][id]"
-            value="<?php echo $_address->getId() ?>" />
-    </div>
-    <div class="row <?php echo ($_address->hasError('label')) ? 'error' : ''; ?>">
-        <label
-            for="person-<?php echo $record->getId() ?>-address-<?php echo $_address->getId() ?>-label">
-            <?php echo I18n::__('address_label_label') ?>
-        </label>
-        <select
-            id="person-<?php echo $record->getId() ?>-address-<?php echo $_address->getId() ?>-label"
-            name="dialog[ownAddress][<?php echo $index ?>][label]">
-            <option value=""><?php echo I18n::__('address_label_select') ?></option>
-            <?php foreach ($_address->getLabels() as $_label): ?>
-            <option
-                value="<?php echo $_label ?>"
-                <?php echo ($_address->label == $_label) ? 'selected="selected"' : '' ?>>
-                <?php echo I18n::__('address_label_'.$_label) ?>
-            </option>
-            <?php endforeach ?>
-        </select>
-    </div>
-    <div class="row <?php echo ($_address->hasError('street')) ? 'error' : ''; ?>">
-        <label
-            for="person-<?php echo $record->getId() ?>-address-<?php echo $_address->getId() ?>-street">
-            <?php echo I18n::__('address_label_street') ?>
-        </label>
-        <textarea
-            id="person-<?php echo $record->getId() ?>-address-<?php echo $_address->getId() ?>-street"
-            name="dialog[ownAddress][<?php echo $index ?>][street]"
-            rows="3"
-            cols="60"><?php echo htmlspecialchars($_address->street) ?></textarea>
-    </div>
-    <div class="row <?php echo ($_address->hasError('zip')) ? 'error' : ''; ?>">
-        <label
-            for="person-<?php echo $record->getId() ?>-address-<?php echo $_address->getId() ?>-zip">
-            <?php echo I18n::__('address_label_zip') ?>
-        </label>
-        <input
-            type="text"
-            id="person-<?php echo $record->getId() ?>-address-<?php echo $_address->getId() ?>-zip"
-            name="dialog[ownAddress][<?php echo $index ?>][zip]"
-            value="<?php echo htmlspecialchars($_address->zip) ?>" />
-    </div>
-    <div class="row <?php echo ($_address->hasError('city')) ? 'error' : ''; ?>">
-        <label
-            for="person-<?php echo $record->getId() ?>-address-<?php echo $_address->getId() ?>-city">
-            <?php echo I18n::__('address_label_city') ?>
-        </label>
-        <input
-            type="text"
-            id="person-<?php echo $record->getId() ?>-address-<?php echo $_address->getId() ?>-city"
-            name="dialog[ownAddress][<?php echo $index ?>][city]"
-            value="<?php echo htmlspecialchars($_address->city) ?>" />
-    </div>
-    <div class="row <?php echo ($_address->hasError('county')) ? 'error' : ''; ?>">
-        <label
-            for="person-<?php echo $record->getId() ?>-address-<?php echo $_address->getId() ?>-county">
-            <?php echo I18n::__('address_label_county') ?>
-        </label>
-        <input
-            type="text"
-            id="person-<?php echo $record->getId() ?>-address-<?php echo $_address->getId() ?>-county"
-            name="dialog[ownAddress][<?php echo $index ?>][county]"
-            value="<?php echo htmlspecialchars($_address->county) ?>" />
-    </div>
-    <div class="row <?php echo ($_address->hasError('country_id')) ? 'error' : ''; ?>">
-        <label
-            for="person-<?php echo $record->getId() ?>-address-<?php echo $_address->getId() ?>-country">
-            <?php echo I18n::__('address_label_country') ?>
-        </label>
-        <select
-            id="person-<?php echo $record->getId() ?>-address-<?php echo $_address->getId() ?>-country"
-            name="dialog[ownAddress][<?php echo $index ?>][country_id]">
-            <option value=""><?php echo I18n::__('address_country_select') ?></option>
-            <?php foreach (R::findAll('country') as $_country_id => $_country): ?>
-            <option
-                value="<?php echo $_country->getId() ?>"
-                <?php echo ($_address->country_id == $_country->getId()) ? 'selected="selected"' : '' ?>>
-                <?php echo htmlspecialchars($_country->name) ?>
-            </option>
-            <?php endforeach ?>
-        </select>
-    </div>
-    <?php endforeach ?>
-</fieldset>
-<fieldset>
-    <legend class="verbose"><?php echo I18n::__('person_legend_role') ?></legend>
-    <?php foreach (R::findAll('role') as $_id => $_role): ?>
-    <div class="row">
-        <input
-            type="hidden"
-            name="dialog[sharedRole][<?php echo $_role->getId() ?>][type]"
-            value="role" />
-        <input
-            type="hidden"
-            name="dialog[sharedRole][<?php echo $_role->getId() ?>][id]"
-            value="0" />
-        <label
-            for="person-<?php echo $record->getId() ?>-role-<?php echo $_role->getId() ?>"
-            class="cb"><?php echo htmlspecialchars($_role->i18n(Flight::get('language'))->name) ?></label>
-        <input
-            type="checkbox"
-            id="person-<?php echo $record->getId() ?>-role-<?php echo $_role->getId() ?>"
-            name="dialog[sharedRole][<?php echo $_role->getId() ?>][id]"
-            value="<?php echo $_role->getId() ?>"
-            <?php echo (isset($record->sharedRole[$_role->getId()])) ? 'checked="checked"' : '' ?> />
-    </div>
-    <?php endforeach ?>
-</fieldset>
+<div class="tab-container">
+    <?php Flight::render('shared/navigation/tabs', array(
+        'tab_id' => 'person-tabs',
+        'tabs' => array(
+            'person-address' => I18n::__('person_address_tab'),
+            'person-role' => I18n::__('person_role_tab')
+        ),
+        'default_tab' => 'person-address'
+    )) ?>
+    <fieldset
+        id="person-address"
+        class="tab"
+        style="display: block;">
+        <legend class="verbose"><?php echo I18n::__('person_legend_address') ?></legend>
+        <?php $record->ownAddress[] = R::dispense('address') ?>
+        <?php $index = 0 ?>
+        <?php foreach ($record->ownAddress as $_address_id => $_address): ?>
+        <?php $index++ ?>
+        <div>
+            <input
+                type="hidden"
+                name="dialog[ownAddress][<?php echo $index ?>][type]"
+                value="<?php echo $_address->getMeta('type') ?>" />
+            <input
+                type="hidden"
+                name="dialog[ownAddress][<?php echo $index ?>][id]"
+                value="<?php echo $_address->getId() ?>" />
+        </div>
+        <div class="row <?php echo ($_address->hasError('label')) ? 'error' : ''; ?>">
+            <label
+                for="person-<?php echo $record->getId() ?>-address-<?php echo $_address->getId() ?>-label">
+                <?php echo I18n::__('address_label_label') ?>
+            </label>
+            <select
+                id="person-<?php echo $record->getId() ?>-address-<?php echo $_address->getId() ?>-label"
+                name="dialog[ownAddress][<?php echo $index ?>][label]">
+                <option value=""><?php echo I18n::__('address_label_select') ?></option>
+                <?php foreach ($_address->getLabels() as $_label): ?>
+                <option
+                    value="<?php echo $_label ?>"
+                    <?php echo ($_address->label == $_label) ? 'selected="selected"' : '' ?>>
+                    <?php echo I18n::__('address_label_'.$_label) ?>
+                </option>
+                <?php endforeach ?>
+            </select>
+        </div>
+        <div class="row <?php echo ($_address->hasError('street')) ? 'error' : ''; ?>">
+            <label
+                for="person-<?php echo $record->getId() ?>-address-<?php echo $_address->getId() ?>-street">
+                <?php echo I18n::__('address_label_street') ?>
+            </label>
+            <textarea
+                id="person-<?php echo $record->getId() ?>-address-<?php echo $_address->getId() ?>-street"
+                name="dialog[ownAddress][<?php echo $index ?>][street]"
+                rows="3"
+                cols="60"><?php echo htmlspecialchars($_address->street) ?></textarea>
+        </div>
+        <div class="row <?php echo ($_address->hasError('zip')) ? 'error' : ''; ?>">
+            <label
+                for="person-<?php echo $record->getId() ?>-address-<?php echo $_address->getId() ?>-zip">
+                <?php echo I18n::__('address_label_zip') ?>
+            </label>
+            <input
+                type="text"
+                id="person-<?php echo $record->getId() ?>-address-<?php echo $_address->getId() ?>-zip"
+                name="dialog[ownAddress][<?php echo $index ?>][zip]"
+                value="<?php echo htmlspecialchars($_address->zip) ?>" />
+        </div>
+        <div class="row <?php echo ($_address->hasError('city')) ? 'error' : ''; ?>">
+            <label
+                for="person-<?php echo $record->getId() ?>-address-<?php echo $_address->getId() ?>-city">
+                <?php echo I18n::__('address_label_city') ?>
+            </label>
+            <input
+                type="text"
+                id="person-<?php echo $record->getId() ?>-address-<?php echo $_address->getId() ?>-city"
+                name="dialog[ownAddress][<?php echo $index ?>][city]"
+                value="<?php echo htmlspecialchars($_address->city) ?>" />
+        </div>
+        <div class="row <?php echo ($_address->hasError('county')) ? 'error' : ''; ?>">
+            <label
+                for="person-<?php echo $record->getId() ?>-address-<?php echo $_address->getId() ?>-county">
+                <?php echo I18n::__('address_label_county') ?>
+            </label>
+            <input
+                type="text"
+                id="person-<?php echo $record->getId() ?>-address-<?php echo $_address->getId() ?>-county"
+                name="dialog[ownAddress][<?php echo $index ?>][county]"
+                value="<?php echo htmlspecialchars($_address->county) ?>" />
+        </div>
+        <div class="row <?php echo ($_address->hasError('country_id')) ? 'error' : ''; ?>">
+            <label
+                for="person-<?php echo $record->getId() ?>-address-<?php echo $_address->getId() ?>-country">
+                <?php echo I18n::__('address_label_country') ?>
+            </label>
+            <select
+                id="person-<?php echo $record->getId() ?>-address-<?php echo $_address->getId() ?>-country"
+                name="dialog[ownAddress][<?php echo $index ?>][country_id]">
+                <option value=""><?php echo I18n::__('address_country_select') ?></option>
+                <?php foreach (R::findAll('country') as $_country_id => $_country): ?>
+                <option
+                    value="<?php echo $_country->getId() ?>"
+                    <?php echo ($_address->country_id == $_country->getId()) ? 'selected="selected"' : '' ?>>
+                    <?php echo htmlspecialchars($_country->name) ?>
+                </option>
+                <?php endforeach ?>
+            </select>
+        </div>
+        <?php endforeach ?>
+    </fieldset>
+    <fieldset
+        id="person-role"
+        class="tab"
+        style="display: none;">
+        <legend class="verbose"><?php echo I18n::__('person_legend_role') ?></legend>
+        <?php foreach (R::findAll('role') as $_id => $_role): ?>
+        <div class="row">
+            <input
+                type="hidden"
+                name="dialog[sharedRole][<?php echo $_role->getId() ?>][type]"
+                value="role" />
+            <input
+                type="hidden"
+                name="dialog[sharedRole][<?php echo $_role->getId() ?>][id]"
+                value="0" />
+            <label
+                for="person-<?php echo $record->getId() ?>-role-<?php echo $_role->getId() ?>"
+                class="cb"><?php echo htmlspecialchars($_role->i18n(Flight::get('language'))->name) ?></label>
+            <input
+                type="checkbox"
+                id="person-<?php echo $record->getId() ?>-role-<?php echo $_role->getId() ?>"
+                name="dialog[sharedRole][<?php echo $_role->getId() ?>][id]"
+                value="<?php echo $_role->getId() ?>"
+                <?php echo (isset($record->sharedRole[$_role->getId()])) ? 'checked="checked"' : '' ?> />
+        </div>
+        <?php endforeach ?>
+    </fieldset>
+</div>
 <!-- end of person edit form -->
