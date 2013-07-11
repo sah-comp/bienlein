@@ -20,7 +20,7 @@ class RedbeanDupTest extends PHPUnit_Framework_TestCase
     {
     }
     
-    public function testFindOne()
+    public function testDupOne()
     {
         $arms = R::dispense('arm', 2);
         $arms[0]->name = 'left arm';
