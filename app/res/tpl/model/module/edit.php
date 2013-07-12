@@ -59,7 +59,7 @@
         class="tab"
         style="display: block;">
         <legend><?php echo I18n::__('module_legend_backend') ?></legend>
-        <div class="row">
+        <div class="row <?php echo ($record->hasError('backend')) ? 'error' : ''; ?>">
             <label
                 for="module-backend-php"><?php echo I18n::__('module_backend_label') ?>
             </label>
@@ -76,7 +76,7 @@
         class="tab"
         style="display: none;">
         <legend><?php echo I18n::__('module_legend_frontend') ?></legend>
-        <div class="row">
+        <div class="row <?php echo ($record->hasError('frontend')) ? 'error' : ''; ?>">
             <label
                 for="module-frontend-php"><?php echo I18n::__('module_frontend_label') ?>
             </label>
