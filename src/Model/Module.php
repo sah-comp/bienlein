@@ -60,4 +60,52 @@ class Model_Module extends Model
             new Validator_IsUnique(array('bean' => $this->bean, 'attribute' => 'name'))
         ));
     }
+    
+    /**
+     * Update.
+     *
+     * This will add validators on the fly for frontend and backend if they have values.
+     */
+    public function update()
+    {
+        if ($this->bean->frontend) {
+            $this->addValidator('frontend', new Validator_IsPhp());
+        }
+        if ($this->bean->backend) {
+            $this->addValidator('backend', new Validator_IsPhp());
+        }
+        parent::update();
+    }
+    
+    /**
+     * After update write frontend and backend tpl as file if neccessary.
+     */
+    public function after_update()
+    {
+        if ($this->bean->frontend) {
+            $filename = Flight::get('flight.views.path').'/cache/fe'.md5($this->bean->name).'.php';
+            file_put_contents($filename, '<?php '.$this->bean->frontend);
+        }
+        if ($this->bean->backend) {
+            $filename = Flight::get('flight.views.path').'/cache/be'.md5($this->bean->name).'.php';
+            file_put_contents($filename, '<?php '.$this->bean->backend);
+        }
+    }
+    
+    /**
+     * After delete clean up the cached frontend and backend template files.
+     */
+    public function after_delete()
+    {
+        if (file_exists($filename = Flight::get('flight.views.path') . 
+                                    '/cache/fe' . md5($this->bean->name) . '.php')) {
+            unlink($filename = Flight::get('flight.views.path') . 
+                                '/cache/fe' . md5($this->bean->name) . '.php');
+        }
+        if (file_exists($filename = Flight::get('flight.views.path') . 
+                                    '/cache/be' . md5($this->bean->name) . '.php')) {
+            unlink($filename = Flight::get('flight.views.path') . 
+                                    '/cache/be' . md5($this->bean->name) . '.php');
+        }
+    }
 }
