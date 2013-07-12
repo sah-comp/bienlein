@@ -521,6 +521,16 @@ class Controller_Install extends Controller
         );
         R::store($template);
         //token
+        I18n::make('browser_is_not_supporting_iframe', array(
+            'de' => 'Die Vorschau konnte nicht eingebettet werden. Öffnen Sie die "Vorschau manuell":%s',
+            'en' => 'Open the "preview manually":%s because it could not be embedded',
+            'us' => 'Open the "preview manually":%s because it could not be embedded'
+        ));
+        I18n::make('domain_preview_tab', array(
+            'de' => 'Vorschau',
+            'en' => 'Preview',
+            'us' => 'Preview'
+        ));
         I18n::make('module_legend_backend', array(
             'de' => '',
             'en' => '',
