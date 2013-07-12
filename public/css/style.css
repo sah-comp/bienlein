@@ -657,7 +657,6 @@ ul.pagination-navigation a {
 
 /* Forms */
 form {
-    padding: 0.5em 1em;
 }
 
 form.inline,
@@ -770,7 +769,7 @@ textarea {
 }
 
 .panel {
-    padding-top: 1em;
+    padding: 0.5em 1em;
     border-top: 1px solid silver;
     position: relative;
 }
