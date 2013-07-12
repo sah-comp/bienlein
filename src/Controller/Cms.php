@@ -180,7 +180,7 @@ class Controller_Cms extends Controller
                 }
                 else {
                     R::store($slice);
-                    echo $slice->render('frontend');
+                    echo $slice->renderFrontend();
                     return;
                 }
             }
@@ -188,10 +188,7 @@ class Controller_Cms extends Controller
                 error_log($e);
             }
         }
-        $slice = R::load('slice', $id);
-		Flight::render("module/{$slice->module}/backend", array(
-		    'record' => $slice
-		), 'form_details');
+        $slice = R::load('slice', $id)->renderBackend('form_details');
 		Flight::render('module/form', array());
     }
     
@@ -213,10 +210,10 @@ class Controller_Cms extends Controller
     protected function add_page()
     {
         try {
-            $record = R::graph(Flight::request()->data->dialog, true);
-            R::store($record);
+            $page = R::graph(Flight::request()->data->dialog, true);
+            R::store($page);
             $this->trigger_meta = true;
-            return $this->node($record->domain_id, $record->getId());
+            return $this->node($page->domain_id, $page->getId());
         }
         catch (Exception $e) {
             error_log($e);
@@ -229,11 +226,9 @@ class Controller_Cms extends Controller
     protected function add_slice()
     {
         try {
-            $record = R::graph(Flight::request()->data->dialog, true);
-            R::store($record);
-    		Flight::render("module/{$record->module}/backend", array(
-    		    'record' => $record
-    		), 'form_details');
+            $slice = R::graph(Flight::request()->data->dialog, true);
+            R::store($slice);
+    		$slice->renderBackend('form_details');
     		Flight::render('module/form', array(), 'form');
     		Flight::render('cms/container/slice', array());
         }
