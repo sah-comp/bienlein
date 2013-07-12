@@ -674,10 +674,14 @@ form.page-add {
     padding: 0;
 }
 
-.page-meta {
+.page-meta,
+.preview {
     border-left: 1px solid red;
     margin-left: -0.5em;
     padding-left: 1em;
+}
+.preview {
+    border-left: 1px solid silver;
 }
 
 .page-meta .buttons {
@@ -792,6 +796,7 @@ textarea {
 }
 
 .tabs {
+    position: relative;
     border-bottom: 1px solid gray;
     margin-bottom: 1em;
     height: 1.5em;
