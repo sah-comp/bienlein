@@ -521,6 +521,46 @@ class Controller_Install extends Controller
         );
         R::store($template);
         //token
+        I18n::make('module_legend_backend', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('module_backend_tab', array(
+            'de' => 'Eingabe',
+            'en' => 'Input',
+            'us' => 'Input'
+        ));
+        I18n::make('module_backend_label', array(
+            'de' => 'Quellcode',
+            'en' => 'Sourcecode',
+            'us' => 'Sourcecode'
+        ));
+        I18n::make('module_backend_info', array(
+            'de' => 'PHP Quellcode für die Verarbeitung im Eingabemodus',
+            'en' => 'PHP code that will be executed when in backend mode',
+            'us' => 'PHP code that will be executed when in backend mode'
+        ));
+        I18n::make('module_legend_frontend', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('module_frontend_tab', array(
+            'de' => 'Ausgabe',
+            'en' => 'Output',
+            'us' => 'Output'
+        ));
+        I18n::make('module_frontend_label', array(
+            'de' => 'Quellcode',
+            'en' => 'Sourcecode',
+            'us' => 'Sourcecode'
+        ));
+        I18n::make('module_frontend_info', array(
+            'de' => 'PHP Quellcode für die Verarbeitung im Ausgabemodus',
+            'en' => 'PHP code that will be executed when in frontend mode',
+            'us' => 'PHP code that will be executed when in frontend mode'
+        ));
         I18n::make('person_address_tab', array(
             'de' => 'Postanschriften',
             'en' => 'Postal Addresses',
