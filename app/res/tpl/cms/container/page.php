@@ -25,7 +25,10 @@ if (isset($trigger_meta) && $trigger_meta) $default_tab = 'page-meta';
     class="tab-container">
     <?php Flight::render('shared/navigation/tabs', array(
         'tab_id' => 'page-tabs',
-        'tabs' =>  $regionAssoc + array('page-meta' => I18n::__('page_meta_tab')),
+        'tabs' =>  $regionAssoc + array(
+                'page-meta' => I18n::__('page_meta_tab'),
+                'domain-preview' => I18n::__('domain_preview_tab')
+            ),
         'default_tab' => $default_tab
     )) ?>
     <!-- page regions -->
@@ -121,6 +124,16 @@ if (isset($trigger_meta) && $trigger_meta) $default_tab = 'page-meta';
         <!-- page meta information -->
         <?php echo $page_meta ?>
         <!-- end of page meta -->
+    </div>
+    <!-- end of page meta -->
+    <!-- preview domain -->
+    <div
+        id="domain-preview"
+        class="tab"
+        style="display: none;">
+        <!-- page meta information -->
+        <?php echo $domain_preview ?>
+        <!-- end of preview domain -->
     </div>
     <!-- end of page meta -->
 </div>
