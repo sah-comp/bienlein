@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 07, 2013 at 10:59 AM
+-- Generation Time: Jul 12, 2013 at 12:22 PM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.15
 
@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `address` (
   PRIMARY KEY (`id`),
   KEY `index_foreignkey_address_country` (`country_id`),
   KEY `index_foreignkey_address_person` (`person_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -190,7 +190,7 @@ CREATE TABLE IF NOT EXISTS `info_page` (
   UNIQUE KEY `UQ_ee9052a72f7f9b71215857e78523438616b13827` (`info_id`,`page_id`),
   KEY `index_for_info_page_page_id` (`page_id`),
   KEY `index_for_info_page_info_id` (`info_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -206,7 +206,7 @@ CREATE TABLE IF NOT EXISTS `info_person` (
   UNIQUE KEY `UQ_cfade900b733c586de4479cf31d1b7db6bdc0144` (`info_id`,`person_id`),
   KEY `index_for_info_person_person_id` (`person_id`),
   KEY `index_for_info_person_info_id` (`info_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -266,6 +266,8 @@ CREATE TABLE IF NOT EXISTS `module` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `enabled` tinyint(1) unsigned DEFAULT NULL,
+  `backend` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `frontend` text COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -284,6 +286,7 @@ CREATE TABLE IF NOT EXISTS `news` (
   `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `teaser` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `content` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `archived` tinyint(3) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_foreignkey_news_newscat` (`newscat_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -377,12 +380,12 @@ CREATE TABLE IF NOT EXISTS `page` (
   `invisible` tinyint(3) unsigned DEFAULT NULL,
   `template_id` int(11) unsigned DEFAULT NULL,
   `sequence` int(11) unsigned DEFAULT NULL,
-  `keywords` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `keywords` text COLLATE utf8_unicode_ci,
   `desc` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_foreignkey_page_domain` (`domain_id`),
   KEY `index_foreignkey_page_template` (`template_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -441,8 +444,10 @@ CREATE TABLE IF NOT EXISTS `person` (
   `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `phone` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `fax` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `enabled` tinyint(3) unsigned DEFAULT NULL,
+  `url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -458,7 +463,7 @@ CREATE TABLE IF NOT EXISTS `person_role` (
   UNIQUE KEY `UQ_04c1149539014ed74d6c154643c96003907cef67` (`person_id`,`role_id`),
   KEY `index_for_person_role_role_id` (`role_id`),
   KEY `index_for_person_role_person_id` (`person_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -474,7 +479,7 @@ CREATE TABLE IF NOT EXISTS `person_tag` (
   UNIQUE KEY `UQ_4c8eb2828c6510be7bb21d29e01556243dc3b277` (`person_id`,`tag_id`),
   KEY `index_for_person_tag_person_id` (`person_id`),
   KEY `index_for_person_tag_tag_id` (`tag_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -567,7 +572,7 @@ CREATE TABLE IF NOT EXISTS `slice` (
   `css` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_foreignkey_slice_page` (`page_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -840,6 +845,7 @@ ALTER TABLE `teami18n`
 --
 ALTER TABLE `tokeni18n`
   ADD CONSTRAINT `cons_fk_tokeni18n_token_id_id` FOREIGN KEY (`token_id`) REFERENCES `token` (`id`) ON DELETE SET NULL ON UPDATE SET NULL;
+
 
 
 --
