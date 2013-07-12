@@ -33,23 +33,60 @@ class Model_Slice extends Model
         }
         return $option;
     }
-
+    
     /**
-     * Outputs a template based on this slice module.
+     * Returns a module bean with the given name.
      *
-     * @uses $module
+     * @param string (optional) $module_name defaults to $this->bean->module
+     * @return RedBean_OODBBean $module
+     */
+    public function getModule($module_name = null)
+    {
+        if ($module_name === null) $module_name = $this->bean->module;
+        if ( ! $module = R::findOne('module', ' name = ?', array($module_name))) {
+            $module = R::dispense('module');
+        }
+        return $module;
+    }
+    
+    /**
+     * Renders either the static backend tpl or the dynamic one of this slice module.
      *
+     * @param string (optional) $container_name defaults to null, just renders the slice
      * @return void
      */
-    public function render($template = 'frontend')
+    public function renderBackend($container_name = null)
+    {
+        $tpl = "module/{$this->bean->module}/backend";
+        if ( ! Flight::view()->exists($tpl)) {
+            $tpl = 'cache/be'.md5($this->getModule()->name);
+        }
+        Flight::render($tpl, array(
+		    'record' => $this->bean
+		), $container_name);
+		return;
+    }
+
+    /**
+     * Renders the slice for frontend view.
+     *
+     * @param string (optional) $container_name defaults to null, just renders the slice
+     * @return void
+     */
+    public function renderFrontend($container_name = null)
     {
         if ( ! $this->bean->module) {
             echo I18n::__('slice_module_not_set');
             return;
         }
-        Flight::render("module/{$this->bean->module}/{$template}", array(
+        $tpl = "module/{$this->bean->module}/frontend";
+        if ( ! Flight::view()->exists($tpl)) {
+            $tpl = 'cache/fe'.md5($this->getModule()->name);
+        }
+        Flight::render($tpl, array(
             'record' => $this->bean
-        ));
+        ), $container_name);
+        return;
     }
     
     /**
@@ -65,7 +102,8 @@ class Model_Slice extends Model
      */
     public function update()
     {
-        if ($this->bean->page && $this->bean->page->domain) $this->bean->page->domain->lastmodified = time();
+        if ($this->bean->page && $this->bean->page->domain) 
+                                    $this->bean->page->domain->lastmodified = time();
         parent::update();
     }
     
