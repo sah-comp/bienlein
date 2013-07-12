@@ -84,11 +84,11 @@ class Model_Module extends Model
     {
         if ($this->bean->frontend) {
             $filename = Flight::get('flight.views.path').'/cache/fe'.md5($this->bean->name).'.php';
-            file_put_contents($filename, '<?php '.$this->bean->frontend);
+            file_put_contents($filename, $this->bean->frontend);
         }
         if ($this->bean->backend) {
             $filename = Flight::get('flight.views.path').'/cache/be'.md5($this->bean->name).'.php';
-            file_put_contents($filename, '<?php '.$this->bean->backend);
+            file_put_contents($filename, $this->bean->backend);
         }
     }
     
