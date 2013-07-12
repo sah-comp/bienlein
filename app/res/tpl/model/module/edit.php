@@ -45,4 +45,48 @@
         </label>
     </div>
 </fieldset>
+<div class="tab-container">
+    <?php Flight::render('shared/navigation/tabs', array(
+        'tab_id' => 'module-tabs',
+        'tabs' => array(
+            'module-backend' => I18n::__('module_backend_tab'),
+            'module-frontend' => I18n::__('module_frontend_tab')
+        ),
+        'default_tab' => 'module-backend'
+    )) ?>
+    <fieldset
+        id="module-backend"
+        class="tab"
+        style="display: block;">
+        <legend><?php echo I18n::__('module_legend_backend') ?></legend>
+        <div class="row">
+            <label
+                for="module-backend-php"><?php echo I18n::__('module_backend_label') ?>
+            </label>
+            <textarea
+                id="module-backend-php"
+                name="dialog[backend]"
+                rows="17"
+                cols="60"><?php echo htmlspecialchars($record->backend) ?></textarea>
+            <p class="info"><?php echo I18n::__('module_backend_info') ?></p>
+        </div>
+    </fieldset>
+    <fieldset
+        id="module-frontend"
+        class="tab"
+        style="display: none;">
+        <legend><?php echo I18n::__('module_legend_frontend') ?></legend>
+        <div class="row">
+            <label
+                for="module-frontend-php"><?php echo I18n::__('module_frontend_label') ?>
+            </label>
+            <textarea
+                id="module-backend-php"
+                name="dialog[frontend]"
+                rows="17"
+                cols="60"><?php echo htmlspecialchars($record->frontend) ?></textarea>
+            <p class="info"><?php echo I18n::__('module_frontend_info') ?></p>
+        </div>
+    </fieldset>
+</div>
 <!-- end of module edit form -->
