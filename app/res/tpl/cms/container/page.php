@@ -48,7 +48,7 @@ if (isset($trigger_meta) && $trigger_meta) $default_tab = 'page-meta';
                 class="slice-container"
                 data-href="<?php echo Url::build('/cms/slice/%d', array($_slice->getId())) ?>"
                 data-container="slice-<?php echo $_slice->getId() ?>">
-                <?php echo $_slice->render('frontend') ?>
+                <?php echo $_slice->renderFrontend() ?>
             </div>
             <!-- end of slice -->
             <?php endforeach ?>

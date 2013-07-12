@@ -102,7 +102,7 @@
                     </select>
                 </div>
                 <div class="span9">
-                    <?php $_slice->render('backend') ?>
+                    <?php $_slice->renderBackend() ?>
                 </div>
             </div>
         </div>
