@@ -110,6 +110,9 @@ class Controller_Cms extends Controller
 		Flight::render('cms/container/meta', array(
 		    'page' => $page
 		), 'page_meta');
+		Flight::render('cms/container/preview', array(
+		    'domain' => $domain
+		), 'domain_preview');
 		Flight::render('cms/container/page', array(
 		    'trigger_meta' => $this->trigger_meta,
 		    'page' => $page
@@ -130,6 +133,9 @@ class Controller_Cms extends Controller
 		Flight::render('cms/container/meta', array(
 		    'page' => $page
 		), 'page_meta');
+		Flight::render('cms/container/preview', array(
+		    'domain' => $page->domain
+		), 'domain_preview');
 		Flight::render('cms/container/page', array(
 		    'trigger_meta' => $this->trigger_meta,
 		    'page' => $page
