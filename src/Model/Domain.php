@@ -99,7 +99,7 @@ class Model_Domain extends Model
                         $template_data[mb_strtolower($region->name)] = '';
                     }
                     ob_start();
-                    $slice->render('frontend');
+                    $slice->renderFrontend();
                     $content = ob_get_contents();
                     ob_end_clean();
                     if (($slice->css || $slice->class) && ! $slice->tag) {
