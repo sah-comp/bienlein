@@ -34,7 +34,9 @@ In your project directory do:
 
 composer install
 
-In directory public create a folder upload and make it writeable for PHP.
+Create these folders and make them writeable to PHP:
+* public/upload
+* app/res/tpl/cache
 
 Point your browser to http://example.com/install and follow the instructions.
 
