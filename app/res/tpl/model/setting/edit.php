@@ -76,6 +76,23 @@
                 <?php endforeach ?>
             </select>
         </div>
+        <div class="row <?php echo ($record->hasError('homepage')) ? 'error' : ''; ?>">
+            <label
+                for="setting-homepage">
+                <?php echo I18n::__('setting_label_homepage') ?>
+            </label>
+            <select
+                id="setting-homepage"
+                name="dialog[homepage]">
+                <option value="0"><?php echo I18n::__('setting_homepage_none') ?></value>
+                <?php foreach ($domains as $_id => $_domain): ?>
+                <option
+                    value="<?php echo $_domain->getId() ?>"
+                    <?php echo ($record->homepage == $_domain->getId()) ? 'selected="selected"' : '' ?>><?php echo htmlspecialchars($_domain->i18n(Flight::get('language'))->name) ?></option>   
+                <?php endforeach ?>
+            </select>
+            <p class="info"><?php echo I18n::__('setting_homepage_info') ?></p>
+        </div>
     </fieldset>
     <fieldset
         id="setting-currency"
