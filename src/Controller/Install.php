@@ -521,6 +521,22 @@ class Controller_Install extends Controller
         );
         R::store($template);
         //token
+        I18n::make('setting_label_homepage', array(
+            'de' => 'Startseite',
+            'en' => 'Homepage',
+            'us' => 'Homepage'
+        ));
+        I18n::make('setting_homepage_none', array(
+            'de' => 'Keine',
+            'en' => 'None',
+            'us' => 'None'
+        ));
+        I18n::make('setting_homepage_info', array(
+            'de' => 'Ohne Startseite erscheint die Standard Willkommen-Seite',
+            'en' => 'If no homepage is set the welcome controller will run',
+            'us' => 'If no homepage is set the welcome controller will run'
+        ));
+        
         I18n::make('browser_is_not_supporting_iframe', array(
             'de' => 'Die Vorschau konnte nicht eingebettet werden. Öffnen Sie die "Vorschau manuell":%s',
             'en' => 'Open the "preview manually":%s because it could not be embedded',
