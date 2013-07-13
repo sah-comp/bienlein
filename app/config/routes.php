@@ -21,9 +21,13 @@ Flight::route('(/@language:[a-z]{2})', function($language) {
 });
 
 /**
- * Route the root to our welcome controller.
+ * Top level url routes to either '/' domain or the welcome controller jumps in.
  */
 Flight::route('(/[a-z]{2})/', function() {
+    if (Flight::setting()->homepage) {
+        $cmsController = new Controller_Cms();
+    	$cmsController->frontend(R::load('domain', Flight::setting()->homepage));
+    }
 	$welcomeController = new Controller_Welcome();
 	$welcomeController->index();
 });
