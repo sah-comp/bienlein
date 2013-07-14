@@ -10,7 +10,7 @@
 ?>
 <iframe
     class="preview"
-    src="<?php echo Url::build($domain->url) ?>"
+    src="<?php echo Url::build($domain->url.'/?preview') ?>"
     width="98%"
     height="640px"
     name="<?php echo htmlspecialchars($domain->name) ?>">
