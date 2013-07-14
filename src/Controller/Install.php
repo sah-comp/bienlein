@@ -521,7 +521,7 @@ class Controller_Install extends Controller
         );
         R::store($template);
         //token
-        I18n::make('setting_label_homepage', array(
+        I18n::make('setting_homepage_label', array(
             'de' => 'Startseite',
             'en' => 'Homepage',
             'us' => 'Homepage'
