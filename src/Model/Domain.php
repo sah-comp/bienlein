@@ -83,7 +83,7 @@ class Model_Domain extends Model
         R::preload($pages, array('template'));
         $first_page = reset($pages);
         $template_data = array(
-            'mytemplate' => $first_page->template->name,
+            'mytemplate' => $first_page->template,
             'domain' => $this->bean,
             'title' => $first_page->name,
             'language' => $language,
