@@ -32,7 +32,9 @@
     <?php Flight::render('shared/navigation/tabs', array(
         'tab_id' => 'template-tabs',
         'tabs' => array(
-            'template-region' => I18n::__('template_region_tab')
+            'template-region' => I18n::__('template_region_tab'),
+            'template-html' => I18n::__('template_html_tab'),
+            'template-text' => I18n::__('template_text_tab')
         ),
         'default_tab' => 'template-region'
     )) ?>
@@ -75,11 +77,46 @@
                     id="region-<?php echo $_region_id ?>-name"
                     type="text"
                     name="dialog[ownRegion][<?php echo $_region_id ?>][name]"
-                    value="<?php echo htmlspecialchars($_region->name) ?>"
-                    required="required" />
+                    value="<?php echo htmlspecialchars($_region->name) ?>" />
             </div>
         </div>
         <?php endforeach ?>
+    </fieldset>
+    <fieldset
+        id="template-html"
+        class="tab"
+        style="display:none;">
+        <legend class="verbose"><?php echo I18n::__('template_legend_html') ?></legend>
+        <div class="row <?php echo ($record->hasError('html')) ? 'error' : ''; ?>">
+            <label
+                for="template-html">
+                <?php echo I18n::__('template_label_html') ?>
+            </label>
+            <textarea
+                id="template-html"
+                name="dialog[html]"
+                rows="23"
+                cols="60"><?php echo htmlspecialchars($record->html) ?></textarea>
+            <p class="info"><?php echo I18n::__('template_html_info') ?></p>
+        </div>
+    </fieldset>
+    <fieldset
+        id="template-text"
+        class="tab"
+        style="display:none;">
+        <legend class="verbose"><?php echo I18n::__('template_legend_text') ?></legend>
+        <div class="row <?php echo ($record->hasError('txt')) ? 'error' : ''; ?>">
+            <label
+                for="template-txt">
+                <?php echo I18n::__('template_label_text') ?>
+            </label>
+            <textarea
+                id="template-txt"
+                name="dialog[txt]"
+                rows="23"
+                cols="60"><?php echo htmlspecialchars($record->txt) ?></textarea>
+            <p class="info"><?php echo I18n::__('template_text_info') ?></p>
+        </div>
     </fieldset>
 </div>
 <!-- end of template edit form -->
