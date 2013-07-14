@@ -521,6 +521,58 @@ class Controller_Install extends Controller
         );
         R::store($template);
         //token
+        I18n::make('template_html_tab', array(
+            'de' => 'HTML',
+            'en' => 'HTML',
+            'us' => 'HTML'
+        ));
+        I18n::make('template_text_tab', array(
+            'de' => 'Startseite',
+            'en' => 'Homepage',
+            'us' => 'Homepage'
+        ));
+        I18n::make('template_legend_html', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('template_label_html', array(
+            'de' => 'HTML',
+            'en' => 'HTML',
+            'us' => 'HTML'
+        ));
+        I18n::make('template_html_info', array(
+            'de' => 'HTML wird mit Inhalten aus dem CMS gemischt',
+            'en' => 'HTML as a template for usage with the CMS',
+            'us' => 'HTML as a template for usage with the CMS'
+        ));
+        I18n::make('template_legend_text', array(
+            'de' => '',
+            'en' => '',
+            'us' => 'Homepage'
+        ));
+        I18n::make('template_label_txt', array(
+            'de' => 'Text',
+            'en' => 'Text',
+            'us' => 'Text'
+        ));
+        I18n::make('template_text_info', array(
+            'de' => 'Nur-Text wird z.B. bei E-Mail Versand benutzt',
+            'en' => 'Text-Only will be used as alternative content, e.g. for mailings',
+            'us' => 'Text-Only will be used as alternative content, e.g. for mailings'
+        ));
+        I18n::make('template_html_tab', array(
+            'de' => 'HTML',
+            'en' => 'HTML',
+            'us' => 'HTML'
+        ));
+        I18n::make('template_text_tab', array(
+            'de' => 'Nur-Text',
+            'en' => 'Text-Only',
+            'us' => 'Text-Only'
+        ));
+        
+        
         I18n::make('setting_homepage_label', array(
             'de' => 'Startseite',
             'en' => 'Homepage',
