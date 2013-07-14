@@ -219,7 +219,8 @@ Flight::route('(/[a-z]{2})/forbidden', function() {
  * routes before the notFound escape.
  */
 Flight::map('notFound', function() {
-    if ($domain = R::findOne('domain', ' url = ? ', array(trim(Flight::request()->url, '/')))) {
+    $parsed = parse_url(Flight::request()->url);
+    if ($domain = R::findOne('domain', ' url = ? ', array(trim($parsed['path'], '/')))) {
         $cmsController = new Controller_Cms();
     	$cmsController->frontend($domain);
     }
