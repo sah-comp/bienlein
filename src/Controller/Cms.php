@@ -25,7 +25,7 @@ class Controller_Cms extends Controller
     public $trigger_meta = false;
     
     /**
-     * Renders a domain when it has pages.
+     * Renders a domain when it has pages otherwise show a 404 error.
      *
      * @uses Model_Domain::getContent()
      *
@@ -35,8 +35,12 @@ class Controller_Cms extends Controller
     {
         $template_data = $domain->getContent(Flight::get('language'));
         if (empty($template_data['content'])) return false;//no content? say 404?
-        Flight::lastModified($domain->lastmodified);
-        Flight::render($template_data['mytemplate'], $template_data);
+        if ( ! Flight::request()->query->preview) Flight::lastModified($domain->lastmodified);
+        $tpl = $template_data['mytemplate']->name;
+        if ( ! Flight::view()->exists($tpl)) {
+            $tpl = 'cache/htm'.md5($template_data['mytemplate']->name);
+        }
+        Flight::render($tpl, $template_data);
         Flight::stop();
     }
 
