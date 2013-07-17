@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 12, 2013 at 12:22 PM
+-- Generation Time: Jul 17, 2013 at 11:32 PM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.15
 
@@ -241,6 +241,23 @@ CREATE TABLE IF NOT EXISTS `language` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `login`
+--
+
+CREATE TABLE IF NOT EXISTS `login` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `stamp` int(11) unsigned DEFAULT NULL,
+  `attempt` tinyint(1) unsigned DEFAULT NULL,
+  `ipaddr` int(11) unsigned DEFAULT NULL,
+  `uname` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `user_id` int(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_foreignkey_login_user` (`user_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `media`
 --
 
@@ -254,7 +271,7 @@ CREATE TABLE IF NOT EXISTS `media` (
   `desc` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `sanename` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -551,6 +568,7 @@ CREATE TABLE IF NOT EXISTS `setting` (
   `fiscalyear` int(11) unsigned DEFAULT NULL,
   `exchangerateservice` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `exchangeratelastupd` date DEFAULT NULL,
+  `homepage` tinyint(3) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -637,6 +655,8 @@ CREATE TABLE IF NOT EXISTS `teami18n` (
 CREATE TABLE IF NOT EXISTS `template` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `html` text COLLATE utf8_unicode_ci,
+  `txt` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -684,6 +704,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `isdeleted` tinyint(3) unsigned DEFAULT NULL,
   `isbanned` tinyint(3) unsigned DEFAULT NULL,
   `screenname` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sid` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -749,6 +770,12 @@ ALTER TABLE `info_person`
 ALTER TABLE `info_user`
   ADD CONSTRAINT `info_user_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `info_user_ibfk_2` FOREIGN KEY (`info_id`) REFERENCES `info` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `login`
+--
+ALTER TABLE `login`
+  ADD CONSTRAINT `cons_fk_login_user_id_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE SET NULL;
 
 --
 -- Constraints for table `news`
@@ -845,6 +872,7 @@ ALTER TABLE `teami18n`
 --
 ALTER TABLE `tokeni18n`
   ADD CONSTRAINT `cons_fk_tokeni18n_token_id_id` FOREIGN KEY (`token_id`) REFERENCES `token` (`id`) ON DELETE SET NULL ON UPDATE SET NULL;
+
 
 
 
