@@ -23,6 +23,9 @@ class Controller_Logout extends Controller
     public function index()
     {
         session_start();
+        Auth::check();
+        Flight::get('user')->logout();
+        R::store(Flight::get('user'));
         unset($_SESSION);
         session_destroy();
         $this->redirect('/');

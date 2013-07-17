@@ -21,6 +21,18 @@
         <div>
             <input type="hidden" name="dialog[type]" value="<?php echo $record->getMeta('type') ?>" />
             <input type="hidden" name="dialog[id]" value="<?php echo $record->getId() ?>" />
+            <input
+                type="hidden"
+                name="dialog[stamp]"
+                value="<?php echo htmlspecialchars($record->stamp) ?>" />
+            <input
+                type="hidden"
+                name="dialog[ipaddr]"
+                value="<?php echo htmlspecialchars($record->ipaddr) ?>" />
+            <input
+                type="hidden"
+                name="dialog[attempt]"
+                value="<?php echo htmlspecialchars($record->attempt) ?>" />
             <input type="hidden" name="goto" value="<?php echo $goto ?>" />
         </div>
         <fieldset>

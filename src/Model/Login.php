@@ -27,6 +27,7 @@ class Model_Login extends Model
      */
     public function trial()
     {
+        $this->bean->attempt++;
         if ( ! $user = R::findOne('user', 'email=:uname OR shortname=:uname', array(
             ':uname' => $this->bean->uname
         ))) {
@@ -41,8 +42,27 @@ class Model_Login extends Model
             $this->addError(I18n::__('login_pw_wrong'), 'pw');
             return false;
         }
-        unset($this->bean->pw); //unset the good password in this login
         $this->bean->user = $user;
         return true;
+    }
+    
+    /**
+     * dispense.
+     */
+    public function dispense()
+    {
+        $this->bean->stamp = time();
+        $this->bean->attempt = 0;
+        $this->bean->ipaddr = ip2long(Flight::request()->ip);
+        $this->addValidator('uname', new Validator_HasValue());
+    }
+    
+    /**
+     * Update.
+     */
+    public function update()
+    {
+        unset($this->bean->pw);
+        parent::update();
     }
 }

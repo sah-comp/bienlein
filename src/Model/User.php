@@ -82,6 +82,14 @@ class Model_User extends Model
     }
     
     /**
+     * Logout the user.
+     */
+    public function logout()
+    {
+        $this->bean->sid = null;
+    }
+    
+    /**
      * Returns the users screenname, depending on what the user has choose in the profile.
      *
      * @return string $name
