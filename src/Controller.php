@@ -49,7 +49,7 @@ class Controller
      * @param string $url
      * @param bool (optional) $raw defaults to false, if true the url will not be prefixed
      */
-    public function redirect($url = null, $raw = false)
+    static public function redirect($url = null, $raw = false)
     {
         if ( ! $raw && Flight::get('language') != Flight::get('default_language')) {
             $url = '/'.Flight::get('language').$url; //prefix with language code
