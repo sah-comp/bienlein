@@ -237,8 +237,7 @@ class Controller_Cms extends Controller
             $slice = R::graph(Flight::request()->data->dialog, true);
             $slice->sequence = $slice->page->withCondition('region_id = ?', array($slice->region_id))->countOwn('slice');
             R::store($slice);
-    		$slice->renderBackend('form_details');
-    		Flight::render('module/form', array(), 'form');
+    		$slice->renderBackend('form');
     		Flight::render('cms/container/slice', array());
         }
         catch (Exception $e) {
