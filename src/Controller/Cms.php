@@ -25,16 +25,15 @@ class Controller_Cms extends Controller
     public $trigger_meta = false;
     
     /**
-     * Renders a domain when it has pages otherwise show a 404 error.
+     * Renders a domain when it has pages otherwise shows a 404 error.
      *
      * @uses Model_Domain::getContent()
-     *
      * @param RedBean_OODBean $domain to render
      */
     public function frontend(RedBean_OODBBean $domain)
     {
         $template_data = $domain->getContent(Flight::get('language'));
-        if (empty($template_data['content'])) return false;//no content? say 404?
+        if (empty($template_data['content'])) return false;//no content? say 404!
         if ( ! Flight::request()->query->preview) Flight::lastModified($domain->lastmodified);
         $tpl = $template_data['mytemplate']->name;
         if ( ! Flight::view()->exists($tpl)) {
@@ -237,6 +236,7 @@ class Controller_Cms extends Controller
     {
         try {
             $slice = R::graph(Flight::request()->data->dialog, true);
+            $slice->sequence = $slice->page->withCondition('region_id = ?', array($slice->region_id))->countOwn('slice');
             R::store($slice);
     		$slice->renderBackend('form_details');
     		Flight::render('module/form', array(), 'form');
