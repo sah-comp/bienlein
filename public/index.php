@@ -8,8 +8,10 @@
  * @version $Id$
  */
 
-//Autoload, configure and load routes
+// Autoload
 require __DIR__ . '/../vendor/autoload.php';
+// Configure system and Routes
+class_alias('RedBean_Facade', 'R');
 require __DIR__ . '/../app/config/config.php';
 require __DIR__ . '/../app/config/routes.php';
 // Take off

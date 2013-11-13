@@ -14,10 +14,11 @@
 		"php": ">=5.3.3",
 		"mikecao/flight": "dev-master",
 		"ircmaxell/password-compat": "dev-master",
-        "netcarver/textile": "v2.5.1"
+		"gabordemooij/redbean": "dev-master",
+        "netcarver/textile": "v2.5.1",
+        "intervention/image": "dev-master"
 	},
 	"require-dev": {
-	    "gabordemooij/redbean": "3.4.*",
 		"phpunit/phpunit": "3.7.*"
 	},
 	"suggest": {
@@ -26,7 +27,6 @@
 	"autoload": {
 		"psr-0": {
 			"": "src/"
-		},
-		"files": ["src/lib/redbean/rb.php"]
+		}
 	}
 }
