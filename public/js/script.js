@@ -62,15 +62,21 @@ $(document).ready(function() {
     });
     
 	/**
-	 * Form with class inplace will be sent as POST and update an element in the DOM
-	 * given by the data-container attribute.
+	 * Form with class inplace will be ajaxified by jQuery form plugin and
+	 * the response is placed into the element given in data-container.
 	 */
     $(".inline, .inline-add").live("submit", function(event) {
-        event.preventDefault();
-        // submit the form
         var form = $(this);
         var container = form.attr("data-container");
         if ($("#"+container).hasClass("active")) $("#"+container).removeClass("active");
+        form.ajaxSubmit({
+            success: function(response) {
+                if ( ! form.hasClass("inline-add")) $("#"+container).empty();
+                $("#"+container).append(response);
+            }
+        });
+        return false;
+        /*
         $.ajax({
             type: "POST",
             url: form.attr("action"),
@@ -80,6 +86,7 @@ $(document).ready(function() {
                 $("#"+container).append(response);
             }
         });
+        */
     });
     
     /**
