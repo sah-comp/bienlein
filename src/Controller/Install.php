@@ -450,7 +450,7 @@ class Controller_Install extends Controller
         $setting->sitesfolder = $domains[12]->getId();
 
         //modules
-        $modules = R::dispense('module', 4);
+        $modules = R::dispense('module', 5);
         $modules[0]->name = 'textile';
         $modules[0]->enabled = true;
         $modules[1]->name = 'text';
@@ -459,6 +459,8 @@ class Controller_Install extends Controller
         $modules[2]->enabled = true;
         $modules[3]->name = 'html';
         $modules[3]->enabled = true;
+        $modules[4]->name = 'gallery';
+        $modules[4]->enabled = true;
         R::storeAll($modules);
         
         //language
@@ -972,6 +974,11 @@ class Controller_Install extends Controller
             'en' => 'Empty Textile',
             'us' => 'Empty Textile'
         ));
+        I18n::make('module_gallery_missing_content', array(
+            'de' => 'Leere Galerie',
+            'en' => 'Empty Gallery',
+            'us' => 'Empty Gallery'
+        ));
         I18n::make('module_text_missing_content', array(
             'de' => 'Ohne Text',
             'en' => 'Empty Text',
@@ -1081,6 +1088,11 @@ class Controller_Install extends Controller
             'us' => ''
         ));
         I18n::make('module_legend_html', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('module_legend_gallery', array(
             'de' => '',
             'en' => '',
             'us' => ''
@@ -1625,6 +1637,11 @@ class Controller_Install extends Controller
             'de' => 'HTML',
             'en' => 'HTML',
             'us' => 'HTML'
+        ));
+        I18n::make('module_gallery', array(
+            'de' => 'Galerie',
+            'en' => 'Gallery',
+            'us' => 'Gallery'
         ));
         I18n::make('media_h1', array(
             'de' => 'Medien',
