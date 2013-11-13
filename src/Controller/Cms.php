@@ -197,8 +197,7 @@ class Controller_Cms extends Controller
                 error_log($e);
             }
         }
-        $slice = R::load('slice', $id)->renderBackend('form_details');
-		Flight::render('module/form', array());
+        $slice = R::load('slice', $id)->renderBackend();
     }
     
     /**
