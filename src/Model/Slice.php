@@ -50,6 +50,16 @@ class Model_Slice extends Model
     }
     
     /**
+     * Returns media beans of this slice.
+     *
+     * @return array
+     */
+    public function getMedias()
+    {
+        return R::find('media', ' slice_id = ? ORDER BY sequence', array($this->bean->getId()));
+    }
+    
+    /**
      * Renders either the static backend tpl or the dynamic one of this slice module.
      *
      * @param string (optional) $container_name defaults to null, just renders the slice
