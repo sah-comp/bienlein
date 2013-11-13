@@ -153,14 +153,15 @@ class Model_Media extends Model
     {
         $files = reset(Flight::request()->files);
         $file = reset($files);
-        if ($this->bean->getId() && $file['error'] == 4) {
+        if ($this->bean->getId() && (empty($file) || $file['error'] == 4)) {
             
-        } else {
+        }
+        else
+        {
             if ($file['error']) {
                 $this->addError($file['error'], 'file');
                 throw new Exception('fileupload error');
             }
-        
             $file_parts = pathinfo($file['name']);
             $this->bean->sanename = $this->sanitizeFilename($file_parts['filename']);
             $this->bean->extension = strtolower($file_parts['extension']);
