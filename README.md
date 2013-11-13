@@ -20,6 +20,7 @@ Features
 
 * Multilingual
 * Role based access control
+* CMS
 
 Installation
 ------------
@@ -82,7 +83,7 @@ composer update
 RedBeanPHP
 ----------
 
-I enjoy [RedBeanPHP](http://redbeanphp.com/) as a ORM, so it is included as require-dev when you install via composer. Nevertheless the really used RedBeanPHP is in /src/lib/redbean because RedBeans composer does not offer a compiled version. Instead it offers a redbean.inc.php file which does not have all the stuff from the compiled version.
+I enjoy [RedBeanPHP](http://redbeanphp.com/) as a ORM.
 
 
 Tests
