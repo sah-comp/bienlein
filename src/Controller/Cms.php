@@ -33,7 +33,6 @@ class Controller_Cms extends Controller
     public function frontend(RedBean_OODBBean $domain)
     {
         $template_data = $domain->getContent(Flight::get('language'));
-        if (empty($template_data['content'])) return false;//no content? say 404!
         if ( ! Flight::request()->query->preview) Flight::lastModified($domain->lastmodified);
         $tpl = $template_data['mytemplate']->name;
         if ( ! Flight::view()->exists($tpl)) {
