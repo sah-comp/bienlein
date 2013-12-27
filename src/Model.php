@@ -296,6 +296,16 @@ SQL;
     }
     
     /**
+     * Returns the translated word for a beans name attribute.
+     *
+     * @return string
+     */
+    public function translated()
+    {
+        return $this->bean->i18n(Flight::get('user')->getLanguage())->name;
+    }
+    
+    /**
      * Update.
      */
     public function update()
