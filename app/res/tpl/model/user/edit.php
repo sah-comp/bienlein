@@ -66,6 +66,23 @@
             required="required" />
     </div>
     <div
+        class="row <?php echo $record->hasError('maxlifetime') ? 'error' : '' ?>">
+        <label
+            for="user-maxlifetime">
+            <?php echo I18n::__('user_label_maxlifetime') ?>
+        </label>
+        <input
+            type="number"
+            min="60"
+            max="14400"
+            step="60"
+            id="user-maxlifetime"
+            name="dialog[maxlifetime]"
+            value="<?php echo htmlspecialchars($record->maxlifetime) ?>"
+            required="required" />
+        <p class="info"><?php echo I18n::__('user_info_maxlifetime') ?></p>
+    </div>
+    <div
         class="row <?php echo $record->hasError('isadmin') ? 'error' : '' ?>">
         <input
             type="hidden"

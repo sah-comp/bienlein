@@ -113,6 +113,17 @@ class Model_User extends Model
         }
         return $_SESSION['backend']['language'];
     }
+
+    /**
+     * Returns a users max session lifetime.
+     *
+     * @return int
+     */
+    public function maxLifetime()
+    {
+        if ( ! $this->bean->maxlifetime) return MAX_SESSION_LIFETIME;
+        return $this->bean->maxlifetime;
+    }
     
     /**
      * Returns wether the user is banned or not.
@@ -196,6 +207,7 @@ class Model_User extends Model
     public function dispense()
     {
         $this->bean->screenname = 'shortname';
+        $this->bean->maxlifetime = MAX_SESSION_LIFETIME;
         $this->autoInfo(true);
         $this->addValidator('name', array(
             new Validator_HasValue()

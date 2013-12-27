@@ -85,7 +85,7 @@ Flight::set('default_language', 'de');
 /**
  * Set possible languages.
  */
-Flight::set('possible_languages', R::dispense('language')->getEnabled('de'));
+Flight::set('possible_languages', R::dispense('language')->getEnabled(Flight::get('default_language')));
 
 /**
  * Set the current language.
@@ -151,6 +151,11 @@ ini_set('url_rewriter.tags', '');
 ini_set('session.use_trans_sid', '0');
 ini_set('session.use_cookies', '1');
 ini_set('session.use_only_cookies', '1');
+
+/**
+ * Define the maximum session lifetime in seconds.
+ */
+define('MAX_SESSION_LIFETIME', 14400); // 4 hours
 
 $sessionhandler = new Sessionhandler_Database();
 session_set_save_handler(array($sessionhandler, 'open'),
