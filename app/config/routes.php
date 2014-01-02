@@ -28,8 +28,11 @@ Flight::route('(/[a-z]{2})/', function() {
         $cmsController = new Controller_Cms();
     	$cmsController->frontend(R::load('domain', Flight::setting()->homepage));
     }
-	$welcomeController = new Controller_Welcome();
-	$welcomeController->index();
+    else
+    {
+	    $welcomeController = new Controller_Welcome();
+	    $welcomeController->index();
+	}
 });
 
 /**
@@ -224,9 +227,12 @@ Flight::map('notFound', function() {
         $cmsController = new Controller_Cms();
     	$cmsController->frontend($domain);
     }
-    Flight::render('404', array(), 'content');
-    Flight::render('html5', array(
-        'language' => Flight::get('language'),
-        'title' => I18n::__('notfound_head_title')
-    ));
+    else
+    {
+        Flight::render('404', array(), 'content');
+        Flight::render('html5', array(
+            'language' => Flight::get('language'),
+            'title' => I18n::__('notfound_head_title')
+        ));
+    }
 });

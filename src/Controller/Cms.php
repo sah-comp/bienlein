@@ -39,7 +39,6 @@ class Controller_Cms extends Controller
             $tpl = 'cache/htm'.md5($template_data['mytemplate']->name);
         }
         Flight::render($tpl, $template_data);
-        Flight::stop();
     }
 
     /**
