@@ -45,13 +45,14 @@ class Controller_Login extends Controller
             }
         }
         // either no yet submitted or the credentials given failed
-        Flight::render('login', array(
+        Flight::render('account/login', array(
             'goto' => htmlspecialchars(Flight::request()->query->goto),
             'record' => $login
         ), 'content');
         Flight::render('html5', array(
             'title' => I18n::__('login_head_title'),
-            'language' => Flight::get('language')
+            'language' => Flight::get('language'),
+            'stylesheets' => array('custom', 'default')
         ));
     }
 }

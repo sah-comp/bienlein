@@ -18,5 +18,5 @@
 		</a>
 	</h1>
 	<h2 class="visuallyhidden"><?php echo I18n::__('app_claim') ?></h2>
-	<?php echo $navigation ?>
+	<?php if (isset($navigation)) echo $navigation ?>
 </header>

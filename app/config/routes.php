@@ -48,6 +48,14 @@ Flight::route('(/[a-z]{2})/logout', function() {
 });
 
 /**
+ * Routes to lostpassword controller.
+ */
+ Flight::route('(/[a-z]{2})/lostpassword', function() {
+ 	$lostpasswordController = new Controller_Lostpassword();
+ 	$lostpasswordController->index();
+ });
+
+/**
  * Routes to the admin controller.
  */
 Flight::route('(/[a-z]{2})/admin(/index)', function() {

@@ -22,6 +22,11 @@
 		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         
 		<link rel="stylesheet" href="/css/style.css">
+		<?php if (isset($stylesheets) && is_array($stylesheets)): ?>
+            <?php foreach ($stylesheets as $_n=>$_stylesheet): ?>
+            <link rel="stylesheet" href="/css/<?php echo $_stylesheet; ?>.css">
+            <?php endforeach; ?>
+		<?php endif ?>
 		<!--[if lt IE 9]>
         <script src="/js/html5shiv.js"></script>
         <![endif]-->

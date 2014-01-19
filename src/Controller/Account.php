@@ -87,18 +87,6 @@ class Controller_Account extends Controller
     }
     
     /**
-     * Displays a page to aquire a new password.
-     *
-     * A GET request will simply display the page and a POST request will lookup
-     * the given email address and send a authorized link, valid for x time to
-     * allow user to enter a new password.
-     */
-    public function lostpassword()
-    {
-        echo "Account:lostpassword";
-    }
-    
-    /**
      * Renders the account page.
      */
     protected function render()

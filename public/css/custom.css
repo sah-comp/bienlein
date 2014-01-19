@@ -1,0 +1,12 @@
+/*
+ * Custom or experimental css.
+ *
+ * Try here first until everything works and choose to
+ * copy it to default.css if everything works out fine.
+ */
+.btn {
+    font-size: 0.8em;
+    color: silver;
+    text-decoration: none;
+    margin-right: 2em;
+}

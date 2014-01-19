@@ -66,6 +66,11 @@
             </div>
         </fieldset>
         <div class="buttons">
+            <a
+                href="<?php echo Url::build('/lostpassword') ?>"
+                class="btn">
+                <?php echo I18n::__('login_link_lostpassword') ?>
+            </a>
             <input type="submit" name="submit" value="<?php echo I18n::__('login_submit') ?>" />
         </div>
     </form>

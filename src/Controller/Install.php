@@ -523,6 +523,59 @@ class Controller_Install extends Controller
         );
         R::store($template);
         //token
+        I18n::make('lostpassword_link_login', array(
+            'de' => 'Mein Kennwort ist mir wieder eingefallen',
+            'en' => 'I remembered my password',
+            'us' => 'I remembered my password'
+        ));
+        
+        I18n::make('lostpassword_email_failed', array(
+            'de' => 'Es konnte keine E-Mail versandt werden',
+            'en' => 'Failed to send e-mail to you',
+            'us' => 'Failed to send e-mail to you'
+        ));
+        I18n::make('lostpassword_h1', array(
+            'de' => 'Neues Kennwort festlegen',
+            'en' => 'Set a new password',
+            'us' => 'Set a new password'
+        ));
+        I18n::make('lostpassword_head_title', array(
+            'de' => 'Kennwort vergessen',
+            'en' => 'Lost Password',
+            'us' => 'Lost Password'
+        ));
+        I18n::make('lostpassword_label_username', array(
+            'de' => 'E-Mail',
+            'en' => 'Email',
+            'us' => 'Email'
+        ));
+        I18n::make('lostpassword_legend', array(
+            'de' => '',
+            'en' => '',
+            'us' => ''
+        ));
+        I18n::make('lostpassword_notification_error', array(
+            'de' => 'Ein Fehler ist aufgetreten',
+            'en' => 'Unknown error',
+            'us' => 'Unknown error'
+        ));
+        I18n::make('lostpassword_submit', array(
+            'de' => 'Neues Kennwort erstellen',
+            'en' => 'Send',
+            'us' => 'Send'
+        ));
+        I18n::make('lostpassword_user_unknown', array(
+            'de' => 'E-Mail Adresse ist unbekannt',
+            'en' => 'Unknown email address',
+            'us' => 'Unknown email address'
+        ));
+        
+        
+        I18n::make('login_link_lostpassword', array(
+            'de' => 'Kennwort vergessen',
+            'en' => 'Lost Password',
+            'us' => 'Lost Password'
+        ));
         I18n::make('template_html_tab', array(
             'de' => 'HTML',
             'en' => 'HTML',

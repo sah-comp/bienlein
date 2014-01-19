@@ -184,6 +184,17 @@ class Model_User extends Model
     }
 
     /**
+     * Send an email with a authorization token, allowing to set a new password
+     * in a second step.
+     *
+     * @return bool
+     */
+    public function requestPassword()
+    {
+        return true;
+    }
+
+    /**
      * Returns true when the new password was set or false if not.
      *
      * @param string $password
