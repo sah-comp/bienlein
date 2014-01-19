@@ -35,6 +35,11 @@ Flight::path(__DIR__ . '/../../src');
 Flight::path(__DIR__ . '/../../app');
 
 /**
+ * Define constant with path to the vendor directory.
+ */
+define('VENDORS', __DIR__.'/../../vendor/');
+
+/**
  * Setup our database.
  */
 R::setup('mysql:host=localhost;dbname=DBNAME', 'UNAME', 'SECRET');
