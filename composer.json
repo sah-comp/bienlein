@@ -16,13 +16,15 @@
 		"ircmaxell/password-compat": "dev-master",
 		"gabordemooij/redbean": "dev-master",
         "netcarver/textile": "v2.5.1",
-        "intervention/image": "dev-master"
+        "intervention/image": "dev-master",
+        "phpmailer/phpmailer": "dev-master"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "3.7.*"
 	},
 	"suggest": {
-	    "swiftmailer/swiftmailer": "Comprehensive mailing tools for PHP"
+	    "swiftmailer/swiftmailer": "Comprehensive mailing tools for PHP",
+	    "phpmailer/phpmailer": "dev-master"
 	},
 	"autoload": {
 		"psr-0": {
