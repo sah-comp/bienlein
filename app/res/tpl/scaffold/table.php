@@ -8,7 +8,21 @@
  * @version $Id$
  */
 ?>
-<?php $_attributes = $record->getAttributes($layout) ?>
+<?php if ( ! $_attributes = $record->getAttributes($layout)): ?>
+    <?php if ( ! $_gestalt = R::findOne('gestalt', ' name = ?', array($record->getMeta('type')))): ?>
+        <?php $_attributes = array(
+            'name' => 'id',
+            'sort' => array(
+                'name' => $this->bean->getMeta('type').'.name'
+            ),
+            'filter' => array(
+                'tag' => 'number'
+            )
+        ) ?>
+    <?php else: ?>
+        <?php $_attributes = $_gestalt->getVirtualAttributes() ?>
+    <?php endif; ?>
+<?php endif ?>
 <!-- <?php echo $record->getMeta('type') ?> scaffold table -->
 <table>
     

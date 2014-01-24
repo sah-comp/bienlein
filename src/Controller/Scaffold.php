@@ -45,6 +45,13 @@ class Controller_Scaffold extends Controller
     public $id;
 
     /**
+     * Holds possible actions.
+     *
+     * @var array
+     */
+    public $actions;
+
+    /**
      * Holds the name of the action that was requested.
      *
      * @var string
@@ -168,6 +175,11 @@ class Controller_Scaffold extends Controller
         $this->id = $id;
         $this->layout = $this->default_layout;
         $this->record = R::load($type, $id);
+        if ( ! $this->record->isModel()) {
+            // HOW TO NOT HAVE THIS EVIL STUFF HERE?
+            eval(sprintf('class Model_%s extends Model {}', ucfirst(strtolower($this->record->getMeta('type')))));
+        }
+        $this->actions = $this->record->getActions();
         if ( ! isset($_SESSION['scaffold'][$this->type])) {
             $_SESSION['scaffold'][$this->type]['filter']['id'] = 0;
             // next 
@@ -229,7 +241,21 @@ class Controller_Scaffold extends Controller
     protected function getCollection()
     {
         $where = $this->filter->buildWhereClause();
-        $attributes = $this->record->getAttributes($this->layout);
+        if ( ! $attributes = $this->record->getAttributes($this->layout)) {
+            if ( ! $gestalt = R::findOne('gestalt', ' name = ? ', array($this->record->getMeta('type')))) {
+                $attributes = array(
+                    'name' => 'id',
+                    'sort' => array(
+                        'name' => $this->bean->getMeta('type').'.name'
+                    ),
+                    'filter' => array(
+                        'tag' => 'number'
+                    )
+                );
+            } else {
+                $attributes = $gestalt->getVirtualAttributes();
+            }
+        }
         $order = $attributes[$this->order]['sort']['name'].' '.$this->dir_map[$this->dir];
         $sqlCollection = $this->record->getSql(
             "DISTINCT({$this->type}.id) AS id", 
@@ -439,6 +465,10 @@ class Controller_Scaffold extends Controller
         if ( ! Flight::view()->exists($this->template)) {
             // if there is no special "add" template, we fallback to "edit"
             $this->template = "model/{$this->type}/edit";
+            if ( ! Flight::view()->exists($this->template)) {
+                // if there is no special "edit" template, we fallback to "edit"
+                $this->template = "scaffold/edit";
+            }
         }
 		if (Flight::request()->method == 'POST') {
             $this->record = R::graph(Flight::request()->data->dialog, true);
@@ -482,6 +512,10 @@ class Controller_Scaffold extends Controller
         $this->dir = $dir;
         $this->layout = $layout;
         $this->template = "model/{$this->type}/edit";
+        if ( ! Flight::view()->exists($this->template)) {
+            // if there is no special "edit" template, we fallback to "scaffold/edit"
+            $this->template = "scaffold/edit";
+        }
 		if (Flight::request()->method == 'POST') {
 		    Permission::check(Flight::get('user'), $this->type, 'edit');//check for edit perm now
             $this->record = R::graph(Flight::request()->data->dialog, true);
@@ -539,7 +573,7 @@ class Controller_Scaffold extends Controller
 			'dir_map' => $this->dir_map
         ), 'form_details');
         Flight::render('scaffold/form', array(
-            'actions' => $this->record->getActions(),
+            'actions' => $this->actions,
             'current_action' => $this->action,
             'next_action' => $this->getNextAction(),
             'record' => $this->record,
