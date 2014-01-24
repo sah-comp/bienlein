@@ -16,7 +16,6 @@
     <input type="hidden" name="dialog[size]" value="<?php echo htmlspecialchars($record->size) ?>" />
     <input type="hidden" name="dialog[mime]" value="<?php echo htmlspecialchars($record->mime) ?>" />
     <input type="hidden" name="dialog[sequence]" value="<?php echo htmlspecialchars($record->sequence) ?>" />
-    <input type="hidden" name="dialog[slice_id]" value="<?php echo htmlspecialchars($record->slice_id) ?>" />
 </div>
 <fieldset>
     <legend class="verbose"><?php echo I18n::__('media_legend') ?></legend>

@@ -76,6 +76,16 @@ class Model extends RedBean_SimpleModel
     protected $auto_info = false;
     
     /**
+     * Returns always true.
+     *
+     * @return bool TRUE
+     */
+    public function isModel()
+    {
+        return true;
+    }
+    
+    /**
      * Returns an array with attributes for lists.
      *
      * @param string (optional) $layout
@@ -83,6 +93,8 @@ class Model extends RedBean_SimpleModel
      */
     public function getAttributes($layout = 'table')
     {
+        return array();
+        /*
         return array(
             array(
                 'name' => 'id',
@@ -94,6 +106,7 @@ class Model extends RedBean_SimpleModel
                 )
             )
         );
+        */
     }
     
     /**
