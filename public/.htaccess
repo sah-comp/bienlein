@@ -10,13 +10,13 @@ AddDefaultCharset utf-8
 # utf-8 charset for common filetypes
 AddCharset utf-8 .html .css .js .xml .json .rss
 
+# No XSS Protection, because of some dialogs that may have js in them
+#Header set X-XSS Protection 0
+
+#
+# X-UA Compatible
+#
 <IfModule mod_headers.c>
-    # No XSS Protection, because of some dialogs that may have js in them
-    Header set X-XSS Protection 0
-    
-    #
-    # X-UA Compatible
-    #
     Header set X-UA-Compatible "IE=Edge,chrome=1"
     # mod_headers can't match by content-type, but we don't want to send this header on *everything*...
     <FilesMatch "\.(js|css|gif|png|jpe?g|pdf|xml|oga|ogg|m4a|ogv|mp4|m4v|webm|svg|svgz|eot|ttf|otf|woff|ico|webp|appcache|manifest|htc|crx|xpi|safariextz|vcf)$" >
