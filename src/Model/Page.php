@@ -39,6 +39,37 @@ class Model_Page extends Model
     }
     
     /**
+     * Returns an array.
+     *
+     * @param array $template_data
+     * @return array $template_data
+     */
+    public function getContent(array $template_data = array())
+    {
+        foreach ($this->bean->template->ownRegion as $region_id => $region) {
+            $slices = $this->bean->getSlicesByRegion($region_id, false);
+            foreach ($slices as $slice_id => $slice) {
+                if ( ! isset($template_data[mb_strtolower($region->name)])) {
+                    $template_data[mb_strtolower($region->name)] = '';
+                }
+                ob_start();
+                $slice->renderFrontend();
+                $content = ob_get_contents();
+                ob_end_clean();
+                if (($slice->css || $slice->class) && ! $slice->tag) {
+                    //make it a div tag if we have css or class
+                    $slice->tag = 'div';
+                }
+                if ($slice->tag) {
+                    $content = sprintf('<%1$s class="%2$s" style="%3$s">'.$content.'</%1$s>', $slice->tag, $slice->class, $slice->css)."\n";
+                }
+                $template_data[mb_strtolower($region->name)] .= $content;
+            }
+        }
+        return $template_data;
+    }
+    
+    /**
      * Returns slices of this article grouped by region.
      *
      * @param int $region

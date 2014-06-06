@@ -1218,6 +1218,7 @@ input[type=submit].danger {
     margin-left: -0.5em;
     padding-left: 1em;
     margin-bottom: 1em;
+    min-height: 1em;
 }
 .slice-container.active {
     border-left: 1px solid red;

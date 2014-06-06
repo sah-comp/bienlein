@@ -104,6 +104,8 @@ class Model_Domain extends Model
         );
         //load the contents and push it into our template data
         foreach ($pages as $id => $page) {
+            $template_data = $page->getContent($template_data);
+            /*
             foreach ($page->template->ownRegion as $region_id => $region) {
                 $slices = $page->getSlicesByRegion($region_id, false);
                 foreach ($slices as $slice_id => $slice) {
@@ -124,6 +126,7 @@ class Model_Domain extends Model
                     $template_data[mb_strtolower($region->name)] .= $content;
                 }
             }
+            */
         } 
         return $template_data;       
     }
