@@ -246,7 +246,7 @@ class Controller_Scaffold extends Controller
                 $attributes = array(
                     'name' => 'id',
                     'sort' => array(
-                        'name' => $this->bean->getMeta('type').'.name'
+                        'name' => $this->record->getMeta('type').'.name'
                     ),
                     'filter' => array(
                         'tag' => 'number'
