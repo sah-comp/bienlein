@@ -15,9 +15,28 @@ $(document).ready(function() {
     /**
      * Plugin idTabs.
      */
-    if ($(".tabs").length > 0) {
+    if ($(".tabs").length) {
         $(".tabs").each(function() {
             $("#"+$(this).attr("id")+" ul").idTabs($(this).attr("data-default"));
+        });
+    }
+    
+    /**
+     * Fixes the header with account and main navigation
+     */
+    if ($("#header-top").length) {
+        $("#header-top").scrollToFixed({
+            zIndex: 1000
+        });
+    }
+    
+    /**
+     * Fixes the header with toolbar
+     */
+    if ($("#header-toolbar").length) {
+        $("#header-toolbar").scrollToFixed({
+            marginTop: 79,
+            zIndex: 999
         });
     }
     

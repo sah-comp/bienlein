@@ -57,6 +57,7 @@
         <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js"></script>
         <script src="/js/jquery.idTabs.min.js"></script>
         <script src="/js/jquery.form.min.js"></script>
+        <script src="/js/jquery-scrolltofixed-min.js"></script>
 		<script src="/js/script.js"></script>
 	</body>
 </html>

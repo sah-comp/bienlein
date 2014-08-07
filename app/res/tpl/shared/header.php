@@ -8,7 +8,7 @@
  * @version $Id$
  */
 ?>
-<header>
+<header id="header-top" class="fixable">
 	<h1>
 		<a
 		    class="ir logo"
