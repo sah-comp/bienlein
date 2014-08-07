@@ -509,8 +509,22 @@ article.main > p {
 }
 
 /* Main navigation */
-body > header > nav {
+
+body > header,
+header#header-toolbar {
     background-color: rgb(254, 254, 254);
+}
+
+body > header {
+    z-index: 1000000;
+}
+
+header#header-toolbar.scroll-to-fixed-fixed {
+    border-bottom: 1px solid silver;
+}
+
+body > header > nav {
+    /*background-color: rgb(254, 254, 254);*/
 }
 
 body > header > h1 {
@@ -791,7 +805,8 @@ textarea {
     margin-bottom: 0;
 }
 
-.panel .container {
+.panel .container,
+.panel .item {
     position: relative;
 }
 
@@ -799,7 +814,7 @@ textarea {
     position: relative;
     border-bottom: 1px solid gray;
     margin-bottom: 1em;
-    height: 1.5em;
+    height: 29px;
 }
 
 ul.tab-navigation {
@@ -819,7 +834,9 @@ ul.tab-navigation a {
     text-decoration: none;
     border: 1px solid gray;
     color: inherit;
-    padding: 0.222em 1em;
+    padding: 1px 25px;
+    display: inline-block;
+    margin-top: -12px;
 }
 
 ul.tab-navigation a.selected {

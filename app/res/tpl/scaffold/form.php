@@ -9,7 +9,7 @@
  */
 ?>
 <article class="main">
-    <header>
+    <header id="header-toolbar" class="fixable">
         <h1><?php echo I18n::__("{$type}_h1") ?></h1>
         <nav>
             <?php echo $toolbar ?>

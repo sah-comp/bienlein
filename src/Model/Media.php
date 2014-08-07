@@ -160,7 +160,7 @@ class Model_Media extends Model
         {
             if ($file['error']) {
                 $this->addError($file['error'], 'file');
-                throw new Exception('fileupload error');
+                throw new Exception('fileupload error ' . $file['error']);
             }
             $file_parts = pathinfo($file['name']);
             $this->bean->sanename = $this->sanitizeFilename($file_parts['filename']);
