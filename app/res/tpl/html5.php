@@ -53,11 +53,16 @@
 		<?php echo isset($footer) ? $footer : null ?>
 		<!-- End of optional footer -->
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
         <script src="/js/jquery.idTabs.min.js"></script>
         <script src="/js/jquery.form.min.js"></script>
         <script src="/js/jquery-scrolltofixed-min.js"></script>
+        <?php if (isset($javascripts) && is_array($javascripts)): ?>
+            <?php foreach ($javascripts as $_n=>$_js): ?>
+            <script src="<?php echo $_js; ?>.js"></script>
+            <?php endforeach; ?>
+		<?php endif ?>
 		<script src="/js/script.js"></script>
 	</body>
 </html>
