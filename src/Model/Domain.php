@@ -173,7 +173,7 @@ class Model_Domain extends Model
     /**
      * Builds a hierarchical menu from an adjancy bean.
      *
-     * @todo get rid of ugly signature
+     * @todo get rid of ugly function signature
      *
      * @param string (optional) $url_prefix as a kind of basehref, e.g. 'http://localhost/s/de'
      * @param string (optional) $lng code of the language to retrieve
@@ -182,7 +182,7 @@ class Model_Domain extends Model
      * @param mixed (optional) $break at which level
      * @param string (optional) $orderclause defaults to 'sequence'
      * @param int (optional) $level the current depth of the hierarchical menu
-     * @return Cinnebar_Menu
+     * @return Menu
      */
     public function hierMenu($url_prefix = '', $lng = null, $invisible = false, 
                             $attr = 'url', $break = null, $order = 'sequence ASC', $level = 0)
