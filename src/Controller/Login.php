@@ -18,7 +18,14 @@
 class Controller_Login extends Controller
 {
     /**
-     * Renders the login page and handles a login attempt on POST.
+     * May hold a message (textile) to the user that want to re-enter a password.
+     */
+    public $message;
+
+    /**
+     * Renders the login page and handles a login attempt on POST if no valid
+     * session already exists. If there is an valid session the client will be
+     * redirected to its account page.
      */
     public function index()
     {
@@ -38,7 +45,8 @@ class Controller_Login extends Controller
                     R::store($login);
                     $this->redirect(Flight::request()->data->goto, $raw = true);
                 }
-                R::store($login);//yes, only bad attempts are stored
+                $this->message = I18n::__('login_failed');
+                R::store($login);
             } catch (Exception $e) {
                 error_log($e);
                 //uups, login could not be saved
@@ -47,7 +55,8 @@ class Controller_Login extends Controller
         // either no yet submitted or the credentials given failed
         Flight::render('account/login', array(
             'goto' => htmlspecialchars(Flight::request()->query->goto),
-            'record' => $login
+            'record' => $login,
+            'message' => $this->message
         ), 'content');
         Flight::render('html5', array(
             'title' => I18n::__('login_head_title'),

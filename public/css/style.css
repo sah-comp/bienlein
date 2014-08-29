@@ -755,6 +755,7 @@ label {
     display: inline-block;
     font-weight: bold;
     margin-bottom: 0.25em;
+    color: rgb(0, 128, 212);
 }
 
 input[type=text],

@@ -9,6 +9,17 @@
  */
 ?>
 <!-- Login -->
+<?php if (isset($message)): ?>
+<!-- notifications of the current user -->
+<div
+    id="notification"
+    class="notification">
+    <div class="alert alert-error">
+        <?php echo Flight::textile($message) ?>
+    </div>
+</div>
+<!-- End of notifications -->
+<?php endif ?>
 <article class="main">
     <header>
 		<h1><?php echo I18n::__('login_h1') ?></h1>
