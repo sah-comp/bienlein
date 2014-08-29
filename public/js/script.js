@@ -43,7 +43,7 @@ $(document).ready(function() {
     /**
      * Click on a sitemap link will load the domain and fill the content-container.
      */
-    $("#sitemap a").live("click", function(event) {
+    $(document).on("click", '#sitemap a', function(event) {
         event.preventDefault();
         $.get($(this).attr("href"), function(data) {
             $("#content-container").empty();
@@ -56,7 +56,7 @@ $(document).ready(function() {
     /**
      * Click on a pages-container link will load the page and fill the page-container.
      */
-    $("#pages-container a").live("click", function(event) {
+    $(document).on("click", '#pages-container a', function(event) {
         event.preventDefault();
         $.get($(this).attr("href"), function(data) {
             $("#page-container").empty();
@@ -69,7 +69,7 @@ $(document).ready(function() {
     /**
      * Click on a element with class slice-container loads editable slice.
      */
-    $(".slice-container:not('.active')").live("click", function(event) {
+    $(document).on("click", ".slice-container:not('.active')", function(event) {
         event.preventDefault();
         var container = $(this).attr("data-container");
         $.get($(this).attr("data-href"), function(data) {
@@ -84,7 +84,7 @@ $(document).ready(function() {
 	 * Form with class inplace will be ajaxified by jQuery form plugin and
 	 * the response is placed into the element given in data-container.
 	 */
-    $(".inline, .inline-add").live("submit", function(event) {
+    $(document).on("submit", ".inline, .inline-add", function(event) {
         var form = $(this);
         var container = form.attr("data-container");
         if ($("#"+container).hasClass("active")) $("#"+container).removeClass("active");
@@ -112,7 +112,7 @@ $(document).ready(function() {
 	 * all and future detach links send a post request and then
 	 * fade out and finally detach the element.
 	 */
-	$(".detach").live("click", function(event) {
+	$(document).on("click", ".detach", function(event) {
 	    event.preventDefault();
 		var target = $(this).attr("data-target");
 		$("#"+target).fadeOut("fast", function() {
