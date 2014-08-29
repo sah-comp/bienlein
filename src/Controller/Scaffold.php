@@ -24,6 +24,15 @@
 class Controller_Scaffold extends Controller
 {
     /**
+     * Container for javascripts to load.
+     *
+     * @var array
+     */
+    public $javascripts = array(
+        '/js/jquery.mjs.nestedSortable'
+    );
+
+    /**
      * Holds the base url.
      *
      * @var string
@@ -584,7 +593,7 @@ class Controller_Scaffold extends Controller
                 I18n::__("domain_{$this->type}")
             )),
             'language' => Flight::get('language'),
-            'javascripts' => array('/js/jquery.mjs.nestedSortable')
+            'javascripts' => $this->javascripts
         ));
 	}
 }
