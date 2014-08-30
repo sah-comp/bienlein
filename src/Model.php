@@ -76,6 +76,25 @@ class Model extends RedBean_SimpleModel
     protected $auto_info = false;
     
     /**
+     * Holds the default actions.
+     *
+     * @var array
+     */
+    protected $actions =  array(
+        'index' => array('idle', 'expunge'),
+        'add' => array('add', 'edit', 'index'),
+        'edit' => array('edit', 'next_edit', 'prev_edit', 'index'),
+        'delete' => array('index')
+    );
+     
+     /**
+      * Constructor.
+      */
+     public function __construct()
+     {
+     }
+    
+    /**
      * Returns always true.
      *
      * @return bool TRUE
@@ -246,16 +265,36 @@ SQL;
      */
     public function getActions()
     {
-        return array(
-            'index' => array('idle', 'expunge'),
-            'add' => array('add', 'edit', 'index'),
-            'edit' => array('edit', 'next_edit', 'prev_edit', 'index'),
-            'delete' => array('index')
-        );
+        return $this->actions;
     }
     
     /**
-     * Expunge as an alternative to R::trash().
+     * Sets an action.
+     *
+     * @param string $action
+     * @param array $actions
+     * @return void
+     */
+    public function setAction($action = '', $actions = array())
+    {
+        $this->actions[$action] = $actions;
+        return null;
+    }
+    
+    /**
+     * Sets all actions.
+     *
+     * @param array $actions
+     * @return void
+     */
+    public function setActions($actions = array())
+    {
+        $this->actions = $actions;
+        return null;
+    }
+    
+    /**
+     * Expunge is an alias of R::trash().
      */
     public function expunge()
     {
