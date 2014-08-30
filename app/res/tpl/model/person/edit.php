@@ -295,11 +295,20 @@
         id="person-address"
         class="tab"
         style="display: block;">
-        <legend class="verbose"><?php echo I18n::__('person_legend_address') ?></legend>
+        <legend class="verbose"><?php echo I18n::__('person_legend_address_tab') ?></legend>
         <?php $record->ownAddress[] = R::dispense('address') ?>
         <?php $index = 0 ?>
         <?php foreach ($record->ownAddress as $_address_id => $_address): ?>
         <?php $index++ ?>
+        <fieldset
+            id="person-<?php echo $record->getId() ?>-ownaddress-<?php echo $_address->getId() ?>">
+            <legend class="verbose"><?php echo I18n::__('person_legend_address') ?></legend>
+            <a
+            	href="<?php echo Url::build(sprintf('/admin/person/detach/own/address/%d', $_address->getId())) ?>"
+            	class="detach"
+            	data-target="person-<?php echo $record->getId() ?>-ownaddress-<?php echo $_address->getId() ?>">
+            		<span><?php echo I18n::__('scaffold_detach') ?></span>
+            </a>
         <div>
             <input
                 type="hidden"
@@ -390,6 +399,7 @@
                 <?php endforeach ?>
             </select>
         </div>
+        </fieldset>
         <?php endforeach ?>
     </fieldset>
     <fieldset

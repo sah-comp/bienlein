@@ -18,6 +18,27 @@
 class Model_Country extends Model
 {
     /**
+     * Constructor.
+     *
+     * Set actions for list views.
+     */
+    public function __construct()
+    {
+        $this->setAction('index', array('idle', 'toggleEnabled', 'expunge'));
+    }
+    
+    /**
+     * Toggle the enabled attribute and store the bean.
+     *
+     * @return void
+     */
+    public function toggleEnabled()
+    {
+        $this->bean->enabled = ! $this->bean->enabled;
+        R::store($this->bean);
+    }
+
+    /**
      * Returns an array with attributes for lists.
      *
      * @param string (optional) $layout

@@ -18,6 +18,27 @@
 class Model_Domain extends Model
 {
     /**
+     * Constructor.
+     *
+     * Set actions for list views.
+     */
+    public function __construct()
+    {
+        $this->setAction('index', array('idle', 'toggleInvisible', 'expunge'));
+    }
+    
+    /**
+     * Toggle the invisible attribute and store the bean.
+     *
+     * @return void
+     */
+    public function toggleInvisible()
+    {
+        $this->bean->invisible = ! $this->bean->invisible;
+        R::store($this->bean);
+    }
+
+    /**
      * Returns an array with attributes for lists.
      *
      * @param string (optional) $layout

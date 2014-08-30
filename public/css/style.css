@@ -744,6 +744,14 @@ fieldset {
     margin-bottom: 0.5em;
 }
 
+fieldset.tab > fieldset {
+    border-bottom: 1px dotted gray;
+}
+
+fieldset.tab > fieldset:last-child {
+    border-bottom: none;
+}
+
 legend {
     font-family: 'Georgia', serif;
     margin-bottom: 0.25em;

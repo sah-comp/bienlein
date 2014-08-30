@@ -19,6 +19,27 @@
 class Model_Currency extends Model
 {
     /**
+     * Constructor.
+     *
+     * Set actions for list views.
+     */
+    public function __construct()
+    {
+        $this->setAction('index', array('idle', 'toggleEnabled', 'expunge'));
+    }
+    
+    /**
+     * Toggle the enabled attribute and store the bean.
+     *
+     * @return void
+     */
+    public function toggleEnabled()
+    {
+        $this->bean->enabled = ! $this->bean->enabled;
+        R::store($this->bean);
+    }
+
+    /**
      * Uses a service of the ECB to load currency exchange rates based on the EUR.
      *
      * For each currency on the exchange rate list a currency bean is looked up and updated by a
