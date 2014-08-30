@@ -18,6 +18,38 @@
 class Model_News extends Model
 {
     /**
+     * Constructor.
+     *
+     * Set actions for list views.
+     */
+    public function __construct()
+    {
+        $this->setAction('index', array('idle', 'toggleOnline', 'toggleArchived', 'expunge'));
+    }
+    
+    /**
+     * Toggle the online attribute and store the bean.
+     *
+     * @return void
+     */
+    public function toggleOnline()
+    {
+        $this->bean->online = ! $this->bean->online;
+        R::store($this->bean);
+    }
+
+    /**
+     * Toggle the archived attribute and store the bean.
+     *
+     * @return void
+     */
+    public function toggleArchived()
+    {
+        $this->bean->archived = ! $this->bean->archived;
+        R::store($this->bean);
+    }
+
+    /**
      * Returns an array with attributes for lists.
      *
      * @param string (optional) $layout
