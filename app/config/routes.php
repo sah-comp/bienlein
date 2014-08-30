@@ -13,7 +13,7 @@
  *
  * @todo maybe use language bean? What should happen if a unknown/inactive lang is requested?
  */
-Flight::route('(/@language:[a-z]{2})', function($language) {
+Flight::route('(/@language:[a-z]{2})*', function($language) {
     if (in_array($language, Flight::get('possible_languages'))) {
         Flight::set('language', $language);
     }
@@ -104,8 +104,8 @@ Flight::route('(/[a-z]{2})/cms/sitemap', function() {
     $page = 1;
     $order = 0;
     $dir = 0;
-	$scaffoldController = new Controller_Scaffold('/admin', 'domain');
-	$scaffoldController->index($layout, $page, $order, $dir);
+	$scaffoldController = new Controller_Nested();
+	$scaffoldController->index();
 });
 
 /**
