@@ -148,12 +148,14 @@ class Model_Person extends Model
      */
     public function update()
     {
+        /*
         if ($this->bean->email) {
             $this->addValidator('email', array(
                 new Validator_IsEmail(),
                 new Validator_IsUnique(array('bean' => $this->bean, 'attribute' => 'email'))
             ));
         }
+        */
 		// set the phonetic names
 		$this->bean->phoneticlastname = soundex($this->bean->lastname);
 		$this->bean->phoneticfirstname = soundex($this->bean->firstname);
