@@ -115,9 +115,25 @@ $(document).ready(function() {
 	$(document).on("click", ".detach", function(event) {
 	    event.preventDefault();
 		var target = $(this).attr("data-target");
-		$("#"+target).fadeOut("fast", function() {
-			$("#"+target).detach();
-		});
+		var url = $(this).attr("href");
+		$.post(url, function(data) {
+	        $('#'+target).fadeOut('fast', function() {
+				$('#'+target).detach();
+			});
+	    });
+	});
+	
+	/**
+	 * all and future attach links post request a url and
+	 * insert a new element into the *-additional zone.
+	 */
+	$(document).on("click", ".attach", function(event) {
+	    event.preventDefault();
+		var target = $(this).attr("data-target");
+		var url = $(this).attr("href");
+		$.post(url, function(data) {
+			$("#"+target).append(data);
+	    });
 	});
     
     /**

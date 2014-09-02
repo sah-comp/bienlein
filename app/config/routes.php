@@ -13,7 +13,7 @@
  *
  * @todo maybe use language bean? What should happen if a unknown/inactive lang is requested?
  */
-Flight::route('(/@language:[a-z]{2})*', function($language) {
+Flight::route('(/@language:[a-z]{2})', function($language) {
     if (in_array($language, Flight::get('possible_languages'))) {
         Flight::set('language', $language);
     }
@@ -89,6 +89,16 @@ Flight::route('(/[a-z]{2})/admin/@type:[a-z]+(/@layout:[a-z]+)(/@page:[0-9]+)(/@
     if ($dir === null) $dir = 0;
 	$scaffoldController = new Controller_Scaffold('/admin', $type);
 	$scaffoldController->index($layout, $page, $order, $dir);
+});
+Flight::route('(/[a-z]{2})/admin/@type:[a-z]+/detach/@subtype:[a-z]+(/@id:[0-9]+)', function($type, $subtype, $id) {
+    if ($id === null) $id = 0;
+	$scaffoldController = new Controller_Scaffold('/admin', $type, $id);
+	$scaffoldController->detach($subtype, $id);
+});
+Flight::route('(/[a-z]{2})/admin/@type:[a-z]+/attach/@prefix:[a-z]+/@subtype:[a-z]+(/@id:[0-9]+)', function($type, $prefix, $subtype, $id) {
+    if ($id === null) $id = 0;
+	$scaffoldController = new Controller_Scaffold('/admin', $type, $id);
+	$scaffoldController->attach($prefix, $subtype, $id);
 });
 
 /**

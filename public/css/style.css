@@ -744,7 +744,8 @@ fieldset {
     margin-bottom: 0.5em;
 }
 
-fieldset.tab > fieldset {
+fieldset.tab fieldset {
+    position: relative;
     border-bottom: 1px dotted gray;
 }
 
@@ -930,21 +931,28 @@ select.filter-select {
     margin-right: 0;
 }
 
-.container .detach,
-.container .attach {
-    width: 1.444em;
-    height: 1.444em;/*1em font-size + 2 x 0.222em padding in input fields*/
+.detach,
+.attach {
+    width: 26px;
+    height: 26px;/*1em font-size + 2 x 0.222em padding in input fields*/
     padding: 0;
     margin: 0;
     z-index: 1;
     background-image: url(/img/glyphicons/glyphicons_191_circle_minus.png);
     position: absolute;
-    right: 6px;
-    bottom: 3px;
+    left: 6px;
+    top: 50%;
+    margin-top: -13px;
 }
 
-.container .attach {
+.ir.attach {
     background-image: url(/img/glyphicons/glyphicons_190_circle_plus.png);
+    left: 36px;
+    display: none;
+}
+
+fieldset.tab fieldset:last-child .attach {
+    display: block;
 }
 
 

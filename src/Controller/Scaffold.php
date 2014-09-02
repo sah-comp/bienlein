@@ -201,6 +201,51 @@ class Controller_Scaffold extends Controller
     }
     
     /**
+     * Detach a record.
+     *
+     * @param string $subtype the type of bean to handle
+     * @param int (optional) id of the bean to detach
+     * @return void
+     */
+    public function detach($subtype, $id = 0)
+    {
+        $record = R::load($subtype, $id);
+        try {
+            R::trash($record);//store or trash -- nothing else works here
+            R::commit();
+            return true;
+        }
+        catch (Exception $e) {
+            error_log($e);
+            R::rollback();
+            return false;
+        }
+    }
+    
+    /**
+     * Attach a record.
+     *
+     * To use the attach function you will need to have subform templates in your model
+     * folder. For example see model/person/own/address.
+     *
+     * @param string $prefix either own or shared
+     * @param string $subtype the type of bean to handle
+     * @param int (optional) id of the bean to detach
+     * @return void
+     */
+    public function attach($prefix, $subtype, $id = 0)
+    {
+		$index = md5(microtime(true));
+        $_subrecord = R::dispense($subtype);
+        Flight::render(sprintf('model/%s/%s/%s', $this->type, $prefix, $subtype), array(
+            'record' => $this->record,
+            '_'.$subtype => $_subrecord,
+            'index' => $index
+        ));
+        return true;
+    }
+    
+    /**
      * Returns true or false wether the bean was stored or not.
      *
      * The current bean is challanged to be stored wrapped in a transaction. When the bean was
