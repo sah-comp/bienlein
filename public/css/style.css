@@ -749,7 +749,7 @@ fieldset.tab fieldset {
     border-bottom: 1px dotted gray;
 }
 
-fieldset.tab > fieldset:last-child {
+fieldset.tab fieldset:last-child {
     border-bottom: none;
 }
 
