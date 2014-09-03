@@ -17,6 +17,15 @@
     <input type="hidden" name="dialog[mime]" value="<?php echo htmlspecialchars($record->mime) ?>" />
     <input type="hidden" name="dialog[sequence]" value="<?php echo htmlspecialchars($record->sequence) ?>" />
 </div>
+<?php if ($record->isImage()): ?>
+<img
+	src="<?php echo Flight::get('media_path') . '/' . $record->file ?>"
+	class="media-preview-icon <?php echo $record->extension ?>"
+	width="72"
+	height="72"
+	alt="<?php echo htmlspecialchars($record->name) ?>"
+	title="<?php echo htmlspecialchars($record->name) ?>" />
+<?php endif ?>
 <fieldset>
     <legend class="verbose"><?php echo I18n::__('media_legend') ?></legend>
     <div class="row <?php echo ($record->hasError('file')) ? 'error' : ''; ?>">
@@ -53,5 +62,19 @@
             rows="5"
             cols="60"><?php echo htmlspecialchars($record->desc) ?></textarea>
     </div>
+    <?php if ($record->isImage()): ?>
+    <div class="row">
+        <label
+            for="media-textile">
+            <?php echo I18n::__('media_label_textile') ?>
+        </label>
+        <input
+            id="media-textile"
+            type="text"
+            name="media-textile"
+            disabled="disabled"
+            value="<?php echo htmlspecialchars($record->imageAsTextile()) ?>" />
+    </div>
+    <?php endif ?>
 </fieldset>
 <!-- end of media edit form -->

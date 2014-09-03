@@ -66,6 +66,16 @@ class Model_Media extends Model
     {
         return in_array($this->bean->extension, $this->extensions_image);
     }
+    
+    /**
+     * Returns an textile image tag.
+     *
+     * @return string
+     */
+    public function imageAsTextile()
+    {
+        return sprintf("!%s/%s(%s)!", Flight::get('media_path'), $this->bean->file, $this->bean->name);
+    }
 
     /**
      * Returns an array with attributes for lists.

@@ -1270,11 +1270,13 @@ p.page-choose {
     padding-top: 8em;
 }
 
-img.gravatar-account {
+img.gravatar-account,
+img.media-preview-icon {
     position: absolute;
     top: 1em;
     left: 1em;
     float: left;
+    z-index: 1;
 }
 
 /* Rounded gravatar: A background-image tag in html */
