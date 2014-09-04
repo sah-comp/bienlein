@@ -71,6 +71,106 @@ class Model_Criteria extends Model
       * @var array
       */
      public $rep = array('\%', '\_');
+     
+     /**
+      * Prepares a value according to its tag and returns it.
+      *
+      * @param string the value to convert
+      * @return mixed
+      */
+     public function convertToText($value)
+     {
+         return $value;
+     }
+     
+     /**
+      * Prepares a value according to its tag and returns it.
+      *
+      * @param string the value to convert
+      * @return mixed
+      */
+     public function convertToNumber($value)
+     {
+         return (float)str_replace(',', '.', $value);
+         //return $value;
+     }
+     
+     /**
+      * Prepares a value according to its tag and returns it.
+      *
+      * @param string the value to convert
+      * @return mixed
+      */
+     public function convertToEmail($value)
+     {
+         return $value;
+     }
+     
+     /**
+      * Prepares a value according to its tag and returns it.
+      *
+      * @param string the value to convert
+      * @return mixed
+      */
+     public function convertToTextarea($value)
+     {
+         return $value;
+     }
+     
+     /**
+      * Prepares a value according to its tag and returns it.
+      *
+      * @param string the value to convert
+      * @return mixed
+      */
+     public function convertToIn($value)
+     {
+         return $value;
+     }
+     
+     /**
+      * Prepares a value according to its tag and returns it.
+      *
+      * @param string the value to convert
+      * @return mixed
+      */
+     public function convertToBool($value)
+     {
+         return $value;
+     }
+     
+     /**
+      * Prepares a value according to its tag and returns it.
+      *
+      * @param string the value to convert
+      * @return mixed
+      */
+     public function convertToSelect($value)
+     {
+         return $value;
+     }
+     
+     /**
+      * Returns a mysql datetime string.
+      *
+      * @param string the value to convert
+      * @return string
+      */
+     public function convertToDatetime($value)
+     {
+         return date('Y-m-d H:i:s', strtotime($value));
+     }
+     
+     /**
+      * Returns a mysql date string.
+      *
+      * @param string the value to convert
+      * @return string
+      */
+     public function convertToDate($value)
+     {
+         return date('Y-m-d', strtotime($value));
+     }
     
     /**
      * Returns a string to use as part of a SQL query.
@@ -121,7 +221,10 @@ class Model_Criteria extends Model
     		default:
     			$value = $this->bean->value;
     	}
-    	if ($add_to_filter_values) $filter->filter_values[] = $value;
+    	if ($add_to_filter_values) {
+    	    $converter = 'convertTo' . ucfirst(strtolower($this->bean->tag));
+    	    $filter->filter_values[] = $this->$converter($value);
+    	}
     	return $value;
     }
     

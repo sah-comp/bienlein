@@ -103,7 +103,7 @@ class Model_Currency extends Model
                 ),
                 'class' => 'number',
                 'filter' => array(
-                    'tag' => 'text'
+                    'tag' => 'number'
                 )
             ),
             array(
