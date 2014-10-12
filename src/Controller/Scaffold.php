@@ -210,6 +210,7 @@ class Controller_Scaffold extends Controller
     public function detach($subtype, $id = 0)
     {
         $record = R::load($subtype, $id);
+        R::begin();
         try {
             R::trash($record);//store or trash -- nothing else works here
             R::commit();
