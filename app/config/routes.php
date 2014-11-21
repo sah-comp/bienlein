@@ -13,7 +13,7 @@
  *
  * @todo maybe use language bean? What should happen if a unknown/inactive lang is requested?
  */
-Flight::route('(/@language:[a-z]{2})', function($language) {
+Flight::route('(/@language:[a-z]{2})(/*)', function($language) {
     if (in_array($language, Flight::get('possible_languages'))) {
         Flight::set('language', $language);
     }
@@ -233,6 +233,37 @@ Flight::route('(/[a-z]{2})/forbidden', function() {
         'title' => I18n::__('forbidden_head_title')
     ));
 });
+
+/**
+ * Route to the purchase controller.
+ */
+Flight::route('(/[a-z]{2})/purchase(/@method:[a-z]+(/@id:[0-9]+))', function($method, $id) {
+    if ( $method === null) $method = 'index';
+    if ( $id === null) $id = 0;
+	$controller = new Controller_Purchase($id);
+	$controller->$method();
+});
+
+/**
+ * Route to the statistic controller.
+ */
+Flight::route('(/[a-z]{2})/statistic(/@method:[a-z]+(/@id:[0-9]+))', function($method, $id) {
+    if ( $method === null) $method = 'index';
+    if ( $id === null) $id = 0;
+	$controller = new Controller_Statistic($id);
+	$controller->$method();
+});
+
+/**
+ * Route to the billing controller.
+ */
+Flight::route('(/[a-z]{2})/billing(/@method:[a-z]+(/@id:[0-9]+))', function($method, $id) {
+    if ( $method === null) $method = 'index';
+    if ( $id === null) $id = 0;
+	$controller = new Controller_Billing($id);
+	$controller->$method();
+});
+
 /**
  * Show a 404 error page if no route has jumped in yet and the url can not be found in domain beans.
  *
