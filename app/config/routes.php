@@ -13,7 +13,7 @@
  *
  * @todo maybe use language bean? What should happen if a unknown/inactive lang is requested?
  */
-Flight::route('(/@language:[a-z]{2})(/*)', function($language) {
+Flight::route('(/@language:[a-z]{2})(/)', function($language) {
     if (in_array($language, Flight::get('possible_languages'))) {
         Flight::set('language', $language);
     }
