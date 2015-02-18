@@ -171,6 +171,8 @@ class Controller_Scaffold extends Controller
     /**
      * Constructs a new Scaffold controller.
      *
+     * @todo get rid of eval and develop gestalt more
+     *
      * @param string $base_url for scaffold links and redirects
      * @param string $type of the bean to scaffold
      * @param int (optional) $id of the bean to handle
@@ -183,7 +185,12 @@ class Controller_Scaffold extends Controller
         $this->type = $type;
         $this->id = $id;
         $this->layout = $this->default_layout;
-        $this->record = R::load($type, $id);
+        try {
+            $this->record = R::load($type, $id);
+        } catch (Exception $e) {
+            error_log('Unable to load that record');
+            exit('No bean type could be created. Unfreeze your database.');
+        }
         if ( ! $this->record->isModel()) {
             // HOW TO NOT HAVE THIS EVIL STUFF HERE?
             eval(sprintf('class Model_%s extends Model {}', ucfirst(strtolower($this->record->getMeta('type')))));

@@ -19,7 +19,7 @@
     <fieldset>
         <legend class="verbose"><?php echo I18n::__($record->getMeta('type') . '_legend') ?></legend>
         <div>
-            <p>Unfunny things to do in may</p>
+            <?php echo Flight::textile(I18n::__('gestalt_not_found')) ?>
         </div>
     </fieldset>
 <?php else: ?>
