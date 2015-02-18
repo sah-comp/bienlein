@@ -11,6 +11,11 @@
  */
 ?>
 <!-- scaffold edit form -->
+<?php if ($record->hasErrors()): ?>
+<pre>
+    <?php var_dump($record->getErrors()) ?>
+</pre>
+<?php endif ?>
 <div>
     <input type="hidden" name="dialog[type]" value="<?php echo $record->getMeta('type') ?>" />
     <input type="hidden" name="dialog[id]" value="<?php echo $record->getId() ?>" />
