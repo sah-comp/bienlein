@@ -19,6 +19,19 @@
         <?php echo Flight::textile($item->content) ?>
     </div>
     <?php endforeach ?>
+    
+    <?php if (isset($record) && $record->hasErrors()): ?>
+    <div class="alert alert-error validation-errors">
+        <?php foreach ($record->getErrors() as $_attribute => $_errors): ?>
+            <h1><?php echo I18n::__($record->getMeta('type') . '_label_' . $_attribute) ?></h1>
+            <ul>
+            <?php foreach ($_errors as $_error_id => $_error): ?>
+                <li><?php echo $_error ?></li>
+            <?php endforeach ?>
+            </ul>
+        <?php endforeach ?>
+    </div>
+    <?php endif ?>
 </div>
 <!-- End of notifications -->
 <?php endif ?>

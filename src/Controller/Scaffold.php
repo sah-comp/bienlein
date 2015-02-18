@@ -608,7 +608,9 @@ class Controller_Scaffold extends Controller
 	 */
 	protected function render()
 	{
-	    Flight::render('shared/notification', array(), 'notification');
+	    Flight::render('shared/notification', array(
+	       'record' => $this->record
+	    ), 'notification');
 	    //
         Flight::render('shared/navigation/account', array(), 'navigation_account');
 		Flight::render('shared/navigation/main', array(), 'navigation_main');

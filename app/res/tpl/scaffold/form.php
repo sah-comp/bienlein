@@ -15,6 +15,7 @@
             <?php echo $toolbar ?>
         </nav>
     </header>
+    <!-- scaffold edit form -->
     <form
         id="form-<?php echo $record->getMeta('type') ?>"
         class="panel panel-<?php echo $record->getMeta('type') ?> action-<?php echo $current_action ?>"

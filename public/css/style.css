@@ -1328,6 +1328,10 @@ img.media-preview-icon {
     color: #7a0b0a;
 }
 
+.validation-errors {
+    font-size: small;
+}
+
 
 
 
