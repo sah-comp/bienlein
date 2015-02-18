@@ -188,7 +188,7 @@ class Controller_Scaffold extends Controller
         try {
             $this->record = R::load($type, $id);
         } catch (Exception $e) {
-            error_log('Unable to load that record');
+            error_log("Scaffold::__construct() tried to load a bean, but failed. Check if your database is not frozen and a table for the bean type exists. If not unfreeze and try again.\n".$e);
             exit('No bean type could be created. Unfreeze your database.');
         }
         if ( ! $this->record->isModel()) {
