@@ -40,47 +40,23 @@
     )) ?>
     <fieldset
         id="template-region"
-        class="tab">
+        class="tab"
+        style="display: block;">
         <legend class="verbose"><?php echo I18n::__('region_legend') ?></legend>
-        <?php $record->ownRegion[] = R::dispense('region') ?>
-        <?php $_index = 0 ?>
-        <?php foreach ($record->ownRegion as $_region_id => $_region): ?>
-        <?php $_index++ ?>
-        <div
-            id="template-<?php echo $record->getId() ?>-region-<?php echo $_region->getId() ?>"
-            class="container">
-            
-            <?php if ($_region->getId()): ?>
-            <a
-                href="#detach"
-        		class="ir detach"
-        		data-target="template-<?php echo $record->getId() ?>-region-<?php echo $_region->getId() ?>">
-                <?php echo I18n::__('scaffold_detach_linktext') ?>
-        	</a>
-        	<?php else: ?>
-        	<input
-        	    type="submit"
-        	    name="submit"
-        	    class="ir attach"
-        	    value="<?php echo I18n::__('scaffold_attach_linktext') ?>" />
-            <?php endif ?>
-            
             <div
-                class="row">
-                <input type="hidden" name="dialog[ownRegion][<?php echo $_region_id ?>][type]" value="region" />
-                <input type="hidden" name="dialog[ownRegion][<?php echo $_region_id ?>][id]" value="<?php echo $_region->getId() ?>" />
-                <label
-                    for="region-<?php echo $_region_id ?>-name">
-                    <?php echo I18n::__('region_label_name', null, array($_index)) ?>
-                </label>
-                <input
-                    id="region-<?php echo $_region_id ?>-name"
-                    type="text"
-                    name="dialog[ownRegion][<?php echo $_region_id ?>][name]"
-                    value="<?php echo htmlspecialchars($_region->name) ?>" />
+                id="template-<?php echo $record->getId() ?>-region-container"
+                class="container attachable detachable sortable">
+                <?php if (count($record->ownRegion) == 0) $record->ownRegion[] = R::dispense('region') ?>
+                <?php $index = 0 ?>
+                <?php foreach ($record->ownRegion as $_region_id => $_region): ?>
+                <?php $index++ ?>
+                <?php Flight::render('model/template/own/region', array(
+                    'record' => $record,
+                    '_region' => $_region,
+                    'index' => $index
+                )) ?>
+                <?php endforeach ?>
             </div>
-        </div>
-        <?php endforeach ?>
     </fieldset>
     <fieldset
         id="template-html"
