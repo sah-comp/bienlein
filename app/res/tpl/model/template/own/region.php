@@ -10,13 +10,13 @@
 ?>
 <!-- region edit subform -->
 <fieldset
-    id="template-<?php echo $record->getId() ?>-ownregion-<?php echo $_region->getId() ?>">
+    id="template-<?php echo $record->getId() ?>-ownregion-<?php echo $index ?>">
     <legend class="verbose"><?php echo I18n::__('template_legend_region') ?></legend>
     <a
-    	href="<?php echo Url::build(sprintf('/admin/template/detach/region/%d', $_region->getId())) ?>"
+    	href="<?php echo Url::build(sprintf('/admin/template/detach/region/%d', $index)) ?>"
     	class="ir detach"
     	title="<?php echo I18n::__('scaffold_detach') ?>"
-    	data-target="template-<?php echo $record->getId() ?>-ownregion-<?php echo $_region->getId() ?>">
+    	data-target="template-<?php echo $record->getId() ?>-ownregion-<?php echo $index ?>">
     		<?php echo I18n::__('scaffold_detach') ?>
     </a>
     <a
@@ -39,13 +39,13 @@
     <div
         class="row">
         <label
-            for="template-<?php echo $record->getId() ?>-region-<?php echo $_region->getId() ?>-name">
+            for="template-<?php echo $record->getId() ?>-region-<?php echo $index ?>-name">
             <?php echo I18n::__('region_label_name', null, array($index)) ?>
         </label>
         <input
-            id="template-<?php echo $record->getId() ?>-region-<?php echo $_region->getId() ?>-name"
+            id="template-<?php echo $record->getId() ?>-region-<?php echo $index ?>-name"
             type="text"
-            name="dialog[ownRegion][<?php echo $_region->getId() ?>][name]"
+            name="dialog[ownRegion][<?php echo $index ?>][name]"
             value="<?php echo htmlspecialchars($_region->name) ?>" />
     </div>
 </fieldset>
