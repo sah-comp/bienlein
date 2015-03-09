@@ -9,13 +9,13 @@
  */
 
 /**
- * Email model.
+ * Personkind model.
  *
  * @package Cinnebar
  * @subpackage Model
  * @version $Id$
  */
-class Model_Email extends Model
+class Model_Personkind extends Model
 {
     /**
      * Returns an array with attributes for lists.
@@ -27,9 +27,9 @@ class Model_Email extends Model
     {
         return array(
             array(
-                'name' => 'email',
+                'name' => 'name',
                 'sort' => array(
-                    'name' => 'email'
+                    'name' => 'name'
                 ),
                 'filter' => array(
                     'tag' => 'text'
@@ -43,10 +43,9 @@ class Model_Email extends Model
      */
     public function dispense()
     {
-        $this->addValidator('email', array(
+        $this->addValidator('name', array(
             new Validator_HasValue(),
-            new Validator_IsEmail(),
-            new Validator_IsUnique(array('bean' => $this->bean, 'attribute' => 'email'))
+            new Validator_IsUnique(array('bean' => $this->bean, 'attribute' => 'name'))
         ));
     }
 }
