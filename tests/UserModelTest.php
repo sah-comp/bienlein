@@ -1,6 +1,10 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
 Flight::path(__DIR__ . '/../../src');
+/**
+ * Define the maximum session lifetime in seconds.
+ */
+define('MAX_SESSION_LIFETIME', 14400); // 4 hours
 include 'setup.php';
 
 class UserModelTest extends PHPUnit_Framework_TestCase
@@ -177,7 +181,6 @@ class UserModelTest extends PHPUnit_Framework_TestCase
         $this->login->pw = 'secret';
         $this->assertTrue($this->login->trial());
         $this->assertTrue(is_a($this->login->user, 'RedBean_OODBBean'));
-        $this->assertEmpty($this->login->pw);
     }
     
     public function testLoginWithNameGood()
@@ -186,7 +189,6 @@ class UserModelTest extends PHPUnit_Framework_TestCase
         $this->login->pw = 'secret';
         $this->assertTrue($this->login->trial());
         $this->assertTrue(is_a($this->login->user, 'RedBean_OODBBean'));
-        $this->assertEmpty($this->login->pw);
     }
     
     public function testLoginWithShortnameGood()
@@ -195,7 +197,6 @@ class UserModelTest extends PHPUnit_Framework_TestCase
         $this->login->pw = 'secret';
         $this->assertTrue($this->login->trial());
         $this->assertTrue(is_a($this->login->user, 'RedBean_OODBBean'));
-        $this->assertEmpty($this->login->pw);
     }
 
     public function testUserBugIsUniqueValidators()
