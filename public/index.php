@@ -8,11 +8,37 @@
  * @version $Id$
  */
 
-// Autoload
+/**
+ * Autoloader.
+ */
 require __DIR__ . '/../vendor/autoload.php';
-// Configure system and Routes
+
+/**
+ * Alias RB Facade as R.
+ */
 class_alias('RedBean_Facade', 'R');
+
+/**
+ * Configuration.
+ */
 require __DIR__ . '/../app/config/config.php';
+ 
+/**
+ * Check if this was called from the command line.
+ */
+if (php_sapi_name() == 'cli' && isset($_SERVER['argc']) && $_SERVER['argc'] >= 1) {
+    chdir(dirname(__FILE__));
+    $command = new Command_Welcome();
+    $command->run();
+    exit(1);
+}
+
+/**
+ * Routes
+ */
 require __DIR__ . '/../app/config/routes.php';
-// Take off
+
+/**
+ * Up, up and away.
+ */
 Flight::start();
