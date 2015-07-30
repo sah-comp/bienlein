@@ -160,7 +160,9 @@ SQL;
             case 'idle':
                 break;
             case 'test':
-                $this->test();
+                if ( ! $this->test() ) {
+                    Flight::get('user')->notify(I18n::__("newsletter_test_failed"), 'error');
+                }
                 break;
             case 'make':
                 $this->make();
@@ -198,7 +200,7 @@ SQL;
         $mail->MsgHTML($body_html);
         $mail->AltBody = $body_text;
         $mail->ClearAddresses();
-        $mail->AddAddress('ab@fettundrosig.com');
+        $mail->AddAddress($this->bean->testemail);
         return $result = $mail->Send();
     }
     

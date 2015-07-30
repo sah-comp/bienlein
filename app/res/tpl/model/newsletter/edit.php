@@ -83,6 +83,18 @@
             value="<?php echo htmlspecialchars($record->replytoname) ?>"
             required="required" />
     </div>
+    <div class="row <?php echo ($record->hasError('testemail')) ? 'error' : ''; ?>">
+        <label
+            for="newsletter-testemail">
+            <?php echo I18n::__('newsletter_label_testemail') ?>
+        </label>
+        <input
+            id="newsletter-testemail"
+            type="email"
+            name="dialog[testemail]"
+            value="<?php echo htmlspecialchars($record->testemail) ?>"
+            required="required" />
+    </div>
 </fieldset>
 <fieldset>
     <legend class="verbose"><?php echo I18n::__('action_legend') ?></legend>
