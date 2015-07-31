@@ -103,16 +103,31 @@ class Model_Domain extends Model
     }
     
     /**
-     * Returns either an array with rendered content or false if domain has no content.
+     * Returns an array with rendered content.
+     *
+     * If the given domain has no content the returned array uses a temporary template
+     * which is indeed the 404.php template. This way a 404 error page is show on a empty domain.
      *
      * @param string $language
      * @param mixed (optional) $invisible defaults to null, if null all pages are found
-     * @return mixed either false or an array for use with template
+     * @return array
      */
     public function getContent($language, $invisible = null)
     {
         $pages = $this->getPages($language, $invisible);
-        if (empty($pages)) return false;
+        if (empty($pages)) {
+            $template = R::dispense('template');
+            $template->name = '404';
+            $template_data = array(
+                'mytemplate' => $template,
+                'domain' => $this->bean,
+                'title' => I18n::__('cms_domain_has_no_content'),
+                'language' => $language,
+                'meta_keywords' => '',
+                'meta_description' => ''
+            );
+            return $template_data;
+        }
         R::preload($pages, array('template'));
         $first_page = reset($pages);
         $template_data = array(
@@ -126,30 +141,8 @@ class Model_Domain extends Model
         //load the contents and push it into our template data
         foreach ($pages as $id => $page) {
             $template_data = $page->getContent($template_data);
-            /*
-            foreach ($page->template->ownRegion as $region_id => $region) {
-                $slices = $page->getSlicesByRegion($region_id, false);
-                foreach ($slices as $slice_id => $slice) {
-                    if ( ! isset($template_data[mb_strtolower($region->name)])) {
-                        $template_data[mb_strtolower($region->name)] = '';
-                    }
-                    ob_start();
-                    $slice->renderFrontend();
-                    $content = ob_get_contents();
-                    ob_end_clean();
-                    if (($slice->css || $slice->class) && ! $slice->tag) {
-                        //make it a div tag if we have css or class
-                        $slice->tag = 'div';
-                    }
-                    if ($slice->tag) {
-                        $content = sprintf('<%1$s class="%2$s" style="%3$s">'.$content.'</%1$s>', $slice->tag, $slice->class, $slice->css)."\n";
-                    }
-                    $template_data[mb_strtolower($region->name)] .= $content;
-                }
-            }
-            */
         } 
-        return $template_data;       
+        return $template_data;
     }
     
     /**
