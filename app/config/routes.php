@@ -13,7 +13,7 @@
  *
  * @todo maybe use language bean? What should happen if a unknown/inactive lang is requested?
  */
-Flight::route('(/@language:[a-z]{2})(/)', function($language) {
+Flight::route('(/@language:[a-z]{2})/*', function($language) {
     if (in_array($language, Flight::get('possible_languages'))) {
         Flight::set('language', $language);
     }
@@ -23,6 +23,7 @@ Flight::route('(/@language:[a-z]{2})(/)', function($language) {
 /**
  * Top level url routes to either '/' domain or the welcome controller jumps in.
  */
+
 Flight::route('(/[a-z]{2})/', function() {
     if (Flight::setting()->homepage) {
         $cmsController = new Controller_Cms();
@@ -272,6 +273,9 @@ Flight::route('(/[a-z]{2})/billing(/@method:[a-z]+(/@id:[0-9]+))', function($met
  */
 Flight::map('notFound', function() {
     $parsed = parse_url(Flight::request()->url);
+    if ( Flight::get('language') != Flight::get('default_language') ) {
+        $parsed['path'] = str_replace( '/' . Flight::get('language') . '/', '', $parsed['path'] );
+    }
     if ($domain = R::findOne('domain', ' url = ? ', array(trim($parsed['path'], '/')))) {
         $cmsController = new Controller_Cms();
     	$cmsController->frontend($domain);

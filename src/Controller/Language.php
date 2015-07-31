@@ -27,6 +27,6 @@ class Controller_Language extends Controller
         if (in_array(Flight::request()->data->language, Flight::get('possible_languages'))) {
             $_SESSION['backend']['language'] = Flight::request()->data->language;
         }
-        $this->redirect(Flight::request()->data->goto);
+        $this->redirect(Flight::request()->data->goto, true );
     }
 }
