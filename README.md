@@ -1,19 +1,7 @@
 Cinnebar
 ========
 
-Layout for web development using PHPUnit, Flight, RedBeanPHP and Boilerplate stuff.
-
-Todo
-----
-
-Write complete documentation for installation:
-
-* Download from github
-* Composer
-* Database creation
-* Setup virtual host
-* Install controller
-
+Boilerplate for web application development with PHP.
 
 Features
 --------
@@ -44,16 +32,6 @@ Point your browser to http://example.com/install and follow the instructions.
 Start writing template, models and controllers until you have a shiny new application handy.
 
 
-Docs
-----
-
-I have to write documentation and examples about helpers and conventions, maybe:
-
-* Url::build
-* Gravatar::src
-* Flight::textile
-
-
 Notes to self
 -------------
 
@@ -80,10 +58,14 @@ cd /path/to/project
 
 composer update
 
+Do a composer self-update from time to time.
+
 RedBeanPHP
 ----------
 
 I enjoy [RedBeanPHP](http://redbeanphp.com/) as a ORM.
+
+Note: Cinnebar uses RedBeanPHP Version 3.5.1 for now. The current dev-master will be loaded via composer. The 3.5 version used by cinnebar is required by index.php from /lib/redbean/rb.php.
 
 
 Tests
@@ -102,4 +84,9 @@ cd /path/to/project/tests
 Website
 -------
 
-Feel free to visit [sah-company.com](http://sah-company.com).
+Feel free to visit [sah-company.com](http://sah-company.com). Nothing there, though.
+
+Todo
+----
+
+* Write complete documentation for installation
