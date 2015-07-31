@@ -9,14 +9,14 @@
  */
 
 /**
+ * RedbeanPHP Version 3.5.
+ */
+require __DIR__ . '/../lib/redbean/rb.php';
+
+/**
  * Autoloader.
  */
 require __DIR__ . '/../vendor/autoload.php';
-
-/**
- * Alias RB Facade as R.
- */
-class_alias('RedBean_Facade', 'R');
 
 /**
  * Configuration.
