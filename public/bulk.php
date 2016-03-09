@@ -8,12 +8,21 @@
  * @version $Id$
  */
 
-// Autoload
+/**
+ * RedbeanPHP Version 3.5.
+*/
+require __DIR__ . '/../lib/redbean/rb.php';
+
+/**
+ * Autoloader.
+*/
 require __DIR__ . '/../vendor/autoload.php';
-// Configure system and Routes
-class_alias('RedBean_Facade', 'R');
+
+/**
+ * Configuration.
+*/
 require __DIR__ . '/../app/config/config.php';
-//require __DIR__ . '/../app/config/routes.php';
+
 // Send bulk mail
 $bulks = R::find('bulk', ' newsletter_id IS NOT NULL AND send = 0 LIMIT 100');
 foreach ($bulks as $id => $bulk) {
