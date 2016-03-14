@@ -26,7 +26,7 @@ require __DIR__ . '/../app/config/config.php';
 // Send bulk mail
 $bulks = R::find('bulk', ' newsletter_id IS NOT NULL AND send = 0 LIMIT 100');
 foreach ($bulks as $id => $bulk) {
-
+    
     $mail = new PHPMailer();
     $mail->Charset = 'UTF-8';
     $mail->Subject = utf8_decode($bulk->newsletter->name);
@@ -49,7 +49,10 @@ foreach ($bulks as $id => $bulk) {
     $mail->AltBody = $body_text;
     $mail->ClearAddresses();
     $mail->AddAddress($bulk->email->email);
-    $bulk->send = $mail->Send();
-    echo $bulk->email->email . "\n";
-    R::store($bulk);
+    //$mail->AddAddress('sh@fettundrosig.com');//for testing purpose ONLY!!
+    $result = $mail->Send();
+    echo  $bulk->getId() . " " . $bulk->email->email ."\n";
+    R::exec('UPDATE bulk SET send = ? WHERE id = ?', array($result, $bulk->getId()));
+    //R::store($bulk);// Why does this fail when actually sending mail?
 }
+echo "Ready.\nYou man run this again until now bulk mail is left.\n\n";

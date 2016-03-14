@@ -98,18 +98,20 @@
 </fieldset>
 <fieldset>
     <legend class="verbose"><?php echo I18n::__('action_legend') ?></legend>
-    <label
-        for="newsletter-command">
-        <?php echo I18n::__('newsletter_label_command') ?>
-    </label>
-    <select
-        id="newsletter-command"
-        name="dialog[command]">
-        <option value=""><?php echo I18n::__('newsletter_command_please_select') ?></option>
-        <?php foreach ($record->getCommands() as $_command): ?>
-        <option
-            value="<?php echo $_command ?>"><?php echo I18n::__('newsletter_command_'.$_command) ?></option>   
-        <?php endforeach ?>
-    </select>
+    <div class="row <?php echo ($record->hasError('command')) ? 'error' : ''; ?>">
+        <label
+            for="newsletter-command">
+            <?php echo I18n::__('newsletter_label_command') ?>
+        </label>
+        <select
+            id="newsletter-command"
+            name="dialog[command]">
+            <option value=""><?php echo I18n::__('newsletter_command_please_select') ?></option>
+            <?php foreach ($record->getCommands() as $_command): ?>
+            <option
+                value="<?php echo $_command ?>"><?php echo I18n::__('newsletter_command_'.$_command) ?></option>   
+            <?php endforeach ?>
+        </select>
+    </div>
 </fieldset>
 <!-- end of newsletter edit form -->

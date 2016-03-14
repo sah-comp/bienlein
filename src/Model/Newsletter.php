@@ -88,6 +88,7 @@ class Model_Newsletter extends Model
      */
     public function templateName()
     {
+        if ( ! $this->bean->template ) return '';
         return $this->bean->template->name;
     }
     
@@ -169,6 +170,7 @@ SQL;
                 break;
             default:   
         }
+        $this->bean->command = 'idle';// Reset to idle whenever updated.
         parent::update();
     }
     
