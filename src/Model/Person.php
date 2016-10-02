@@ -120,7 +120,7 @@ class Model_Person extends Model
      * Returns an address bean of this person with a given label.
      *
      * @param string $label defaults to 'default'
-     * @return RedBean_OODBBean $address
+     * @return RedBeanPHP\OODBBean $address
      */
     public function getAddress($label = 'default')
     {
@@ -155,7 +155,6 @@ class Model_Person extends Model
     public function dispense()
     {
         $this->autoTag(true);
-        $this->autoInfo(true);
         $this->addValidator('nickname', array(
             new Validator_HasValue(),
             new Validator_IsUnique(array('bean' => $this->bean, 'attribute' => 'nickname'))

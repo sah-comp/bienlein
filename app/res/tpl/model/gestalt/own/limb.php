@@ -10,13 +10,13 @@
 ?>
 <!-- limb edit subform -->
 <fieldset
-    id="gestalt-<?php echo $record->getId() ?>-ownlimb-<?php echo $_limb->getId() ?>">
+    id="gestalt-<?php echo $record->getId() ?>-ownlimb-<?php echo $index ?>">
     <legend class="verbose"><?php echo I18n::__('gestalt_legend_limb') ?></legend>
     <a
     	href="<?php echo Url::build(sprintf('/admin/gestalt/detach/address/%d', $_limb->getId())) ?>"
     	class="ir detach"
     	title="<?php echo I18n::__('scaffold_detach') ?>"
-    	data-target="person-<?php echo $record->getId() ?>-ownaddress-<?php echo $_limb->getId() ?>">
+    	data-target="person-<?php echo $record->getId() ?>-ownaddress-<?php echo $index ?>">
     		<?php echo I18n::__('scaffold_detach') ?>
     </a>
     <a

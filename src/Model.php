@@ -69,13 +69,6 @@ class Model extends RedBean_SimpleModel
     protected $auto_tag = false;
     
     /**
-     * Holds the auto info status.
-     *
-     * @var bool
-     */
-    protected $auto_info = false;
-    
-    /**
      * Holds the default actions.
      *
      * @var array
@@ -189,7 +182,7 @@ class Model extends RedBean_SimpleModel
      * @uses getRoot() to return the domain up one level
      *
      * @param int (optional) $stop_id of the domain to cut the bubble up route
-     * @return RedBean_OODBBean $root
+     * @return RedBeanPHP\OODBBean $root
      */
     public function getRoot($stop_id = 0)
     {
@@ -312,18 +305,6 @@ SQL;
         if ($switch !== null) $this->auto_tag = $switch;
         return $this->auto_tag;
     }
-    
-    /**
-     * Returns or sets the auto info flag.
-     *
-     * @param bool (optional) $switch
-     * @return bool
-     */
-    public function autoInfo($switch = null)
-    {
-        if ($switch !== null) $this->auto_info = $switch;
-        return $this->auto_info;
-    }
 
     /**
      * Returns a *i18n bean for this bean.
@@ -373,28 +354,7 @@ SQL;
      */
     public function after_update()
     {
-        if ($this->autoInfo()) $this->addInfo();
         if ($this->autoTag()) $this->setAutoTags();
-    }
-    
-    /**
-     * Create a new info bean and associate it with this bean.
-     *
-     * If there is a current user with a valid session that guy is linked as a user, otherwise
-     * the user relation of the auto info bean is NULL.
-     *
-     * @return RedBean_OODBean $info
-     */
-    protected function addInfo()
-    {
-        if ( ! $this->bean->getId()) return false;
-        $info = R::dispense('info');
-        $user = R::dispense('user')->current();
-        if ($user->getId()) $info->user = $user;
-        $info->stamp = time();
-        R::store($info);
-        R::associate($this->bean, $info);
-        return $info;
     }
     
     /**

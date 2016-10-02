@@ -9,7 +9,9 @@
  */
 ?>
 <!-- setting form -->
-<?php $domains = R::findAll('domain') ?>
+<?php
+$domains = R::findAll('domain');
+?>
 <div>
     <input type="hidden" name="dialog[type]" value="<?php echo $record->getMeta('type') ?>" />
     <input type="hidden" name="dialog[id]" value="<?php echo $record->getId() ?>" />

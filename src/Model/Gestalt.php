@@ -136,7 +136,6 @@ class Model_Gestalt extends Model
      */
     public function dispense()
     {
-        $this->autoInfo(true);
         $this->addValidator('name', array(
             new Validator_HasValue(),
             new Validator_IsUnique(array('bean' => $this->bean, 'attribute' => 'name'))
@@ -145,8 +144,6 @@ class Model_Gestalt extends Model
 
     /**
      * Update.
-     *
-     * @todo Implement a switch to decide wether to use first/last or last/first name order
      */
     public function update()
     {

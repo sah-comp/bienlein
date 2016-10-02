@@ -10,6 +10,7 @@
  * @version $Id$
  */
 ?>
+<!-- scaffold edit form -->
 <div>
     <input type="hidden" name="dialog[type]" value="<?php echo $record->getMeta('type') ?>" />
     <input type="hidden" name="dialog[id]" value="<?php echo $record->getId() ?>" />
@@ -18,7 +19,7 @@
     <fieldset>
         <legend class="verbose"><?php echo I18n::__($record->getMeta('type') . '_legend') ?></legend>
         <div>
-            <?php echo Flight::textile(I18n::__('gestalt_not_found')) ?>
+            <p>Unfunny things to do in may</p>
         </div>
     </fieldset>
 <?php else: ?>

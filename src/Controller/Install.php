@@ -38,7 +38,7 @@ class Controller_Install extends Controller
                 R::nuke();
                 $this->makeDatabase();
                 $this->initialFillings();
-                $user = R::graph(Flight::request()->data->dialog, true);
+                $user = R::graph( Flight::request()->data->dialog, TRUE );
                 R::store($user);
                 $user->notify(I18n::__('app_install_success'), 'success');
                 $this->redirect('/admin');

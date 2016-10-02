@@ -30,7 +30,7 @@ class Controller_Admin extends Controller
         
 		if (Flight::request()->method == 'POST') {
             Permission::check(Flight::get('user'), 'admin', 'edit');
-            $setting = R::graph(Flight::request()->data->dialog, true);
+            $setting = R::graph( Flight::request()->data->dialog, TRUE );
             R::begin();
             try {
                 if (Flight::request()->data->loadexchangerates == 1 &&

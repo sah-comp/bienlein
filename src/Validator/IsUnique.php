@@ -26,7 +26,7 @@ class Validator_IsUnique extends Validator
      */
     public function validate($value)
     {
-        if ( ! isset($this->options['bean']) || ! isset($this->options['attribute']) || ! is_a($this->options['bean'], 'RedBean_OODBBean')) {
+        if ( ! isset($this->options['bean']) || ! isset($this->options['attribute']) || ! is_a($this->options['bean'], 'RedBeanPHP\OODBBean')) {
             throw new Exception('A unique validator needs bean and attribute as parameters');
         }
         if ( $this->options['bean']->getId() &&

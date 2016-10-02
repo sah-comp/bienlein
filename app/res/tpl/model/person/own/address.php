@@ -10,13 +10,13 @@
 ?>
 <!-- address edit subform -->
 <fieldset
-    id="person-<?php echo $record->getId() ?>-ownaddress-<?php echo $_address->getId() ?>">
+    id="person-<?php echo $record->getId() ?>-ownaddress-<?php echo $index ?>">
     <legend class="verbose"><?php echo I18n::__('person_legend_address') ?></legend>
     <a
     	href="<?php echo Url::build(sprintf('/admin/person/detach/address/%d', $_address->getId())) ?>"
     	class="ir detach"
     	title="<?php echo I18n::__('scaffold_detach') ?>"
-    	data-target="person-<?php echo $record->getId() ?>-ownaddress-<?php echo $_address->getId() ?>">
+    	data-target="person-<?php echo $record->getId() ?>-ownaddress-<?php echo $index ?>">
     		<?php echo I18n::__('scaffold_detach') ?>
     </a>
     <a
@@ -38,11 +38,11 @@
 </div>
 <div class="row <?php echo ($_address->hasError('label')) ? 'error' : ''; ?>">
     <label
-        for="person-<?php echo $record->getId() ?>-address-<?php echo $_address->getId() ?>-label">
+        for="person-<?php echo $record->getId() ?>-address-<?php echo $index ?>-label">
         <?php echo I18n::__('address_label_label') ?>
     </label>
     <select
-        id="person-<?php echo $record->getId() ?>-address-<?php echo $_address->getId() ?>-label"
+        id="person-<?php echo $record->getId() ?>-address-<?php echo $index ?>-label"
         name="dialog[ownAddress][<?php echo $index ?>][label]">
         <option value=""><?php echo I18n::__('address_label_select') ?></option>
         <?php foreach ($_address->getLabels() as $_label): ?>
@@ -56,55 +56,55 @@
 </div>
 <div class="row <?php echo ($_address->hasError('street')) ? 'error' : ''; ?>">
     <label
-        for="person-<?php echo $record->getId() ?>-address-<?php echo $_address->getId() ?>-street">
+        for="person-<?php echo $record->getId() ?>-address-<?php echo $index ?>-street">
         <?php echo I18n::__('address_label_street') ?>
     </label>
     <textarea
-        id="person-<?php echo $record->getId() ?>-address-<?php echo $_address->getId() ?>-street"
+        id="person-<?php echo $record->getId() ?>-address-<?php echo $index ?>-street"
         name="dialog[ownAddress][<?php echo $index ?>][street]"
         rows="3"
         cols="60"><?php echo htmlspecialchars($_address->street) ?></textarea>
 </div>
 <div class="row <?php echo ($_address->hasError('zip')) ? 'error' : ''; ?>">
     <label
-        for="person-<?php echo $record->getId() ?>-address-<?php echo $_address->getId() ?>-zip">
+        for="person-<?php echo $record->getId() ?>-address-<?php echo $index ?>-zip">
         <?php echo I18n::__('address_label_zip') ?>
     </label>
     <input
         type="text"
-        id="person-<?php echo $record->getId() ?>-address-<?php echo $_address->getId() ?>-zip"
+        id="person-<?php echo $record->getId() ?>-address-<?php echo $index ?>-zip"
         name="dialog[ownAddress][<?php echo $index ?>][zip]"
         value="<?php echo htmlspecialchars($_address->zip) ?>" />
 </div>
 <div class="row <?php echo ($_address->hasError('city')) ? 'error' : ''; ?>">
     <label
-        for="person-<?php echo $record->getId() ?>-address-<?php echo $_address->getId() ?>-city">
+        for="person-<?php echo $record->getId() ?>-address-<?php echo $index ?>-city">
         <?php echo I18n::__('address_label_city') ?>
     </label>
     <input
         type="text"
-        id="person-<?php echo $record->getId() ?>-address-<?php echo $_address->getId() ?>-city"
+        id="person-<?php echo $record->getId() ?>-address-<?php echo $index ?>-city"
         name="dialog[ownAddress][<?php echo $index ?>][city]"
         value="<?php echo htmlspecialchars($_address->city) ?>" />
 </div>
 <div class="row <?php echo ($_address->hasError('county')) ? 'error' : ''; ?>">
     <label
-        for="person-<?php echo $record->getId() ?>-address-<?php echo $_address->getId() ?>-county">
+        for="person-<?php echo $record->getId() ?>-address-<?php echo $index ?>-county">
         <?php echo I18n::__('address_label_county') ?>
     </label>
     <input
         type="text"
-        id="person-<?php echo $record->getId() ?>-address-<?php echo $_address->getId() ?>-county"
+        id="person-<?php echo $record->getId() ?>-address-<?php echo $index ?>-county"
         name="dialog[ownAddress][<?php echo $index ?>][county]"
         value="<?php echo htmlspecialchars($_address->county) ?>" />
 </div>
 <div class="row <?php echo ($_address->hasError('country_id')) ? 'error' : ''; ?>">
     <label
-        for="person-<?php echo $record->getId() ?>-address-<?php echo $_address->getId() ?>-country">
+        for="person-<?php echo $record->getId() ?>-address-<?php echo $index ?>-country">
         <?php echo I18n::__('address_label_country') ?>
     </label>
     <select
-        id="person-<?php echo $record->getId() ?>-address-<?php echo $_address->getId() ?>-country"
+        id="person-<?php echo $record->getId() ?>-address-<?php echo $index ?>-country"
         name="dialog[ownAddress][<?php echo $index ?>][country_id]">
         <option value=""><?php echo I18n::__('address_country_select') ?></option>
         <?php foreach (R::findAll('country') as $_country_id => $_country): ?>
