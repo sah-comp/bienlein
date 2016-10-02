@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos  -->
+			<title>Docs For Class Menu</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+						<script src="../../media/lib/classTree.js"></script>
+												<script language="javascript" type="text/javascript">
+				var imgPlus = new Image();
+				var imgMinus = new Image();
+				imgPlus.src = "../../media/images/plus.gif";
+				imgMinus.src = "../../media/images/minus.gif";
+				
+				function showNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgMinus.src;
+					oTable.style.display = "block";
+				}
+				
+				function hideNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgPlus.src;
+					oTable.style.display = "none";
+				}
+				
+				function nodeIsVisible(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+									break;
+							}
+					return (oTable && oTable.style.display == "block");
+				}
+				
+				function toggleNodeVisibility(Node){
+					if (nodeIsVisible(Node)){
+						hideNode(Node);
+					}else{
+						showNode(Node);
+					}
+				}
+			</script>
+					</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class Menu</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Manages hierarchical menus.</p>
+<p class="description"><p>Manages hierarchical menus.
+ Parts of this code was taken from <a href="http://coreyworrell.com">http://coreyworrell.com</a>.</p></p>
+	<ul class="tags">
+				<li><span class="field">version:</span> $Id$</li>
+				<li><span class="field">todo:</span> Fuzzy check of current url, e.g. /token/index should be active when /token/index/x/y is the url</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Menu.php.html">/Menu.php</a> (line <span class="field">23</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																																																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$attrs" title="details" class="var-name">$attrs</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$current" title="details" class="var-name">$current</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$items" title="details" class="var-name">$items</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$templates" title="details" class="var-name">$templates</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+										
+				<div class="method-definition">
+					static 						<span class="method-result">bool</span>
+										<a href="#active" title="details" class="method-name">active</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$array</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>)
+									</div>
+																						
+				<div class="method-definition">
+					static 						<span class="method-result">bool</span>
+										<a href="#current" title="details" class="method-name">current</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$current</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$item</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">string</span>
+										<a href="#glue" title="details" class="method-name">glue</a>
+											(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$dict</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$glueOpen</span> = <span class="var-default">'=&quot;'</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$glueClose</span> = <span class="var-default">'&quot;'</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$pre</span> = <span class="var-default">' '</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$impChar</span> = <span class="var-default">' '</span>])
+									</div>
+																																																		
+				<div class="method-definition">
+											<span class="method-result">$this</span>
+										<a href="#add" title="details" class="method-name">add</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$title</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$url</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$class</span> = <span class="var-default">null</span>], [<span class="var-type"><a href="../../Cinnebar/Menu/Menu.html">Menu</a></span>&nbsp;<span class="var-name">$sub</span> = <span class="var-default">null</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$id</span> = <span class="var-default">null</span>])
+									</div>
+																														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#render" title="details" class="method-name">render</a>
+											([<span class="var-type">array</span>&nbsp;<span class="var-name">$attrs</span> = <span class="var-default">null</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$current</span> = <span class="var-default">null</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$items</span> = <span class="var-default">null</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">$this</span>
+										<a href="#setTemplate" title="details" class="method-name">setTemplate</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$template</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#__toString" title="details" class="method-name">__toString</a>
+										()
+									</div>
+											</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			
+<a name="var$attrs" id="$attrs"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$attrs</span>
+			 = <span class="var-default"> null</span>			(line <span class="line-number">37</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Holds the attributes.</p>
+<p class="description"><p>Holds the attributes.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$current" id="$current"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$current</span>
+			 = <span class="var-default"> null</span>			(line <span class="line-number">30</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Holds the current menu item.</p>
+<p class="description"><p>Holds the current menu item.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$items" id="$items"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$items</span>
+			 = <span class="var-default">array()</span>			(line <span class="line-number">56</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Container for menu entries.</p>
+<p class="description"><p>Container for menu entries.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$templates" id="$templates"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$templates</span>
+			 = <span class="var-default">array(<br />        'list-open' =&gt; '&lt;ul%s&gt;',<br />        'item-open' =&gt; '&lt;li %s %s&gt;&lt;a href=&quot;%s&quot;&gt;%s&lt;/a&gt;', // id | class | url | linktext<br />        'item-close' =&gt; '&lt;/li&gt;',<br />        'list-close' =&gt; '&lt;/ul&gt;'<br />    )</span>			(line <span class="line-number">44</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Container for templates.</p>
+<p class="description"><p>Container for templates.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodactive" id="active"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static active</span> (line <span class="line-number">177</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Recursive function to check if active item is child of parent item</p>
+<p class="description"><p>Recursive function to check if active item is child of parent item</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">bool</span>
+		<span class="method-name">
+			active
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$array</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$array</span><span class="var-description">: the list item</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: the current active item</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: to match current against</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcurrent" id="current"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static current</span> (line <span class="line-number">159</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Figures out if items are parents of the active item.</p>
+<p class="description"><p>Figures out if items are parents of the active item.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">bool</span>
+		<span class="method-name">
+			current
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$current</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$item</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$current</span><span class="var-description">: the current url array (key, match)</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$item</span><span class="var-description">: the array to check against</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodglue" id="glue"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static glue</span> (line <span class="line-number">206</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Glues together an array of key/values as a string and returns it.</p>
+<p class="description"><p>Glues together an array of key/values as a string and returns it.
+ Usage Example: <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$text&nbsp;</span>=&nbsp;<a href="../../Cinnebar/Menu/Menu.html#methodglue">glue</a><span class="src-sym">(</span><span class="src-key">array</span><span class="src-sym">(</span><span class="src-str">'title'&nbsp;</span>=&gt;&nbsp;<span class="src-str">'Test'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'lenght'&nbsp;</span>=&gt;&nbsp;<span class="src-str">'4'</span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">string</span>
+		<span class="method-name">
+			glue
+		</span>
+					(<span class="var-type">mixed</span>&nbsp;<span class="var-name">$dict</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$glueOpen</span> = <span class="var-default">'=&quot;'</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$glueClose</span> = <span class="var-default">'&quot;'</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$pre</span> = <span class="var-default">' '</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$impChar</span> = <span class="var-default">' '</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$dict</span><span class="var-description">: (required) $dict</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$glueOpen</span><span class="var-description">: (optional) $glueOpen</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$glueClose</span><span class="var-description">: (optional) $glueClose</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$pre</span><span class="var-description">: (optional) $pre</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$impChar</span><span class="var-description">: (optional) $impChar</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodadd" id="add"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">add</span> (line <span class="line-number">91</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Add a item to the menu.</p>
+<p class="description"><p>Add a item to the menu.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">$this</span>
+		<span class="method-name">
+			add
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$title</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$url</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$class</span> = <span class="var-default">null</span>], [<span class="var-type"><a href="../../Cinnebar/Menu/Menu.html">Menu</a></span>&nbsp;<span class="var-name">$sub</span> = <span class="var-default">null</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$id</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$title</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$url</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$class</span>			</li>
+					<li>
+				<span class="var-type"><a href="../../Cinnebar/Menu/Menu.html">Menu</a></span>
+				<span class="var-name">$sub</span><span class="var-description">: (optional) $sub</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$id</span><span class="var-description">: (optional) $id</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodrender" id="render"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">render</span> (line <span class="line-number">111</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Renders the HTML output for the menu</p>
+<p class="description"><p>Renders the HTML output for the menu</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> HTML unordered list</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			render
+		</span>
+					([<span class="var-type">array</span>&nbsp;<span class="var-name">$attrs</span> = <span class="var-default">null</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$current</span> = <span class="var-default">null</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$items</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$attrs</span><span class="var-description">: associative array of html attributes</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$current</span><span class="var-description">: associative array containing the key and value of current url</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$items</span><span class="var-description">: the parent item's array, only used internally</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetTemplate" id="setTemplate"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setTemplate</span> (line <span class="line-number">75</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets a certain template string.</p>
+<p class="description"><p>Sets a certain template string.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> for chaining</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">$this</span>
+		<span class="method-name">
+			setTemplate
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$template</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$template</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method__toString" id="__toString"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">__toString</span> (line <span class="line-number">63</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Renders the menu when echoed or printed.</p>
+<p class="description"><p>Renders the menu when echoed or printed.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			__toString
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 02 Oct 2016 10:21:28 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

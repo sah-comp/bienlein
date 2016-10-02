@@ -3,7 +3,7 @@
   <html xmlns="http://www.w3.org/1999/xhtml">
 		<head>
 			<!-- template designed by Marco Von Ballmoos  -->
-			<title>Docs For Class Model_Address</title>
+			<title>Docs For Class Model_Notification</title>
 			<link rel="stylesheet" href="../../media/stylesheet.css" />
 						<script src="../../media/lib/classTree.js"></script>
 												<script language="javascript" type="text/javascript">
@@ -85,7 +85,7 @@
 					</head>
 		<body>
 			<div class="page-body">			
-<h2 class="class-name">Class Model_Address</h2>
+<h2 class="class-name">Class Model_Notification</h2>
 
 <a name="sec-description"></a>
 <div class="info-box">
@@ -93,26 +93,28 @@
 	<div class="nav-bar">
 					<span class="disabled">Description</span> |
 													<a href="#sec-vars">Vars</a>
-						|											<a href="#sec-methods">Methods</a>
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
 						
-					</div>
+											<a href="#sec-consts">Constants</a>
+						
+			</div>
 	<div class="info-box-body">
         		<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Address model.</p>
-<p class="description"><p>Address model.</p></p>
+<p class="short-description">Notification model.</p>
+<p class="description"><p>Notification model.</p></p>
 	<ul class="tags">
 				<li><span class="field">version:</span> $Id$</li>
 			</ul>
 		<p class="notes">
-			Located in <a class="field" href="_model---Address.php.html">/model/Address.php</a> (line <span class="field">18</span>)
+			Located in <a class="field" href="_Model---Notification.php.html">/Model/Notification.php</a> (line <span class="field">18</span>)
 		</p>
 		
 				
-		<pre><a href="../../Cinnebar/RedBean_SimpleModel.html">RedBean_SimpleModel</a>
+		<pre>RedBean_SimpleModel
    |
    --<a href="../../Cinnebar/Model/Model.html">Model</a>
       |
-      --Model_Address</pre>
+      --Model_Notification</pre>
 	
 			</div>
 </div>
@@ -120,17 +122,42 @@
 
 
 
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-consts">Constants</a>
+							
+															<a href="#sec-vars">Vars</a>
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																						
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#update" title="details" class="method-name">update</a>
+										()
+									</div>
+											</div>
+		</div>
+	</div>		
 
 	<a name="sec-vars"></a>
 	<div class="info-box">
 		<div class="info-box-title">Variables</div>
 		<div class="nav-bar">
 			<a href="#sec-description">Description</a> |
-										<span class="disabled">Vars</span>
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
 						
 			
+												<a href="#sec-consts">Constants</a>
+							
 										| 
-									<a href="#sec-methods">Methods</a>
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
 							
 					</div>
 		<div class="info-box-body">
@@ -140,7 +167,7 @@
 									<p>Inherited from <span class="classname"><a href="../../Cinnebar/Model/Model.html">Model</a></span></p>
 					<blockquote>
 													<span class="var-title">
-								<span class="var-name"><a href="../../Cinnebar/Model/Model.html#var$auto_info">Model::$auto_info</a></span><br>
+								<span class="var-name"><a href="../../Cinnebar/Model/Model.html#var$actions">Model::$actions</a></span><br>
 							</span>
 													<span class="var-title">
 								<span class="var-name"><a href="../../Cinnebar/Model/Model.html#var$auto_tag">Model::$auto_tag</a></span><br>
@@ -152,13 +179,10 @@
 								<span class="var-name"><a href="../../Cinnebar/Model/Model.html#var$errors">Model::$errors</a></span><br>
 							</span>
 													<span class="var-title">
-								<span class="var-name"><a href="../../Cinnebar/Model/Model.html#var$validators">Model::$validators</a></span><br>
+								<span class="var-name"><a href="../../Cinnebar/Model/Model.html#var$validation_mode">Model::$validation_mode</a></span><br>
 							</span>
-											</blockquote> 
-									<p>Inherited from <span class="classname"><a href="../../Cinnebar/RedBean_SimpleModel.html">RedBean_SimpleModel</a></span></p>
-					<blockquote>
 													<span class="var-title">
-								<span class="var-name"><a href="../../Cinnebar/RedBean_SimpleModel.html#var$bean">RedBean_SimpleModel::$bean</a></span><br>
+								<span class="var-name"><a href="../../Cinnebar/Model/Model.html#var$validators">Model::$validators</a></span><br>
 							</span>
 											</blockquote> 
 										
@@ -171,50 +195,119 @@
 		<div class="nav-bar">
 			<a href="#sec-description">Description</a> |
 															<a href="#sec-vars">Vars</a>
-																	<span class="disabled">Methods</span>
+																			<a href="#sec-consts">Constants</a>
+							
+										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
 						
 		</div>
 		<div class="info-box-body">
 			<A NAME='method_detail'></A>
+<a name="methodupdate" id="update"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">update</span> (line <span class="line-number">23</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Update.</p>
+<p class="description"><p>Update.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			update
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../Cinnebar/Model/Model.html#methodupdate">Model::update()</a></dt>
+						<dd>Update.</dd>
+					</dl>
+			
+	</div>
 							<h4>Inherited Methods</h4>
 				<a name='inherited_methods'><!-- --></a>	
 									<!-- =========== Summary =========== -->
 					<p>Inherited From <span class="classname"><a href="../../Cinnebar/Model/Model.html">Model</a></span></p>
 					<blockquote>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#method__construct">Model::__construct()</a></span><br>
 													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodaddConverter">Model::addConverter()</a></span><br>
 													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodaddError">Model::addError()</a></span><br>
-													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodaddInfo">Model::addInfo()</a></span><br>
 													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodaddValidator">Model::addValidator()</a></span><br>
 													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodafter_update">Model::after_update()</a></span><br>
-													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodautoInfo">Model::autoInfo()</a></span><br>
 													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodautoTag">Model::autoTag()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodboolean">Model::boolean()</a></span><br>
 													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodconvert">Model::convert()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodexpunge">Model::expunge()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodgetActions">Model::getActions()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodgetAttributes">Model::getAttributes()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodgetChildren">Model::getChildren()</a></span><br>
 													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodgetErrors">Model::getErrors()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodgetRoot">Model::getRoot()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodgetSql">Model::getSql()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodgetValidationMode">Model::getValidationMode()</a></span><br>
 													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodhasError">Model::hasError()</a></span><br>
 													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodhasErrors">Model::hasErrors()</a></span><br>
 													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodi18n">Model::i18n()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodisModel">Model::isModel()</a></span><br>
 													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodkeywords">Model::keywords()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodlocalizedDate">Model::localizedDate()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodlocalizedDateTime">Model::localizedDateTime()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodlocalizedTime">Model::localizedTime()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodsetAction">Model::setAction()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodsetActions">Model::setActions()</a></span><br>
 													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodsetAutoTags">Model::setAutoTags()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodsetValidationMode">Model::setValidationMode()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodtranslated">Model::translated()</a></span><br>
 													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodupdate">Model::update()</a></span><br>
 													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodvalidate">Model::validate()</a></span><br>
-											</blockquote>
-									<!-- =========== Summary =========== -->
-					<p>Inherited From <span class="classname"><a href="../../Cinnebar/RedBean_SimpleModel.html">RedBean_SimpleModel</a></span></p>
-					<blockquote>
-													<span class="method-name"><a href="../../Cinnebar/RedBean_SimpleModel.html#methodbox">RedBean_SimpleModel::box()</a></span><br>
-													<span class="method-name"><a href="../../Cinnebar/RedBean_SimpleModel.html#methodloadBean">RedBean_SimpleModel::loadBean()</a></span><br>
-													<span class="method-name"><a href="../../Cinnebar/RedBean_SimpleModel.html#methodunbox">RedBean_SimpleModel::unbox()</a></span><br>
-													<span class="method-name"><a href="../../Cinnebar/RedBean_SimpleModel.html#method__get">RedBean_SimpleModel::__get()</a></span><br>
-													<span class="method-name"><a href="../../Cinnebar/RedBean_SimpleModel.html#method__isset">RedBean_SimpleModel::__isset()</a></span><br>
-													<span class="method-name"><a href="../../Cinnebar/RedBean_SimpleModel.html#method__set">RedBean_SimpleModel::__set()</a></span><br>
 											</blockquote>
 										
 		</div>
 	</div>
 
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-vars">Vars</a>
+														| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+										<h4>Inherited Constants</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../../Cinnebar/Model/Model.html">Model</a></span></p>
+					<blockquote>
+													<span class="const-title">
+								<span class="const-name"><a href="../../Cinnebar/Model/Model.html#constVALIDATION_MODE_EXCEPTION">Model::VALIDATION_MODE_EXCEPTION</a></span><br>
+							</span>
+													<span class="const-title">
+								<span class="const-name"><a href="../../Cinnebar/Model/Model.html#constVALIDATION_MODE_EXPLICIT">Model::VALIDATION_MODE_EXPLICIT</a></span><br>
+							</span>
+													<span class="const-title">
+								<span class="const-name"><a href="../../Cinnebar/Model/Model.html#constVALIDATION_MODE_IMPLICIT">Model::VALIDATION_MODE_IMPLICIT</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
 
 	<p class="notes" id="credit">
-		Documentation generated on Fri, 14 Jun 2013 16:53:11 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Sun, 02 Oct 2016 10:21:30 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>

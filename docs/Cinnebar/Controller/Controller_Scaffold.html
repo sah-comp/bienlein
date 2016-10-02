@@ -1,0 +1,1335 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos  -->
+			<title>Docs For Class Controller_Scaffold</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+						<script src="../../media/lib/classTree.js"></script>
+												<script language="javascript" type="text/javascript">
+				var imgPlus = new Image();
+				var imgMinus = new Image();
+				imgPlus.src = "../../media/images/plus.gif";
+				imgMinus.src = "../../media/images/minus.gif";
+				
+				function showNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgMinus.src;
+					oTable.style.display = "block";
+				}
+				
+				function hideNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgPlus.src;
+					oTable.style.display = "none";
+				}
+				
+				function nodeIsVisible(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+									break;
+							}
+					return (oTable && oTable.style.display == "block");
+				}
+				
+				function toggleNodeVisibility(Node){
+					if (nodeIsVisible(Node)){
+						hideNode(Node);
+					}else{
+						showNode(Node);
+					}
+				}
+			</script>
+					</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class Controller_Scaffold</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Scaffold controller.</p>
+<p class="description"><p>Scaffold controller.</p></p>
+	<ul class="tags">
+				<li><span class="field">version:</span> $Id$</li>
+				<li><span class="field">todo:</span> Main points:<ul><li>Allow different layouts</li></ul></li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Controller---Scaffold.php.html">/Controller/Scaffold.php</a> (line <span class="field">21</span>)
+		</p>
+		
+				
+		<pre><a href="../../Cinnebar/Controller/Controller.html">Controller</a>
+   |
+   --Controller_Scaffold</pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																																																																																																																																																																																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$action" title="details" class="var-name">$action</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$actions" title="details" class="var-name">$actions</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$base_url" title="details" class="var-name">$base_url</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$default_layout" title="details" class="var-name">$default_layout</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">int</span>
+					<a href="#$dir" title="details" class="var-name">$dir</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$dir_map" title="details" class="var-name">$dir_map</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">RedBean_OODBBean</span>
+					<a href="#$filter" title="details" class="var-name">$filter</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">int</span>
+					<a href="#$id" title="details" class="var-name">$id</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$javascripts" title="details" class="var-name">$javascripts</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$layout" title="details" class="var-name">$layout</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">int</span>
+					<a href="#$limit" title="details" class="var-name">$limit</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">int</span>
+					<a href="#$order" title="details" class="var-name">$order</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">int</span>
+					<a href="#$page" title="details" class="var-name">$page</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type"><a href="../../Cinnebar/Pagination/Pagination.html">Pagination</a></span>
+					<a href="#$pagination" title="details" class="var-name">$pagination</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">RedBean_OODBBean</span>
+					<a href="#$record" title="details" class="var-name">$record</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$records" title="details" class="var-name">$records</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$selection" title="details" class="var-name">$selection</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$template" title="details" class="var-name">$template</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">int</span>
+					<a href="#$total_records" title="details" class="var-name">$total_records</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$type" title="details" class="var-name">$type</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																																																																						
+				<div class="method-definition">
+											<span class="method-result">Controller_Scaffold</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$base_url</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$id</span> = <span class="var-default">null</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#add" title="details" class="method-name">add</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$layout</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#applyToSelection" title="details" class="method-name">applyToSelection</a>
+											([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$selection</span> = <span class="var-default">null</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$action</span> = <span class="var-default">'idle'</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#attach" title="details" class="method-name">attach</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$prefix</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$subtype</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$id</span> = <span class="var-default">0</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#detach" title="details" class="method-name">detach</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$subtype</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$id</span> = <span class="var-default">0</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#doRedbeanAction" title="details" class="method-name">doRedbeanAction</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$redbeanAction</span> = <span class="var-default">'store'</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#edit" title="details" class="method-name">edit</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$page</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$order</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$dir</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$layout</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#getCollection" title="details" class="method-name">getCollection</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getNextAction" title="details" class="method-name">getNextAction</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#id_at_offset" title="details" class="method-name">id_at_offset</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$offset</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#index" title="details" class="method-name">index</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$layout</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$page</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$order</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$dir</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#notifyAbout" title="details" class="method-name">notifyAbout</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$count</span> = <span class="var-default">null</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">int</span>
+										<a href="#offset" title="details" class="method-name">offset</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$page</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$limit</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#render" title="details" class="method-name">render</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setNextAction" title="details" class="method-name">setNextAction</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$action</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$next_action</span>)
+									</div>
+											</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			
+<a name="var$action" id="$action"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$action</span>
+						(line <span class="line-number">65</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Holds the name of the action that was requested.</p>
+<p class="description"><p>Holds the name of the action that was requested.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">usedby:</span> <a href="../../Cinnebar/Controller/Controller_Scaffold.html#methodsetNextAction">Controller_Scaffold::setNextAction()</a></li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$actions" id="$actions"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$actions</span>
+						(line <span class="line-number">58</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Holds possible actions.</p>
+<p class="description"><p>Holds possible actions.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$base_url" id="$base_url"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$base_url</span>
+						(line <span class="line-number">37</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Holds the base url.</p>
+<p class="description"><p>Holds the base url.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$default_layout" id="$default_layout"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$default_layout</span>
+			 = <span class="var-default"> 'table'</span>			(line <span class="line-number">114</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Holds the default layout for index.</p>
+<p class="description"><p>Holds the default layout for index.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$dir" id="$dir"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">int</span>
+			<span class="var-name">$dir</span>
+			 = <span class="var-default"> 0</span>			(line <span class="line-number">149</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Holds the current sort dir(ection) index.</p>
+<p class="description"><p>Holds the current sort dir(ection) index.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$dir_map" id="$dir_map"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$dir_map</span>
+			 = <span class="var-default">array(<br />        0 =&gt; 'ASC',<br />        1 =&gt; 'DESC'<br />    )</span>			(line <span class="line-number">156</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Container for order dir(ections).</p>
+<p class="description"><p>Container for order dir(ections).</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$filter" id="$filter"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">RedBean_OODBBean</span>
+			<span class="var-name">$filter</span>
+						(line <span class="line-number">93</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Holds a instance of a filter bean.</p>
+<p class="description"><p>Holds a instance of a filter bean.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">usedby:</span> <a href="../../Cinnebar/Controller/Controller_Scaffold.html#methodgetCollection">Controller_Scaffold::getCollection()</a></li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$id" id="$id"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">int</span>
+			<span class="var-name">$id</span>
+						(line <span class="line-number">51</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Holds the id of the bean to handle.</p>
+<p class="description"><p>Holds the id of the bean to handle.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$javascripts" id="$javascripts"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$javascripts</span>
+			 = <span class="var-default">array(<br />        '/js/jquery.mjs.nestedSortable'<br />    )</span>			(line <span class="line-number">28</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Container for javascripts to load.</p>
+<p class="description"><p>Container for javascripts to load.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$layout" id="$layout"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$layout</span>
+						(line <span class="line-number">72</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Holds the name of the layout to use.</p>
+<p class="description"><p>Holds the name of the layout to use.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$limit" id="$limit"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">int</span>
+			<span class="var-name">$limit</span>
+			 = <span class="var-default"> 17</span>			(line <span class="line-number">107</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Holds the maximum number of records per page.</p>
+<p class="description"><p>Holds the maximum number of records per page.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$order" id="$order"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">int</span>
+			<span class="var-name">$order</span>
+			 = <span class="var-default"> 0</span>			(line <span class="line-number">142</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Holds the current order index.</p>
+<p class="description"><p>Holds the current order index.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$page" id="$page"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">int</span>
+			<span class="var-name">$page</span>
+			 = <span class="var-default"> 1</span>			(line <span class="line-number">135</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Holds the current page.</p>
+<p class="description"><p>Holds the current page.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$pagination" id="$pagination"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type"><a href="../../Cinnebar/Pagination/Pagination.html">Pagination</a></span>
+			<span class="var-name">$pagination</span>
+						(line <span class="line-number">166</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Holds a instance of a Pagination class.</p>
+<p class="description"><p>Holds a instance of a Pagination class.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$record" id="$record"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">RedBean_OODBBean</span>
+			<span class="var-name">$record</span>
+						(line <span class="line-number">86</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Holds a instance of the bean to handle.</p>
+<p class="description"><p>Holds a instance of the bean to handle.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">usedby:</span> <a href="../../Cinnebar/Controller/Controller_Scaffold.html#methodsetNextAction">Controller_Scaffold::setNextAction()</a></li>
+				<li><span class="field">usedby:</span> <a href="../../Cinnebar/Controller/Controller_Scaffold.html#methoddoRedbeanAction">Controller_Scaffold::doRedbeanAction()</a></li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$records" id="$records"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$records</span>
+			 = <span class="var-default">array()</span>			(line <span class="line-number">100</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Container for beans to browse.</p>
+<p class="description"><p>Container for beans to browse.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">usedby:</span> <a href="../../Cinnebar/Controller/Controller_Scaffold.html#methodgetCollection">Controller_Scaffold::getCollection()</a></li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$selection" id="$selection"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$selection</span>
+			 = <span class="var-default">array()</span>			(line <span class="line-number">128</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Container for selected beans.</p>
+<p class="description"><p>Container for selected beans.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$template" id="$template"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$template</span>
+						(line <span class="line-number">79</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Holds the real template to render.</p>
+<p class="description"><p>Holds the real template to render.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$total_records" id="$total_records"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">int</span>
+			<span class="var-name">$total_records</span>
+			 = <span class="var-default"> 0</span>			(line <span class="line-number">121</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Holds the total number of beans found.</p>
+<p class="description"><p>Holds the total number of beans found.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$type" id="$type"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$type</span>
+						(line <span class="line-number">44</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Holds the type of the bean(s) to handle.</p>
+<p class="description"><p>Holds the type of the bean(s) to handle.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">177</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructs a new Scaffold controller.</p>
+<p class="description"><p>Constructs a new Scaffold controller.</p></p>
+	<ul class="tags">
+				<li><span class="field">todo:</span> get rid of eval and develop gestalt more</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">Controller_Scaffold</span>
+		<span class="method-name">
+			__construct
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$base_url</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$id</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$base_url</span><span class="var-description">: for scaffold links and redirects</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: of the bean to scaffold</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$id</span><span class="var-description">: (optional) $id of the bean to handle</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../Cinnebar/Controller/Controller.html#method__construct">Controller::__construct()</a></dt>
+						<dd>Constructs a new Controller.</dd>
+					</dl>
+			
+	</div>
+<a name="methodadd" id="add"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">add</span> (line <span class="line-number">514</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Displays page to add a new bean of given type.</p>
+<p class="description"><p>Displays page to add a new bean of given type.
+ On a GET request a form is represented that has to be filled in by the client. On a POST request a new bean is created and the client is redirected to a choosen next url.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			add
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$layout</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$layout</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodapplyToSelection" id="applyToSelection"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">applyToSelection</span> (line <span class="line-number">416</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Apply a given action to a selection of beans.</p>
+<p class="description"><p>Apply a given action to a selection of beans.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			applyToSelection
+		</span>
+					([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$selection</span> = <span class="var-default">null</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$action</span> = <span class="var-default">'idle'</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$selection</span><span class="var-description">: of beans on which the given action should be applied</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$action</span><span class="var-description">: to apply</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodattach" id="attach"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">attach</span> (line <span class="line-number">241</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Attach a record.</p>
+<p class="description"><p>Attach a record.
+ To use the attach function you will need to have subform templates in your model folder. For example see model/person/own/address.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			attach
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$prefix</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$subtype</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$id</span> = <span class="var-default">0</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$prefix</span><span class="var-description">: either own or shared</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$subtype</span><span class="var-description">: the type of bean to handle</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$id</span><span class="var-description">: (optional) id of the bean to detach</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methoddetach" id="detach"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">detach</span> (line <span class="line-number">214</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Detach a record.</p>
+<p class="description"><p>Detach a record.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			detach
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$subtype</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$id</span> = <span class="var-default">0</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$subtype</span><span class="var-description">: the type of bean to handle</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$id</span><span class="var-description">: (optional) id of the bean to detach</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methoddoRedbeanAction" id="doRedbeanAction"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">doRedbeanAction</span> (line <span class="line-number">264</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns true or false wether the bean was stored or not.</p>
+<p class="description"><p>Returns true or false wether the bean was stored or not.
+ The current bean is challanged to be stored wrapped in a transaction. When the bean was successfully stored a message is send to the user telling about that. In case the store fails a failure message is send to the current user.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+				<li><span class="field">uses:</span> <a href="../../Cinnebar/Controller/Controller_Scaffold.html#var$record">Controller_Scaffold::$record</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			doRedbeanAction
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$redbeanAction</span> = <span class="var-default">'store'</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$redbeanAction</span><span class="var-description">: can be either trash or store</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodedit" id="edit"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">edit</span> (line <span class="line-number">561</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Displays page to edit an existing bean.</p>
+<p class="description"><p>Displays page to edit an existing bean.
+ On a GET request a form is presented to edit the bean. On a POST request the changed bean is stored and the client is redirected.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			edit
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$page</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$order</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$dir</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$layout</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$page</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$order</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$dir</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$layout</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetCollection" id="getCollection"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCollection</span> (line <span class="line-number">300</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Loads a bean collection according to filter or all if no filter was applied.</p>
+<p class="description"><p>Loads a bean collection according to filter or all if no filter was applied.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+				<li><span class="field">uses:</span> <a href="../../Cinnebar/Controller/Controller_Scaffold.html#var$records">Controller_Scaffold::$records</a></li>
+				<li><span class="field">uses:</span> <a href="../../Cinnebar/Controller/Controller_Scaffold.html#var$filter">Controller_Scaffold::$filter</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			getCollection
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetNextAction" id="getNextAction"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getNextAction</span> (line <span class="line-number">405</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the next_action.</p>
+<p class="description"><p>Returns the next_action.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getNextAction
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodid_at_offset" id="id_at_offset"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">id_at_offset</span> (line <span class="line-number">370</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the id of a bean at a certain (filtered) list position or the id of the current bean if the query failed.</p>
+<p class="description"><p>Returns the id of a bean at a certain (filtered) list position or the id of the current bean if the query failed.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+				<li><span class="field">uses:</span> <a href="../../Cinnebar/Model/Model_Filter.html#methodbuildWhereClause">Model_Filter::buildWhereClause()</a></li>
+				<li><span class="field">uses:</span> <a href="../../Cinnebar/Model/Model.html#methodgetSql">Model::getSql()</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			id_at_offset
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$offset</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$offset</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodindex" id="index"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">index</span> (line <span class="line-number">449</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Displays the index page of a given type.</p>
+<p class="description"><p>Displays the index page of a given type.
+ On a GET request a list view of the beans is represented where on a POST request the choosen action is applied to all selected beans of a collection.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			index
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$layout</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$page</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$order</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$dir</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$layout</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$page</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$order</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$dir</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodnotifyAbout" id="notifyAbout"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">notifyAbout</span> (line <span class="line-number">287</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Add a notification for currnet user.</p>
+<p class="description"><p>Add a notification for currnet user.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			notifyAbout
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, [<span class="var-type">int</span>&nbsp;<span class="var-name">$count</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: of the notification (alert)</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$count</span><span class="var-description">: (optional) $count number of beans affected</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodoffset" id="offset"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">offset</span> (line <span class="line-number">356</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the offset calculated from the current page number and limit of rows per page.</p>
+<p class="description"><p>Returns the offset calculated from the current page number and limit of rows per page.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">int</span>
+		<span class="method-name">
+			offset
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$page</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$limit</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$page</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$limit</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodrender" id="render"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">render</span> (line <span class="line-number">602</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Renders a scaffold page.</p>
+<p class="description"><p>Renders a scaffold page.</p></p>
+	<ul class="tags">
+				<li><span class="field">todo:</span> Think about:<ul><li>Make the 'html5' layout configurable</li></ul></li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			render
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodsetNextAction" id="setNextAction"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setNextAction</span> (line <span class="line-number">395</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets the next_action in scaffold session var.</p>
+<p class="description"><p>Sets the next_action in scaffold session var.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+				<li><span class="field">uses:</span> <a href="../../Cinnebar/Controller/Controller_Scaffold.html#var$record">Controller_Scaffold::$record</a></li>
+				<li><span class="field">uses:</span> <a href="../../Cinnebar/Controller/Controller_Scaffold.html#var$action">Controller_Scaffold::$action</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setNextAction
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$action</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$next_action</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$next_action</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$action</span>			</li>
+				</ul>
+		
+			
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../../Cinnebar/Controller/Controller.html">Controller</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../../Cinnebar/Controller/Controller.html#method__construct">Controller::__construct()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Controller/Controller.html#methodredirect">Controller::redirect()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Controller/Controller.html#method__call">Controller::__call()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 02 Oct 2016 10:21:32 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

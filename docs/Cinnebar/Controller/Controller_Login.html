@@ -92,7 +92,8 @@
 	<div class="info-box-title">Description</div>
 	<div class="nav-bar">
 					<span class="disabled">Description</span> |
-															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
 						
 					</div>
 	<div class="info-box-body">
@@ -103,7 +104,7 @@
 				<li><span class="field">version:</span> $Id$</li>
 			</ul>
 		<p class="notes">
-			Located in <a class="field" href="_controller---Login.php.html">/controller/Login.php</a> (line <span class="field">18</span>)
+			Located in <a class="field" href="_Controller---Login.php.html">/Controller/Login.php</a> (line <span class="field">18</span>)
 		</p>
 		
 				
@@ -116,33 +117,96 @@
 
 
 
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																								<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$message" title="details" class="var-name">$message</a>
+				</div>
+											</div>
+		</div>
+	</div>
 
 	<a name="sec-method-summary"></a>
 	<div class="info-box">
 		<div class="info-box-title">Method Summary</span></div>
 		<div class="nav-bar">
 			<a href="#sec-description">Description</a> |
-												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
 		</div>
 		<div class="info-box-body">			
 			<div class="method-summary">
-										
+																						
 				<div class="method-definition">
-					static 						<span class="method-result">void</span>
+											<span class="method-result">void</span>
 										<a href="#index" title="details" class="method-name">index</a>
 										()
 									</div>
-																							</div>
+											</div>
 		</div>
 	</div>		
 
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			
+<a name="var$message" id="$message"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$message</span>
+						(line <span class="line-number">23</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">May hold a message (textile) to the user that want to re-enter a password.</p>
+<p class="description"><p>May hold a message (textile) to the user that want to re-enter a password.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
 	
 	<a name="sec-methods"></a>
 	<div class="info-box">
 		<div class="info-box-title">Methods</div>
 		<div class="nav-bar">
 			<a href="#sec-description">Description</a> |
-																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
 						
 		</div>
 		<div class="info-box-body">
@@ -151,18 +215,18 @@
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">static index</span> (line <span class="line-number">23</span>)
+		<span class="method-title">index</span> (line <span class="line-number">30</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">Renders the login page and handles a login attempt on POST.</p>
-<p class="description"><p>Renders the login page and handles a login attempt on POST.</p></p>
+<p class="short-description">Renders the login page and handles a login attempt on POST if no valid session already exists. redirected to its account page.</p>
+<p class="description"><p>Renders the login page and handles a login attempt on POST if no valid session already exists. If there is an valid session the client will be redirected to its account page.</p></p>
 	<ul class="tags">
 				<li><span class="field">access:</span> public</li>
 			</ul>
 	
 	<div class="method-signature">
-		static <span class="method-result">void</span>
+		<span class="method-result">void</span>
 		<span class="method-name">
 			index
 		</span>
@@ -177,6 +241,7 @@
 									<!-- =========== Summary =========== -->
 					<p>Inherited From <span class="classname"><a href="../../Cinnebar/Controller/Controller.html">Controller</a></span></p>
 					<blockquote>
+													<span class="method-name"><a href="../../Cinnebar/Controller/Controller.html#method__construct">Controller::__construct()</a></span><br>
 													<span class="method-name"><a href="../../Cinnebar/Controller/Controller.html#methodredirect">Controller::redirect()</a></span><br>
 													<span class="method-name"><a href="../../Cinnebar/Controller/Controller.html#method__call">Controller::__call()</a></span><br>
 											</blockquote>
@@ -186,7 +251,7 @@
 
 
 	<p class="notes" id="credit">
-		Documentation generated on Fri, 14 Jun 2013 16:53:15 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Sun, 02 Oct 2016 10:21:27 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>

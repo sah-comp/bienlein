@@ -101,9 +101,9 @@
         		<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">Converter.</p>
 <p class="description"><p>Converter.
- To add your own converter simply add a php file to the converter directory of your Cinnebar installation. Name the converter after the scheme Converter_* extends Cnoverter and implement a convert() method. As an example see <a href="../../Cinnebar/Converter/Converter_MySqlDate.html">Converter_MySqlDate</a>.
+ To add your own converter simply add a php file to the converter directory of your Cinnebar installation. Name the converter after the scheme Converter_* extends Cnoverter and implement a convert() method. As an example see Converter_MySqlDate.
  Example usage of the MySqlDate converter: <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-php">&lt;?php</span></div></li>
-<li><div class="src-line">&nbsp;<span class="src-var">$mysqldateconverter&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id"><a href="../../Cinnebar/Converter/Converter_MySqlDate.html">Converter_MySqlDate</a></span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$mysqldateconverter&nbsp;</span>=&nbsp;<span class="src-key">new&nbsp;</span><span class="src-id">Converter_MySqlDate</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line">&nbsp;<span class="src-var">$mysqldate&nbsp;</span>=&nbsp;<span class="src-var">$mysqldateconverter</span><span class="src-sym">(</span><span class="src-str">'23.03.1984'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
 <li><div class="src-line">&nbsp;<span class="src-php">?&gt;</span></div></li>
 </ol></div></p></p>
@@ -143,19 +143,19 @@
 										</td>
 				</tr>
 								<tr>
-					<td style="padding-right: 2em"><a href="../../Cinnebar/Converter/Converter_MySqlDate.html">Converter_MySqlDate</a></td>
+					<td style="padding-right: 2em"><a href="../../Cinnebar/Converter/Converter_Mysqldate.html">Converter_Mysqldate</a></td>
 					<td>
 											MySQL Date converter.
 										</td>
 				</tr>
 								<tr>
-					<td style="padding-right: 2em"><a href="../../Cinnebar/Converter/Converter_MySqlDatetime.html">Converter_MySqlDatetime</a></td>
+					<td style="padding-right: 2em"><a href="../../Cinnebar/Converter/Converter_Mysqldatetime.html">Converter_Mysqldatetime</a></td>
 					<td>
 											MySQL Datetime converter.
 										</td>
 				</tr>
 								<tr>
-					<td style="padding-right: 2em"><a href="../../Cinnebar/Converter/Converter_MySqlTime.html">Converter_MySqlTime</a></td>
+					<td style="padding-right: 2em"><a href="../../Cinnebar/Converter/Converter_Mysqltime.html">Converter_Mysqltime</a></td>
 					<td>
 											MySQL time converter.
 										</td>
@@ -231,7 +231,7 @@
 		<div class="info-box-body">
 			
 <a name="var$options" id="$options"><!-- --></A>
-<div class="oddrow">
+<div class="evenrow">
 
 	<div class="var-header">
 		<span class="var-title">
@@ -270,7 +270,7 @@
 		<div class="info-box-body">
 			<A NAME='method_detail'></A>
 <a name="method__construct" id="__construct"><!-- --></a>
-<div class="evenrow">
+<div class="oddrow">
 	
 	<div class="method-header">
 		<span class="method-title">Constructor __construct</span> (line <span class="line-number">44</span>)
@@ -300,7 +300,7 @@
 			
 	</div>
 <a name="methodconvert" id="convert"><!-- --></a>
-<div class="oddrow">
+<div class="evenrow">
 	
 	<div class="method-header">
 		<span class="method-title">convert</span> (line <span class="line-number">54</span>)
@@ -336,15 +336,15 @@
 								: Replaces comma against a decimal point and casts the value as float.
 							</li>
 					<li>
-				<a href="../../Cinnebar/Converter/Converter_MySqlDate.html#methodconvert">Converter_MySqlDate::convert()</a>
+				<a href="../../Cinnebar/Converter/Converter_Mysqldate.html#methodconvert">Converter_Mysqldate::convert()</a>
 								: Returns the value as a mysql date value.
 							</li>
 					<li>
-				<a href="../../Cinnebar/Converter/Converter_MySqlDatetime.html#methodconvert">Converter_MySqlDatetime::convert()</a>
+				<a href="../../Cinnebar/Converter/Converter_Mysqldatetime.html#methodconvert">Converter_Mysqldatetime::convert()</a>
 								: Returns the value as a mysql date value.
 							</li>
 					<li>
-				<a href="../../Cinnebar/Converter/Converter_MySqlTime.html#methodconvert">Converter_MySqlTime::convert()</a>
+				<a href="../../Cinnebar/Converter/Converter_Mysqltime.html#methodconvert">Converter_Mysqltime::convert()</a>
 								: Returns the value as a mysql time value.
 							</li>
 				</ul>
@@ -355,7 +355,7 @@
 
 
 	<p class="notes" id="credit">
-		Documentation generated on Fri, 14 Jun 2013 16:53:12 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Sun, 02 Oct 2016 10:21:23 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>
