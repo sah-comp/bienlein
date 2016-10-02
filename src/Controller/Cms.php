@@ -30,7 +30,7 @@ class Controller_Cms extends Controller
      * @uses Model_Domain::getContent()
      * @param RedBean_OODBean $domain to render
      */
-    public function frontend(RedBean_OODBBean $domain)
+    public function frontend(RedBeanPHP\OODBBean $domain)
     {
         $template_data = $domain->getContent(Flight::get('language'));
         if ( ! Flight::request()->query->preview) Flight::lastModified($domain->lastmodified);
@@ -153,7 +153,7 @@ class Controller_Cms extends Controller
         session_start();
         Auth::check();
         try {
-            $page = R::graph(Flight::request()->data->dialog, true);
+            $page = R::graph( Flight::request()->data->dialog, TRUE );
             if (Flight::request()->data->delete) {
                 R::trash($page);
                 return $this->node($page->domain_id);
@@ -179,7 +179,7 @@ class Controller_Cms extends Controller
         Auth::check();
         if (Flight::request()->method == 'POST') {
             try {
-                $slice = R::graph(Flight::request()->data->dialog, true);
+                $slice = R::graph( Flight::request()->data->dialog, TRUE );
                 if (Flight::request()->data->delete) {
                     R::trash($slice);
                     echo '';
@@ -216,7 +216,7 @@ class Controller_Cms extends Controller
     protected function add_page()
     {
         try {
-            $page = R::graph(Flight::request()->data->dialog, true);
+            $page = R::graph( Flight::request()->data->dialog, TRUE );
             R::store($page);
             $this->trigger_meta = true;
             return $this->node($page->domain_id, $page->getId());
@@ -232,7 +232,7 @@ class Controller_Cms extends Controller
     protected function add_slice()
     {
         try {
-            $slice = R::graph(Flight::request()->data->dialog, true);
+            $slice = R::graph( Flight::request()->data->dialog, TRUE );
             $slice->sequence = $slice->page->withCondition('region_id = ?', array($slice->region_id))->countOwn('slice');
             R::store($slice);
     		$slice->renderBackend('form');

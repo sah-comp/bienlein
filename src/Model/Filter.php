@@ -67,10 +67,10 @@ class Model_Filter extends Model
      * Masks the criterias value and stacks it into the filter values.
      *
      * @uses $filter_values
-     * @param RedBean_OODBBean $criteria
+     * @param RedBeanPHP\OODBBean $criteria
      * @return void
      */
-    protected function mask_filter_value(RedBean_OODBBean $criteria)
+    protected function mask_filter_value(RedBeanPHP\OODBBean $criteria)
     {
         $add_to_filter_values = true;
     	switch ($criteria->op) {

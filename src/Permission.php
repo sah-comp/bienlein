@@ -25,12 +25,12 @@ class Permission extends Controller
      *
      * @todo set goto query parameter with the last allowed url, not just the current url
      *
-     * @param RedBean_OODBBean $user
+     * @param RedBeanPHP\OODBBean $user
      * @param mixed $domain either a bean or a string with the domain name
      * @param string $action_name
      * @return bool
      */
-    static public function check(RedBean_OODBBean $user, $domain, $action_name)
+    static public function check(RedBeanPHP\OODBBean $user, $domain, $action_name)
     {
         if ($user->isadmin) return true;
         if (self::validate($user, $domain, $action_name)) return true;
@@ -41,14 +41,14 @@ class Permission extends Controller
      * Loads the domain by name and checks for user roles. If any role allows
      * the requested action boolean true will be returned.
      *
-     * @param RedBean_OODBBean $user
+     * @param RedBeanPHP\OODBBean $user
      * @param mixed $domain either a bean or a string
      * @param string $action_name
      * @return bool
      */
-    static public function validate(RedBean_OODBBean $user, $domain, $action_name) {
+    static public function validate(RedBeanPHP\OODBBean $user, $domain, $action_name) {
         if ( ! $user->sharedRole) return false;
-        if ( ! is_a($domain, 'RedBean_OODBBean')) {
+        if ( ! is_a($domain, 'RedBeanPHP\OODBBean')) {
             if ( ! $domain = R::findOne('domain', 'name = ?', array($domain))) return false;
         }
         $permission = self::getPermission($domain, $action_name);
@@ -65,11 +65,11 @@ class Permission extends Controller
       * the permission bean of the nearest parent of the domain given.
       * If no permission an empty permission will be returned.
       *
-      * @param RedBean_OODBBean $domain
+      * @param RedBeanPHP\OODBBean $domain
       * @param string $action_name
-      * @return RedBean_OODBBean $permission
+      * @return RedBeanPHP\OODBBean $permission
       */
-     static public function getPermission(RedBean_OODBBean $domain, $action_name)
+     static public function getPermission(RedBeanPHP\OODBBean $domain, $action_name)
      {
          $permission = R::findOne('permission', 'method = ? AND domain_id = ?',
             array(

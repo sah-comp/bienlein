@@ -12,10 +12,7 @@
  * Scaffold controller.
  *
  * @todo Main points:
- *  - Check permissions
  *  - Allow different layouts
- *  - Allow sorting
- *  - Allow filtering
  *
  * @package Cinnebar
  * @subpackage Controller
@@ -334,12 +331,8 @@ class Controller_Scaffold extends Controller
         $this->total_records = 0;
 		try {
 		    //R::debug(true);
-			$this->records = R::batch(
-			    $this->type,
-			    array_keys(R::$adapter->getAssoc(
-			        $sqlCollection, $this->filter->getFilterValues())
-			    )
-			);
+			$rows = R::getAssoc( $sqlCollection, $this->filter->getFilterValues() );
+			$this->records = R::batch( $this->type, $rows );
 			//R::debug(false);
 			//R::debug(true);
             $this->total_records = R::getCell(
@@ -472,7 +465,7 @@ class Controller_Scaffold extends Controller
             }
             //refresh filter
 		    if (Flight::request()->data->submit == I18n::__('filter_submit_refresh')) {
-                $this->filter = R::graph(Flight::request()->data->filter, true);
+                $this->filter = R::graph( Flight::request()->data->filter, TRUE );
                 try {
                     R::store($this->filter);
                     $_SESSION['scaffold'][$this->type]['filter']['id'] = $this->filter->getId();
@@ -533,7 +526,7 @@ class Controller_Scaffold extends Controller
             }
         }
 		if (Flight::request()->method == 'POST') {
-            $this->record = R::graph(Flight::request()->data->dialog, true);
+            $this->record = R::graph( Flight::request()->data->dialog, TRUE );
             $this->setNextAction(Flight::request()->data->next_action);
             if ($this->doRedbeanAction()) {
                 if ($this->getNextAction() == 'add') {
@@ -580,7 +573,7 @@ class Controller_Scaffold extends Controller
         }
 		if (Flight::request()->method == 'POST') {
 		    Permission::check(Flight::get('user'), $this->type, 'edit');//check for edit perm now
-            $this->record = R::graph(Flight::request()->data->dialog, true);
+            $this->record = R::graph( Flight::request()->data->dialog, TRUE );
             $this->setNextAction(Flight::request()->data->next_action);
             if ($this->doRedbeanAction()) {
                 if ($this->getNextAction() == 'edit') {

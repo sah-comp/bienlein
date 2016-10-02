@@ -30,7 +30,7 @@ class UserModelTest extends PHPUnit_Framework_TestCase
     
     public function testUserBeanInstanciation()
     {
-        $this->assertTrue(is_a($this->userAsBean, 'RedBean_OODBBean'));
+        $this->assertTrue(is_a($this->userAsBean, 'RedBeanPHP\OODBBean'));
     }
     
     public function testUserStoreValidBean()
@@ -83,6 +83,10 @@ class UserModelTest extends PHPUnit_Framework_TestCase
         R::store($invalidUser);
     }
     
+    /**
+     * When porting Cinnebar from RB3 to RB4 this now does not get the count right.
+     * Funny that notifications work as expected in the real app, but not in this test.
+     */
     public function testUserNotify()
     {
         $this->userAsBean->name = 'Receiver';
@@ -180,7 +184,7 @@ class UserModelTest extends PHPUnit_Framework_TestCase
         $this->login->uname = 'info@example.com';
         $this->login->pw = 'secret';
         $this->assertTrue($this->login->trial());
-        $this->assertTrue(is_a($this->login->user, 'RedBean_OODBBean'));
+        $this->assertTrue(is_a($this->login->user, 'RedBeanPHP\OODBBean'));
     }
     
     public function testLoginWithNameGood()
@@ -188,7 +192,7 @@ class UserModelTest extends PHPUnit_Framework_TestCase
         $this->login->uname = 'jd';
         $this->login->pw = 'secret';
         $this->assertTrue($this->login->trial());
-        $this->assertTrue(is_a($this->login->user, 'RedBean_OODBBean'));
+        $this->assertTrue(is_a($this->login->user, 'RedBeanPHP\OODBBean'));
     }
     
     public function testLoginWithShortnameGood()
@@ -196,7 +200,7 @@ class UserModelTest extends PHPUnit_Framework_TestCase
         $this->login->uname = 'jd';
         $this->login->pw = 'secret';
         $this->assertTrue($this->login->trial());
-        $this->assertTrue(is_a($this->login->user, 'RedBean_OODBBean'));
+        $this->assertTrue(is_a($this->login->user, 'RedBeanPHP\OODBBean'));
     }
 
     public function testUserBugIsUniqueValidators()

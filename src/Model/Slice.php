@@ -38,7 +38,7 @@ class Model_Slice extends Model
      * Returns a module bean with the given name.
      *
      * @param string (optional) $module_name defaults to $this->bean->module
-     * @return RedBean_OODBBean $module
+     * @return RedBeanPHP\OODBBean $module
      */
     public function getModule($module_name = null)
     {

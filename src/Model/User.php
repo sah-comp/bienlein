@@ -158,8 +158,8 @@ class Model_User extends Model
         $notification->class = $class;
         $notification->content = $message;
         try {
-            R::store($notification);
-            R::associate($this->bean, $notification);
+            $this->bean->sharedNotification[] = $notification;
+            R::store($this->bean);
             return true;
         }
         catch (Exception $e) {
@@ -178,7 +178,7 @@ class Model_User extends Model
      */
     public function getNotifications($readOnlyOnce = true)
     {
-        $all = R::related($this->bean, 'notification', ' 1 ORDER BY stamp');
+        $all = $this->bean->with(' ORDER BY stamp ')->sharedNotification;
         if ($readOnlyOnce === true) R::trashAll($all);
         return $all;
     }
@@ -247,7 +247,6 @@ class Model_User extends Model
     {
         $this->bean->screenname = 'shortname';
         $this->bean->maxlifetime = MAX_SESSION_LIFETIME;
-        $this->autoInfo(true);
         $this->addValidator('name', array(
             new Validator_HasValue()
         ));

@@ -40,18 +40,11 @@
                 <?php echo I18n::__('person_label_language') ?>
             </label>
         </div>
-        <div class="span2">
+        <div class="span4">
             <label
                 for="person-account"
                 class="<?php echo ($record->hasError('account')) ? 'error' : ''; ?>">
                 <?php echo I18n::__('person_label_account') ?>
-            </label>
-        </div>
-        <div class="span2">
-            <label
-                for="person-vatid"
-                class="<?php echo ($record->hasError('vatid')) ? 'error' : ''; ?>">
-                <?php echo I18n::__('person_label_vatid') ?>
             </label>
         </div>
     </div>
@@ -82,21 +75,13 @@
                 <?php endforeach ?>
             </select>
         </div>
-        <div class="span2">
+        <div class="span4">
             <input
                 id="person-account"
                 class="autowidth"
                 type="text"
                 name="dialog[account]"
                 value="<?php echo htmlspecialchars($record->account) ?>" />
-        </div>
-        <div class="span2">
-            <input
-                id="person-vatid"
-                class="autowidth"
-                type="text"
-                name="dialog[vatid]"
-                value="<?php echo htmlspecialchars($record->vatid) ?>" />
         </div>
     </div>
     <div class="row <?php echo ($record->hasError('enabled')) ? 'error' : ''; ?>">
@@ -286,8 +271,7 @@
     <?php Flight::render('shared/navigation/tabs', array(
         'tab_id' => 'person-tabs',
         'tabs' => array(
-            'person-address' => I18n::__('person_address_tab'),
-            'person-role' => I18n::__('person_role_tab')
+            'person-address' => I18n::__('person_address_tab')
         ),
         'default_tab' => 'person-address'
     )) ?>
@@ -310,33 +294,6 @@
                 )) ?>
                 <?php endforeach ?>
             </div>
-    </fieldset>
-    <fieldset
-        id="person-role"
-        class="tab"
-        style="display: none;">
-        <legend class="verbose"><?php echo I18n::__('person_legend_role') ?></legend>
-        <?php foreach (R::findAll('role') as $_id => $_role): ?>
-        <div class="row">
-            <input
-                type="hidden"
-                name="dialog[sharedRole][<?php echo $_role->getId() ?>][type]"
-                value="role" />
-            <input
-                type="hidden"
-                name="dialog[sharedRole][<?php echo $_role->getId() ?>][id]"
-                value="0" />
-            <label
-                for="person-<?php echo $record->getId() ?>-role-<?php echo $_role->getId() ?>"
-                class="cb"><?php echo htmlspecialchars($_role->i18n(Flight::get('language'))->name) ?></label>
-            <input
-                type="checkbox"
-                id="person-<?php echo $record->getId() ?>-role-<?php echo $_role->getId() ?>"
-                name="dialog[sharedRole][<?php echo $_role->getId() ?>][id]"
-                value="<?php echo $_role->getId() ?>"
-                <?php echo (isset($record->sharedRole[$_role->getId()])) ? 'checked="checked"' : '' ?> />
-        </div>
-        <?php endforeach ?>
     </fieldset>
 </div>
 <!-- end of person edit form -->

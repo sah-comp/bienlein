@@ -44,12 +44,12 @@ define('VENDORS', __DIR__.'/../../vendor/');
  */
 R::setup('mysql:host=localhost;dbname=DBNAME', 'UNAME', 'SECRET');
 R::freeze(false);
-R::$writer->setUseCache(true);
+//R::$writer->setUseCache(true);
 
 /**
  * Allow RedBean Cooker Plugin to load beans for compatibility.
  */
-RedBean_Plugin_Cooker::enableBeanLoading(true);
+RedBeanPHP\Plugin\Cooker::enableBeanLoading(true);
 
 /**
  * Set the path to the default views directory.

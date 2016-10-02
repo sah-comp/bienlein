@@ -61,7 +61,7 @@
             <!-- end of header attributes -->
         </tr>
 
-        <?php if (isset($filter) && is_a($filter, 'RedBean_OODBBean')): ?>
+        <?php if (isset($filter) && is_a($filter, 'RedBeanPHP\OODBBean')): ?>
         <tr
             class="filter">
             <th>
@@ -193,9 +193,13 @@
             <td
                 class="<?php echo (isset($_attribute['class'])) ? $_attribute['class'] : '' ?>">
                 <?php if (isset($_attribute['callback'])): ?>
+                    
                     <?php echo htmlspecialchars($_record->{$_attribute['callback']['name']}($_attribute['name'])) ?>
+                    
                 <?php else: ?>
+
                     <?php echo htmlspecialchars($_record->{$_attribute['name']}) ?>
+                    
                 <?php endif ?>
             </td>
             <?php endforeach ?>

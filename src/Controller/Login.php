@@ -36,7 +36,7 @@ class Controller_Login extends Controller
         $login = R::load('login', $_SESSION['login_id']);
         if (Flight::request()->method == 'POST') {
             try {
-                $login = R::graph(Flight::request()->data->dialog, true);
+                $login = R::graph( Flight::request()->data->dialog, TRUE );
                 if ($login->trial()) {
                     //you must trial before store because of pw reset in update
                     $_SESSION['user']['id'] = $login->user->getId();

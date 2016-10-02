@@ -197,7 +197,6 @@ SQL;
     public function dispense()
     {
         if (Flight::has('user')) $this->bean->language = Flight::get('user')->getLanguage();
-        $this->autoInfo(true);
         $this->autoTag(true);
         $this->bean->pubdatetime = date('Y-m-d H:i:s');
         $this->addConverter('pubdatetime',

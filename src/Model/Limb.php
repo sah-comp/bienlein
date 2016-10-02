@@ -87,10 +87,10 @@ class Model_Limb extends Model
     /**
      * Renders a limb together with a bean.
      *
-     * @param RedBean_OODBBean $record
+     * @param RedBeanPHP\OODBBean $record
      * @return void
      */
-    public function render(RedBean_OODBBEan $record)
+    public function render(RedBeanPHP\OODBBean $record)
     {
         Flight::render(sprintf('model/limb/tag/%s', $this->bean->tag), array(
             'record' => $record,
@@ -107,7 +107,6 @@ class Model_Limb extends Model
      */
     public function dispense()
     {
-        $this->autoInfo(true);
         $this->addValidator('name', array(
             new Validator_HasValue()
         ));
@@ -115,8 +114,6 @@ class Model_Limb extends Model
 
     /**
      * Update.
-     *
-     * @todo Implement a switch to decide wether to use first/last or last/first name order
      */
     public function update()
     {

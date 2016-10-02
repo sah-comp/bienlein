@@ -150,7 +150,6 @@ SQL;
      */
     public function dispense()
     {
-        $this->autoInfo(true);
         $this->addValidator('name', new Validator_HasValue());
         $this->addValidator('language', new Validator_HasValue());
         $this->addValidator('template_id', new Validator_HasValue());
