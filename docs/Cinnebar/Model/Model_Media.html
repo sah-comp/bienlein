@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos  -->
+			<title>Docs For Class Model_Media</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+						<script src="../../media/lib/classTree.js"></script>
+												<script language="javascript" type="text/javascript">
+				var imgPlus = new Image();
+				var imgMinus = new Image();
+				imgPlus.src = "../../media/images/plus.gif";
+				imgMinus.src = "../../media/images/minus.gif";
+				
+				function showNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgMinus.src;
+					oTable.style.display = "block";
+				}
+				
+				function hideNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgPlus.src;
+					oTable.style.display = "none";
+				}
+				
+				function nodeIsVisible(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+									break;
+							}
+					return (oTable && oTable.style.display == "block");
+				}
+				
+				function toggleNodeVisibility(Node){
+					if (nodeIsVisible(Node)){
+						hideNode(Node);
+					}else{
+						showNode(Node);
+					}
+				}
+			</script>
+					</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class Model_Media</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-consts">Constants</a>
+						
+			</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Media model.</p>
+<p class="description"><p>Media model.</p></p>
+	<ul class="tags">
+				<li><span class="field">version:</span> $Id$</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Model---Media.php.html">/Model/Media.php</a> (line <span class="field">19</span>)
+		</p>
+		
+				
+		<pre>RedBean_SimpleModel
+   |
+   --<a href="../../Cinnebar/Model/Model.html">Model</a>
+      |
+      --Model_Media</pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+															<a href="#sec-consts">Constants</a>
+							
+					</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																																<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$extensions" title="details" class="var-name">$extensions</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$extensions_image" title="details" class="var-name">$extensions_image</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-consts">Constants</a>
+							
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																						
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#after_delete" title="details" class="method-name">after_delete</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getAttributes" title="details" class="method-name">getAttributes</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$layout</span> = <span class="var-default">'table'</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getPrintableName" title="details" class="method-name">getPrintableName</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#imageAsTextile" title="details" class="method-name">imageAsTextile</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">bool</span>
+										<a href="#isImage" title="details" class="method-name">isImage</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#sanitizeFilename" title="details" class="method-name">sanitizeFilename</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$string</span> = <span class="var-default">''</span>], [<span class="var-type">bool</span>&nbsp;<span class="var-name">$is_filename</span> = <span class="var-default">false</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#update" title="details" class="method-name">update</a>
+										()
+									</div>
+											</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-consts">Constants</a>
+							
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			
+<a name="var$extensions" id="$extensions"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$extensions</span>
+			 = <span class="var-default">array(<br />        'gif' =&gt; 'image/gif',<br />        'jpg' =&gt; 'image/jpeg',<br />        'jpeg' =&gt; 'image/jpeg',<br />        'png' =&gt; 'image/png'<br />    )</span>			(line <span class="line-number">26</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Map to translate media extension to mime type.</p>
+<p class="description"><p>Map to translate media extension to mime type.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$extensions_image" id="$extensions_image"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$extensions_image</span>
+			 = <span class="var-default">array(<br />        'jpg',<br />        'gif',<br />        'jpeg',<br />        'jpg',<br />        'png'<br />    )</span>			(line <span class="line-number">38</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Container for exensions that qualify as image files.</p>
+<p class="description"><p>Container for exensions that qualify as image files.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+							<h4>Inherited Variables</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../../Cinnebar/Model/Model.html">Model</a></span></p>
+					<blockquote>
+													<span class="var-title">
+								<span class="var-name"><a href="../../Cinnebar/Model/Model.html#var$actions">Model::$actions</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../Cinnebar/Model/Model.html#var$auto_tag">Model::$auto_tag</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../Cinnebar/Model/Model.html#var$converters">Model::$converters</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../Cinnebar/Model/Model.html#var$errors">Model::$errors</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../Cinnebar/Model/Model.html#var$validation_mode">Model::$validation_mode</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../Cinnebar/Model/Model.html#var$validators">Model::$validators</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																			<a href="#sec-consts">Constants</a>
+							
+										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodafter_delete" id="after_delete"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">after_delete</span> (line <span class="line-number">198</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">after_delete.</p>
+<p class="description"><p>after_delete.
+ After the bean was deleted from the database, we will also delete the real file.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			after_delete
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetAttributes" id="getAttributes"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getAttributes</span> (line <span class="line-number">86</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns an array with attributes for lists.</p>
+<p class="description"><p>Returns an array with attributes for lists.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getAttributes
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$layout</span> = <span class="var-default">'table'</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$layout</span><span class="var-description">: (optional) $layout</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../Cinnebar/Model/Model.html#methodgetAttributes">Model::getAttributes()</a></dt>
+						<dd>Returns an array with attributes for lists.</dd>
+					</dl>
+			
+	</div>
+<a name="methodgetPrintableName" id="getPrintableName"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getPrintableName</span> (line <span class="line-number">51</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the media file name.</p>
+<p class="description"><p>Returns the media file name.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getPrintableName
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodimageAsTextile" id="imageAsTextile"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">imageAsTextile</span> (line <span class="line-number">75</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns an textile image tag.</p>
+<p class="description"><p>Returns an textile image tag.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			imageAsTextile
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodisImage" id="isImage"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">isImage</span> (line <span class="line-number">65</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns wether the uploaded file is an image file or not.</p>
+<p class="description"><p>Returns wether the uploaded file is an image file or not.
+ Wether the file is an image or not is determined by testing the file extension the time being.</p></p>
+	<ul class="tags">
+				<li><span class="field">todo:</span> Implement a better image check using getimagesize()</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			isImage
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodsanitizeFilename" id="sanitizeFilename"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">sanitizeFilename</span> (line <span class="line-number">151</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns a the given string safely to use as filename or url.</p>
+<p class="description"><p>Returns a the given string safely to use as filename or url.</p></p>
+	<ul class="tags">
+				<li><span class="field">link:</span> <a href="http://stackoverflow.com/questions/2668854/sanitizing-strings-to-make-them-url-and-filename-safe">What it does:
+ - Replace all weird characters with dashes
+ - Only allow one dash separator at a time (and make string lowercase)</a></li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			sanitizeFilename
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$string</span> = <span class="var-default">''</span>], [<span class="var-type">bool</span>&nbsp;<span class="var-name">$is_filename</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$string</span><span class="var-description">: the string to clean</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$is_filename</span><span class="var-description">: false will allow additional filename characters</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodupdate" id="update"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">update</span> (line <span class="line-number">162</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">update.</p>
+<p class="description"><p>update.
+ This will check for file uploads.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			update
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../Cinnebar/Model/Model.html#methodupdate">Model::update()</a></dt>
+						<dd>Update.</dd>
+					</dl>
+			
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../../Cinnebar/Model/Model.html">Model</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#method__construct">Model::__construct()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodaddConverter">Model::addConverter()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodaddError">Model::addError()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodaddValidator">Model::addValidator()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodafter_update">Model::after_update()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodautoTag">Model::autoTag()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodboolean">Model::boolean()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodconvert">Model::convert()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodexpunge">Model::expunge()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodgetActions">Model::getActions()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodgetAttributes">Model::getAttributes()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodgetChildren">Model::getChildren()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodgetErrors">Model::getErrors()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodgetRoot">Model::getRoot()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodgetSql">Model::getSql()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodgetValidationMode">Model::getValidationMode()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodhasError">Model::hasError()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodhasErrors">Model::hasErrors()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodi18n">Model::i18n()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodisModel">Model::isModel()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodkeywords">Model::keywords()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodlocalizedDate">Model::localizedDate()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodlocalizedDateTime">Model::localizedDateTime()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodlocalizedTime">Model::localizedTime()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodsetAction">Model::setAction()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodsetActions">Model::setActions()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodsetAutoTags">Model::setAutoTags()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodsetValidationMode">Model::setValidationMode()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodtranslated">Model::translated()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodupdate">Model::update()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Model/Model.html#methodvalidate">Model::validate()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+														| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+										<h4>Inherited Constants</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../../Cinnebar/Model/Model.html">Model</a></span></p>
+					<blockquote>
+													<span class="const-title">
+								<span class="const-name"><a href="../../Cinnebar/Model/Model.html#constVALIDATION_MODE_EXCEPTION">Model::VALIDATION_MODE_EXCEPTION</a></span><br>
+							</span>
+													<span class="const-title">
+								<span class="const-name"><a href="../../Cinnebar/Model/Model.html#constVALIDATION_MODE_EXPLICIT">Model::VALIDATION_MODE_EXPLICIT</a></span><br>
+							</span>
+													<span class="const-title">
+								<span class="const-name"><a href="../../Cinnebar/Model/Model.html#constVALIDATION_MODE_IMPLICIT">Model::VALIDATION_MODE_IMPLICIT</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 02 Oct 2016 10:21:28 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

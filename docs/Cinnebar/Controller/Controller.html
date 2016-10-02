@@ -135,15 +135,33 @@
 										</td>
 				</tr>
 								<tr>
+					<td style="padding-right: 2em"><a href="../../Cinnebar/Controller/Controller_Account.html">Controller_Account</a></td>
+					<td>
+											Account controller.
+										</td>
+				</tr>
+								<tr>
 					<td style="padding-right: 2em"><a href="../../Cinnebar/Controller/Controller_Admin.html">Controller_Admin</a></td>
 					<td>
 											Admin controller.
 										</td>
 				</tr>
 								<tr>
+					<td style="padding-right: 2em"><a href="../../Cinnebar/Controller/Controller_Cms.html">Controller_Cms</a></td>
+					<td>
+											Cms controller.
+										</td>
+				</tr>
+								<tr>
 					<td style="padding-right: 2em"><a href="../../Cinnebar/Controller/Controller_Install.html">Controller_Install</a></td>
 					<td>
 											Install controller.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../../Cinnebar/Controller/Controller_Language.html">Controller_Language</a></td>
+					<td>
+											Language controller.
 										</td>
 				</tr>
 								<tr>
@@ -159,9 +177,27 @@
 										</td>
 				</tr>
 								<tr>
+					<td style="padding-right: 2em"><a href="../../Cinnebar/Controller/Controller_Lostpassword.html">Controller_Lostpassword</a></td>
+					<td>
+											Lostpassword controller.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../../Cinnebar/Controller/Controller_Scaffold.html">Controller_Scaffold</a></td>
+					<td>
+											Scaffold controller.
+										</td>
+				</tr>
+								<tr>
 					<td style="padding-right: 2em"><a href="../../Cinnebar/Controller/Controller_Welcome.html">Controller_Welcome</a></td>
 					<td>
 											Welcome controller.
+										</td>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../../Cinnebar/Permission/Permission.html">Permission</a></td>
+					<td>
+											Permission Manager.
 										</td>
 				</tr>
 							</table>
@@ -180,13 +216,19 @@
 		</div>
 		<div class="info-box-body">			
 			<div class="method-summary">
-																														
+																		
 				<div class="method-definition">
-											<span class="method-result">void</span>
+					static 						<span class="method-result">void</span>
 										<a href="#redirect" title="details" class="method-name">redirect</a>
 											([<span class="var-type">string</span>&nbsp;<span class="var-name">$url</span> = <span class="var-default">null</span>], [<span class="var-type">bool</span>&nbsp;<span class="var-name">$raw</span> = <span class="var-default">false</span>])
 									</div>
-														
+																										
+				<div class="method-definition">
+											<span class="method-result">Controller</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+										()
+									</div>
+																						
 				<div class="method-definition">
 											<span class="method-result">mixed</span>
 										<a href="#__call" title="details" class="method-name">__call</a>
@@ -212,7 +254,7 @@
 <div class="oddrow">
 	
 	<div class="method-header">
-		<span class="method-title">redirect</span> (line <span class="line-number">45</span>)
+		<span class="method-title">static redirect</span> (line <span class="line-number">52</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -224,7 +266,7 @@
 			</ul>
 	
 	<div class="method-signature">
-		<span class="method-result">void</span>
+		static <span class="method-result">void</span>
 		<span class="method-name">
 			redirect
 		</span>
@@ -242,11 +284,44 @@
 		
 			
 	</div>
-<a name="method__call" id="__call"><!-- --></a>
+<a name="method__construct" id="__construct"><!-- --></a>
 <div class="evenrow">
 	
 	<div class="method-header">
-		<span class="method-title">__call</span> (line <span class="line-number">28</span>)
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">23</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructs a new Controller.</p>
+<p class="description"><p>Constructs a new Controller.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">Controller</span>
+		<span class="method-name">
+			__construct
+		</span>
+				()
+			</div>
+	
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../../Cinnebar/Controller/Controller_Scaffold.html#method__construct">Controller_Scaffold::__construct()</a>
+								: Constructs a new Scaffold controller.
+							</li>
+				</ul>
+	</div>
+<a name="method__call" id="__call"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">__call</span> (line <span class="line-number">35</span>)
 	</div> 
 	
 	<!-- ========== Info from phpDoc block ========= -->
@@ -282,7 +357,7 @@
 
 
 	<p class="notes" id="credit">
-		Documentation generated on Fri, 14 Jun 2013 16:53:12 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Sun, 02 Oct 2016 10:21:23 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>

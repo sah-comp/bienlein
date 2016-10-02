@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos  -->
+			<title>Docs For Class Permission</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+						<script src="../../media/lib/classTree.js"></script>
+												<script language="javascript" type="text/javascript">
+				var imgPlus = new Image();
+				var imgMinus = new Image();
+				imgPlus.src = "../../media/images/plus.gif";
+				imgMinus.src = "../../media/images/minus.gif";
+				
+				function showNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgMinus.src;
+					oTable.style.display = "block";
+				}
+				
+				function hideNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgPlus.src;
+					oTable.style.display = "none";
+				}
+				
+				function nodeIsVisible(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+									break;
+							}
+					return (oTable && oTable.style.display == "block");
+				}
+				
+				function toggleNodeVisibility(Node){
+					if (nodeIsVisible(Node)){
+						hideNode(Node);
+					}else{
+						showNode(Node);
+					}
+				}
+			</script>
+					</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class Permission</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Permission Manager.</p>
+<p class="description"><p>Permission Manager.</p></p>
+	<ul class="tags">
+				<li><span class="field">version:</span> $Id$</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Permission.php.html">/Permission.php</a> (line <span class="field">18</span>)
+		</p>
+		
+				
+		<pre><a href="../../Cinnebar/Controller/Controller.html">Controller</a>
+   |
+   --Permission</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+										
+				<div class="method-definition">
+					static 						<span class="method-result">bool</span>
+										<a href="#check" title="details" class="method-name">check</a>
+											(<span class="var-type">OODBBean</span>&nbsp;<span class="var-name">\$user</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$domain</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$action_name</span>, <span class="var-type">RedBeanPHP\OODBBean</span>&nbsp;<span class="var-name">$user</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">RedBeanPHP\OODBBean</span>
+										<a href="#getPermission" title="details" class="method-name">getPermission</a>
+											(<span class="var-type">OODBBean</span>&nbsp;<span class="var-name">\$domain</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$action_name</span>, <span class="var-type">RedBeanPHP\OODBBean</span>&nbsp;<span class="var-name">$domain</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">bool</span>
+										<a href="#validate" title="details" class="method-name">validate</a>
+											(<span class="var-type">OODBBean</span>&nbsp;<span class="var-name">\$user</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$domain</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$action_name</span>, <span class="var-type">RedBeanPHP\OODBBean</span>&nbsp;<span class="var-name">$user</span>)
+									</div>
+																																							</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodcheck" id="check"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static check</span> (line <span class="line-number">33</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Checks if user has permission on domain to do action.</p>
+<p class="description"><p>Checks if user has permission on domain to do action.
+ If permision is not given client is redirected to a 403 forbidden page otherwise true will be returned.</p></p>
+	<ul class="tags">
+				<li><span class="field">todo:</span> set goto query parameter with the last allowed url, not just the current url</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">bool</span>
+		<span class="method-name">
+			check
+		</span>
+					(<span class="var-type">OODBBean</span>&nbsp;<span class="var-name">\$user</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$domain</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$action_name</span>, <span class="var-type">RedBeanPHP\OODBBean</span>&nbsp;<span class="var-name">$user</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">RedBeanPHP\OODBBean</span>
+				<span class="var-name">$user</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$domain</span><span class="var-description">: either a bean or a string with the domain name</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$action_name</span>			</li>
+					<li>
+				<span class="var-type">OODBBean</span>
+				<span class="var-name">\$user</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetPermission" id="getPermission"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static getPermission</span> (line <span class="line-number">72</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns a permission bean.</p>
+<p class="description"><p>Returns a permission bean.
+ The returned bean will be either the direct permission of the given domain or the permission bean of the nearest parent of the domain given. If no permission an empty permission will be returned.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">RedBeanPHP\OODBBean</span>
+		<span class="method-name">
+			getPermission
+		</span>
+					(<span class="var-type">OODBBean</span>&nbsp;<span class="var-name">\$domain</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$action_name</span>, <span class="var-type">RedBeanPHP\OODBBean</span>&nbsp;<span class="var-name">$domain</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">RedBeanPHP\OODBBean</span>
+				<span class="var-name">$domain</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$action_name</span>			</li>
+					<li>
+				<span class="var-type">OODBBean</span>
+				<span class="var-name">\$domain</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodvalidate" id="validate"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static validate</span> (line <span class="line-number">49</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Loads the domain by name and checks for user roles. the requested action boolean true will be returned.</p>
+<p class="description"><p>Loads the domain by name and checks for user roles. If any role allows the requested action boolean true will be returned.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">bool</span>
+		<span class="method-name">
+			validate
+		</span>
+					(<span class="var-type">OODBBean</span>&nbsp;<span class="var-name">\$user</span>, <span class="var-type">mixed</span>&nbsp;<span class="var-name">$domain</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$action_name</span>, <span class="var-type">RedBeanPHP\OODBBean</span>&nbsp;<span class="var-name">$user</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">RedBeanPHP\OODBBean</span>
+				<span class="var-name">$user</span>			</li>
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$domain</span><span class="var-description">: either a bean or a string</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$action_name</span>			</li>
+					<li>
+				<span class="var-type">OODBBean</span>
+				<span class="var-name">\$user</span>			</li>
+				</ul>
+		
+			
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../../Cinnebar/Controller/Controller.html">Controller</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../../Cinnebar/Controller/Controller.html#method__construct">Controller::__construct()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Controller/Controller.html#methodredirect">Controller::redirect()</a></span><br>
+													<span class="method-name"><a href="../../Cinnebar/Controller/Controller.html#method__call">Controller::__call()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 02 Oct 2016 10:21:30 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>
