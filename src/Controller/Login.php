@@ -23,9 +23,12 @@ class Controller_Login extends Controller
     public $message;
 
     /**
+     * Renders the login page.
+     *
      * Renders the login page and handles a login attempt on POST if no valid
-     * session already exists. If there is an valid session the client will be
-     * redirected to its account page.
+     * session already exists. If credentials given are correct a session is started
+     * and the client is redirected to the originally requested URL or the /cms page if
+     * no URL was provided.
      */
     public function index()
     {
@@ -53,8 +56,13 @@ class Controller_Login extends Controller
             }
         }
         // either no yet submitted or the credentials given failed
+        if ( Flight::request()->query->goto == '' || Flight::request()->query->goto == '/login' ) {
+            $goto = '/cms';
+        } else {
+            $goto = Flight::request()->query->goto;
+        }
         Flight::render('account/login', array(
-            'goto' => htmlspecialchars(Flight::request()->query->goto),
+            'goto' => htmlspecialchars($goto),
             'record' => $login,
             'message' => $this->message
         ), 'content');
