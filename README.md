@@ -65,7 +65,7 @@ RedBeanPHP
 
 I enjoy [RedBeanPHP](http://redbeanphp.com/) as a ORM.
 
-Note: Cinnebar uses RedBeanPHP Version 3.5.1 for now. The current dev-master will be loaded via composer. The 3.5 version used by cinnebar is required by index.php from /lib/redbean/rb.php.
+Note: Cinnebar uses RedBeanPHP Version 4 now. The current dev-master could be loaded via composer, but public/index.php will require it from the lib folder instead.
 
 
 Tests
