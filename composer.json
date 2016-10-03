@@ -24,7 +24,8 @@
 	"suggest": {
 	    "swiftmailer/swiftmailer": "Comprehensive mailing tools for PHP",
 	    "phpmailer/phpmailer": "dev-master",
-        "intervention/image": "dev-master"
+        "intervention/image": "dev-master",
+        "mpdf/mpdf": "v6.0.0"
 	},
 	"autoload": {
 		"psr-0": {
