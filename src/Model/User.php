@@ -158,7 +158,7 @@ class Model_User extends Model
         $notification->class = $class;
         $notification->content = $message;
         try {
-            $this->bean->sharedNotification[] = $notification;
+            $this->bean->noLoad()->sharedNotification[] = $notification;
             R::store($this->bean);
             return true;
         }
