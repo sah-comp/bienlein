@@ -471,6 +471,10 @@ ul li ul {
     margin-bottom: inherit;
 }
 
+select {
+    font-size: small;
+}
+
 
 /* using local fonts? make sure to read up on Paul Irish's 
 	Bulletproof @font-face syntax: http://mky.be/font-face/bulletproof/ */
