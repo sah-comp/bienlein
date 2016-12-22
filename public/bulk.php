@@ -9,18 +9,19 @@
  */
 
 /**
- * RedbeanPHP Version 3.5.
-*/
+ * RedbeanPHP Version 4.
+ */
 require __DIR__ . '/../lib/redbean/rb.php';
+require __DIR__ . '/../lib/redbean/Plugin/Cooker.php';
 
 /**
  * Autoloader.
-*/
+ */
 require __DIR__ . '/../vendor/autoload.php';
 
 /**
  * Configuration.
-*/
+ */
 require __DIR__ . '/../app/config/config.php';
 
 // Send bulk mail
