@@ -21,7 +21,7 @@ class Gravatar
     /**
      * Defines the gravatar image request URL with its placeholders.
      */
-    const GRAVATAR_URL = 'http://www.gravatar.com/avatar/%s/?d=%s&amp;s=%d&amp;r=%s';
+    const GRAVATAR_URL = '//www.gravatar.com/avatar/%s/?d=%s&amp;s=%d&amp;r=%s';
 
     /**
      * Renders an gravatar (globally recognized avatar) for an given email address.
