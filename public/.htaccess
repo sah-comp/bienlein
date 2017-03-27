@@ -30,10 +30,19 @@ AddCharset utf-8 .html .css .js .xml .json .rss
 DirectoryIndex index.php index.html
 
 #
-# Pass everything through index.php with flight
+# Pass everything through index.php with flight.
+# If you want to force SSL uncomment the lines within
+# this mod rewrite section.
 #
+<IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteBase /
+
+#RewriteCond %{HTTPS} !on
+#RewriteRule ^(.*) https://%{SERVER_NAME}/$1 [L,R]
+
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php [QSA,L]
+</IfModule>
