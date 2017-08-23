@@ -305,6 +305,18 @@ SQL;
         if ($switch !== null) $this->auto_tag = $switch;
         return $this->auto_tag;
     }
+    
+    /**
+     * Returns or sets the auto info flag.
+     *
+     * @param bool (optional) $switch
+     * @return bool
+     */
+    public function autoInfo($switch = null)
+    {
+        if ($switch !== null) $this->auto_info = $switch;
+        return $this->auto_info;
+    }
 
     /**
      * Returns a *i18n bean for this bean.
