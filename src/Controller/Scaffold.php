@@ -35,14 +35,14 @@ class Controller_Scaffold extends Controller
      * @var string
      */
     public $base_url;
-    
+
     /**
      * Holds the type of the bean(s) to handle.
      *
      * @var string
      */
     public $type;
-    
+
     /**
      * Holds the id of the bean to handle.
      *
@@ -63,91 +63,91 @@ class Controller_Scaffold extends Controller
      * @var string
      */
     public $action;
-    
+
     /**
      * Holds the name of the layout to use.
      *
      * @var string
      */
     public $layout;
-    
+
     /**
      * Holds the real template to render.
      *
      * @var string
      */
     public $template;
-    
+
     /**
      * Holds a instance of the bean to handle.
      *
      * @var RedBean_OODBBean
      */
     public $record;
-    
+
     /**
      * Holds a instance of a filter bean.
      *
      * @var RedBean_OODBBean
      */
     public $filter;
-    
+
     /**
      * Container for beans to browse.
      *
      * @var array
      */
     public $records = array();
-    
+
     /**
      * Holds the maximum number of records per page.
      *
      * @var int
      */
     public $limit = 17;
-    
+
     /**
      * Holds the default layout for index.
      *
      * @var string
      */
     public $default_layout = 'table';
-    
+
     /**
      * Holds the total number of beans found.
      *
      * @var int
      */
     public $total_records = 0;
-    
+
     /**
      * Container for selected beans.
      *
      * @var array
      */
     public $selection = array();
-    
+
     /**
      * Holds the current page.
      *
      * @var int
      */
     public $page = 1;
-    
+
     /**
      * Holds the current order index.
      *
      * @var int
      */
     public $order = 0;
-    
+
     /**
      * Holds the current sort dir(ection) index.
      *
      * @var int
      */
     public $dir = 0;
-    
+
     /**
      * Container for order dir(ections).
      *
@@ -157,14 +157,14 @@ class Controller_Scaffold extends Controller
         0 => 'ASC',
         1 => 'DESC'
     );
-    
+
     /**
      * Holds a instance of a Pagination class.
      *
      * @var Pagination
      */
     public $pagination;
-    
+
     /**
      * Constructs a new Scaffold controller.
      *
@@ -195,7 +195,7 @@ class Controller_Scaffold extends Controller
         $this->actions = $this->record->getActions();
         if ( ! isset($_SESSION['scaffold'][$this->type])) {
             $_SESSION['scaffold'][$this->type]['filter']['id'] = 0;
-            // next 
+            // next
             $_SESSION['scaffold'][$this->type]['index']['next_action'] = 'idle';
             $_SESSION['scaffold'][$this->type]['add']['next_action'] = 'add';
             $_SESSION['scaffold'][$this->type]['edit']['next_action'] = 'edit';
@@ -203,7 +203,7 @@ class Controller_Scaffold extends Controller
         }
         $this->filter = R::load('filter', $_SESSION['scaffold'][$this->type]['filter']['id']);
     }
-    
+
     /**
      * Detach a record.
      *
@@ -226,7 +226,7 @@ class Controller_Scaffold extends Controller
             return false;
         }
     }
-    
+
     /**
      * Attach a record.
      *
@@ -249,7 +249,7 @@ class Controller_Scaffold extends Controller
         ));
         return true;
     }
-    
+
     /**
      * Returns true or false wether the bean was stored or not.
      *
@@ -277,7 +277,7 @@ class Controller_Scaffold extends Controller
             return false;
         }
     }
-    
+
     /**
      * Add a notification for currnet user.
      *
@@ -286,10 +286,10 @@ class Controller_Scaffold extends Controller
      */
     protected function notifyAbout($type, $count = null)
     {
-        Flight::get('user')->notify(I18n::__("scaffold_{$type}_{$this->action}", 
+        Flight::get('user')->notify(I18n::__("scaffold_{$type}_{$this->action}",
                                                             null, array($count)), $type);
     }
-    
+
     /**
      * Loads a bean collection according to filter or all if no filter was applied.
      *
@@ -317,22 +317,22 @@ class Controller_Scaffold extends Controller
         }
         $order = $attributes[$this->order]['sort']['name'].' '.$this->dir_map[$this->dir];
         $sqlCollection = $this->record->getSql(
-            "DISTINCT({$this->type}.id) AS id", 
-            $where, 
-            $order, 
-            $this->offset($this->page, $this->limit), 
+            "DISTINCT({$this->type}.id) AS id, " . $attributes[$this->order]['sort']['name'],
+            $where,
+            $order,
+            $this->offset($this->page, $this->limit),
             $this->limit
         );
         $sqlTotal = $this->record->getSql(
-            "COUNT(DISTINCT({$this->type}.id)) AS total", 
-            $where, 
+            "COUNT(DISTINCT({$this->type}.id)) AS total",
+            $where,
             $order
         );
         $this->total_records = 0;
 		try {
-		    //R::debug(true);
+		  //R::debug(true);
 			$rows = R::getAssoc( $sqlCollection, $this->filter->getFilterValues() );
-			$this->records = R::batch( $this->type, $rows );
+			$this->records = R::batch( $this->type, array_keys( $rows ) );
 			//R::debug(false);
 			//R::debug(true);
             $this->total_records = R::getCell(
@@ -345,7 +345,7 @@ class Controller_Scaffold extends Controller
 			return false;
 		}
     }
-    
+
     /**
      * Returns the offset calculated from the current page number and limit of rows per page.
      *
@@ -376,14 +376,14 @@ class Controller_Scaffold extends Controller
         $order = $attributes[$this->order]['sort']['name'].' '.$this->dir_map[$this->dir];
     	try {
     		return R::getCell(
-    		    $this->record->getSql("DISTINCT({$this->type}.id) AS id", $where, $order, $offset, 1), 
+    		    $this->record->getSql("DISTINCT({$this->type}.id) AS id", $where, $order, $offset, 1),
     		    $this->filter->getFilterValues()
     		);
     	} catch (Exception $e) {
     	    error_log($e);
             return false;
     	}
-    }  
+    }
 
     /**
      * Sets the next_action in scaffold session var.
@@ -396,7 +396,7 @@ class Controller_Scaffold extends Controller
     {
         $_SESSION['scaffold'][$this->type][$this->action]['next_action'] = $action;
     }
-    
+
     /**
      * Returns the next_action.
      *
@@ -406,7 +406,7 @@ class Controller_Scaffold extends Controller
     {
         return $_SESSION['scaffold'][$this->type][$this->action]['next_action'];
     }
-    
+
     /**
      * Apply a given action to a selection of beans.
      *
@@ -434,7 +434,7 @@ class Controller_Scaffold extends Controller
             return false;
         }
     }
-    
+
 	/**
      * Displays the index page of a given type.
      *
@@ -476,7 +476,7 @@ class Controller_Scaffold extends Controller
             }
             //handle a selection
             $this->selection = Flight::request()->data->selection;
-            if ($this->applyToSelection($this->selection[$this->type], 
+            if ($this->applyToSelection($this->selection[$this->type],
                                                 Flight::request()->data->next_action)) {
                 $this->redirect("{$this->base_url}/{$this->type}/");
             }
@@ -489,7 +489,7 @@ class Controller_Scaffold extends Controller
                 $this->redirect("{$this->base_url}/{$this->type}/add/{$this->layout}");
             }
         }
-        
+
         $this->pagination = new Pagination(
             Url::build("{$this->base_url}/{$this->type}/"),
             $this->page,
@@ -499,7 +499,7 @@ class Controller_Scaffold extends Controller
             $this->dir,
             $this->total_records
         );
-        
+
 		$this->render();
     }
 
@@ -578,11 +578,11 @@ class Controller_Scaffold extends Controller
             if ($this->doRedbeanAction()) {
                 if ($this->getNextAction() == 'edit') {
                     $this->redirect("{$this->base_url}/{$this->type}/edit/{$this->record->getId()}/{$this->page}/{$this->order}/{$this->dir}/{$this->layout}/");
-                } elseif ($this->getNextAction() == 'next_edit' && 
+                } elseif ($this->getNextAction() == 'next_edit' &&
                                                 $next_id = $this->id_at_offset($this->page + 1)) {
                     $next_page = $this->page + 1;
                     $this->redirect("{$this->base_url}/{$this->type}/edit/{$next_id}/{$next_page}/{$this->order}/{$this->dir}/{$this->layout}/");
-                } elseif ($this->getNextAction() == 'prev_edit' && 
+                } elseif ($this->getNextAction() == 'prev_edit' &&
                                                 $prev_id = $this->id_at_offset($this->page - 1)) {
                         $prev_page = $this->page - 1;
                         $this->redirect("{$this->base_url}/{$this->type}/edit/{$prev_id}/{$prev_page}/{$this->order}/{$this->dir}/{$this->layout}/");
