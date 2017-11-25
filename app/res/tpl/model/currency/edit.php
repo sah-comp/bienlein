@@ -99,7 +99,7 @@
             type="text"
             class="number"
             name="dialog[exchangerate]"
-            value="<?php echo htmlspecialchars(number_format($record->exchangerate, 5, ',', '.')) ?>" />
+            value="<?php echo htmlspecialchars(number_format((float)$record->exchangerate, 5, ',', '.')) ?>" />
             <p class="info">
                 <?php echo I18n::__('currency_info_basecurrency', null, array(Flight::basecurrency()->name)) ?>
             </p>
