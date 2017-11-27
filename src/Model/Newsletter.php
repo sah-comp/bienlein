@@ -25,7 +25,7 @@ class Model_Newsletter extends Model
         'test',
         'make'
     );
-    
+
     /**
      * Returns an array with possible commands.
      *
@@ -35,7 +35,7 @@ class Model_Newsletter extends Model
     {
         return $this->commands;
     }
-    
+
     /**
      * Returns an array with attributes for lists.
      *
@@ -80,7 +80,7 @@ class Model_Newsletter extends Model
             )
         );
     }
-    
+
     /**
      * Returns the template name.
      *
@@ -88,10 +88,12 @@ class Model_Newsletter extends Model
      */
     public function templateName()
     {
-        if ( ! $this->bean->template ) return '';
+        if (! $this->bean->template) {
+            return '';
+        }
         return $this->bean->template->name;
     }
-    
+
     /**
      * Returns the mailserver name.
      *
@@ -101,7 +103,7 @@ class Model_Newsletter extends Model
     {
         return $this->bean->mailserver->name;
     }
-    
+
     /**
      * Returns SQL string.
      *
@@ -114,7 +116,7 @@ class Model_Newsletter extends Model
      */
     public function getSql($fields = 'id', $where = '1', $order = null, $offset = null, $limit = null)
     {
-		$sql = <<<SQL
+        $sql = <<<SQL
 		SELECT
 		    {$fields}
 		FROM
@@ -134,7 +136,7 @@ SQL;
         }
         return $sql;
     }
-    
+
     /**
      * Dispense.
      */
@@ -161,19 +163,19 @@ SQL;
             case 'idle':
                 break;
             case 'test':
-                if ( ! $this->test() ) {
+                if (! $this->test()) {
                     Flight::get('user')->notify(I18n::__("newsletter_test_failed"), 'error');
                 }
                 break;
             case 'make':
                 $this->make();
                 break;
-            default:   
+            default:
         }
         $this->bean->command = 'idle';// Reset to idle whenever updated.
         parent::update();
     }
-    
+
     /**
      * Send a test mail with this newsletter.
      *
@@ -181,13 +183,13 @@ SQL;
      */
     public function test()
     {
-        $mail = new PHPMailer();
+        $mail = new PHPMailer\PHPMailer\PHPMailer();
         $mail->Charset = 'UTF-8';
         $mail->Subject = utf8_decode($this->bean->name);
         $mail->From = $this->bean->replytoemail;
         $mail->FromName = utf8_decode($this->bean->replytoname);
         $mail->AddReplyTo($this->bean->replytoemail, utf8_decode($this->bean->replytoname));
-        
+
         $mail->IsSMTP();
         $mail->SMTPAuth = true;
         $mail->SMTPKeepAlive = true;
@@ -195,7 +197,7 @@ SQL;
         $mail->Port = $this->bean->mailserver->port;
         $mail->Username = $this->bean->mailserver->user;
         $mail->Password = $this->bean->mailserver->pw;
-        
+
         $result = true;
         $body_html = $this->bean->template->html;
         $body_text = $this->bean->template->txt;
@@ -205,7 +207,7 @@ SQL;
         $mail->AddAddress($this->bean->testemail);
         return $result = $mail->Send();
     }
-    
+
     /**
      * For all email addresses this newsletter will be prepared for bulk sending.
      *

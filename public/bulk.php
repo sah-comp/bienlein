@@ -27,14 +27,13 @@ require __DIR__ . '/../app/config/config.php';
 // Send bulk mail
 $bulks = R::find('bulk', ' newsletter_id IS NOT NULL AND send = 0 LIMIT 100');
 foreach ($bulks as $id => $bulk) {
-    
-    $mail = new PHPMailer();
+    $mail = new PHPMailer\PHPMailer\PHPMailer();
     $mail->Charset = 'UTF-8';
     $mail->Subject = utf8_decode($bulk->newsletter->name);
     $mail->From = $bulk->newsletter->replytoemail;
     $mail->FromName = utf8_decode($bulk->newsletter->replytoname);
     $mail->AddReplyTo($bulk->newsletter->replytoemail, utf8_decode($bulk->newsletter->replytoname));
-    
+
     $mail->IsSMTP();
     $mail->SMTPAuth = true;
     $mail->SMTPKeepAlive = true;
@@ -42,7 +41,7 @@ foreach ($bulks as $id => $bulk) {
     $mail->Port = $bulk->newsletter->mailserver->port;
     $mail->Username = $bulk->newsletter->mailserver->user;
     $mail->Password = $bulk->newsletter->mailserver->pw;
-    
+
     $result = true;
     $body_html = $bulk->newsletter->template->html;
     $body_text = $bulk->newsletter->template->txt;
