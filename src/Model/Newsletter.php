@@ -184,7 +184,7 @@ SQL;
     public function test()
     {
         $mail = new PHPMailer\PHPMailer\PHPMailer();
-        $mail->Charset = 'UTF-8';
+        $mail->CharSet = 'UTF-8';
         $mail->Subject = utf8_decode($this->bean->name);
         $mail->From = $this->bean->replytoemail;
         $mail->FromName = utf8_decode($this->bean->replytoname);

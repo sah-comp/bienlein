@@ -28,7 +28,7 @@ require __DIR__ . '/../app/config/config.php';
 $bulks = R::find('bulk', ' newsletter_id IS NOT NULL AND send = 0 LIMIT 100');
 foreach ($bulks as $id => $bulk) {
     $mail = new PHPMailer\PHPMailer\PHPMailer();
-    $mail->Charset = 'UTF-8';
+    $mail->CharSet = 'UTF-8';
     $mail->Subject = utf8_decode($bulk->newsletter->name);
     $mail->From = $bulk->newsletter->replytoemail;
     $mail->FromName = utf8_decode($bulk->newsletter->replytoname);
