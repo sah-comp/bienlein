@@ -38,7 +38,7 @@ class Model extends RedBean_SimpleModel
      * @var array
      */
     protected $validators = array();
-    
+
     /**
      * Holds the validation mode where 1 = Exception, 2 = Implicit attribute, 4 = Explicit.
      * Affects all beans.
@@ -46,28 +46,28 @@ class Model extends RedBean_SimpleModel
      * @var int
      */
     protected static $validation_mode = self::VALIDATION_MODE_EXCEPTION;
-    
+
     /**
      * Container for the converters.
      *
      * @var array
      */
     protected $converters = array();
-    
+
     /**
      * Container for the errors.
      *
      * @var array
      */
     protected $errors = array();
-    
+
     /**
      * Holds the auto tag status.
      *
      * @var bool
      */
     protected $auto_tag = false;
-    
+
     /**
      * Holds the default actions.
      *
@@ -79,14 +79,14 @@ class Model extends RedBean_SimpleModel
         'edit' => array('edit', 'next_edit', 'prev_edit', 'index'),
         'delete' => array('index')
     );
-     
-     /**
-      * Constructor.
-      */
-     public function __construct()
-     {
-     }
-    
+
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+    }
+
     /**
      * Returns always true.
      *
@@ -96,7 +96,7 @@ class Model extends RedBean_SimpleModel
     {
         return true;
     }
-    
+
     /**
      * Returns an array with attributes for lists.
      *
@@ -120,7 +120,7 @@ class Model extends RedBean_SimpleModel
         );
         */
     }
-    
+
     /**
      * Returns a string representing a boolean state of an beans attribute.
      *
@@ -129,10 +129,12 @@ class Model extends RedBean_SimpleModel
      */
     public function boolean($attribute)
     {
-        if ($this->bean->{$attribute}) return I18n::__('bool_true');
+        if ($this->bean->{$attribute}) {
+            return I18n::__('bool_true');
+        }
         return I18n::__('bool_false');
     }
-    
+
     /**
      * Returns a localized datetime string.
      *
@@ -141,11 +143,13 @@ class Model extends RedBean_SimpleModel
      */
     public function localizedDateTime($attribute)
     {
-        if ( ! Flight::setlocale()) return $this->bean->{$attribute};
+        if (! Flight::setlocale()) {
+            return $this->bean->{$attribute};
+        }
         $templates = Flight::get('templates');
         return strftime($templates['datetime'], strtotime($this->bean->{$attribute}));
     }
-    
+
     /**
      * Returns a localized date string.
      *
@@ -154,7 +158,9 @@ class Model extends RedBean_SimpleModel
      */
     public function localizedDate($attribute)
     {
-        if ( ! Flight::setlocale()) return $this->bean->{$attribute};
+        if (! Flight::setlocale()) {
+            return $this->bean->{$attribute};
+        }
         $templates = Flight::get('templates');
         return strftime($templates['date'], strtotime($this->bean->{$attribute}));
     }
@@ -167,11 +173,30 @@ class Model extends RedBean_SimpleModel
      */
     public function localizedTime($attribute)
     {
-        if ( ! Flight::setlocale()) return $this->bean->{$attribute};
+        if (! Flight::setlocale()) {
+            return $this->bean->{$attribute};
+        }
         $templates = Flight::get('templates');
         return strftime($templates['time'], strtotime($this->bean->{$attribute}));
     }
-    
+
+    /**
+     * Renders a decimal value nicely.
+     *
+     * @param string $attribute
+     * @param int $decimals defaults to 3
+     * @param string $decimal_point defaults to '.'
+     * @param string $thousands_separator defaults to ','
+     * @return string
+     */
+    public function decimal($attribute, $decimals = 3, $decimal_point = ',', $thousands_separator = '.')
+    {
+        if (! $this->bean->{$attribute}) {
+            return '';
+        }
+        return number_format((float)$this->bean->{$attribute}, $decimals, $decimal_point, $thousands_separator);
+    }
+
     /**
      * Returns the root bean of a hierarchy.
      *
@@ -186,11 +211,15 @@ class Model extends RedBean_SimpleModel
      */
     public function getRoot($stop_id = 0)
     {
-        if ( ! $this->bean->{$this->bean->getMeta('type')}) return $this->bean;
-        if ($this->bean->{$this->bean->getMeta('type')}->getId() == $stop_id) return $this->bean;
+        if (! $this->bean->{$this->bean->getMeta('type')}) {
+            return $this->bean;
+        }
+        if ($this->bean->{$this->bean->getMeta('type')}->getId() == $stop_id) {
+            return $this->bean;
+        }
         return $this->bean->{$this->bean->getMeta('type')}->getRoot($stop_id);
     }
-    
+
     /**
      * Returns an array with direct descendents of this bean.
      *
@@ -201,7 +230,7 @@ class Model extends RedBean_SimpleModel
         $own = 'own'.ucfirst($this->bean->getMeta('type'));
         return $this->bean->{$own};
     }
-    
+
     /**
      * Returns SQL string.
      *
@@ -217,7 +246,7 @@ class Model extends RedBean_SimpleModel
      */
     public function getSql($fields = 'id', $where = '1', $order = null, $offset = null, $limit = null)
     {
-    	$sql = <<<SQL
+        $sql = <<<SQL
     	SELECT
     	    {$fields}
     	FROM
@@ -235,7 +264,7 @@ SQL;
         }
         return $sql;
     }
-    
+
     /**
      * Returns automatic keywords for this bean.
      *
@@ -248,7 +277,7 @@ SQL;
             $this->bean->getId()
         );
     }
-    
+
     /**
      * Returns an array of possible actions.
      *
@@ -260,7 +289,7 @@ SQL;
     {
         return $this->actions;
     }
-    
+
     /**
      * Sets an action.
      *
@@ -273,7 +302,7 @@ SQL;
         $this->actions[$action] = $actions;
         return null;
     }
-    
+
     /**
      * Sets all actions.
      *
@@ -285,7 +314,7 @@ SQL;
         $this->actions = $actions;
         return null;
     }
-    
+
     /**
      * Expunge is an alias of R::trash().
      */
@@ -293,7 +322,7 @@ SQL;
     {
         R::trash($this->bean);
     }
-    
+
     /**
      * Returns or sets the auto tag flag.
      *
@@ -302,10 +331,12 @@ SQL;
      */
     public function autoTag($switch = null)
     {
-        if ($switch !== null) $this->auto_tag = $switch;
+        if ($switch !== null) {
+            $this->auto_tag = $switch;
+        }
         return $this->auto_tag;
     }
-    
+
     /**
      * Returns or sets the auto info flag.
      *
@@ -314,7 +345,9 @@ SQL;
      */
     public function autoInfo($switch = null)
     {
-        if ($switch !== null) $this->auto_info = $switch;
+        if ($switch !== null) {
+            $this->auto_info = $switch;
+        }
         return $this->auto_info;
     }
 
@@ -332,14 +365,14 @@ SQL;
     public function i18n($language)
     {
         $i18nType = $this->bean->getMeta('type').'i18n';
-        if ( ! $i18n = R::findOne($i18nType, $this->bean->getMeta('type').'_id = ? AND language = ?', array($this->bean->getId(), $language))) {
+        if (! $i18n = R::findOne($i18nType, $this->bean->getMeta('type').'_id = ? AND language = ?', array($this->bean->getId(), $language))) {
             $i18n = R::dispense($i18nType);
             $i18n->language = $language;
             $i18n->name = $this->bean->name;
         }
         return $i18n;
     }
-    
+
     /**
      * Returns the translated word for a beans name attribute.
      *
@@ -349,7 +382,7 @@ SQL;
     {
         return $this->bean->i18n(Flight::get('user')->getLanguage())->name;
     }
-    
+
     /**
      * Update.
      */
@@ -358,7 +391,7 @@ SQL;
         $this->convert();
         $this->validate();
     }
-    
+
     /**
      * This is called after the bean was updated.
      *
@@ -366,9 +399,11 @@ SQL;
      */
     public function after_update()
     {
-        if ($this->autoTag()) $this->setAutoTags();
+        if ($this->autoTag()) {
+            $this->setAutoTags();
+        }
     }
-    
+
     /**
      * setAutoTags()
      *
@@ -377,10 +412,14 @@ SQL;
      */
     protected function setAutoTags()
     {
-        if ( ! $this->bean->getId()) return false;
+        if (! $this->bean->getId()) {
+            return false;
+        }
         $tags = array();
         foreach ($this->keywords() as $n=>$keyword) {
-            if (trim($keyword) == '') continue;
+            if (trim($keyword) == '') {
+                continue;
+            }
             $tags[] = trim($keyword);
         }
         R::tag($this->bean, $tags);
@@ -398,7 +437,7 @@ SQL;
     {
         $this->errors[$attribute][] = $errorText;
     }
-    
+
     /**
      * Returns the errors of this model.
      *
@@ -408,7 +447,7 @@ SQL;
     {
         return $this->errors;
     }
-    
+
     /**
      * Returns true if model has errors.
      *
@@ -420,7 +459,9 @@ SQL;
      */
     public function hasError($attribute = '')
     {
-        if ($attribute === '') return ! empty($this->errors);
+        if ($attribute === '') {
+            return ! empty($this->errors);
+        }
         return isset($this->errors[$attribute]);
     }
 
@@ -433,7 +474,7 @@ SQL;
     {
         return $this->hasError();
     }
-    
+
     /**
      * Set the validation mode.
      *
@@ -445,7 +486,7 @@ SQL;
     {
         self::$validation_mode = $mode;
     }
-    
+
     /**
      * Returns the current validation mode.
      *
@@ -466,7 +507,9 @@ SQL;
      */
     public function addValidator($attribute, $validator)
     {
-        if ( ! is_array($validator)) $validator = array($validator);
+        if (! is_array($validator)) {
+            $validator = array($validator);
+        }
         foreach ($validator as $oneValidator) {
             $this->validators[$attribute][] = $oneValidator;
         }
@@ -483,18 +526,24 @@ SQL;
      */
     public function validate()
     {
-        if (isset($this->bean->invalid) && $this->bean->invalid) $this->bean->invalid = false;
-        if (empty($this->validators)) return true;
+        if (isset($this->bean->invalid) && $this->bean->invalid) {
+            $this->bean->invalid = false;
+        }
+        if (empty($this->validators)) {
+            return true;
+        }
         $suggest = true;
         foreach ($this->validators as $attribute => $attributeValidators) {
             foreach ($attributeValidators as $validator) {
-                if ( ! $validator->validate($this->bean->$attribute)) {
+                if (! $validator->validate($this->bean->$attribute)) {
                     $suggest = false;
                     $this->addError(I18n::__(strtolower(get_class($validator)).'_invalid'), $attribute);
                 }
             }
         }
-        if ($suggest === true) return true;
+        if ($suggest === true) {
+            return true;
+        }
         //validation failed, react according to validation mode
         switch (self::$validation_mode) {
             case self::VALIDATION_MODE_EXCEPTION:
@@ -508,7 +557,7 @@ SQL;
         }
         return false;
     }
-    
+
     /**
      * Add a converter to the attribute.
      *
@@ -519,7 +568,9 @@ SQL;
      */
     public function addConverter($attribute, $converter)
     {
-        if ( ! is_array($converter)) $converter = array($converter);
+        if (! is_array($converter)) {
+            $converter = array($converter);
+        }
         foreach ($converter as $oneConverter) {
             $this->converters[$attribute][] = $oneConverter;
         }
@@ -533,7 +584,9 @@ SQL;
      */
     public function convert()
     {
-        if (empty($this->converters)) return;
+        if (empty($this->converters)) {
+            return;
+        }
         foreach ($this->converters as $attribute => $attributeConverters) {
             foreach ($attributeConverters as $converter) {
                 $this->bean->$attribute = $converter->convert($this->bean->$attribute);
