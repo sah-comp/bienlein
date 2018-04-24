@@ -49,7 +49,7 @@ class Model_Token extends Model
             )
         );
     }
-    
+
     /**
      * Returns SQL string.
      *
@@ -62,13 +62,14 @@ class Model_Token extends Model
      */
     public function getSql($fields = 'id', $where = '1', $order = null, $offset = null, $limit = null)
     {
-		$sql = <<<SQL
+        $language = Flight::get('language');
+        $sql = <<<SQL
 		SELECT
 		    {$fields}
 		FROM
 		    {$this->bean->getMeta('type')}
 		LEFT JOIN
-		    {$this->bean->getMeta('type')}i18n AS i18n ON i18n.{$this->bean->getMeta('type')}_id = {$this->bean->getMeta('type')}.id
+		    {$this->bean->getMeta('type')}i18n AS i18n ON (i18n.{$this->bean->getMeta('type')}_id = {$this->bean->getMeta('type')}.id AND i18n.language = '{$language}')
 		WHERE
 		    {$where}
 SQL;
@@ -82,7 +83,7 @@ SQL;
         }
         return $sql;
     }
-    
+
     /**
      * Dispense.
      */

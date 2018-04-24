@@ -72,7 +72,7 @@
         <legend class="verbose"><?php echo I18n::__('gestalt_limb_legend') ?></legend>
 
         <div class="row">
-            
+
 
             <div class="span3">
                 &nbsp;
@@ -97,13 +97,15 @@
             </div>
 
         </div>
-        
+
         <div
             id="person-<?php echo $record->getId() ?>-address-container"
             class="container attachable detachable sortable">
 
         <?php $_limbs = $record->with(' ORDER BY sequence ASC ')->ownLimb ?>
-        <?php if (count($_limbs) == 0) $_limbs[] = R::dispense('limb') ?>
+        <?php if (count($_limbs) == 0) {
+        $_limbs[] = R::dispense('limb');
+    } ?>
         <?php $index = 0 ?>
         <?php foreach ($_limbs as $_limb_id => $_limb): ?>
         <?php $index++ ?>
