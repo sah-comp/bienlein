@@ -38,7 +38,7 @@ class Plugin
     {
         $this->controller = $controller;
     }
-    
+
     /**
      * Returns an instance of the controller from which this plugin was called.
      *
@@ -48,14 +48,17 @@ class Plugin
     {
         return $this->controller;
     }
-    
+
     /**
      * Executes the plugin.
      *
-     * @return bool $alwaysTrue
+     * @param string $type
+     * @param string $varname, defaults to "sequence"
+     * @return bool
      */
-    public function execute()
+    public function execute($type, $varname = 'sequence')
     {
         echo 'Hello, i am a plugin.';
+        return true;
     }
 }
