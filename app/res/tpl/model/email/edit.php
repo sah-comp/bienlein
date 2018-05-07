@@ -8,6 +8,9 @@
  * @version $Id$
  */
 ?>
+<?php
+$_personkinds = $record->sharedPersonkind;
+?>
 <!-- email edit form -->
 <div>
     <input type="hidden" name="dialog[type]" value="<?php echo $record->getMeta('type') ?>" />
@@ -51,7 +54,7 @@
             id="email-<?php echo $record->getId() ?>-personkind-<?php echo $_pk->getId() ?>"
             name="dialog[sharedPersonkind][<?php echo $_pk->getId() ?>][id]"
             value="<?php echo $_pk->getId() ?>"
-            <?php echo (isset($record->sharedPersonkind[$_pk->getId()])) ? 'checked="checked"' : '' ?> />
+            <?php echo (isset($_personkinds[$_pk->getId()])) ? 'checked="checked"' : '' ?> />
     </div>
     <?php endforeach ?>
 </fieldset>

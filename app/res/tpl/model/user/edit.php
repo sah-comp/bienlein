@@ -8,12 +8,16 @@
  * @version $Id$
  */
 ?>
+<?php
+$_teams = $record->sharedTeam;
+$_roles = $record->sharedRole;
+?>
 <!-- edit user form -->
 <div>
     <input type="hidden" name="dialog[type]" value="<?php echo $record->getMeta('type') ?>" />
     <input type="hidden" name="dialog[id]" value="<?php echo $record->getId() ?>" />
     <input type="hidden" name="dialog[pw]" value="<?php echo htmlspecialchars($record->pw) ?>" />
-    
+
     <?php if ($record->email): ?>
     <img
     	src="<?php echo Gravatar::src($record->email, 72) ?>"
@@ -22,7 +26,7 @@
     	height="72"
     	alt="<?php echo htmlspecialchars($record->getName()) ?>" />
     <?php endif ?>
-    	
+
 </div>
 <fieldset>
     <legend><?php echo I18n::__('user_legend') ?></legend>
@@ -176,13 +180,13 @@
                 id="user-team-<?php echo $_team->getId() ?>"
                 name="dialog[sharedTeam][<?php echo $_team->getId() ?>][id]"
                 value="<?php echo $_team->getId() ?>"
-                <?php echo (isset($record->sharedTeam[$_team->getId()])) ? 'checked="checked"' : '' ?> />
+                <?php echo (isset($_teams[$_team->getId()])) ? 'checked="checked"' : '' ?> />
         </div>
         <?php endforeach ?>
     </fieldset>
     <fieldset
         id="user-role"
-        class="tab"      
+        class="tab"
         style="display: none;">
         <legend class="verbose"><?php echo I18n::__('user_legend_role') ?></legend>
         <?php foreach (R::findAll('role') as $_id => $_role): ?>
@@ -203,7 +207,7 @@
                 id="user-role-<?php echo $_role->getId() ?>"
                 name="dialog[sharedRole][<?php echo $_role->getId() ?>][id]"
                 value="<?php echo $_role->getId() ?>"
-                <?php echo (isset($record->sharedRole[$_role->getId()])) ? 'checked="checked"' : '' ?> />
+                <?php echo (isset($_roles[$_role->getId()])) ? 'checked="checked"' : '' ?> />
         </div>
         <?php endforeach ?>
     </fieldset>

@@ -8,6 +8,9 @@
  * @version $Id$
  */
 ?>
+<?php
+$_roles = $_permission->sharedRole;
+?>
 <!-- domain edit form -->
 <div>
     <input type="hidden" name="dialog[type]" value="<?php echo $record->getMeta('type') ?>" />
@@ -29,7 +32,7 @@
             <option
                 value="<?php echo $_domain->getId() ?>"
                 <?php echo ($record->getId() == $_domain->getId()) ? 'disabled="disabled"' : '' ?>
-                <?php echo ($record->domain_id == $_domain->getId()) ? 'selected="selected"' : '' ?>><?php echo $_domain->i18n(Flight::get('language'))->name ?></option>   
+                <?php echo ($record->domain_id == $_domain->getId()) ? 'selected="selected"' : '' ?>><?php echo $_domain->i18n(Flight::get('language'))->name ?></option>
             <?php endforeach ?>
         </select>
     </div>
@@ -140,7 +143,7 @@
                         <input
                             type="hidden"
                             name="dialog[ownPermission][<?php echo $_action->getId() ?>][sharedRole][<?php echo $_role->getId() ?>][type]"
-                            value="role" />                
+                            value="role" />
                         <input
                             type="hidden"
                             name="dialog[ownPermission][<?php echo $_action->getId() ?>][sharedRole][<?php echo $_role->getId() ?>][id]"
@@ -149,7 +152,7 @@
                             type="checkbox"
                             name="dialog[ownPermission][<?php echo $_action->getId() ?>][sharedRole][<?php echo $_role->getId() ?>][id]"
                             value="<?php echo $_role->getId() ?>"
-                            <?php echo (isset($_permission->sharedRole[$_role->getId()])) ? 'checked="checked"' : '' ?> />
+                            <?php echo (isset($_roles[$_role->getId()])) ? 'checked="checked"' : '' ?> />
                     </td>
                     <?php endforeach ?>
                 </tr>
