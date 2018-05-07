@@ -8,9 +8,6 @@
  * @version $Id$
  */
 ?>
-<?php
-$_roles = $_permission->sharedRole;
-?>
 <!-- domain edit form -->
 <div>
     <input type="hidden" name="dialog[type]" value="<?php echo $record->getMeta('type') ?>" />
@@ -120,7 +117,10 @@ $_roles = $_permission->sharedRole;
             </thead>
             <tbody>
         <?php foreach (R::findAll('action') as $_action_id => $_action): ?>
-                <?php $_permission = $record->getPermission($_action->name) ?>
+                <?php
+                $_permission = $record->getPermission($_action->name);
+                $_sharedroles = $_permission->sharedRole;
+                ?>
                 <tr>
                     <td>
                         <!-- permission on domain -->
@@ -152,7 +152,7 @@ $_roles = $_permission->sharedRole;
                             type="checkbox"
                             name="dialog[ownPermission][<?php echo $_action->getId() ?>][sharedRole][<?php echo $_role->getId() ?>][id]"
                             value="<?php echo $_role->getId() ?>"
-                            <?php echo (isset($_roles[$_role->getId()])) ? 'checked="checked"' : '' ?> />
+                            <?php echo (isset($_sharedroles[$_role->getId()])) ? 'checked="checked"' : '' ?> />
                     </td>
                     <?php endforeach ?>
                 </tr>
