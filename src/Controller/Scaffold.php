@@ -188,12 +188,12 @@ class Controller_Scaffold extends Controller
             error_log("Scaffold::__construct() tried to load a bean, but failed. Check if your database is not frozen and a table for the bean type exists. If not unfreeze and try again.\n".$e);
             exit('No bean type could be created. Unfreeze your database.');
         }
-        if ( ! $this->record->isModel()) {
+        if (! $this->record->isModel()) {
             // HOW TO NOT HAVE THIS EVIL STUFF HERE?
             eval(sprintf('class Model_%s extends Model {}', ucfirst(strtolower($this->record->getMeta('type')))));
         }
         $this->actions = $this->record->getActions();
-        if ( ! isset($_SESSION['scaffold'][$this->type])) {
+        if (! isset($_SESSION['scaffold'][$this->type])) {
             $_SESSION['scaffold'][$this->type]['filter']['id'] = 0;
             // next
             $_SESSION['scaffold'][$this->type]['index']['next_action'] = 'idle';
@@ -219,8 +219,7 @@ class Controller_Scaffold extends Controller
             R::trash($record);//store or trash -- nothing else works here
             R::commit();
             return true;
-        }
-        catch (Exception $e) {
+        } catch (Exception $e) {
             error_log($e);
             R::rollback();
             return false;
@@ -240,7 +239,7 @@ class Controller_Scaffold extends Controller
      */
     public function attach($prefix, $subtype, $id = 0)
     {
-		$index = md5(microtime(true));
+        $index = md5(microtime(true));
         $_subrecord = R::dispense($subtype);
         Flight::render(sprintf('model/%s/%s/%s', $this->type, $prefix, $subtype), array(
             'record' => $this->record,
@@ -269,8 +268,7 @@ class Controller_Scaffold extends Controller
             R::commit();
             $this->notifyAbout('success');
             return true;
-        }
-        catch (Exception $e) {
+        } catch (Exception $e) {
             error_log($e);
             R::rollback();
             $this->notifyAbout('error');
@@ -286,8 +284,11 @@ class Controller_Scaffold extends Controller
      */
     protected function notifyAbout($type, $count = null)
     {
-        Flight::get('user')->notify(I18n::__("scaffold_{$type}_{$this->action}",
-                                                            null, array($count)), $type);
+        Flight::get('user')->notify(I18n::__(
+            "scaffold_{$type}_{$this->action}",
+                                                            null,
+            array($count)
+        ), $type);
     }
 
     /**
@@ -300,8 +301,8 @@ class Controller_Scaffold extends Controller
     protected function getCollection()
     {
         $where = $this->filter->buildWhereClause();
-        if ( ! $attributes = $this->record->getAttributes($this->layout)) {
-            if ( ! $gestalt = R::findOne('gestalt', ' name = ? ', array($this->record->getMeta('type')))) {
+        if (! $attributes = $this->record->getAttributes($this->layout)) {
+            if (! $gestalt = R::findOne('gestalt', ' name = ? ', array($this->record->getMeta('type')))) {
                 $attributes = array(
                     'name' => 'id',
                     'sort' => array(
@@ -329,21 +330,22 @@ class Controller_Scaffold extends Controller
             $order
         );
         $this->total_records = 0;
-		try {
-		  //R::debug(true);
-			$rows = R::getAssoc( $sqlCollection, $this->filter->getFilterValues() );
-			$this->records = R::batch( $this->type, array_keys( $rows ) );
-			//R::debug(false);
-			//R::debug(true);
+        try {
+            //R::debug(true);
+            $rows = R::getAssoc($sqlCollection, $this->filter->getFilterValues());
+            $this->records = R::batch($this->type, array_keys($rows));
+            //R::debug(false);
+            //R::debug(true);
             $this->total_records = R::getCell(
-                $sqlTotal, $this->filter->getFilterValues()
+                $sqlTotal,
+                $this->filter->getFilterValues()
             );
-			//R::debug(false);
-			return true;
-		} catch (Exception $e) {
-			$this->records = array();
-			return false;
-		}
+            //R::debug(false);
+            return true;
+        } catch (Exception $e) {
+            $this->records = array();
+            return false;
+        }
     }
 
     /**
@@ -370,19 +372,21 @@ class Controller_Scaffold extends Controller
     protected function id_at_offset($offset)
     {
         $offset--; //because we count page 1..2..3.. where the offset has to be 0..1..2..
-        if ($offset < 0) return false;
+        if ($offset < 0) {
+            return false;
+        }
         $where = $this->filter->buildWhereClause();
         $attributes = $this->record->getAttributes($this->layout);
         $order = $attributes[$this->order]['sort']['name'].' '.$this->dir_map[$this->dir];
-    	try {
-    		return R::getCell(
-    		    $this->record->getSql("DISTINCT({$this->type}.id) AS id, " . $attributes[$this->order]['sort']['name'], $where, $order, $offset, 1),
-    		    $this->filter->getFilterValues()
-    		);
-    	} catch (Exception $e) {
-    	    error_log($e);
+        try {
+            return R::getCell(
+                $this->record->getSql("DISTINCT({$this->type}.id) AS id, " . $attributes[$this->order]['sort']['name'], $where, $order, $offset, 1),
+                $this->filter->getFilterValues()
+            );
+        } catch (Exception $e) {
+            error_log($e);
             return false;
-    	}
+        }
     }
 
     /**
@@ -415,8 +419,12 @@ class Controller_Scaffold extends Controller
      */
     protected function applyToSelection($selection = null, $action = 'idle')
     {
-        if (empty($selection)) return false;
-        if ( ! is_array($selection)) return false;
+        if (empty($selection)) {
+            return false;
+        }
+        if (! is_array($selection)) {
+            return false;
+        }
         Permission::check(Flight::get('user'), $this->type, $action);
         R::begin();
         try {
@@ -427,15 +435,14 @@ class Controller_Scaffold extends Controller
             R::commit();
             $this->notifyAbout('success', count($selection));
             return true;
-        }
-        catch (Exception $e) {
+        } catch (Exception $e) {
             R::rollback();
             $this->notifyAbout('error', count($selection));
             return false;
         }
     }
 
-	/**
+    /**
      * Displays the index page of a given type.
      *
      * On a GET request a list view of the beans is represented where on a POST request
@@ -456,16 +463,16 @@ class Controller_Scaffold extends Controller
         $this->dir = $dir;
         //$this->template = "model/{$this->type}/{$this->layout}";
         $this->template = "scaffold/{$this->layout}";
-		if (Flight::request()->method == 'POST') {
-		    //clear filter?
-		    if (Flight::request()->data->submit == I18n::__('filter_submit_clear')) {
+        if (Flight::request()->method == 'POST') {
+            //clear filter?
+            if (Flight::request()->data->submit == I18n::__('filter_submit_clear')) {
                 R::trash($this->filter);
                 $_SESSION['scaffold'][$this->type]['filter']['id'] = 0;
                 $this->redirect("{$this->base_url}/{$this->type}/{$this->layout}");
             }
             //refresh filter
-		    if (Flight::request()->data->submit == I18n::__('filter_submit_refresh')) {
-                $this->filter = R::graph( Flight::request()->data->filter, TRUE );
+            if (Flight::request()->data->submit == I18n::__('filter_submit_refresh')) {
+                $this->filter = R::graph(Flight::request()->data->filter, true);
                 try {
                     R::store($this->filter);
                     $_SESSION['scaffold'][$this->type]['filter']['id'] = $this->filter->getId();
@@ -476,8 +483,10 @@ class Controller_Scaffold extends Controller
             }
             //handle a selection
             $this->selection = Flight::request()->data->selection;
-            if ($this->applyToSelection($this->selection[$this->type],
-                                                Flight::request()->data->next_action)) {
+            if ($this->applyToSelection(
+                $this->selection[$this->type],
+                                                Flight::request()->data->next_action
+            )) {
                 $this->redirect("{$this->base_url}/{$this->type}/");
             }
         }
@@ -500,7 +509,7 @@ class Controller_Scaffold extends Controller
             $this->total_records
         );
 
-		$this->render();
+        $this->render();
     }
 
     /**
@@ -517,16 +526,16 @@ class Controller_Scaffold extends Controller
         $this->layout = $layout;
         $this->action = 'add';
         $this->template = "model/{$this->type}/add";
-        if ( ! Flight::view()->exists($this->template)) {
+        if (! Flight::view()->exists($this->template)) {
             // if there is no special "add" template, we fallback to "edit"
             $this->template = "model/{$this->type}/edit";
-            if ( ! Flight::view()->exists($this->template)) {
+            if (! Flight::view()->exists($this->template)) {
                 // if there is no special "edit" template, we fallback to "edit"
                 $this->template = "scaffold/edit";
             }
         }
-		if (Flight::request()->method == 'POST') {
-            $this->record = R::graph( Flight::request()->data->dialog, TRUE );
+        if (Flight::request()->method == 'POST') {
+            $this->record = R::graph(Flight::request()->data->dialog, true);
             $this->setNextAction(Flight::request()->data->next_action);
             if ($this->doRedbeanAction()) {
                 if ($this->getNextAction() == 'add') {
@@ -544,7 +553,7 @@ class Controller_Scaffold extends Controller
                 )));
             }
         }
-		$this->render();
+        $this->render();
     }
 
     /**
@@ -567,13 +576,13 @@ class Controller_Scaffold extends Controller
         $this->dir = $dir;
         $this->layout = $layout;
         $this->template = "model/{$this->type}/edit";
-        if ( ! Flight::view()->exists($this->template)) {
+        if (! Flight::view()->exists($this->template)) {
             // if there is no special "edit" template, we fallback to "scaffold/edit"
             $this->template = "scaffold/edit";
         }
-		if (Flight::request()->method == 'POST') {
-		    Permission::check(Flight::get('user'), $this->type, 'edit');//check for edit perm now
-            $this->record = R::graph( Flight::request()->data->dialog, TRUE );
+        if (Flight::request()->method == 'POST') {
+            Permission::check(Flight::get('user'), $this->type, 'edit');//check for edit perm now
+            $this->record = R::graph(Flight::request()->data->dialog, true);
             $this->setNextAction(Flight::request()->data->next_action);
             if ($this->doRedbeanAction()) {
                 if ($this->getNextAction() == 'edit') {
@@ -584,29 +593,29 @@ class Controller_Scaffold extends Controller
                     $this->redirect("{$this->base_url}/{$this->type}/edit/{$next_id}/{$next_page}/{$this->order}/{$this->dir}/{$this->layout}/");
                 } elseif ($this->getNextAction() == 'prev_edit' &&
                                                 $prev_id = $this->id_at_offset($this->page - 1)) {
-                        $prev_page = $this->page - 1;
-                        $this->redirect("{$this->base_url}/{$this->type}/edit/{$prev_id}/{$prev_page}/{$this->order}/{$this->dir}/{$this->layout}/");
+                    $prev_page = $this->page - 1;
+                    $this->redirect("{$this->base_url}/{$this->type}/edit/{$prev_id}/{$prev_page}/{$this->order}/{$this->dir}/{$this->layout}/");
                 }
                 $this->redirect("{$this->base_url}/{$this->type}/{$this->layout}/");
             }
         }
-		$this->render();
+        $this->render();
     }
 
-	/**
-	 * Renders a scaffold page.
-	 *
-	 * @todo Think about:
-	 *  - Make the 'html5' layout configurable
-	 */
-	protected function render()
-	{
-	    Flight::render('shared/notification', array(
-	       'record' => $this->record
-	    ), 'notification');
-	    //
+    /**
+     * Renders a scaffold page.
+     *
+     * @todo Think about:
+     *  - Make the 'html5' layout configurable
+     */
+    protected function render()
+    {
+        Flight::render('shared/notification', array(
+           'record' => $this->record
+        ), 'notification');
+        //
         Flight::render('shared/navigation/account', array(), 'navigation_account');
-		Flight::render('shared/navigation/main', array(), 'navigation_main');
+        Flight::render('shared/navigation/main', array(), 'navigation_main');
         Flight::render('shared/navigation', array(), 'navigation');
         Flight::render('scaffold/toolbar', array(
             'record' => $this->record,
@@ -617,24 +626,24 @@ class Controller_Scaffold extends Controller
             'order' => $this->order,
             'dir' => $this->dir
         ), 'toolbar');
-		Flight::render('shared/header', array(), 'header');
-		Flight::render('shared/footer', array(
-		    'pagination' => $this->pagination
-		), 'footer');
-		Flight::render($this->template, array(
-		    'filter' => $this->filter,
+        Flight::render('shared/header', array(), 'header');
+        Flight::render('shared/footer', array(
+            'pagination' => $this->pagination
+        ), 'footer');
+        Flight::render($this->template, array(
+            'filter' => $this->filter,
             'record' => $this->record,
-			'records' => $this->records,
-			'selection' => $this->selection,
-			'total_records' => $this->total_records,
-			'dir_map' => $this->dir_map
+            'records' => $this->records,
+            'selection' => $this->selection,
+            'total_records' => $this->total_records,
+            'dir_map' => $this->dir_map
         ), 'form_details');
         Flight::render('scaffold/form', array(
             'actions' => $this->actions,
             'current_action' => $this->action,
             'next_action' => $this->getNextAction(),
             'record' => $this->record,
-			'records' => $this->records
+            'records' => $this->records
         ), 'content');
         Flight::render('html5', array(
             'title' => I18n::__("scaffold_head_title_{$this->action}", null, array(
@@ -643,5 +652,5 @@ class Controller_Scaffold extends Controller
             'language' => Flight::get('language'),
             'javascripts' => $this->javascripts
         ));
-	}
+    }
 }
