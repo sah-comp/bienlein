@@ -24,6 +24,11 @@ require __DIR__ . '/../vendor/autoload.php';
  */
 require __DIR__ . '/../app/config/config.php';
 
+/**
+ * Bootstrap.
+ */
+require __DIR__ . '/../app/config/bootstrap.php';
+
 // Send bulk mail
 $bulks = R::find('bulk', ' newsletter_id IS NOT NULL AND send = 0 LIMIT 100');
 foreach ($bulks as $id => $bulk) {
@@ -55,4 +60,4 @@ foreach ($bulks as $id => $bulk) {
     R::exec('UPDATE bulk SET send = ? WHERE id = ?', array($result, $bulk->getId()));
     //R::store($bulk);// Why does this fail when actually sending mail?
 }
-echo "Ready.\nYou man run this again until now bulk mail is left.\n\n";
+echo "Ready.\nYou may run this again until now bulk mail is left.\n\n";
