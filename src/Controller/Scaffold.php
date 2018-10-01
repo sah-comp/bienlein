@@ -286,7 +286,7 @@ class Controller_Scaffold extends Controller
     {
         Flight::get('user')->notify(I18n::__(
             "scaffold_{$type}_{$this->action}",
-                                                            null,
+            null,
             array($count)
         ), $type);
     }
@@ -485,7 +485,7 @@ class Controller_Scaffold extends Controller
             $this->selection = Flight::request()->data->selection;
             if ($this->applyToSelection(
                 $this->selection[$this->type],
-                                                Flight::request()->data->next_action
+                Flight::request()->data->next_action
             )) {
                 $this->redirect("{$this->base_url}/{$this->type}/");
             }
