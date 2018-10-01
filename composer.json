@@ -15,7 +15,7 @@
 		"mikecao/flight": "dev-master",
 		"ircmaxell/password-compat": "dev-master",
 		"gabordemooij/redbean": "dev-master",
-        "netcarver/textile": "v2.5.1",
+        "netcarver/textile": "v3.6.*",
         "phpmailer/phpmailer": "dev-master"
 	},
 	"require-dev": {
