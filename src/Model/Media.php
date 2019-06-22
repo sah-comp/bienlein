@@ -153,6 +153,16 @@ class Model_Media extends Model
         $string = preg_replace('/[^\w\-'. ($is_filename ? '~_\.' : ''). ']+/u', '-', $string);
         return mb_strtolower(preg_replace('/--+/u', '-', $string));
     }
+
+    /**
+     * dispense.
+     *
+     * Prepare media for use.
+     */
+    public function dispense()
+    {
+		$this->bean->sequence = 1;
+	}
         
     /**
      * update.
