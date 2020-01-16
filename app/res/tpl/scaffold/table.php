@@ -141,7 +141,7 @@
                 <?php else: ?>
                 <input
                     type="text"
-                    class="filter"
+                    class="filter <?php echo (isset($_attribute['class']) ? $_attribute['class'] : '') ?>"
                     name="filter[ownCriteria][<?php echo $_i ?>][value]"
                     value="<?php echo htmlspecialchars($_criteria->value) ?>"
                     placeholder="<?php echo I18n::__('filter_placeholder_any') ?>" />

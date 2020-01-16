@@ -988,7 +988,7 @@ fieldset.tab fieldset:last-child .attach {
 }
 
 input[required=required] {
-    font-weight: bold;
+    /*font-weight: bold;*/
 }
 
 input[readonly=readonly] {
