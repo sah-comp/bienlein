@@ -54,7 +54,7 @@
                     endif;
                     if (isset($_attribute['class'])) $_class .= ' '.$_attribute['class'];
                 ?>
-            <th class="<?php echo $_class ?>">
+            <th class="<?php echo $_class ?>" <?php echo (isset($_attribute['width']) ? 'style="width: ' . $_attribute['width'] . ';"' : '') ?>>
                 <a href="<?php echo Url::build("{$base_url}/{$type}/{$layout}/1/{$_i}/{$_dir}") ?>"><?php echo I18n::__($record->getMeta('type').'_label_'.$_attribute['name']) ?></a>
             </th>
             <?php endforeach ?>
