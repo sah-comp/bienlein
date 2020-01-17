@@ -85,7 +85,8 @@ class Model_Domain extends Model
                 'class' => 'number',
                 'filter' => array(
                     'tag' => 'number'
-                )
+                ),
+				'width' => '8rem'
             ),
             array(
                 'name' => 'invisible',
@@ -97,7 +98,8 @@ class Model_Domain extends Model
                 ),
                 'filter' => array(
                     'tag' => 'bool'
-                )
+                ),
+				'width' => '5rem'
             )
         );
     }

@@ -33,7 +33,8 @@ class Model_User extends Model
                 ),
                 'filter' => array(
                     'tag' => 'text'
-                )
+                ),
+				'width' => '8rem'
             ),
             array(
                 'name' => 'name',
@@ -63,7 +64,8 @@ class Model_User extends Model
                 ),
                 'filter' => array(
                     'tag' => 'bool'
-                )
+                ),
+				'width' => '5rem'
             )
         );
     }

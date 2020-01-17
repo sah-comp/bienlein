@@ -80,7 +80,8 @@ class Model_News extends Model
                 ),
                 'filter' => array(
                     'tag' => 'datetime'
-                )
+                ),
+				'width' => '14rem'
             ),
             array(
                 'name' => 'name',
@@ -101,7 +102,8 @@ class Model_News extends Model
                 ),
                 'filter' => array(
                     'tag' => 'bool'
-                )
+                ),
+				'width' => '5rem'
             ),
             array(
                 'name' => 'archived',
@@ -113,7 +115,8 @@ class Model_News extends Model
                 ),
                 'filter' => array(
                     'tag' => 'bool'
-                )
+                ),
+				'width' => '5rem'
             )
         );
     }

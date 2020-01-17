@@ -54,7 +54,8 @@ class Model_Person extends Model
                 ),
                 'filter' => array(
                     'tag' => 'text'
-                )
+                ),
+				'width' => '8rem'
             ),
             array(
                 'name' => 'lastname',
@@ -111,7 +112,8 @@ class Model_Person extends Model
                 ),
                 'filter' => array(
                     'tag' => 'bool'
-                )
+                ),
+				'width' => '5rem'
             )
         );
     }

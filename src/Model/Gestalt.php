@@ -54,7 +54,8 @@ class Model_Gestalt extends Model
                 ),
                 'filter' => array(
                     'tag' => 'text'
-                )
+                ),
+				'width' => '23rem'
             ),
             array(
                 'name' => 'desc',
@@ -75,7 +76,8 @@ class Model_Gestalt extends Model
                 ),
                 'filter' => array(
                     'tag' => 'bool'
-                )
+                ),
+				'width' => '5rem'
             )
         );
     }

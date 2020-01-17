@@ -102,7 +102,8 @@ class Model_Media extends Model
                 ),
                 'filter' => array(
                     'tag' => 'text'
-                )
+                ),
+				'width' => '5rem'
             ),
             array(
                 'name' => 'size',
@@ -112,7 +113,8 @@ class Model_Media extends Model
                 'class' => 'number',
                 'filter' => array(
                     'tag' => 'number'
-                )
+                ),
+				'width' => '10rem'
             ),
             array(
                 'name' => 'name',

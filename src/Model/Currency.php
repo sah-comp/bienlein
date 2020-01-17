@@ -85,7 +85,8 @@ class Model_Currency extends Model
                 ),
                 'filter' => array(
                     'tag' => 'text'
-                )
+                ),
+				'width' => '5rem'
             ),
             array(
                 'name' => 'name',
@@ -116,7 +117,8 @@ class Model_Currency extends Model
                 ),
                 'filter' => array(
                     'tag' => 'bool'
-                )
+                ),
+				'width' => '5rem'
             )
         );
     }
