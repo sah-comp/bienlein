@@ -41,7 +41,8 @@ define('VENDORS', __DIR__.'/../../vendor/');
  */
 R::setup('mysql:host=' . CINNEBAR_DB_HOST . ';dbname=' . CINNEBAR_DB_NAME, CINNEBAR_DB_USER, CINNEBAR_DB_PASSWORD);
 R::freeze(true);
-//R::$writer->setUseCache(true);
+$writer = R::getWriter();
+$writer->setUseCache(true);
 
 /**
  * Allow RedBean Cooker Plugin to load beans for compatibility.
