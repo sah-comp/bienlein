@@ -876,6 +876,10 @@ ul.tab-navigation a.selected {
     color: gray;
 }
 
+.panel .row [class*="span"] p.info {
+	margin-left: 0;
+}
+
 th.label {
     width: 25.404255317%;
 }
@@ -938,6 +942,11 @@ select.filter-select {
     width: 100%;
     margin-left: 0;
     margin-right: 0;
+}
+
+/* No left margin when within grid */
+.panel .row [class*="span"] input {
+	margin-left: 0;
 }
 
 .detach,
