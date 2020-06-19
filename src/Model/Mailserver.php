@@ -71,6 +71,7 @@ class Model_Mailserver extends Model
      */
     public function dispense()
     {
+		$this->bean->port = 0;
         $this->addValidator('name', array(
             new Validator_HasValue(),
             new Validator_IsUnique(array('bean' => $this->bean, 'attribute' => 'name'))

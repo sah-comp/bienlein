@@ -39,13 +39,15 @@ foreach ($bulks as $id => $bulk) {
     $mail->FromName = utf8_decode($bulk->newsletter->replytoname);
     $mail->AddReplyTo($bulk->newsletter->replytoemail, utf8_decode($bulk->newsletter->replytoname));
 
-    $mail->IsSMTP();
-    $mail->SMTPAuth = true;
-    $mail->SMTPKeepAlive = true;
-    $mail->Host = $bulk->newsletter->mailserver->host;
-    $mail->Port = $bulk->newsletter->mailserver->port;
-    $mail->Username = $bulk->newsletter->mailserver->user;
-    $mail->Password = $bulk->newsletter->mailserver->pw;
+	if ($this->bean->mailserver->host) {
+	    $mail->IsSMTP();
+	    $mail->SMTPAuth = true;
+	    $mail->SMTPKeepAlive = true;
+	    $mail->Host = $bulk->newsletter->mailserver->host;
+	    $mail->Port = $bulk->newsletter->mailserver->port;
+	    $mail->Username = $bulk->newsletter->mailserver->user;
+	    $mail->Password = $bulk->newsletter->mailserver->pw;
+	}
 
     $result = true;
     $body_html = $bulk->newsletter->template->html;
@@ -54,10 +56,8 @@ foreach ($bulks as $id => $bulk) {
     $mail->AltBody = $body_text;
     $mail->ClearAddresses();
     $mail->AddAddress($bulk->email->email);
-    //$mail->AddAddress('sh@fettundrosig.com');//for testing purpose ONLY!!
     $result = $mail->Send();
     echo  $bulk->getId() . " " . $bulk->email->email ."\n";
     R::exec('UPDATE bulk SET send = ? WHERE id = ?', array($result, $bulk->getId()));
-    //R::store($bulk);// Why does this fail when actually sending mail?
 }
 echo "Ready.\nYou may run this again until now bulk mail is left.\n\n";

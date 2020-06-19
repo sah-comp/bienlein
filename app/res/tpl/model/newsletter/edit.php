@@ -42,6 +42,7 @@
                 <?php echo ($record->template_id == $_template->getId()) ? 'selected="selected"' : '' ?>><?php echo htmlspecialchars($_template->name) ?></option>   
             <?php endforeach ?>
         </select>
+		<p class="info"><?php echo I18n::__('mail_info_template') ?></p>
     </div>
     <div class="row <?php echo ($record->hasError('mailserver_id')) ? 'error' : ''; ?>">
         <label
@@ -112,6 +113,7 @@
                 value="<?php echo $_command ?>"><?php echo I18n::__('newsletter_command_'.$_command) ?></option>   
             <?php endforeach ?>
         </select>
+		<p class="info"><?php echo I18n::__('mail_info_command') ?></p>
     </div>
 </fieldset>
 <!-- end of newsletter edit form -->
