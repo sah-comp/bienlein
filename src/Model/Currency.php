@@ -103,6 +103,9 @@ class Model_Currency extends Model
                     'name' => 'currency.exchangerate'
                 ),
                 'class' => 'number',
+                'callback' => array(
+                    'name' => 'decimal'
+                ),
                 'filter' => array(
                     'tag' => 'number'
                 )
