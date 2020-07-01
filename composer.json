@@ -16,7 +16,8 @@
 		"ircmaxell/password-compat": "dev-master",
 		"gabordemooij/redbean": "dev-master",
         "netcarver/textile": "v3.6.*",
-        "phpmailer/phpmailer": "dev-master"
+        "phpmailer/phpmailer": "dev-master",
+		"docopt/docopt": "v1.0.4"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "3.7.*"

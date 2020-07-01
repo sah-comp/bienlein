@@ -29,6 +29,6 @@ class Command
      */
     public function run()
     {
-        die('Thank you for letting me run.'."\n");
+        echo i18n::__('cli_command_stub_text').PHP_EOL;
     }
 }
