@@ -17,7 +17,7 @@ class TokenCache {
 	 * If this parameter is empty, all active languages will be created as files.
 	 */
 	public $language = '';
-	
+
 	/**
 	 * Constructor.
 	 *
@@ -27,7 +27,7 @@ class TokenCache {
 	{
 		$this->language = $language;
 	}
-	
+
 	/**
 	 * Runs the token cache creator.
 	 */
@@ -43,7 +43,7 @@ class TokenCache {
 			$this->create();
 		}
 	}
-	
+
 	/**
 	 * Generates a file for a certain language.
 	 *
