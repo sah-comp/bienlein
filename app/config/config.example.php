@@ -17,6 +17,7 @@ define('CINNEBAR_DB_HOST', 'localhost');
 define('CINNEBAR_DB_NAME', 'DB0815');
 define('CINNEBAR_DB_USER', 'root');
 define('CINNEBAR_DB_PASSWORD', 'secret');
+define('CINNEBAR_DB_FREEZE_FLAG', true);
 
 /**
  * Define default language code.
