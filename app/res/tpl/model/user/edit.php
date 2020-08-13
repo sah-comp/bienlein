@@ -20,11 +20,11 @@ $_roles = $record->sharedRole;
 
     <?php if ($record->email): ?>
     <img
-    	src="<?php echo Gravatar::src($record->email, 72) ?>"
-    	class="gravatar-account circular no-shadow"
-    	width="72"
-    	height="72"
-    	alt="<?php echo htmlspecialchars($record->getName()) ?>" />
+        src="<?php echo Gravatar::src($record->email, 72) ?>"
+        class="gravatar-account circular no-shadow"
+        width="72"
+        height="72"
+        alt="<?php echo htmlspecialchars($record->getName()) ?>" />
     <?php endif ?>
 
 </div>
@@ -111,7 +111,8 @@ $_roles = $record->sharedRole;
         'tabs' => array(
             'user-setting' => I18n::__('user_setting_tab'),
             'user-role' => I18n::__('user_role_tab'),
-            'user-team' => I18n::__('user_team_tab')
+            'user-team' => I18n::__('user_team_tab'),
+            'user-editor' => I18n::__('user_editor_tab')
         ),
         'default_tab' => 'user-setting'
     )) ?>
@@ -210,6 +211,30 @@ $_roles = $record->sharedRole;
                 <?php echo (isset($_roles[$_role->getId()])) ? 'checked="checked"' : '' ?> />
         </div>
         <?php endforeach ?>
+    </fieldset>
+    <fieldset
+        id="user-editor"
+        class="tab"
+        style="display: block;">
+        <legend><?php echo I18n::__('user_legend_editor') ?></legend>
+        <div
+            class="row <?php echo $record->hasError('foxylisteditor') ? 'error' : '' ?>">
+            <input
+                type="hidden"
+                name="dialog[foxylisteditor]"
+                value="0" />
+            <label
+                for="user-foxylisteditor"
+                class="cb">
+                <?php echo I18n::__('user_label_foxylisteditor') ?>
+            </label>
+            <input
+                id="user-foxylisteditor"
+                type="checkbox"
+                name="dialog[foxylisteditor]"
+                <?php echo ($record->foxylisteditor) ? 'checked="checked"' : '' ?>
+                value="1" />
+        </div>
     </fieldset>
 </div>
 <!-- End of edit user form -->

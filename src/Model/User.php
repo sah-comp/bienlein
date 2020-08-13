@@ -34,7 +34,7 @@ class Model_User extends Model
                 'filter' => array(
                     'tag' => 'text'
                 ),
-				'width' => '8rem'
+                'width' => '8rem'
             ),
             array(
                 'name' => 'name',
@@ -65,7 +65,7 @@ class Model_User extends Model
                 'filter' => array(
                     'tag' => 'bool'
                 ),
-				'width' => '5rem'
+                'width' => '5rem'
             )
         );
     }
@@ -253,6 +253,21 @@ class Model_User extends Model
         }
         $this->bean->pw = password_hash($newPassword, PASSWORD_DEFAULT);
         return true;
+    }
+
+    /**
+     * Returns wether the user has a editable list view or not.
+     *
+     * @see app/res/tpl/scaffold/table.php
+     *
+     * @return bool
+     */
+    public function hasfoxylisteditor()
+    {
+        if ($this->bean->foxylisteditor) {
+            return true;
+        }
+        return false;
     }
 
     /**
