@@ -11,49 +11,50 @@
 /**
  * Token cache manager.
  */
-class TokenCache {
-	/**
-	 * Holds which language file will be created. Defaults to empty.
-	 * If this parameter is empty, all active languages will be created as files.
-	 */
-	public $language = '';
+class TokenCache
+{
+    /**
+     * Holds which language file will be created. Defaults to empty.
+     * If this parameter is empty, all active languages will be created as files.
+     */
+    public $language = '';
 
-	/**
-	 * Constructor.
-	 *
-	 * @param mixed $language
-	 */
-	public function __construct($language = null)
-	{
-		$this->language = $language;
-	}
+    /**
+     * Constructor.
+     *
+     * @param mixed $language
+     */
+    public function __construct($language = null)
+    {
+        $this->language = $language;
+    }
 
-	/**
-	 * Runs the token cache creator.
-	 */
-	public function run()
-	{
-		if (!$this->language) {
-			$languages = ['de', 'en', 'us', 'pt'];//gather all active languages
-			foreach ($languages as $language) {
-				$this->language = $language;
-				$this->create();
-			}
-		} else {
-			$this->create();
-		}
-	}
+    /**
+     * Runs the token cache creator.
+     */
+    public function run()
+    {
+        if (!$this->language) {
+            $languages = ['de', 'en', 'us', 'pt'];//gather all active languages
+            foreach ($languages as $language) {
+                $this->language = $language;
+                $this->create();
+            }
+        } else {
+            $this->create();
+        }
+    }
 
-	/**
-	 * Generates a file for a certain language.
-	 *
-	 * @return bool
-	 */
-	public function create()
-	{
-		echo "Created cache file for language \"{$this->language}\"." . PHP_EOL;
-		return true;
-	}
+    /**
+     * Generates a file for a certain language.
+     *
+     * @return bool
+     */
+    public function create()
+    {
+        echo "Created cache file for language \"{$this->language}\"." . PHP_EOL;
+        return true;
+    }
 }
 
 /**
