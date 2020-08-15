@@ -189,14 +189,10 @@ class Controller_Scaffold extends Controller
             error_log("Scaffold::__construct() tried to load a bean, but failed. Check if your database is not frozen and a table for the bean type exists. If not unfreeze and try again.\n".$e);
             exit('No bean type could be created. Unfreeze your database.');
         }
-        if (! $this->record->isModel()) {
-            // HOW TO NOT HAVE THIS EVIL STUFF HERE?
-            eval(sprintf('class Model_%s extends Model {}', ucfirst(strtolower($this->record->getMeta('type')))));
-        }
         $this->actions = $this->record->getActions();
         if (! isset($_SESSION['scaffold'][$this->type])) {
             $_SESSION['scaffold'][$this->type]['filter']['id'] = 0;
-            // next
+            // next action
             $_SESSION['scaffold'][$this->type]['index']['next_action'] = 'idle';
             $_SESSION['scaffold'][$this->type]['add']['next_action'] = 'add';
             $_SESSION['scaffold'][$this->type]['edit']['next_action'] = 'edit';
@@ -247,6 +243,25 @@ class Controller_Scaffold extends Controller
             '_'.$subtype => $_subrecord,
             'index' => $index
         ));
+        return true;
+    }
+
+    /**
+     * Display a inline edit field.
+     *
+     * To use the attach function you will need to have subform templates in your model
+     * folder. For example see model/person/own/address.
+     *
+     * @param string $attribute the name of the attribute to edot
+     * @return void
+     */
+    public function inline($attribute)
+    {
+        $index = md5(microtime(true));
+        Flight::render('scaffold/table/inline', [
+            'record' => $this->record,
+            'attribute' => $attribute
+        ]);
         return true;
     }
 

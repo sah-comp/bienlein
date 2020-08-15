@@ -88,16 +88,6 @@ class Model extends RedBean_SimpleModel
     }
 
     /**
-     * Returns always true.
-     *
-     * @return bool TRUE
-     */
-    public function isModel()
-    {
-        return true;
-    }
-
-    /**
      * Returns an array with attributes for lists.
      *
      * @param string (optional) $layout
