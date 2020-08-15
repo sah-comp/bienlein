@@ -193,6 +193,26 @@ class Model_User extends Model
     }
 
     /**
+     * Returns an integer with the number of records per page the
+     * user wants to see on one page. If user has not set that limit
+     * and has not checked to see all records of one type per page
+     * the default records per page limit is returned.
+     *
+     * @param string $type the bean type
+     * @return int
+     */
+    public function getRecordsPerPage($type = null)
+    {
+        if (!$this->bean->recordsperpage && !$this->bean->allrecordsperpage) {
+            return CINNEBAR_RECORDS_PER_PAGE;
+        }
+        if ($this->bean->allrecordsperpage) {
+            return R::count($type) + 1;// we have to avoid division by zero
+        }
+        return $this->bean->recordsperpage;
+    }
+
+    /**
      * Send an email with a authorization token, allowing to set a new password
      * in a second step.
      *
@@ -277,6 +297,7 @@ class Model_User extends Model
     {
         $this->bean->screenname = 'shortname';
         $this->bean->maxlifetime = MAX_SESSION_LIFETIME;
+        $this->bean->recordsperpage = CINNEBAR_RECORDS_PER_PAGE;
         $this->addValidator('name', array(
             new Validator_HasValue()
         ));

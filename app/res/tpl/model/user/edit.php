@@ -235,6 +235,40 @@ $_roles = $record->sharedRole;
                 <?php echo ($record->foxylisteditor) ? 'checked="checked"' : '' ?>
                 value="1" />
         </div>
+        <div
+            class="row <?php echo $record->hasError('allrecordsperpage') ? 'error' : '' ?>">
+            <input
+                type="hidden"
+                name="dialog[allrecordsperpage]"
+                value="0" />
+            <label
+                for="user-allrecordsperpage"
+                class="cb">
+                <?php echo I18n::__('user_label_allrecordsperpage') ?>
+            </label>
+            <input
+                id="user-allrecordsperpage"
+                type="checkbox"
+                name="dialog[allrecordsperpage]"
+                <?php echo ($record->allrecordsperpage) ? 'checked="checked"' : '' ?>
+                value="1" />
+        </div>
+        <div
+            class="row <?php echo $record->hasError('recordsperpage') ? 'error' : '' ?>">
+            <label
+                for="user-recordsperpage">
+                <?php echo I18n::__('user_label_recordsperpage') ?>
+            </label>
+            <input
+                type="number"
+                min="17"
+                max="500"
+                step="1"
+                id="user-recordsperpage"
+                name="dialog[recordsperpage]"
+                value="<?php echo htmlspecialchars($record->recordsperpage) ?>" />
+            <p class="info"><?php echo I18n::__('user_info_recordsperpage') ?></p>
+        </div>
     </fieldset>
 </div>
 <!-- End of edit user form -->

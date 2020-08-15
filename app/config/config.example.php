@@ -42,6 +42,13 @@ define('CINNEBAR_TEMPLATE_DATETIME', '%x %X');
 define('CINNEBAR_MAX_UPLOAD_SIZE', 4194304);
 
 /**
+ * Define the maximum number of records shown on a (scaffold) list.
+ *
+ * This must not be zero or you will get a division by zero exception.
+ */
+define('CINNEBAR_RECORDS_PER_PAGE', 17);
+
+/**
  * Define install password.
  */
 define('CINNEBAR_INSTALL_PASSWORD', 'Supersecret');

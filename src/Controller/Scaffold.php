@@ -104,7 +104,7 @@ class Controller_Scaffold extends Controller
      *
      * @var int
      */
-    public $limit = 17;
+    public $limit = CINNEBAR_RECORDS_PER_PAGE;
 
     /**
      * Holds the default layout for index.
@@ -178,6 +178,7 @@ class Controller_Scaffold extends Controller
     {
         session_start();
         Auth::check();
+        $this->limit = Flight::get('user')->getRecordsPerPage($type);
         $this->base_url = $base_url;
         $this->type = $type;
         $this->id = $id;
