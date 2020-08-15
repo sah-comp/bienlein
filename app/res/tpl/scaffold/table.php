@@ -30,7 +30,7 @@ endif;
     <?php endif; ?>
 <?php endif ?>
 <!-- <?php echo $record->getMeta('type') ?> scaffold table -->
-<table>
+<table class="scaffold">
 
     <caption>
         <?php echo I18n::__('scaffold_caption_index', null, array($total_records)) ?>

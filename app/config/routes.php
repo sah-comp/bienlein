@@ -23,7 +23,6 @@ Flight::route('(/@language:[a-z]{2})/*', function ($language) {
 /**
  * Top level url routes to either '/' domain or the welcome controller jumps in.
  */
-
 Flight::route('(/[a-z]{2})/', function () {
     if (Flight::setting()->homepage) {
         $cmsController = new Controller_Cms();
@@ -64,9 +63,7 @@ Flight::route('(/[a-z]{2})/admin(/index)', function () {
 
 
 /**
- * Routes to the scaffold controller.
- *
- * These routes will handle all models in a basic CURD way.
+ * Route to the create part of the CURD.
  */
 Flight::route('(/[a-z]{2})/admin/@type:[a-z]+/add(/@id:[0-9]+)(/@layout:[a-z]+)', function ($type, $id, $layout) {
     if ($layout === null) {
@@ -75,6 +72,10 @@ Flight::route('(/[a-z]{2})/admin/@type:[a-z]+/add(/@id:[0-9]+)(/@layout:[a-z]+)'
     $scaffoldController = new Controller_Scaffold('/admin', $type, $id);
     $scaffoldController->add($layout);
 });
+
+/**
+ * Route to the edit part of the CURD.
+ */
 Flight::route('(/[a-z]{2})/admin/@type:[a-z]+/edit/@id:[0-9]+(/@page:[0-9]+)(/@order:[0-9]+)(/@dir:[0-1]{1})(/@layout:[a-z]+)', function ($type, $id, $page, $order, $dir, $layout) {
     if ($layout === null) {
         $layout = 'table';
@@ -91,6 +92,10 @@ Flight::route('(/[a-z]{2})/admin/@type:[a-z]+/edit/@id:[0-9]+(/@page:[0-9]+)(/@o
     $scaffoldController = new Controller_Scaffold('/admin', $type, $id);
     $scaffoldController->edit($page, $order, $dir, $layout);
 });
+
+/**
+ * Route to display, filter, sort and manipulate beans.
+ */
 Flight::route('(/[a-z]{2})/admin/@type:[a-z]+(/@layout:[a-z]+)(/@page:[0-9]+)(/@order:[0-9]+)(/@dir:[0-1]{1})', function ($type, $layout, $page, $order, $dir) {
     if ($layout === null) {
         $layout = 'table';
@@ -107,6 +112,10 @@ Flight::route('(/[a-z]{2})/admin/@type:[a-z]+(/@layout:[a-z]+)(/@page:[0-9]+)(/@
     $scaffoldController = new Controller_Scaffold('/admin', $type);
     $scaffoldController->index($layout, $page, $order, $dir);
 });
+
+/**
+ * Route to delete a related bean from another bean.
+ */
 Flight::route('(/[a-z]{2})/admin/@type:[a-z]+/detach/@subtype:[a-z]+(/@id:[0-9]+)', function ($type, $subtype, $id) {
     if ($id === null) {
         $id = 0;
@@ -114,6 +123,10 @@ Flight::route('(/[a-z]{2})/admin/@type:[a-z]+/detach/@subtype:[a-z]+(/@id:[0-9]+
     $scaffoldController = new Controller_Scaffold('/admin', $type, $id);
     $scaffoldController->detach($subtype, $id);
 });
+
+/**
+ * Route to attach a related bean to another bean.
+ */
 Flight::route('(/[a-z]{2})/admin/@type:[a-z]+/attach/@prefix:[a-z]+/@subtype:[a-z]+(/@id:[0-9]+)', function ($type, $prefix, $subtype, $id) {
     if ($id === null) {
         $id = 0;
@@ -123,20 +136,19 @@ Flight::route('(/[a-z]{2})/admin/@type:[a-z]+/attach/@prefix:[a-z]+/@subtype:[a-
 });
 
 /**
- * Routes to the cms controller.
+ * Route to display a inline input field to edit an attribute in list view.
+ */
+Flight::route('(/[a-z]{2})/admin/@type:[a-z]+/inline/@attribute:[a-z]+/@id:[0-9]+', function ($type, $attribute, $id) {
+    $scaffoldController = new Controller_Scaffold('/admin', $type, $id);
+    $scaffoldController->inline($attribute);
+});
+
+/**
+ * Display the CMS index page.
  */
 Flight::route('(/[a-z]{2})/cms(/index)', function () {
     $cmsController = new Controller_Cms();
     $cmsController->index();
-});
-
-Flight::route('(/[a-z]{2})/cms/sitemap', function () {
-    $layout = 'table';
-    $page = 1;
-    $order = 0;
-    $dir = 0;
-    $scaffoldController = new Controller_Nested();
-    $scaffoldController->index();
 });
 
 /**
@@ -188,7 +200,7 @@ Flight::route('(/[a-z]{2})/cms/slice/@id:[0-9]+', function ($id) {
 });
 
 /**
- * Routes to the scaffold controller for cms.
+ * Routes to add a new slice to the CMS.
  */
 Flight::route('(/[a-z]{2})/cms/@type:[a-z]+/add(/@id:[0-9]+)(/@layout:[a-z]+)', function ($type, $id, $layout) {
     if ($layout === null) {
@@ -197,6 +209,10 @@ Flight::route('(/[a-z]{2})/cms/@type:[a-z]+/add(/@id:[0-9]+)(/@layout:[a-z]+)', 
     $scaffoldController = new Controller_Scaffold('/cms', $type, $id);
     $scaffoldController->add($layout);
 });
+
+/**
+ * Routes to edit a slice of the CMS.
+ */
 Flight::route('(/[a-z]{2})/cms/@type:[a-z]+/edit/@id:[0-9]+(/@page:[0-9]+)(/@order:[0-9]+)(/@dir:[0-1]{1})(/@layout:[a-z]+)', function ($type, $id, $page, $order, $dir, $layout) {
     if ($layout === null) {
         $layout = 'table';
@@ -213,6 +229,10 @@ Flight::route('(/[a-z]{2})/cms/@type:[a-z]+/edit/@id:[0-9]+(/@page:[0-9]+)(/@ord
     $scaffoldController = new Controller_Scaffold('/cms', $type, $id);
     $scaffoldController->edit($page, $order, $dir, $layout);
 });
+
+/**
+ * Routes to view the slices of the CMS.
+ */
 Flight::route('(/[a-z]{2})/cms/@type:[a-z]+(/@layout:[a-z]+)(/@page:[0-9]+)(/@order:[0-9]+)(/@dir:[0-1]{1})', function ($type, $layout, $page, $order, $dir) {
     if ($layout === null) {
         $layout = 'table';
@@ -245,10 +265,18 @@ Flight::route('(/[a-z]{2})/account', function () {
     $accountController = new Controller_Account();
     $accountController->index();
 });
+
+/**
+ * Route to change password.
+ */
 Flight::route('(/[a-z]{2})/account/changepassword', function () {
     $accountController = new Controller_Account();
     $accountController->changepassword();
 });
+
+/**
+ * Route to handle a lost password.
+ */
 Flight::route('(/[a-z]{2})/account/lostpassword', function () {
     $accountController = new Controller_Account();
     $accountController->lostpassword();

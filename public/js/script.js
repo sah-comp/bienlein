@@ -142,12 +142,12 @@ $(document).ready(function() {
 	 */
 	$(document).on("click", ".fox-on-the-run", function(event) {
 	    event.preventDefault();
-        alert('Sweet!');
-        return false;
 		var target = $(this).attr("data-target");
 		var url = $(this).attr("href");
-		$.post(url, function(data) {
+		$.get(url, function(data) {
+            $("#"+target).empty();
 			$("#"+target).append(data);
+            $("#field-"+target).focus();//the input field will be selected
 	    });
 	});
 
