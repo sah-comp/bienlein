@@ -1078,6 +1078,11 @@ th.label {
     padding: 0.222em;
 }
 
+.panel .scaffold input {
+    width: 100%;
+    margin: 0;
+}
+
 .panel input[type=file],
 .panel input[type=datetime] {
     width: auto;

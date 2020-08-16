@@ -178,6 +178,10 @@ class Controller_Scaffold extends Controller
     {
         session_start();
         Auth::check();
+        if (Flight::get('user')->hasfoxylisteditor()) {
+            $this->javascripts[] = '/js/table-edits.min';
+            $this->javascripts[] = '/js/foxylisteditor';
+        }
         $this->limit = Flight::get('user')->getRecordsPerPage($type);
         $this->base_url = $base_url;
         $this->type = $type;
@@ -247,21 +251,17 @@ class Controller_Scaffold extends Controller
     }
 
     /**
-     * Display a inline edit field.
+     * Update the bean values from the editable table.
      *
-     * To use the attach function you will need to have subform templates in your model
-     * folder. For example see model/person/own/address.
-     *
-     * @param string $attribute the name of the attribute to edot
      * @return void
      */
-    public function inline($attribute)
+    public function inline()
     {
         $index = md5(microtime(true));
-        Flight::render('scaffold/table/inline', [
-            'record' => $this->record,
-            'attribute' => $attribute
-        ]);
+        $data = Flight::request()->data;
+        foreach ($data as $key => $value) {
+            error_log($key . ' = ' . $value);
+        }
         return true;
     }
 

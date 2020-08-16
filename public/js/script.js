@@ -95,17 +95,6 @@ $(document).ready(function() {
             }
         });
         return false;
-        /*
-        $.ajax({
-            type: "POST",
-            url: form.attr("action"),
-            data: form.serialize(),
-            success: function(response) {
-                if ( ! form.hasClass("inline-add")) $("#"+container).empty();
-                $("#"+container).append(response);
-            }
-        });
-        */
     });
 
     /**
@@ -137,25 +126,8 @@ $(document).ready(function() {
 	});
 
     /**
-	 * all and future fox-on-the-run links request a url that
-     * will load a form to update a single attribute of a bean.
-	 */
-	$(document).on("click", ".fox-on-the-run", function(event) {
-	    event.preventDefault();
-		var target = $(this).attr("data-target");
-		var url = $(this).attr("href");
-		$.get(url, function(data) {
-            $("#"+target).empty();
-			$("#"+target).append(data);
-            $("#field-"+target).focus();//the input field will be selected
-	    });
-	});
-
-    /**
      * A input element of type checkbox with class name all will toggle all checkboxes
      * with the class name selector.
-     *
-     * @todo This does not work with jQuery version > 1.8.3
      */
     $("input.all[type=checkbox]").click(function() {
         var state = $(this).is(":checked");

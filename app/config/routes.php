@@ -136,11 +136,11 @@ Flight::route('(/[a-z]{2})/admin/@type:[a-z]+/attach/@prefix:[a-z]+/@subtype:[a-
 });
 
 /**
- * Route to display a inline input field to edit an attribute in list view.
+ * Update a bean from a table editor.
  */
-Flight::route('(/[a-z]{2})/admin/@type:[a-z]+/inline/@attribute:[a-z]+/@id:[0-9]+', function ($type, $attribute, $id) {
+Flight::route('POST /api/update/@type:[a-z]+/@id:[0-9]+', function ($type, $id) {
     $scaffoldController = new Controller_Scaffold('/admin', $type, $id);
-    $scaffoldController->inline($attribute);
+    $scaffoldController->inline();
 });
 
 /**

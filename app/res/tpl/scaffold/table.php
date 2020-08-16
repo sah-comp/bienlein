@@ -8,12 +8,6 @@
  * @version $Id$
  */
 ?>
-<?php
-$_attribute_layout = 'displayattr.php';
-if (Flight::get('user')->hasfoxylisteditor()):
-    $_attribute_layout = 'editableattr.php';
-endif;
-?>
 <?php if (! $_attributes = $record->getAttributes($layout)): ?>
     <?php if (! $_gestalt = R::findOne('gestalt', ' name = ?', array($record->getMeta('type')))): ?>
         <?php $_attributes = array(
@@ -178,6 +172,8 @@ endif;
             <?php $offset++ ?>
         <tr
             id="<?php echo $_record->getMeta('type') ?>-<?php echo $_record->getId() ?>"
+            data-type="<?php echo $_record->getMeta('type') ?>"
+            data-id="<?php echo $_record->getId() ?>"
             class="bean bean-<?php echo $_record->getMeta('type') ?>">
             <!-- table cells of the real bean -->
             <td>
@@ -200,14 +196,12 @@ endif;
             <?php foreach ($_attributes as $_attribute):
             ?>
             <td
-                class="<?php echo (isset($_attribute['class'])) ? $_attribute['class'] : '' ?>">
-            <?php
-            Flight::render('scaffold/table/' . $_attribute_layout, [
-                '_attribute' => $_attribute,
-                '_record' => $_record
-            ]);
-            ?>
-            </td>
+                class="<?php echo (isset($_attribute['class'])) ? $_attribute['class'] : '' ?>"
+                data-field="<?php echo $_attribute['name'] ?>"><?php
+            Flight::render('scaffold/table/datavalue', [
+                'attribute' => $_attribute,
+                'record' => $_record
+            ]);?></td>
             <?php
             endforeach ?>
             <!-- end of body attributes -->
