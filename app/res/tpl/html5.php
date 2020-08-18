@@ -20,7 +20,7 @@
 		<meta name="viewport" content="width=device-width">
 
 		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        
+
 		<link rel="stylesheet" href="/css/style.css">
 		<?php if (isset($stylesheets) && is_array($stylesheets)): ?>
             <?php foreach ($stylesheets as $_n=>$_stylesheet): ?>
@@ -36,7 +36,7 @@
 		<!--[if lt IE 7]>
 		<?php echo Flight::textile(I18n::__('browser_is_ancient')) ?>
 		<![endif]-->
-		
+
 		<!-- Header (optional) -->
 		<?php echo isset($header) ? $header : null ?>
 		<!-- End of optional header -->
@@ -48,13 +48,15 @@
         <!-- Content (required) -->
 		<?php echo $content; ?>
 		<!-- End of required content -->
-		
+
 		<!-- Footer (optional) -->
 		<?php echo isset($footer) ? $footer : null ?>
 		<!-- End of optional footer -->
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+        <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+        <!--<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>-->
+        <script src="/js/jquery-1.11.1.min.js"></script>
+        <script src="/js/jquery-ui-1.11.1.min.js"></script>
         <script src="/js/jquery.idTabs.min.js"></script>
         <script src="/js/jquery.form.min.js"></script>
         <script src="/js/jquery-scrolltofixed-min.js"></script>

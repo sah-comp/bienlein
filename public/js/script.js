@@ -5,13 +5,13 @@ $(document).ready(function() {
      * The notifications section will animate a little to catch atttention by users.
      */
     $(".notification").slideDown("slow");
-    
+
     $(document).bind("ajaxSend", function(){
        $("body").addClass("loading");
      }).bind("ajaxComplete", function(){
        $("body").removeClass("loading");
      });
-    
+
     /**
      * Plugin idTabs.
      */
@@ -20,7 +20,7 @@ $(document).ready(function() {
             $("#"+$(this).attr("id")+" ul").idTabs($(this).attr("data-default"));
         });
     }
-    
+
     /**
      * Fixes the header with account and main navigation
      */
@@ -29,7 +29,7 @@ $(document).ready(function() {
             zIndex: 1000
         });
     }
-    
+
     /**
      * Fixes the header with toolbar
      */
@@ -39,7 +39,7 @@ $(document).ready(function() {
             zIndex: 999
         });
     }
-    
+
     /**
      * Click on a sitemap link will load the domain and fill the content-container.
      */
@@ -52,7 +52,7 @@ $(document).ready(function() {
         $("#sitemap a").removeClass("active");
         $(this).addClass("active");
     });
-    
+
     /**
      * Click on a pages-container link will load the page and fill the page-container.
      */
@@ -65,7 +65,7 @@ $(document).ready(function() {
         $("#pages-container a").removeClass("active");
         $(this).addClass("active");
     });
-    
+
     /**
      * Click on a element with class slice-container loads editable slice.
      */
@@ -79,7 +79,7 @@ $(document).ready(function() {
         //$(".slice-container").removeClass("active");
         $(this).addClass("active");
     });
-    
+
 	/**
 	 * Form with class inplace will be ajaxified by jQuery form plugin and
 	 * the response is placed into the element given in data-container.
@@ -95,19 +95,8 @@ $(document).ready(function() {
             }
         });
         return false;
-        /*
-        $.ajax({
-            type: "POST",
-            url: form.attr("action"),
-            data: form.serialize(),
-            success: function(response) {
-                if ( ! form.hasClass("inline-add")) $("#"+container).empty();
-                $("#"+container).append(response);
-            }
-        });
-        */
     });
-    
+
     /**
 	 * all and future detach links send a post request and then
 	 * fade out and finally detach the element.
@@ -122,7 +111,7 @@ $(document).ready(function() {
 			});
 	    });
 	});
-	
+
 	/**
 	 * all and future attach links post request a url and
 	 * insert a new element into the *-additional zone.
@@ -135,12 +124,10 @@ $(document).ready(function() {
 			$("#"+target).append(data);
 	    });
 	});
-    
+
     /**
      * A input element of type checkbox with class name all will toggle all checkboxes
      * with the class name selector.
-     *
-     * @todo This does not work with jQuery version > 1.8.3
      */
     $("input.all[type=checkbox]").click(function() {
         var state = $(this).is(":checked");

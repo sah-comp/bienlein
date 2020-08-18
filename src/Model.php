@@ -88,16 +88,6 @@ class Model extends RedBean_SimpleModel
     }
 
     /**
-     * Returns always true.
-     *
-     * @return bool TRUE
-     */
-    public function isModel()
-    {
-        return true;
-    }
-
-    /**
      * Returns an array with attributes for lists.
      *
      * @param string (optional) $layout
@@ -119,6 +109,21 @@ class Model extends RedBean_SimpleModel
             )
         );
         */
+    }
+
+    /**
+     * Returns the attribute of the related bean.
+     *
+     * @param string $bean_attribute the first part is the bean, second the attribute
+     * @return string
+     */
+    public function relatedOne($bean_attribute)
+    {
+        $parts = explode('_', $bean_attribute);
+        if (!$this->bean->{$parts[0]}) {
+            return '';
+        }
+        return $this->bean->{$parts[0]}->{$parts[1]};
     }
 
     /**

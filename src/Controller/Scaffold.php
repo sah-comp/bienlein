@@ -104,7 +104,7 @@ class Controller_Scaffold extends Controller
      *
      * @var int
      */
-    public $limit = 17;
+    public $limit = CINNEBAR_RECORDS_PER_PAGE;
 
     /**
      * Holds the default layout for index.
@@ -178,6 +178,11 @@ class Controller_Scaffold extends Controller
     {
         session_start();
         Auth::check();
+        if (Flight::get('user')->hasfoxylisteditor()) {
+            $this->javascripts[] = '/js/table-edits.min';
+            $this->javascripts[] = '/js/foxylisteditor';
+        }
+        $this->limit = Flight::get('user')->getRecordsPerPage($type);
         $this->base_url = $base_url;
         $this->type = $type;
         $this->id = $id;
@@ -188,14 +193,10 @@ class Controller_Scaffold extends Controller
             error_log("Scaffold::__construct() tried to load a bean, but failed. Check if your database is not frozen and a table for the bean type exists. If not unfreeze and try again.\n".$e);
             exit('No bean type could be created. Unfreeze your database.');
         }
-        if (! $this->record->isModel()) {
-            // HOW TO NOT HAVE THIS EVIL STUFF HERE?
-            eval(sprintf('class Model_%s extends Model {}', ucfirst(strtolower($this->record->getMeta('type')))));
-        }
         $this->actions = $this->record->getActions();
         if (! isset($_SESSION['scaffold'][$this->type])) {
             $_SESSION['scaffold'][$this->type]['filter']['id'] = 0;
-            // next
+            // next action
             $_SESSION['scaffold'][$this->type]['index']['next_action'] = 'idle';
             $_SESSION['scaffold'][$this->type]['add']['next_action'] = 'add';
             $_SESSION['scaffold'][$this->type]['edit']['next_action'] = 'edit';
@@ -246,6 +247,29 @@ class Controller_Scaffold extends Controller
             '_'.$subtype => $_subrecord,
             'index' => $index
         ));
+        return true;
+    }
+
+    /**
+     * This function is called by an AJAX post request in case user
+     * has foxylisteditor set to true and saved a record in list view.
+     *
+     * @return void
+     */
+    public function inline()
+    {
+        $data = Flight::request()->data;
+        foreach ($data as $key => $value) {
+            $this->record->{$key} = $value;
+        }
+        try {
+            R::store($this->record);
+            $ret = 'good';
+        } catch (Exception $e) {
+            error_log($e);
+            $ret = 'bad';
+        }
+        echo json_encode(['result' => $ret]);
         return true;
     }
 

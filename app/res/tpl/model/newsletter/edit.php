@@ -39,7 +39,7 @@
             <?php foreach (R::find('template', ' ORDER BY name') as $_id => $_template): ?>
             <option
                 value="<?php echo $_template->getId() ?>"
-                <?php echo ($record->template_id == $_template->getId()) ? 'selected="selected"' : '' ?>><?php echo htmlspecialchars($_template->name) ?></option>   
+                <?php echo ($record->template_id == $_template->getId()) ? 'selected="selected"' : '' ?>><?php echo htmlspecialchars($_template->name) ?></option>
             <?php endforeach ?>
         </select>
 		<p class="info"><?php echo I18n::__('mail_info_template') ?></p>
@@ -56,7 +56,7 @@
             <?php foreach (R::find('mailserver', ' ORDER BY name') as $_id => $_mailserver): ?>
             <option
                 value="<?php echo $_mailserver->getId() ?>"
-                <?php echo ($record->mailserver_id == $_mailserver->getId()) ? 'selected="selected"' : '' ?>><?php echo htmlspecialchars($_mailserver->name) ?></option>   
+                <?php echo ($record->mailserver_id == $_mailserver->getId()) ? 'selected="selected"' : '' ?>><?php echo htmlspecialchars($_mailserver->name) ?></option>
             <?php endforeach ?>
         </select>
     </div>
@@ -110,7 +110,7 @@
             <option value=""><?php echo I18n::__('newsletter_command_please_select') ?></option>
             <?php foreach ($record->getCommands() as $_command): ?>
             <option
-                value="<?php echo $_command ?>"><?php echo I18n::__('newsletter_command_'.$_command) ?></option>   
+                value="<?php echo $_command ?>"><?php echo I18n::__('newsletter_command_'.$_command) ?></option>
             <?php endforeach ?>
         </select>
 		<p class="info"><?php echo I18n::__('mail_info_command') ?></p>

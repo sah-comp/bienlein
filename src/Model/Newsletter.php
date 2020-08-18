@@ -44,67 +44,41 @@ class Model_Newsletter extends Model
      */
     public function getAttributes($layout = 'table')
     {
-        return array(
-            array(
+        return [
+            [
                 'name' => 'name',
-                'sort' => array(
+                'sort' => [
                     'name' => 'newsletter.name'
-                ),
-                'filter' => array(
+                ],
+                'filter' => [
                     'tag' => 'text'
-                )
-            ),
-            array(
+                ]
+            ],
+            [
                 'name' => 'template_name',
-                'callback' => array(
-                    'name' => 'templateName'
-                ),
-                'sort' => array(
+                'callback' => [
+                    'name' => 'relatedOne'
+                ],
+                'sort' => [
                     'name' => 'template.name'
-                ),
-                'filter' => array(
+                ],
+                'filter' => [
                     'tag' => 'text'
-                )
-            ),
-            array(
+                ]
+            ],
+            [
                 'name' => 'mailserver_name',
-                'callback' => array(
-                    'name' => 'mailserverName'
-                ),
-                'sort' => array(
+                'callback' => [
+                    'name' => 'relatedOne'
+                ],
+                'sort' => [
                     'name' => 'mailserver.name'
-                ),
-                'filter' => array(
+                ],
+                'filter' => [
                     'tag' => 'text'
-                )
-            )
-        );
-    }
-
-    /**
-     * Returns the template name.
-     *
-     * @return string
-     */
-    public function templateName()
-    {
-        if (! $this->bean->template) {
-            return '';
-        }
-        return $this->bean->template->name;
-    }
-
-    /**
-     * Returns the mailserver name.
-     *
-     * @return string
-     */
-    public function mailserverName()
-    {
-		if ( ! $this->bean->mailserver) {
-			$this->bean->mailserver = R::dispense('mailserver');
-		}
-        return $this->bean->mailserver->name;
+                ]
+            ]
+        ];
     }
 
     /**
@@ -193,14 +167,14 @@ SQL;
         $mail->FromName = utf8_decode($this->bean->replytoname);
         $mail->AddReplyTo($this->bean->replytoemail, utf8_decode($this->bean->replytoname));
 
-		if ($this->bean->mailserver->host) {
-	        $mail->IsSMTP();
-	        $mail->SMTPAuth = true;
-	        $mail->SMTPKeepAlive = true;
-	        $mail->Host = $this->bean->mailserver->host;
-	        $mail->Port = $this->bean->mailserver->port;
-	        $mail->Username = $this->bean->mailserver->user;
-	        $mail->Password = $this->bean->mailserver->pw;
+        if ($this->bean->mailserver->host) {
+            $mail->IsSMTP();
+            $mail->SMTPAuth = true;
+            $mail->SMTPKeepAlive = true;
+            $mail->Host = $this->bean->mailserver->host;
+            $mail->Port = $this->bean->mailserver->port;
+            $mail->Username = $this->bean->mailserver->user;
+            $mail->Password = $this->bean->mailserver->pw;
         }
 
         $result = true;

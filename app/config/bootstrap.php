@@ -40,7 +40,7 @@ define('VENDORS', __DIR__.'/../../vendor/');
  * Setup our database.
  */
 R::setup('mysql:host=' . CINNEBAR_DB_HOST . ';dbname=' . CINNEBAR_DB_NAME, CINNEBAR_DB_USER, CINNEBAR_DB_PASSWORD);
-R::freeze(true);
+R::freeze(CINNEBAR_DB_FREEZE_FLAG);
 $writer = R::getWriter();
 $writer->setUseCache(true);
 
@@ -167,11 +167,11 @@ define('MAX_SESSION_LIFETIME', CINNEBAR_MAX_SESSION_LIFETIME); // 4 hours
 $sessionhandler = new Sessionhandler_Database();
 session_set_save_handler(
     array($sessionhandler, 'open'),
-                         array($sessionhandler, 'close'),
-                         array($sessionhandler, 'read'),
-                         array($sessionhandler, 'write'),
-                         array($sessionhandler, 'destroy'),
-                         array($sessionhandler, 'gc')
+    array($sessionhandler, 'close'),
+    array($sessionhandler, 'read'),
+    array($sessionhandler, 'write'),
+    array($sessionhandler, 'destroy'),
+    array($sessionhandler, 'gc')
 );
 register_shutdown_function('session_write_close');
 

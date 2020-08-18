@@ -8,8 +8,8 @@
  * @version $Id$
  */
 ?>
-<?php if ( ! $_attributes = $record->getAttributes($layout)): ?>
-    <?php if ( ! $_gestalt = R::findOne('gestalt', ' name = ?', array($record->getMeta('type')))): ?>
+<?php if (! $_attributes = $record->getAttributes($layout)): ?>
+    <?php if (! $_gestalt = R::findOne('gestalt', ' name = ?', array($record->getMeta('type')))): ?>
         <?php $_attributes = array(
             'name' => 'id',
             'sort' => array(
@@ -24,12 +24,12 @@
     <?php endif; ?>
 <?php endif ?>
 <!-- <?php echo $record->getMeta('type') ?> scaffold table -->
-<table>
-    
+<table class="scaffold">
+
     <caption>
         <?php echo I18n::__('scaffold_caption_index', null, array($total_records)) ?>
     </caption>
-    
+
     <thead>
         <tr>
             <th class="edit">
@@ -52,9 +52,11 @@
                         $_dir = ! $dir;
                         $_class .= ' active dir-'.$dir_map[$_dir];
                     endif;
-                    if (isset($_attribute['class'])) $_class .= ' '.$_attribute['class'];
+                    if (isset($_attribute['class'])) {
+                        $_class .= ' '.$_attribute['class'];
+                    }
                 ?>
-            <th class="<?php echo $_class ?>" <?php echo (isset($_attribute['width']) ? 'style="width: ' . $_attribute['width'] . ';"' : '') ?>>
+            <th class="<?php echo $_class ?>" <?php echo(isset($_attribute['width']) ? 'style="width: ' . $_attribute['width'] . ';"' : '') ?>>
                 <a href="<?php echo Url::build("{$base_url}/{$type}/{$layout}/1/{$_i}/{$_dir}") ?>"><?php echo I18n::__($record->getMeta('type').'_label_'.$_attribute['name']) ?></a>
             </th>
             <?php endforeach ?>
@@ -84,7 +86,7 @@
                     title="<?php echo I18n::__('filter_submit_refresh') ?>"
                     value="<?php echo I18n::__('filter_submit_refresh') ?>" />
             </th>
-            
+
             <th>
                 <input
                     type="submit"
@@ -141,7 +143,7 @@
                 <?php else: ?>
                 <input
                     type="text"
-                    class="filter <?php echo (isset($_attribute['class']) ? $_attribute['class'] : '') ?>"
+                    class="filter <?php echo(isset($_attribute['class']) ? $_attribute['class'] : '') ?>"
                     name="filter[ownCriteria][<?php echo $_i ?>][value]"
                     value="<?php echo htmlspecialchars($_criteria->value) ?>"
                     placeholder="<?php echo I18n::__('filter_placeholder_any') ?>" />
@@ -155,7 +157,7 @@
         <?php endif ?>
 
     </thead>
-    
+
     <tfoot>
         <tr>
             <td colspan="<?php echo count($_attributes)+2 ?>">
@@ -163,15 +165,17 @@
             </td>
         </tr>
     </tfoot>
-    
-    <tbody>        
+
+    <tbody>
         <?php $offset = 0 ?>
         <?php foreach ($records as $id => $_record): ?>
             <?php $offset++ ?>
         <tr
             id="<?php echo $_record->getMeta('type') ?>-<?php echo $_record->getId() ?>"
+            data-type="<?php echo $_record->getMeta('type') ?>"
+            data-id="<?php echo $_record->getId() ?>"
             class="bean bean-<?php echo $_record->getMeta('type') ?>">
-            <!-- table cells of the real bean -->     
+            <!-- table cells of the real bean -->
             <td>
                 <a
                     class="ir action action-edit"
@@ -187,27 +191,24 @@
                     value="1"
                     <?php echo (isset($selection[$_record->getMeta('type')][$_record->getId()]) && $selection[$_record->getMeta('type')][$_record->getId()]) ? 'checked="checked"' : '' ?> />
             </td>
-            
-            <!-- body attributes -->
-            <?php foreach ($_attributes as $_attribute): ?>
-            <td
-                class="<?php echo (isset($_attribute['class'])) ? $_attribute['class'] : '' ?>">
-                <?php if (isset($_attribute['callback'])): ?>
-                    
-                    <?php echo htmlspecialchars($_record->{$_attribute['callback']['name']}($_attribute['name'])) ?>
-                    
-                <?php else: ?>
 
-                    <?php echo htmlspecialchars($_record->{$_attribute['name']}) ?>
-                    
-                <?php endif ?>
-            </td>
-            <?php endforeach ?>
+            <!-- body attributes -->
+            <?php foreach ($_attributes as $_attribute):
+            ?>
+            <td
+                class="<?php echo (isset($_attribute['class'])) ? $_attribute['class'] : '' ?>"
+                data-field="<?php echo $_attribute['name'] ?>"><?php
+            Flight::render('scaffold/table/datavalue', [
+                'attribute' => $_attribute,
+                'record' => $_record
+            ]);?></td>
+            <?php
+            endforeach ?>
             <!-- end of body attributes -->
-            
+
         </tr>
         <?php endforeach ?>
     </tbody>
-    
+
 </table>
 <!-- End of scaffold table -->
