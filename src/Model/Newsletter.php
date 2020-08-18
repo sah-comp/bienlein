@@ -47,64 +47,38 @@ class Model_Newsletter extends Model
         return [
             [
                 'name' => 'name',
-                'sort' => array(
+                'sort' => [
                     'name' => 'newsletter.name'
-                ),
-                'filter' => array(
+                ],
+                'filter' => [
                     'tag' => 'text'
-                )
+                ]
             ],
             [
                 'name' => 'template_name',
-                'callback' => array(
-                    'name' => 'templateName'
-                ),
-                'sort' => array(
+                'callback' => [
+                    'name' => 'relatedOne'
+                ],
+                'sort' => [
                     'name' => 'template.name'
-                ),
-                'filter' => array(
+                ],
+                'filter' => [
                     'tag' => 'text'
-                )
+                ]
             ],
             [
                 'name' => 'mailserver_name',
-                'callback' => array(
-                    'name' => 'mailserverName'
-                ),
-                'sort' => array(
+                'callback' => [
+                    'name' => 'relatedOne'
+                ],
+                'sort' => [
                     'name' => 'mailserver.name'
-                ),
-                'filter' => array(
+                ],
+                'filter' => [
                     'tag' => 'text'
-                )
+                ]
             ]
         ];
-    }
-
-    /**
-     * Returns the template name.
-     *
-     * @return string
-     */
-    public function templateName()
-    {
-        if (! $this->bean->template) {
-            return '';
-        }
-        return $this->bean->template->name;
-    }
-
-    /**
-     * Returns the mailserver name.
-     *
-     * @return string
-     */
-    public function mailserverName()
-    {
-        if (! $this->bean->mailserver) {
-            $this->bean->mailserver = R::dispense('mailserver');
-        }
-        return $this->bean->mailserver->name;
     }
 
     /**

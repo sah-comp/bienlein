@@ -112,6 +112,21 @@ class Model extends RedBean_SimpleModel
     }
 
     /**
+     * Returns the attribute of the related bean.
+     *
+     * @param string $bean_attribute the first part is the bean, second the attribute
+     * @return string
+     */
+    public function relatedOne($bean_attribute)
+    {
+        $parts = explode('_', $bean_attribute);
+        if (!$this->bean->{$parts[0]}) {
+            return '';
+        }
+        return $this->bean->{$parts[0]}->{$parts[1]};
+    }
+
+    /**
      * Returns a string representing a boolean state of an beans attribute.
      *
      * @param string $attribute name to represent as a true or false string
