@@ -1280,7 +1280,7 @@ table.scaffold a {
 .panel td {
     text-align: left;
     font-size: 1em;
-    padding: 0.2em 0.4em;
+    padding: 0.222em 0.444em;
     /*padding: 0.25em;*/
 }
 
@@ -1289,6 +1289,7 @@ table.scaffold a {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    vertical-align: middle;
 }
 
 .panel th.number,
