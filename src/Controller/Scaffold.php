@@ -251,17 +251,25 @@ class Controller_Scaffold extends Controller
     }
 
     /**
-     * Update the bean values from the editable table.
+     * This function is called by an AJAX post request in case user
+     * has foxylisteditor set to true and saved a record in list view.
      *
      * @return void
      */
     public function inline()
     {
-        $index = md5(microtime(true));
         $data = Flight::request()->data;
         foreach ($data as $key => $value) {
-            error_log($key . ' = ' . $value);
+            $this->record->{$key} = $value;
         }
+        try {
+            R::store($this->record);
+            $ret = 'good';
+        } catch (Exception $e) {
+            error_log($e);
+            $ret = 'bad';
+        }
+        echo json_encode(['result' => $ret]);
         return true;
     }
 
