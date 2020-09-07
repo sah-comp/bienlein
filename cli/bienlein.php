@@ -52,9 +52,10 @@ Options:
 
 DOC;
 
-require '../vendor/docopt/docopt/src/docopt.php';
+require __DIR__.'/../vendor/docopt/docopt/src/docopt.php';
 
 $args = Docopt::handle($doc, ['version' => 'Bienlein cli 1.0']);
+//$args = (new \Docopt\Handler)->handle($doc, ['version' => 'Bienlein cli 1.0']);
 
 $bienlein = new Bienlein();
 $bienlein->run();

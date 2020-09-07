@@ -74,7 +74,7 @@ Options:
 
 DOC;
 
-require '../vendor/docopt/docopt/src/docopt.php';
+require __DIR__.'/../vendor/docopt/docopt/src/docopt.php';
 
 $args = Docopt::handle($doc, ['version' => 'Token-Cache 1.0']);
 
