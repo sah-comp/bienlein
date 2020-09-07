@@ -17,6 +17,7 @@ define('CINNEBAR_DB_HOST', 'localhost');
 define('CINNEBAR_DB_NAME', 'DB0815');
 define('CINNEBAR_DB_USER', 'root');
 define('CINNEBAR_DB_PASSWORD', 'secret');
+define('CINNEBAR_DB_FREEZE_FLAG', true);
 
 /**
  * Define default language code.
@@ -39,6 +40,13 @@ define('CINNEBAR_TEMPLATE_DATETIME', '%x %X');
  * Define the maximum upload size in bytes.
  */
 define('CINNEBAR_MAX_UPLOAD_SIZE', 4194304);
+
+/**
+ * Define the maximum number of records shown on a (scaffold) list.
+ *
+ * This must not be zero or you will get a division by zero exception.
+ */
+define('CINNEBAR_RECORDS_PER_PAGE', 17);
 
 /**
  * Define install password.

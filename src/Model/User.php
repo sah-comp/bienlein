@@ -34,7 +34,7 @@ class Model_User extends Model
                 'filter' => array(
                     'tag' => 'text'
                 ),
-				'width' => '8rem'
+                'width' => '8rem'
             ),
             array(
                 'name' => 'name',
@@ -65,7 +65,7 @@ class Model_User extends Model
                 'filter' => array(
                     'tag' => 'bool'
                 ),
-				'width' => '5rem'
+                'width' => '5rem'
             )
         );
     }
@@ -193,6 +193,26 @@ class Model_User extends Model
     }
 
     /**
+     * Returns an integer with the number of records per page the
+     * user wants to see on one page. If user has not set that limit
+     * and has not checked to see all records of one type per page
+     * the default records per page limit is returned.
+     *
+     * @param string $type the bean type
+     * @return int
+     */
+    public function getRecordsPerPage($type = null)
+    {
+        if (!$this->bean->recordsperpage && !$this->bean->allrecordsperpage) {
+            return CINNEBAR_RECORDS_PER_PAGE;
+        }
+        if ($this->bean->allrecordsperpage) {
+            return R::count($type) + 1;// we have to avoid division by zero
+        }
+        return $this->bean->recordsperpage;
+    }
+
+    /**
      * Send an email with a authorization token, allowing to set a new password
      * in a second step.
      *
@@ -256,12 +276,28 @@ class Model_User extends Model
     }
 
     /**
+     * Returns wether the user has a editable list view or not.
+     *
+     * @see app/res/tpl/scaffold/table.php
+     *
+     * @return bool
+     */
+    public function hasfoxylisteditor()
+    {
+        if ($this->bean->foxylisteditor) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * Dispense.
      */
     public function dispense()
     {
         $this->bean->screenname = 'shortname';
         $this->bean->maxlifetime = MAX_SESSION_LIFETIME;
+        $this->bean->recordsperpage = CINNEBAR_RECORDS_PER_PAGE;
         $this->addValidator('name', array(
             new Validator_HasValue()
         ));
