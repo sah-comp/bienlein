@@ -1,33 +1,36 @@
 {
-    "name": "sah-comp/bienlein",
-    "description": "Starting point for rapid application development with flight and RedBeanPHP",
-    "version": "0.0.0",
-    "keywords": ["sah-comp", "bienlein", "PHP", "RedBeanPHP", "Flight"],
-    "authors": [{
-        "name": "Stephan A. Hombergs",
-        "email": "info@sah-company.com",
-        "homepage": "http://sah-company.com"
-    }],
-    "require": {
-        "php": ">=5.3.3",
-        "mikecao/flight": "dev-master",
-        "ircmaxell/password-compat": "dev-master",
-        "gabordemooij/redbean": "dev-master",
+	"name": "sah-comp/bienlein",
+	"description": "Starting point for rapid application development with flight and RedBeanPHP",
+	"version": "0.0.0",
+	"keywords": ["sah-comp", "bienlein", "PHP", "RedBeanPHP", "Flight"],
+	"authors": [
+		{
+			"name": "Stephan A. Hombergs",
+			"email": "info@sah-company.com",
+			"homepage": "http://sah-company.com"
+		}
+	],
+	"require": {
+		"php": ">=5.3.3",
+		"mikecao/flight": "dev-master",
+		"ircmaxell/password-compat": "dev-master",
+		"gabordemooij/redbean": "dev-master",
         "netcarver/textile": "v3.6.*",
-        "phpmailer/phpmailer": "dev-master"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "3.7.*"
-    },
-    "suggest": {
-        "swiftmailer/swiftmailer": "Comprehensive mailing tools for PHP",
         "phpmailer/phpmailer": "dev-master",
+		"docopt/docopt": "v1.0.4"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "3.7.*"
+	},
+	"suggest": {
+	    "swiftmailer/swiftmailer": "Comprehensive mailing tools for PHP",
+	    "phpmailer/phpmailer": "dev-master",
         "intervention/image": "dev-master",
         "mpdf/mpdf": "v6.0.0"
-    },
-    "autoload": {
-        "psr-0": {
-            "": "src/"
-        }
-    }
+	},
+	"autoload": {
+		"psr-0": {
+			"": "src/"
+		}
+	}
 }

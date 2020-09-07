@@ -22,6 +22,6 @@ class Command_Welcome extends Command
      */
     public function run()
     {
-        echo 'Hello cli junkies.'."\n";
+        echo i18n::__('cli_welcome_text').PHP_EOL;
     }
 }
