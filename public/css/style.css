@@ -978,6 +978,7 @@ textarea {
 
 .panel .row.nomargins {
     margin: 0;
+    margin-bottom: 0.33em;
 }
 
 .panel .row.last {
@@ -1078,6 +1079,10 @@ th.label {
     padding: 0.222em;
 }
 
+.panel input[type=number] {
+    padding-right: 0;
+}
+
 .panel .scaffold input {
     width: 100%;
     margin: 0;
@@ -1111,7 +1116,8 @@ select.filter-select {
     margin-left: 27.666%;
 }
 
-.panel input.autowidth {
+.panel input.autowidth,
+.panel select.autowidth {
     width: 100%;
     margin-left: 0;
     margin-right: 0;
