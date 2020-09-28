@@ -21,7 +21,10 @@
         class="panel panel-<?php echo $record->getMeta('type') ?> action-changepassword"
         method="POST"
         accept-charset="utf-8"
-        enctype="multipart/form-data">        
+        enctype="multipart/form-data">
+
+        <input type="hidden" name="token" value="<?php echo Model::getCSRFToken() ?>" />
+
         <!-- changepassword form -->
         <fieldset>
             <legend><?php echo I18n::__('account_legend_changepassword') ?></legend>

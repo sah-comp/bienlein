@@ -33,13 +33,16 @@ class Controller_Login extends Controller
     public function index()
     {
         session_start();
-        if ( ! isset($_SESSION['login_id'])) {
+        if (! isset($_SESSION['login_id'])) {
             $_SESSION['login_id'] = 0;
         }
         $login = R::load('login', $_SESSION['login_id']);
         if (Flight::request()->method == 'POST') {
+            if (! Model::validateCSRFToken(Flight::request()->data->token)) {
+                $this->redirect("/logout");
+            }
             try {
-                $login = R::graph( Flight::request()->data->dialog, TRUE );
+                $login = R::graph(Flight::request()->data->dialog, true);
                 if ($login->trial()) {
                     //you must trial before store because of pw reset in update
                     $_SESSION['user']['id'] = $login->user->getId();
@@ -56,7 +59,7 @@ class Controller_Login extends Controller
             }
         }
         // either no yet submitted or the credentials given failed
-        if ( Flight::request()->query->goto == '' || Flight::request()->query->goto == '/login' ) {
+        if (Flight::request()->query->goto == '' || Flight::request()->query->goto == '/login') {
             $goto = '/cms';
         } else {
             $goto = Flight::request()->query->goto;

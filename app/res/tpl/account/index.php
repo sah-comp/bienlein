@@ -22,6 +22,9 @@
         method="POST"
         accept-charset="utf-8"
         enctype="multipart/form-data">
+
+        <input type="hidden" name="token" value="<?php echo Model::getCSRFToken() ?>" />
+        
         <div>
             <img
         		src="<?php echo Gravatar::src($record->email, 72) ?>"
@@ -29,7 +32,7 @@
         		width="72"
         		height="72"
         		alt="<?php echo htmlspecialchars($record->getName()) ?>" />
-        </div>     
+        </div>
         <!-- account form -->
         <fieldset>
             <legend><?php echo I18n::__('account_legend') ?></legend>

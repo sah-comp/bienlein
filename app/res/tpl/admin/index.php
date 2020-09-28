@@ -19,6 +19,9 @@
         method="POST"
         accept-charset="utf-8"
         enctype="multipart/form-data">
+
+        <input type="hidden" name="token" value="<?php echo Model::getCSRFToken() ?>" />
+
         <?php echo $form_details ?>
         <div class="buttons">
             <input

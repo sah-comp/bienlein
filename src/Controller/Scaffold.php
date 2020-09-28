@@ -488,6 +488,9 @@ class Controller_Scaffold extends Controller
         //$this->template = "model/{$this->type}/{$this->layout}";
         $this->template = "scaffold/{$this->layout}";
         if (Flight::request()->method == 'POST') {
+            if (! Model::validateCSRFToken(Flight::request()->data->token)) {
+                $this->redirect("/logout");
+            }
             //clear filter?
             if (Flight::request()->data->submit == I18n::__('filter_submit_clear')) {
                 R::trash($this->filter);
@@ -559,6 +562,9 @@ class Controller_Scaffold extends Controller
             }
         }
         if (Flight::request()->method == 'POST') {
+            if (! Model::validateCSRFToken(Flight::request()->data->token)) {
+                $this->redirect("/logout");
+            }
             $this->record = R::graph(Flight::request()->data->dialog, true);
             $this->setNextAction(Flight::request()->data->next_action);
             if ($this->doRedbeanAction()) {
@@ -605,6 +611,9 @@ class Controller_Scaffold extends Controller
             $this->template = "scaffold/edit";
         }
         if (Flight::request()->method == 'POST') {
+            if (! Model::validateCSRFToken(Flight::request()->data->token)) {
+                $this->redirect("/logout");
+            }
             Permission::check(Flight::get('user'), $this->type, 'edit');//check for edit perm now
             $this->record = R::graph(Flight::request()->data->dialog, true);
             $this->setNextAction(Flight::request()->data->next_action);
