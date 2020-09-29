@@ -58,7 +58,6 @@ class Security
         @session_start();
         if (isset($_SESSION['csrf_tokens'][$token])) {
             unset($_SESSION['csrf_tokens'][$token]);
-            error_log('Good user');
             return true;
         }
         return false;
