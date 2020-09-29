@@ -88,39 +88,6 @@ class Model extends RedBean_SimpleModel
     }
 
     /**
-     * Returns a "random" string to prevent CSRF.
-     *
-     * @return string
-     */
-    public static function getCSRFToken()
-    {
-        @session_start();
-        if (empty($_SESSION['csrf_tokens'])) {
-            $_SESSION['csrf_tokens'] = [];
-        }
-        $nonce = md5(uniqid(rand(), true));
-        $_SESSION['csrf_tokens'][$nonce] = true;
-        return $nonce;
-    }
-
-    /**
-     * Returns wether the CSRF token validates or not.
-     *
-     * @param string $token
-     * @return bool
-     */
-    public static function validateCSRFToken($token)
-    {
-        @session_start();
-        if (isset($_SESSION['csrf_tokens'][$token])) {
-            unset($_SESSION['csrf_tokens'][$token]);
-            error_log('Good user');
-            return true;
-        }
-        return false;
-    }
-
-    /**
      * Returns an array with attributes for lists.
      *
      * @param string (optional) $layout

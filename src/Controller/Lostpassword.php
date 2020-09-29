@@ -43,7 +43,7 @@ class Controller_Lostpassword extends Controller
     public function index()
     {
         if (Flight::request()->method == 'POST') {
-            if (! Model::validateCSRFToken(Flight::request()->data->token)) {
+            if (! Security::validateCSRFToken(Flight::request()->data->token)) {
                 $this->redirect("/logout");
             }
             $this->uname = Flight::request()->data->dialog['uname'];

@@ -38,7 +38,7 @@ class Controller_Login extends Controller
         }
         $login = R::load('login', $_SESSION['login_id']);
         if (Flight::request()->method == 'POST') {
-            if (! Model::validateCSRFToken(Flight::request()->data->token)) {
+            if (! Security::validateCSRFToken(Flight::request()->data->token)) {
                 $this->redirect("/logout");
             }
             try {

@@ -37,7 +37,7 @@ class Controller_Account extends Controller
         $this->template = 'account/index';
 
         if (Flight::request()->method == 'POST') {
-            if (! Model::validateCSRFToken(Flight::request()->data->token)) {
+            if (! Security::validateCSRFToken(Flight::request()->data->token)) {
                 $this->redirect("/logout");
             }
             Flight::get('user')->import(Flight::request()->data->dialog);
@@ -66,7 +66,7 @@ class Controller_Account extends Controller
         $this->template = 'account/changepassword';
 
         if (Flight::request()->method == 'POST') {
-            if (! Model::validateCSRFToken(Flight::request()->data->token)) {
+            if (! Security::validateCSRFToken(Flight::request()->data->token)) {
                 $this->redirect("/logout");
             }
             if (Flight::get('user')->changePassword(

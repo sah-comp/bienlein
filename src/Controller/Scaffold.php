@@ -488,7 +488,7 @@ class Controller_Scaffold extends Controller
         //$this->template = "model/{$this->type}/{$this->layout}";
         $this->template = "scaffold/{$this->layout}";
         if (Flight::request()->method == 'POST') {
-            if (! Model::validateCSRFToken(Flight::request()->data->token)) {
+            if (! Security::validateCSRFToken(Flight::request()->data->token)) {
                 $this->redirect("/logout");
             }
             //clear filter?
@@ -562,7 +562,7 @@ class Controller_Scaffold extends Controller
             }
         }
         if (Flight::request()->method == 'POST') {
-            if (! Model::validateCSRFToken(Flight::request()->data->token)) {
+            if (! Security::validateCSRFToken(Flight::request()->data->token)) {
                 $this->redirect("/logout");
             }
             $this->record = R::graph(Flight::request()->data->dialog, true);
@@ -611,7 +611,7 @@ class Controller_Scaffold extends Controller
             $this->template = "scaffold/edit";
         }
         if (Flight::request()->method == 'POST') {
-            if (! Model::validateCSRFToken(Flight::request()->data->token)) {
+            if (! Security::validateCSRFToken(Flight::request()->data->token)) {
                 $this->redirect("/logout");
             }
             Permission::check(Flight::get('user'), $this->type, 'edit');//check for edit perm now

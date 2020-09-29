@@ -23,7 +23,7 @@
         accept-charset="utf-8"
         enctype="multipart/form-data">
 
-        <input type="hidden" name="token" value="<?php echo Model::getCSRFToken() ?>" />
+        <input type="hidden" name="token" value="<?php echo Security::getCSRFToken() ?>" />
 
         <!-- changepassword form -->
         <fieldset>

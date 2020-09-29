@@ -30,7 +30,7 @@
         method="POST"
         accept-charset="utf-8">
 
-        <input type="hidden" name="token" value="<?php echo Model::getCSRFToken() ?>" />
+        <input type="hidden" name="token" value="<?php echo Security::getCSRFToken() ?>" />
 
         <fieldset>
             <legend><?php echo I18n::__('lostpassword_legend') ?></legend>

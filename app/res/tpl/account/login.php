@@ -30,7 +30,7 @@
         method="POST"
         accept-charset="utf-8">
 
-        <input type="hidden" name="token" value="<?php echo Model::getCSRFToken() ?>" />
+        <input type="hidden" name="token" value="<?php echo Security::getCSRFToken() ?>" />
 
         <div>
             <input type="hidden" name="dialog[type]" value="<?php echo $record->getMeta('type') ?>" />
