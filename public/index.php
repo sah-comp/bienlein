@@ -9,9 +9,9 @@
  */
 
 /**
- * RedbeanPHP Version 4.
+ * RedbeanPHP Version 5.5.
  */
-require __DIR__ . '/../lib/redbean/rb.php';
+require __DIR__ . '/../lib/redbean/rb-5.5.php';
 require __DIR__ . '/../lib/redbean/Plugin/Cooker.php';
 
 /**
