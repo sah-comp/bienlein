@@ -20,6 +20,18 @@ define('CINNEBAR_DB_PASSWORD', 'secret');
 define('CINNEBAR_DB_FREEZE_FLAG', true);
 
 /**
+ * Define if our Models will do conversion andn validation.
+ */
+if (! defined('CINNEBAR_MODEL_CONVERT_AND_VALIDATE')) {
+    define('CINNEBAR_MODEL_CONVERT_AND_VALIDATE', true);
+}
+
+/**
+ * Define default number of decimal places.
+ */
+define('CINNEBAR_DECIMAL_PLACES', 3);
+
+/**
  * Define default language code.
  */
 define('CINNEBAR_DEFAULT_LANGUAGE', 'de');
@@ -32,9 +44,9 @@ define('CINNEBAR_DATE_TIMEZONE', 'Europe/Berlin');
 /**
  * Define templates for localization.
  */
-define('CINNEBAR_TEMPLATE_DATE', '%x');
-define('CINNEBAR_TEMPLATE_TIME', '%X');
-define('CINNEBAR_TEMPLATE_DATETIME', '%x %X');
+define('CINNEBAR_TEMPLATE_DATE', '%d.%m.%Y');
+define('CINNEBAR_TEMPLATE_TIME', '%H:%M:%S');
+define('CINNEBAR_TEMPLATE_DATETIME', '%d.%m.%Y %H:%M:%S');
 
 /**
  * Define the maximum upload size in bytes.

@@ -350,8 +350,7 @@ class Controller_Scaffold extends Controller
         );
         $sqlTotal = $this->record->getSql(
             "COUNT(DISTINCT({$this->type}.id)) AS total",
-            $where,
-            $order
+            $where
         );
         $this->total_records = 0;
         try {

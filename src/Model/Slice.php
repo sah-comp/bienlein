@@ -21,19 +21,18 @@ class Model_Slice extends Model
      * Returns an option bean.
      *
      * @param string $name
-     * @return RedBean_OODBBean
+     * @return RedBeanPHP\OODBBean
      */
     public function getOption($name)
     {
-        if ( ! $option = R::findOne('sliceoption', 'slice_id = ? AND name = ?', array($this->bean->getId(), $name)))
-        {
+        if (! $option = R::findOne('sliceoption', 'slice_id = ? AND name = ?', array($this->bean->getId(), $name))) {
             $option = R::dispense('sliceoption');
             $option->name = $name;
             $option->value = null;
         }
         return $option;
     }
-    
+
     /**
      * Returns a module bean with the given name.
      *
@@ -42,13 +41,15 @@ class Model_Slice extends Model
      */
     public function getModule($module_name = null)
     {
-        if ($module_name === null) $module_name = $this->bean->module;
-        if ( ! $module = R::findOne('module', ' name = ?', array($module_name))) {
+        if ($module_name === null) {
+            $module_name = $this->bean->module;
+        }
+        if (! $module = R::findOne('module', ' name = ?', array($module_name))) {
             $module = R::dispense('module');
         }
         return $module;
     }
-    
+
     /**
      * Returns media beans of this slice.
      *
@@ -58,7 +59,7 @@ class Model_Slice extends Model
     {
         return R::find('media', ' slice_id = ? ORDER BY sequence', array($this->bean->getId()));
     }
-    
+
     /**
      * Renders either the static backend tpl or the dynamic one of this slice module.
      *
@@ -68,13 +69,13 @@ class Model_Slice extends Model
     public function renderBackend($container_name = null)
     {
         $tpl = "module/{$this->bean->module}/backend";
-        if ( ! Flight::view()->exists($tpl)) {
+        if (! Flight::view()->exists($tpl)) {
             $tpl = 'cache/be'.md5($this->getModule()->name);
         }
         Flight::render($tpl, array(
-		    'record' => $this->bean
-		), $container_name);
-		return;
+            'record' => $this->bean
+        ), $container_name);
+        return;
     }
 
     /**
@@ -85,12 +86,12 @@ class Model_Slice extends Model
      */
     public function renderFrontend($container_name = null)
     {
-        if ( ! $this->bean->module) {
+        if (! $this->bean->module) {
             echo I18n::__('slice_module_not_set');
             return;
         }
         $tpl = "module/{$this->bean->module}/frontend";
-        if ( ! Flight::view()->exists($tpl)) {
+        if (! Flight::view()->exists($tpl)) {
             $tpl = 'cache/fe'.md5($this->getModule()->name);
         }
         Flight::render($tpl, array(
@@ -98,7 +99,7 @@ class Model_Slice extends Model
         ), $container_name);
         return;
     }
-    
+
     /**
      * Dispense.
      */
@@ -106,17 +107,18 @@ class Model_Slice extends Model
     {
         $this->addValidator('module', new Validator_HasValue());
     }
-    
+
     /**
      * update.
      */
     public function update()
     {
-        if ($this->bean->page && $this->bean->page->domain) 
-                                    $this->bean->page->domain->lastmodified = time();
+        if ($this->bean->page && $this->bean->page->domain) {
+            $this->bean->page->domain->lastmodified = time();
+        }
         parent::update();
     }
-    
+
     /**
      * after_update will send page a modified event.
      *

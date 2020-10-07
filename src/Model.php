@@ -194,7 +194,7 @@ class Model extends RedBean_SimpleModel
      * @param string $thousands_separator defaults to ','
      * @return string
      */
-    public function decimal($attribute, $decimals = 3, $decimal_point = ',', $thousands_separator = '.')
+    public function decimal($attribute, $decimals = CINNEBAR_DECIMAL_PLACES, $decimal_point = ',', $thousands_separator = '.')
     {
         if (! $this->bean->{$attribute}) {
             return '';
@@ -365,7 +365,7 @@ SQL;
      * looked up and duplicated.
      *
      * @param string $language iso code of the wanted language
-     * @return RedBean_OODBBean
+     * @return RedBeanPHP\OODBBean
      */
     public function i18n($language)
     {
@@ -393,8 +393,10 @@ SQL;
      */
     public function update()
     {
-        $this->convert();
-        $this->validate();
+        if (CINNEBAR_MODEL_CONVERT_AND_VALIDATE) {
+            $this->convert();
+            $this->validate();
+        }
     }
 
     /**

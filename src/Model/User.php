@@ -75,7 +75,7 @@ class Model_User extends Model
      *
      * A session must have been started before calling this method.
      *
-     * @return RedBean_OODBBean
+     * @return RedBeanPHP\OODBBean
      */
     public function current()
     {
