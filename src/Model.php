@@ -144,45 +144,70 @@ class Model extends RedBean_SimpleModel
      * Returns a localized datetime string.
      *
      * @param string $attribute name to localize
+     * @param string $format
      * @return string
      */
-    public function localizedDateTime($attribute)
+    public function localizedDateTime($attribute, $format = null)
     {
+        $value = $this->bean->{$attribute};
+        if ($value == '0000-00-00 00:00:00' || $value === null) {
+            return '';
+        }
+        if ($format !== null) {
+            return strftime($format, strtotime($value));
+        }
         if (! Flight::setlocale()) {
-            return $this->bean->{$attribute};
+            return $value;
         }
         $templates = Flight::get('templates');
-        return strftime($templates['datetime'], strtotime($this->bean->{$attribute}));
+        return strftime($templates['datetime'], strtotime($value));
     }
 
     /**
      * Returns a localized date string.
      *
      * @param string $attribute name to localize
+     * @param string $format
      * @return string
      */
-    public function localizedDate($attribute)
+    public function localizedDate($attribute, $format = null)
     {
+        $value = $this->bean->{$attribute};
+        if ($value == '0000-00-00' || $value === null) {
+            return '';
+        }
+        if ($format !== null) {
+            return strftime($format, strtotime($value));
+        }
         if (! Flight::setlocale()) {
-            return $this->bean->{$attribute};
+            return $value;
         }
         $templates = Flight::get('templates');
-        return strftime($templates['date'], strtotime($this->bean->{$attribute}));
+        return strftime($templates['date'], strtotime($value));
     }
 
     /**
-     * Returns a localized time string.
+     * Returns a localized time string, either using the general time template or
+     * the format given as the second parameter.
      *
      * @param string $attribute name to localize
+     * @param string $format
      * @return string
      */
-    public function localizedTime($attribute)
+    public function localizedTime($attribute, $format = null)
     {
+        $value = $this->bean->{$attribute};
+        if ($value == '00:00:00' || $value === null) {
+            return '';
+        }
+        if ($format !== null) {
+            return strftime($format, strtotime($value));
+        }
         if (! Flight::setlocale()) {
-            return $this->bean->{$attribute};
+            return $value;
         }
         $templates = Flight::get('templates');
-        return strftime($templates['time'], strtotime($this->bean->{$attribute}));
+        return strftime($templates['time'], strtotime($value));
     }
 
     /**
