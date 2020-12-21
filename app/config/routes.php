@@ -16,6 +16,7 @@
 Flight::route('(/@language:[a-z]{2})/*', function ($language) {
     if (in_array($language, Flight::get('possible_languages'))) {
         Flight::set('language', $language);
+        I18n::load();
     }
     return true;
 });

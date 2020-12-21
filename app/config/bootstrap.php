@@ -43,6 +43,7 @@ R::setup('mysql:host=' . CINNEBAR_DB_HOST . ';dbname=' . CINNEBAR_DB_NAME, CINNE
 R::freeze(CINNEBAR_DB_FREEZE_FLAG);
 $writer = R::getWriter();
 $writer->setUseCache(true);
+R::resetQueryCount();
 
 /**
  * Allow RedBean Cooker Plugin to load beans for compatibility.
@@ -96,6 +97,11 @@ Flight::set('possible_languages', R::dispense('language')->getEnabled(Flight::ge
  * This get changed by our routes if the called url begins with a 2-character iso code.
  */
 Flight::set('language', CINNEBAR_DEFAULT_LANGUAGE);
+
+/**
+ * Check and load language file.
+ */
+I18n::load();
 
 /**
  * Sets some template for localization.
