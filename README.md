@@ -1,4 +1,4 @@
-Cinnebar
+Bienlein
 ========
 
 Boilerplate for web application development with PHP.
@@ -26,6 +26,8 @@ composer install
 Create these folders and make them writeable to PHP:
 * public/upload
 * app/res/tpl/cache
+
+Copy the _ _htaccess_ file in public and name it .htaccess.
 
 Point your browser to http://example.com/install and follow the instructions.
 
