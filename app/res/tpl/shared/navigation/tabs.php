@@ -22,7 +22,7 @@
                 <a
                     id="tab-<?php echo $_tab_id ?>"
                     href="#<?php echo $_tab_id ?>"
-                    class="<?php echo (isset($default_tab) && $default_tab == $_tab_id) ? 'selected' : '' ?>">
+                    class="">
                     <?php echo $_tab_label ?>
                 </a>
             </li>
