@@ -19,9 +19,6 @@
         "phpmailer/phpmailer": "dev-master",
 		"docopt/docopt": "v1.0.4"
 	},
-	"require-dev": {
-		"phpunit/phpunit": "3.7.*"
-	},
 	"suggest": {
 	    "swiftmailer/swiftmailer": "Comprehensive mailing tools for PHP",
 	    "phpmailer/phpmailer": "dev-master",
