@@ -11,7 +11,7 @@
 /**
  * RedbeanPHP Version 4.
  */
-require __DIR__ . '/../lib/redbean/rb.php';
+require __DIR__ . '/../lib/redbean/rb-mysql.php';
 require __DIR__ . '/../lib/redbean/Plugin/Cooker.php';
 
 /**
@@ -39,15 +39,15 @@ foreach ($bulks as $id => $bulk) {
     $mail->FromName = utf8_decode($bulk->newsletter->replytoname);
     $mail->AddReplyTo($bulk->newsletter->replytoemail, utf8_decode($bulk->newsletter->replytoname));
 
-	if ($this->bean->mailserver->host) {
-	    $mail->IsSMTP();
-	    $mail->SMTPAuth = true;
-	    $mail->SMTPKeepAlive = true;
-	    $mail->Host = $bulk->newsletter->mailserver->host;
-	    $mail->Port = $bulk->newsletter->mailserver->port;
-	    $mail->Username = $bulk->newsletter->mailserver->user;
-	    $mail->Password = $bulk->newsletter->mailserver->pw;
-	}
+    if ($this->bean->mailserver->host) {
+        $mail->IsSMTP();
+        $mail->SMTPAuth = true;
+        $mail->SMTPKeepAlive = true;
+        $mail->Host = $bulk->newsletter->mailserver->host;
+        $mail->Port = $bulk->newsletter->mailserver->port;
+        $mail->Username = $bulk->newsletter->mailserver->user;
+        $mail->Password = $bulk->newsletter->mailserver->pw;
+    }
 
     $result = true;
     $body_html = $bulk->newsletter->template->html;
